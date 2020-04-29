@@ -1,0 +1,24 @@
+version: "3.7"
+
+services:
+    thesis-db:
+        container_name: thesis-db
+        image: postgres:12.2-alpine # See https://hub.docker.com/_/postgres for more info
+        restart: always
+        ports:
+            - "${DB_SERVER_PORT}:5432"
+        stop_signal: SIGTERM # To ensure a smoother stop of PG database
+        environment: # values see file .env
+            - DB_NAME=${DB_NAME}
+            - DB_SCHEMA_NAME=${DB_SCHEMA_NAME}
+            - POSTGRES_PASSWORD=${DB_SERVER_PASSWORD}
+        volumes:
+            - thesis_data:/var/lib/postgresql/data
+            - ./03-database/db-setup:/docker-entrypoint-initdb.d     # Ensures that the DB initialization scripts
+                                                                            # run once if there is no DB yet
+
+volumes:
+    # Storing postgres DB data
+    thesis_data:
+        external: true
+        name: thesis_data

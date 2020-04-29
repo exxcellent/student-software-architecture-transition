@@ -1,0 +1,1 @@
+CREATE ROLE thesis LOGIN PASSWORD 'thesis';
