@@ -2,6 +2,7 @@ package de.exxcellent.student.softwarearchitecture.transition.businesslogic.comm
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PastOrPresent;
 import java.time.OffsetDateTime;
 
 /**
@@ -18,6 +19,7 @@ public abstract class EntityWithTechnicalParameters {
   private Integer version;
 
   @NotNull
+  @PastOrPresent
   @Column(name = "created_at_utc")
   protected OffsetDateTime createdAtUtc;
 
@@ -25,6 +27,7 @@ public abstract class EntityWithTechnicalParameters {
   @Column(name = "created_by")
   protected String createdBy;
 
+  @PastOrPresent
   @Column(name = "last_modified_at_utc")
   protected OffsetDateTime lastModifiedAtUtc;
 
