@@ -3,16 +3,16 @@
 				 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<name>layer-architecture :: application-layer</name>
+	<name>application</name>
 	<description>Layer architecture of eXXcellent solutions with Spring Boot</description>
 
 	<parent>
-		<groupId>de.exxcellent.theses.softwarearchitecture.layerarchitecture</groupId>
-		<artifactId>layer-architecture</artifactId>
+		<groupId>de.exxcellent.student.softwarearchitecture.transition</groupId>
+		<artifactId>software-architecture-transition</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>application-layer</artifactId>
+	<artifactId>application</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 
@@ -25,7 +25,7 @@
 
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>businesslogic-layer</artifactId>
+			<artifactId>businesslogic</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 

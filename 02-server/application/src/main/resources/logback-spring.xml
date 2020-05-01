@@ -14,7 +14,7 @@
 
   <appender name="RollingFile"
             class="ch.qos.logback.core.rolling.RollingFileAppender">
-    <file>${LOGS}/application-layer.log</file>
+    <file>${LOGS}/application.log</file>
     <encoder
         class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
       <Pattern>%d %p %C{1.} [%t] %m%n</Pattern>
@@ -23,7 +23,7 @@
     <rollingPolicy
         class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
       <!-- rollover daily and when the file reaches 10 MegaBytes -->
-      <fileNamePattern>${LOGS}/archived/application-layer-%d{yyyy-MM-dd}.%i.log
+      <fileNamePattern>${LOGS}/archived/application-%d{yyyy-MM-dd}.%i.log
       </fileNamePattern>
       <timeBasedFileNamingAndTriggeringPolicy
           class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
@@ -38,13 +38,8 @@
     <appender-ref ref="Console"/>
   </root>
 
-  <logger name="de.exxcellent.theses.softwarearchitecture.layerarchitecture" level="trace" additivity="false">
+  <logger name="de.exxcellent.student.softwarearchitecture.transition" level="trace" additivity="false">
     <appender-ref ref="Console"/>
   </logger>
-
-  <!--Logger for the DB-Migration !!! But Logger-Output will be overwritten in DBMigrationLogger !!! -->
-  <!--<logger name="org.flywaydb.core" level="DEBUG">
-      <appender-ref ref="Console"/>
-  </logger>-->
 
 </configuration>
