@@ -47,6 +47,9 @@ public class LocationFacade implements LocationComponent {
   @Override
   public LocationDO create(LocationDO newLocationDO, User user) {
     Preconditions.checkNotNull(newLocationDO, "LocationDO must not be null");
+    Preconditions.checkNull(newLocationDO.getLocationId(), "LocationId must be null");
+    Preconditions.checkNull(newLocationDO.getVersion(), "Location version must be null");
+
     Preconditions.checkNotNull(newLocationDO.getLatitude(), "Latitude must not be null");
     Preconditions.checkNotNull(newLocationDO.getLongitude(), "Longitude must not be null");
     Preconditions.checkNotNull(newLocationDO.getStreet(), "Street must not be null");

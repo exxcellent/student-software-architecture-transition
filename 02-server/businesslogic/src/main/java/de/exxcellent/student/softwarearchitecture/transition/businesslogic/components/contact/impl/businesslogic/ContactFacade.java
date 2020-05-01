@@ -49,6 +49,9 @@ public class ContactFacade implements ContactComponent {
   @Override
   public ContactDO create(ContactDO newContactDO, User user) {
     Preconditions.checkNotNull(newContactDO, "ContactDO must not be null");
+    Preconditions.checkNull(newContactDO.getContactId(), "ContactId must be null");
+    Preconditions.checkNull(newContactDO.getVersion(), "ContactDO version must be null");
+
     Preconditions.checkNotNullOrEmpty(newContactDO.getPhoneNumber(), "ContactDO phoneNumber must not be null");
     Preconditions.checkNotNull(user, "User must not be null");
 

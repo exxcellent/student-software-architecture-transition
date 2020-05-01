@@ -48,6 +48,9 @@ public class InspectorFacade implements InspectorComponent {
   @Override
   public InspectorDO create(InspectorDO newInspectorDO, User user) {
     Preconditions.checkNotNull(newInspectorDO, "Inspector must not be null");
+    Preconditions.checkNull(newInspectorDO.getInspectorId(), "InspectorId must be null");
+    Preconditions.checkNull(newInspectorDO.getVersion(), "Inspector version must be null");
+
     Preconditions.checkNotNullOrEmpty(newInspectorDO.getFistName(), "Inspector first name must not be null");
     Preconditions.checkNotNullOrEmpty(newInspectorDO.getLastName(), "Inspector last name must not be null");
     Preconditions.checkNotNull(user, "User must not be null");

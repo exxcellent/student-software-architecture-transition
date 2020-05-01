@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Set;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * TODO [AL]: Add class documentation
@@ -17,6 +18,7 @@ import java.util.Set;
  * @author Andre Lehnert, eXXcellent solutions consulting and software gmbh
  */
 @Component
+@Transactional(readOnly = true)
 public class UserLogic {
 
   private final UserPermissionRepository userPermissionRepository;

@@ -37,6 +37,22 @@ public final class Preconditions {
         return reference;
     }
 
+    /**
+     * Ensures that an object reference passed as a parameter to the calling method is null.
+     *
+     * @param reference    an object reference
+     * @param errorMessage the exception message to use if the check fails
+     * @return the null reference that was validated
+     * @throws BusinessException if {@code reference} is not null
+     */
+    public static <T> T checkNull(final T reference, final String errorMessage) {
+        if (reference != null) {
+            throw new BusinessException(ErrorCode.INVALID_ARGUMENT_ERROR, errorMessage);
+        }
+
+        return reference;
+    }
+
 
     /**
      * Ensures that a String passed as a parameter to the calling method is not null or empty.

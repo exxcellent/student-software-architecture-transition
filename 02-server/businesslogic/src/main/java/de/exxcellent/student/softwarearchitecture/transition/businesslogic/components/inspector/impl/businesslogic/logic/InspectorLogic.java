@@ -8,12 +8,15 @@ import de.exxcellent.student.softwarearchitecture.transition.businesslogic.compo
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import org.springframework.transaction.annotation.Transactional;
+
 /**
  * TODO [AL]: Add class documentation
  *
  * @author Andre Lehnert, eXXcellent solutions consulting and software gmbh
  */
 @Component
+@Transactional
 public class InspectorLogic extends CrudLogic<InspectorEntity> {
 
   @Autowired

@@ -7,6 +7,7 @@ import de.exxcellent.student.softwarearchitecture.transition.businesslogic.compo
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.contact.impl.data.entities.ContactEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * TODO [AL]: Add class documentation
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Component;
  * @author Andre Lehnert, eXXcellent solutions consulting and software gmbh
  */
  @Component
+ @Transactional
 public class ContactLogic extends CrudLogic<ContactEntity> {
 
   @Autowired

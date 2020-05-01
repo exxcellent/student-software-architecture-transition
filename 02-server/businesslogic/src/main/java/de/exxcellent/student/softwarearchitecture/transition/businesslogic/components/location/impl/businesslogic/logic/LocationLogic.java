@@ -6,6 +6,7 @@ import de.exxcellent.student.softwarearchitecture.transition.businesslogic.compo
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.location.impl.data.entities.LocationEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * TODO [AL]: Add class documentation
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Component;
  * @author Andre Lehnert, eXXcellent solutions consulting and software gmbh
  */
 @Component
+@Transactional(readOnly = true)
 public class LocationLogic extends CrudLogic<LocationEntity> {
 
   @Autowired

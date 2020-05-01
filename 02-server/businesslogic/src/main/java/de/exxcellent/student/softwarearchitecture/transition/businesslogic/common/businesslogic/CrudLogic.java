@@ -7,7 +7,9 @@ import de.exxcellent.student.softwarearchitecture.transition.businesslogic.commo
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.datetime.DateTimeUtil;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.resilience.Retry;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.orm.ObjectOptimisticLockingFailureException;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -36,6 +38,8 @@ public abstract class CrudLogic<T extends CommonEntity> {
             String.format("Entity with id '%s' not found.", id), id)));
   }
 
+  @Transactional
+  @Modifying
   public T create(T entity, User user) {
     entity.setCreatedAtUtc(dateTimeUtil.now());
     entity.setCreatedBy(user.getUserName());
@@ -43,6 +47,8 @@ public abstract class CrudLogic<T extends CommonEntity> {
     return saveEntity(entity);
   }
 
+  @Transactional
+  @Modifying
   public T update(T entity, User user) {
     // find existing entity to merge the managed and the unmanaged entity
     var existingEntity = findById(entity.getId());
@@ -55,6 +61,8 @@ public abstract class CrudLogic<T extends CommonEntity> {
     return saveEntity(entity);
   }
 
+  @Transactional
+  @Modifying
   public void delete(T entity) {
     Retry.execute(() -> { repository.delete(entity); return null; });
   }
