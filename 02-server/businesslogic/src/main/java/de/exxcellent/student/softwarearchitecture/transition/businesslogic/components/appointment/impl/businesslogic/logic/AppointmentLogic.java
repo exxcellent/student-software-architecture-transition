@@ -7,6 +7,7 @@ import de.exxcellent.student.softwarearchitecture.transition.businesslogic.compo
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.appointment.impl.data.entities.AppointmentEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * TODO [AL]: Add class documentation
@@ -14,7 +15,8 @@ import org.springframework.stereotype.Component;
  * @author Andre Lehnert, eXXcellent solutions consulting and software gmbh
  */
  @Component
-public class AppointmentLogic extends CrudLogic<AppointmentEntity> {
+ @Transactional
+ public class AppointmentLogic extends CrudLogic<AppointmentEntity> {
 
   @Autowired
   public AppointmentLogic(AppointmentRepository appointmentRepository, DateTimeUtil dateTimeUtil) {
