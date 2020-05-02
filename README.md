@@ -23,21 +23,22 @@ Die Dokumentation und der gesamte Prozess der Nachbereitung sind ebenfalls nicht
 
 #### Vorgang anlegen
 
-Eine bevorstehende Baustelle durch ein Bauunternehmen auf der Plattform der Stadtwerke registriert. 
-Es liegen die Position der Baustelle, eine Kontaktperson, ein Zeithorizont und die betroffene Infrastruktur vor.
+Eine bevorstehende **Baustelle** durch ein Bauunternehmen auf der Plattform der Stadtwerke registriert. 
+Es liegen die Position der Baustelle, eine **Kontaktperson**, ein Zeithorizont und die betroffene Infrastruktur vor.
 
 Vier Wochen vor dem geplanten Zeithorizont einer Baustelle werden die Daten der Registrierung an die Bauüberwachung gemeldet.
-Jeder Inspektor der Bauüberwachung ist für einen definierten Sektor der Stadt zuständig. Über die Positionwird die Baustelle einem Inspektor zugewiesen. 
-Mit dem Daten-Import und der Zuweisung zu einem Inspektor startet ein sogenannter Vorgang bei der Bauüberwachung.
+Jeder **Inspektor** der Bauüberwachung ist für einen definierten Sektor der Stadt zuständig. Über die Position wird die Baustelle einem Inspektor zugewiesen. 
+Mit dem Daten-Import und der Zuweisung zu einem Inspektor startet ein sogenannter **Vorgang** bei der Bauüberwachung.
 
 #### Termin für einen Vorgang planen
 
-Ein Inspektor startet einen Vorgang, indem ein Termin für einen Vorgang angelegt wird. 
+Ein Inspektor startet einen Vorgang, indem ein **Termin** für einen Vorgang angelegt wird. 
 Zum Erstellen eines Termins kontaktiert der Inspektor die Kontaktperson der Baustelle und fragt zunächst das konkrete Startdatum an.
 Der Beginn von Bauarbeiten kann sich zum Beispiel durch Schlechtwetter, andere Baustellen oder fehlendes Material verzögert werden.
-Ist ein Startdatum bekannt wird, je nach Typ und Priorität der Baustelle, 
+
+Ist ein Startdatum bekannt wird, je nach **Typ** und **Priorität** der Baustelle, 
 ein Einweisungs- oder Kontrolltermin für einen bestimmten Tag vereinbart.
-Der Termin wird einer Tagesplanung zugeordnet, in der die Termine für einen Tag und Inspektor gesammelt, priorisiert und konkretisiert werden.
+Der Termin wird einer **Tagesplanung** zugeordnet, in der die Termine für einen Tag und Inspektor gesammelt, priorisiert und konkretisiert werden.
 
 Tiefbauarbeiten in direkter Nähe zu Gas-Hochdruck-Leitungen bergen ein hohes Risikopotential. 
 Daher besitzen Termine eine bestimmte Priorität, die bei der Bestimmung der Termine für eine Tagesplanung berücksichtigt wird. 
@@ -63,11 +64,11 @@ Sie gilt als vollständig und bereit zur Navigation.
 ### Navigation
 
 Der Inspektor wechselt in sein Fahrzeug. Die Tagesplanung ist bei Bedarf auf einem Notebook im Fahrzeug abrufbar, 
-es verfügt aber nicht über GPS. Daher wird die Navigation und Verwaltung der Tagesroute wird über das Smartphone 
+es verfügt aber nicht über GPS. Daher wird die Navigation und Verwaltung der **Tagesroute** wird über das Smartphone 
 des Inspektors durchgeführt. Für das Smartphone ist eine Halterung im Fahrzeug vorgesehen.
 
 Die Tagesroute enthält die Termine der Tagesplanung mit ihren Zeithorizonten, Positionsangaben und den Kontaktdaten des Ansprechpartners. 
-Zusätzlich ist die Anfahrtszeit sichtbar. Die Termine einer Tagesroute werden folgend als Halt beschrieben.
+Zusätzlich ist die Anfahrtszeit sichtbar. Die Termine einer Tagesroute werden folgend als **Halt** beschrieben.
 
 Neben dem Halt wegen eines Termins sind auch Sonderfälle, wie der Weg über eine Tankstelle oder die Heimatadresse, möglich.
 
@@ -87,7 +88,7 @@ Nach dem Eintreffen sucht der Inspektor den Ansprechpartner, z.B. den Bauleiter,
 Bei der Begehung der Baustelle werden wichtige Punkte im Protokoll festgehalten. 
 Mängel werden beispielsweise zusätzlich fotodokumentiert.
 
-Mit dem Unterschreiben des Protokolls gilt der Termin als abgeschlossen. Falls Felgetermine notwendig sind, 
+Mit dem Unterschreiben des Protokolls gilt der Termin als abgeschlossen. Falls Folgetermine notwendig sind, 
 werden diese bereits vorabgestimmt und im Protokoll erfasst. 
 Ein Übertrag als Termin in eine weitere Tagesplanung erfolgt bei der Nachbereitung.
 
@@ -95,16 +96,16 @@ Mit dem Abschluss eines Termins beginnt die "Navigation zu nächsten Halt" sofer
 
 ### Zusammenhang der fachlichen Entitäten
 
-Ein Vorgang wird mit einer Baustelle, einer Kontaktperson und einem Inspektor angelegt. 
+Ein **Vorgang** wird mit der Position einer **Baustelle**, einem **Kontakt** und einem **Inspektor** angelegt. 
 Baustellen und Kontaktpersonen können mehreren Vorgängen zugeordnet sein.
 
-Ein Vorgang besitzt mindestens einen Termin, um aktiv zu sein.
+Ein Vorgang besitzt mindestens einen **Termin**, um aktiv zu sein.
 
-Termine werden einer Tagesplanung zugeordnet. Die Tagesplanung dient der konkreten Planung der Termin-Abfolge. 
+Termine werden einer **Tagesplanung** zugeordnet. Die Tagesplanung dient der konkreten Planung der Termin-Abfolge. 
 Die Termine werden entsprechend der Priorität, der optimalen Route und weiterer Einflussfaktoren vorsortiert.
 
-Nach dem Abschluss einer Tagesplanung wird diese in eine Tagesroute überführt. 
-Ein Halt auf dieser Tagesroute repräsentiert in der Regel einen Termin. 
+Nach dem Abschluss einer Tagesplanung wird diese in eine **Tagesroute** überführt. 
+Ein **Halt** auf dieser Tagesroute repräsentiert in der Regel einen Termin. 
 
 ![scenario-business-entities](./resources/scenario-business-entities.png "Fachliche Entitäten")
 
