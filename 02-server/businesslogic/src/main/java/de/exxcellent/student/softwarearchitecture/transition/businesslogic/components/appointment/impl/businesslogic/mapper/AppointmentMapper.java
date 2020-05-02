@@ -79,6 +79,8 @@ public final class AppointmentMapper {
       case WATER: return Type.WATER;
       case ROAD_CONSTRUCTION: return Type.ROAD_CONSTRUCTION;
       case SPECIAL_USE: return Type.SPECIAL_USE;
+      case SEWER_CONSTRUCTION: return Type.SEWER_CONSTRUCTION;
+      case TELECOMMUNICATIONS: return Type.TELECOMMUNICATIONS;
       case NORMAL:
       default:
         return Type.NORMAL;
@@ -91,6 +93,8 @@ public final class AppointmentMapper {
       case WATER: return AppointmentType.WATER;
       case ROAD_CONSTRUCTION: return AppointmentType.ROAD_CONSTRUCTION;
       case SPECIAL_USE: return AppointmentType.SPECIAL_USE;
+      case SEWER_CONSTRUCTION: return AppointmentType.SEWER_CONSTRUCTION;
+      case TELECOMMUNICATIONS: return AppointmentType.TELECOMMUNICATIONS;
       case NORMAL:
       default:
         return AppointmentType.NORMAL;

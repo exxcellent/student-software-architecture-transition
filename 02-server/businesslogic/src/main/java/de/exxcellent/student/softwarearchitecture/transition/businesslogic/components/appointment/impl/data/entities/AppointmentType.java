@@ -12,6 +12,8 @@ public enum AppointmentType {
   SPECIAL_USE, // Sondernutzung
   WATER, // Wasser
   ROAD_CONSTRUCTION, // Straßenbau
+  SEWER_CONSTRUCTION, // Kanalbau
   INITIAL_INSTRUCTION, // Ersteinweisung
+  TELECOMMUNICATIONS, // Telekommunikation
   NORMAL
 }
