@@ -109,6 +109,7 @@ Ein **Halt** auf dieser Tagesroute repräsentiert in der Regel einen Termin.
 
 ![scenario-business-entities](./resources/scenario-business-entities.png "Fachliche Entitäten")
 
+Weitere Resourcen im [resources](./resources) Ordner.
 
 ## Infrastruktur
 
