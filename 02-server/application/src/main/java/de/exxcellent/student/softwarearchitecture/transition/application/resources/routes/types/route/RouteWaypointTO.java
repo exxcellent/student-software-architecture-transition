@@ -18,7 +18,6 @@ public class RouteWaypointTO extends BusinessTO {
   private Long waypointId;
   private Integer orderIndex;
 
-  private String label;
   private String address;
 
   private Float latitude;
@@ -28,6 +27,9 @@ public class RouteWaypointTO extends BusinessTO {
 
   private String arrivalStartedAt;
   private String finishedAt;
+
+  private Long inspectorId;
+  private RouteWaypointContactTO contact;
 
   public RouteWaypointTO() {
   }
@@ -46,14 +48,6 @@ public class RouteWaypointTO extends BusinessTO {
 
   public void setOrderIndex(Integer orderIndex) {
     this.orderIndex = orderIndex;
-  }
-
-  public String getLabel() {
-    return label;
-  }
-
-  public void setLabel(String label) {
-    this.label = label;
   }
 
   public String getAddress() {
@@ -102,5 +96,21 @@ public class RouteWaypointTO extends BusinessTO {
 
   public void setFinishedAt(String finishedAt) {
     this.finishedAt = finishedAt;
+  }
+
+  public Long getInspectorId() {
+    return inspectorId;
+  }
+
+  public void setInspectorId(Long inspectorId) {
+    this.inspectorId = inspectorId;
+  }
+
+  public RouteWaypointContactTO getContact() {
+    return contact;
+  }
+
+  public void setContact(RouteWaypointContactTO contact) {
+    this.contact = contact;
   }
 }

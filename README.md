@@ -143,10 +143,14 @@ Die Datenbank wird über `docker` bzw. `docker-compose` bereitgestellt.
 Docker Compose startet den Datenbank Service bei einem Neustart automatisch.
 Bei jeder Ausführung von `startup.sh` wird die Datenbank zurückgesetzt.
 
-#### Datenmodel
+#### Datenmodel zur Planung
 
 ![thesis-business-datamodel](./resources/thesis-business-datamodel.svg "Fachliches Datenmodell")
 ![thesis-database](./resources/thesis-database.png "Technisches Datenmodell")
+
+#### Datenmodel zur Navigation
+
+![thesis-business-datamodel-with-navigation](./resources/thesis-business-datamodel-with-navigation.svg "Fachliches Datenmodell inkl. Navigation")
 
 
 Siehe:

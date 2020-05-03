@@ -1,13 +1,14 @@
 package de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.types.notification;
 
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.common.BusinessTO;
+import de.exxcellent.student.softwarearchitecture.transition.application.resources.common.ReadOnlyTO;
 
 /**
  * TODO [AL]: Add class documentation
  *
  * @author Andre Lehnert, eXXcellent solutions consulting and software gmbh
  */
-public class NotificationTO extends BusinessTO {
+public class NotificationTO implements ReadOnlyTO {
 
   private Long notificationId;
   private NotificationChannel channel;

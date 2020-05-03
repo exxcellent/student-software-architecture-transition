@@ -1,6 +1,7 @@
 package de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.types.route;
 
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.common.BusinessTO;
+import de.exxcellent.student.softwarearchitecture.transition.application.resources.common.ReadOnlyTO;
 
 import java.util.List;
 
@@ -16,33 +17,15 @@ import java.util.List;
  * }
  * </pre>
  */
-public class RouteTO extends BusinessTO {
+public class RouteCTO implements ReadOnlyTO {
 
-  private Long routeId;
-  private Long inspectorId;
   private String date;
   private Long totalDurationInSeconds;
   private Long timeRemainingInSeconds;
 
   private List<RouteWaypointTO> waypoints;
 
-  public RouteTO() {
-  }
-
-  public Long getRouteId() {
-    return routeId;
-  }
-
-  public void setRouteId(Long routeId) {
-    this.routeId = routeId;
-  }
-
-  public Long getInspectorId() {
-    return inspectorId;
-  }
-
-  public void setInspectorId(Long inspectorId) {
-    this.inspectorId = inspectorId;
+  public RouteCTO() {
   }
 
   public String getDate() {

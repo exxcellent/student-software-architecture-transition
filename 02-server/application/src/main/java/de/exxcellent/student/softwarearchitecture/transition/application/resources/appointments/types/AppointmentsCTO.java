@@ -1,5 +1,7 @@
 package de.exxcellent.student.softwarearchitecture.transition.application.resources.appointments.types;
 
+import de.exxcellent.student.softwarearchitecture.transition.application.resources.common.ReadOnlyTO;
+
 import java.util.List;
 
 /**
@@ -7,7 +9,7 @@ import java.util.List;
  *
  * @author Andre Lehnert, eXXcellent solutions consulting and software gmbh
  */
-public class AppointmentsCTO {
+public class AppointmentsCTO implements ReadOnlyTO {
 
   private List<AppointmentTO> appointmentTOs;
 

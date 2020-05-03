@@ -50,10 +50,10 @@ public class RoutesResourceV1 {
       method = RequestMethod.GET,
       path = "{date}/inspectors/{inspectorId}",
       produces = MediaType.APPLICATION_JSON_VALUE)
-  public RouteTO findByInspectorId(@PathVariable("date") String dateOfRoutes,
-                                   @PathVariable("inspectorId") Long inspectorId,
-                                   @RequestParam(name = "mode", required = false) RouteCalculation routeCalculation) {
-    return new RouteTO();
+  public RouteCTO findByInspectorId(@PathVariable("date") String dateOfRoutes,
+                                    @PathVariable("inspectorId") Long inspectorId,
+                                    @RequestParam(name = "mode", required = false) RouteCalculation routeCalculation) {
+    return new RouteCTO();
 
   }
 

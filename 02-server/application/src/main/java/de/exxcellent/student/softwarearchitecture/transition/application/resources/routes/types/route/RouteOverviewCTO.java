@@ -1,5 +1,7 @@
 package de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.types.route;
 
+import de.exxcellent.student.softwarearchitecture.transition.application.resources.common.ReadOnlyTO;
+
 import java.util.Map;
 
 /**
@@ -22,18 +24,18 @@ import java.util.Map;
  * }
  * </pre>
  */
-public class RouteOverviewCTO {
+public class RouteOverviewCTO implements ReadOnlyTO {
 
-  private Map<String, RouteTO> dates;
+  private Map<String, RouteCTO> dates;
 
   public RouteOverviewCTO() {
   }
 
-  public Map<String, RouteTO> getDates() {
+  public Map<String, RouteCTO> getDates() {
     return dates;
   }
 
-  public void setDates(Map<String, RouteTO> dates) {
+  public void setDates(Map<String, RouteCTO> dates) {
     this.dates = dates;
   }
 }

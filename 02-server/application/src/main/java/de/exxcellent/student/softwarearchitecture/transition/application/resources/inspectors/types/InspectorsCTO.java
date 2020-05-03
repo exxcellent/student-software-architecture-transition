@@ -1,5 +1,7 @@
 package de.exxcellent.student.softwarearchitecture.transition.application.resources.inspectors.types;
 
+import de.exxcellent.student.softwarearchitecture.transition.application.resources.common.ReadOnlyTO;
+
 import java.util.List;
 
 /**
@@ -7,7 +9,7 @@ import java.util.List;
  *
  * @author Andre Lehnert, eXXcellent solutions consulting and software gmbh
  */
-public class InspectorsCTO {
+public class InspectorsCTO implements ReadOnlyTO {
 
   private List<InspectorTO> inspectors;
 

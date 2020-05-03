@@ -1,5 +1,7 @@
 package de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.types.route;
 
+import de.exxcellent.student.softwarearchitecture.transition.application.resources.common.ReadOnlyTO;
+
 import java.util.List;
 
 /**
@@ -13,18 +15,18 @@ import java.util.List;
  * }
  * </pre>
  */
-public class RoutesCTO {
+public class RoutesCTO implements ReadOnlyTO {
 
-  private List<RouteTO> routes;
+  private List<RouteCTO> routes;
 
   public RoutesCTO() {
   }
 
-  public List<RouteTO> getRoutes() {
+  public List<RouteCTO> getRoutes() {
     return routes;
   }
 
-  public void setRoutes(List<RouteTO> routes) {
+  public void setRoutes(List<RouteCTO> routes) {
     this.routes = routes;
   }
 }
