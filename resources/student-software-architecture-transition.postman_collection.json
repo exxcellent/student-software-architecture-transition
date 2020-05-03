@@ -676,6 +676,347 @@
 			"protocolProfileBehavior": {}
 		},
 		{
+			"name": "routes",
+			"item": [
+				{
+					"name": "waypoints",
+					"item": [
+						{
+							"name": "Find Route Waypoints of the day and Inspector",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9000/v1/routes/2020-10-01/inspectors/1/waypoints",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9000",
+									"path": [
+										"v1",
+										"routes",
+										"2020-10-01",
+										"inspectors",
+										"1",
+										"waypoints"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Route Waypoints of the day and Inspector",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9000/v1/routes/2020-10-01/inspectors/1/waypoints",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9000",
+									"path": [
+										"v1",
+										"routes",
+										"2020-10-01",
+										"inspectors",
+										"1",
+										"waypoints"
+									]
+								},
+								"description": "Example: Change orderIndex/ sequence of waypoints"
+							},
+							"response": []
+						},
+						{
+							"name": "Find Route Waypoint",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9000/v1/routes/2020-10-01/inspectors/1/waypoints/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9000",
+									"path": [
+										"v1",
+										"routes",
+										"2020-10-01",
+										"inspectors",
+										"1",
+										"waypoints",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Route Waypoint",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9000/v1/routes/2020-10-01/inspectors/1/waypoints/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9000",
+									"path": [
+										"v1",
+										"routes",
+										"2020-10-01",
+										"inspectors",
+										"1",
+										"waypoints",
+										"1"
+									]
+								},
+								"description": "Example: Finish waypoint, start arrival, change order index"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "notifications",
+					"item": [
+						{
+							"name": "Find All Route Notifications",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9000/v1/routes/2020-10-01/inspectors/1/notifications",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9000",
+									"path": [
+										"v1",
+										"routes",
+										"2020-10-01",
+										"inspectors",
+										"1",
+										"notifications"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Route Notification",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9000/v1/routes/2020-10-01/inspectors/1/notifications",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9000",
+									"path": [
+										"v1",
+										"routes",
+										"2020-10-01",
+										"inspectors",
+										"1",
+										"notifications"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Find All Routes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/v1/routes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"routes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All Routes and Filter by Inspector",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/v1/routes?inspectors=1,2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"routes"
+							],
+							"query": [
+								{
+									"key": "inspectors",
+									"value": "1,2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Routes of a day",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/v1/routes/2020-10-01",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"routes",
+								"2020-10-01"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Routes of a day and Filter by Inspector",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/v1/routes/2020-10-01?inspectors=1,2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"routes",
+								"2020-10-01"
+							],
+							"query": [
+								{
+									"key": "inspectors",
+									"value": "1,2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Route of the day and Inspector",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/v1/routes/2020-10-01/inspectors/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"routes",
+								"2020-10-01",
+								"inspectors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find optimal Route of the day and Inspector",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/v1/routes/2020-10-01/inspectors/1?mode=optimal",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"routes",
+								"2020-10-01",
+								"inspectors",
+								"1"
+							],
+							"query": [
+								{
+									"key": "mode",
+									"value": "optimal"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
 			"name": "Authenticate yourself before using the API <===",
 			"event": [
 				{
