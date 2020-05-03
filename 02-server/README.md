@@ -62,7 +62,7 @@ Business Logic Component:
 
 Die Komponenten wurden per Template generiert:
 
-https://github.com/andre-lehnert/project-code-generator/tree/master/project-code-generator
+https://github.com/lehnert-andre/project-code-generator/tree/master/project-code-generator
 
 Beispiel:
 
