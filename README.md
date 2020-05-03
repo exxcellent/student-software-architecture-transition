@@ -159,6 +159,9 @@ Siehe:
 Führe `sh ./startServer.sh` aus, um den Spring Boot Server zu starten.
 Der Server läuft unter `http://localhost:9000/`
 
+Zum Zugriff auf die API existiert eine [Postman Collection](./resources/student-software-architecture-transition.postman_collection.json).
+
+
 Siehe:
 - https://maven.apache.org/guides/index.html
 - https://docs.spring.io/spring-boot/docs/2.2.6.RELEASE/maven-plugin/
