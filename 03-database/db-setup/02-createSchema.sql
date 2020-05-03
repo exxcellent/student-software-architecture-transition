@@ -74,23 +74,37 @@ CREATE TABLE contact (
     UNIQUE (first_name, last_name, phone_number)
 );
 
-CREATE SEQUENCE appointment_id_seq START WITH 1000 INCREMENT BY 1;
+CREATE SEQUENCE process_id_seq START WITH 1000 INCREMENT BY 1;
 
-CREATE TABLE appointment (
-    id              DECIMAL(19,0)   NOT NULL    PRIMARY KEY  DEFAULT nextval('appointment_id_seq'),
+CREATE TABLE process (
+    id              DECIMAL(19,0)   NOT NULL    PRIMARY KEY  DEFAULT nextval('process_id_seq'),
     inspector_id    DECIMAL(19,0)   NOT NULL    REFERENCES inspector (id) ON DELETE CASCADE,
     location_id     DECIMAL(19,0)   NOT NULL    REFERENCES location (id) ON DELETE RESTRICT,
     contact_id      DECIMAL(19,0)               REFERENCES contact (id) ON DELETE RESTRICT,
 
     title             TEXT,
-    description       TEXT,
     type              VARCHAR(50)  NOT NULL,
     priority          VARCHAR(50)  NOT NULL,
-    date              DATE         NOT NULL,
-    travel_duration   INTERVAL,
-    start_time        TIME,
-    end_time          TIME,
-    finished          BOOLEAN      NOT NULL    DEFAULT false,
+
+    version                 INTEGER                     NOT NULL,
+    created_at_utc          TIMESTAMP WITH TIME ZONE    NOT NULL,
+    created_by              TEXT                        NOT NULL,
+    last_modified_at_utc    TIMESTAMP WITH TIME ZONE,
+    last_modified_by        TEXT
+);
+
+CREATE SEQUENCE appointment_id_seq START WITH 1000 INCREMENT BY 1;
+
+CREATE TABLE appointment (
+    id              DECIMAL(19,0)   NOT NULL    PRIMARY KEY  DEFAULT nextval('appointment_id_seq'),
+    process_id      DECIMAL(19,0)   NOT NULL    REFERENCES process (id) ON DELETE CASCADE,
+
+    description             TEXT,
+    date                    DATE         NOT NULL,
+    travel_duration         INTERVAL,
+    start_time              TIME,
+    appointment_duration    INTERVAL,
+    finished                BOOLEAN      NOT NULL    DEFAULT false,
 
     version                 INTEGER                     NOT NULL,
     created_at_utc          TIMESTAMP WITH TIME ZONE    NOT NULL,
