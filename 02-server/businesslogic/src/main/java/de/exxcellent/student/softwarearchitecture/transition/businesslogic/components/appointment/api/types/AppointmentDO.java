@@ -14,19 +14,14 @@ import java.time.LocalTime;
 public class AppointmentDO extends BusinessDO {
 
   private Long appointmentId;
-  private String title;
   private String description;
-  private Type appointmentType;
-  private Priority appointmentPriority;
   private LocalDate date;
   private Long travelDurationInSeconds;
   private LocalTime startTime;
-  private LocalTime endTime;
+  private Long durationInSeconds;
   private Boolean finished;
 
-  private Long inspectorId;
-  private Long locationId;
-  private Long contactId;
+  private Long processId;
 
   public AppointmentDO() {
   }
@@ -39,36 +34,12 @@ public class AppointmentDO extends BusinessDO {
     this.appointmentId = appointmentId;
   }
 
-  public String getTitle() {
-    return title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
   public String getDescription() {
     return description;
   }
 
   public void setDescription(String description) {
     this.description = description;
-  }
-
-  public Type getAppointmentType() {
-    return appointmentType;
-  }
-
-  public void setAppointmentType(Type appointmentType) {
-    this.appointmentType = appointmentType;
-  }
-
-  public Priority getAppointmentPriority() {
-    return appointmentPriority;
-  }
-
-  public void setAppointmentPriority(Priority appointmentPriority) {
-    this.appointmentPriority = appointmentPriority;
   }
 
   public LocalDate getDate() {
@@ -95,12 +66,12 @@ public class AppointmentDO extends BusinessDO {
     this.startTime = startTime;
   }
 
-  public LocalTime getEndTime() {
-    return endTime;
+  public Long getDurationInSeconds() {
+    return durationInSeconds;
   }
 
-  public void setEndTime(LocalTime endTime) {
-    this.endTime = endTime;
+  public void setDurationInSeconds(Long durationInSeconds) {
+    this.durationInSeconds = durationInSeconds;
   }
 
   public Boolean getFinished() {
@@ -111,27 +82,11 @@ public class AppointmentDO extends BusinessDO {
     this.finished = finished;
   }
 
-  public Long getInspectorId() {
-    return inspectorId;
+  public Long getProcessId() {
+    return processId;
   }
 
-  public void setInspectorId(Long inspectorId) {
-    this.inspectorId = inspectorId;
-  }
-
-  public Long getLocationId() {
-    return locationId;
-  }
-
-  public void setLocationId(Long locationId) {
-    this.locationId = locationId;
-  }
-
-  public Long getContactId() {
-    return contactId;
-  }
-
-  public void setContactId(Long contactId) {
-    this.contactId = contactId;
+  public void setProcessId(Long processId) {
+    this.processId = processId;
   }
 }

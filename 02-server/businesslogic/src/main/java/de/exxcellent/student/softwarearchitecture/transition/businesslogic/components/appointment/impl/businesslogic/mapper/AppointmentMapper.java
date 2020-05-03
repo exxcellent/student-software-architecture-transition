@@ -26,22 +26,15 @@ public final class AppointmentMapper {
     appointmentDO.setAppointmentId(entity.getId());
     appointmentDO.setVersion(entity.getVersion());
 
-    appointmentDO.setTitle(entity.getTitle());
     appointmentDO.setDescription(entity.getDescription());
-    appointmentDO.setAppointmentPriority(AppointmentMapper.toPriority
-        .apply(entity.getAppointmentPriority()));
-    appointmentDO.setAppointmentType(AppointmentMapper.toType
-        .apply(entity.getAppointmentType()));
     appointmentDO.setFinished(entity.getFinished());
 
     appointmentDO.setDate(entity.getDate());
     appointmentDO.setStartTime(entity.getStartTime());
-    appointmentDO.setEndTime(entity.getEndTime());
+    appointmentDO.setDurationInSeconds(entity.getAppointmentDuration().toSeconds());
     appointmentDO.setTravelDurationInSeconds(entity.getTravelDuration().toSeconds());
 
-    appointmentDO.setInspectorId(entity.getInspectorId());
-    appointmentDO.setLocationId(entity.getLocationId());
-    appointmentDO.setContactId(entity.getContactId());
+    appointmentDO.setProcessId(entity.getProcessId());
 
     return appointmentDO;
   };
@@ -52,23 +45,17 @@ public final class AppointmentMapper {
     appointmentEntity.setId(appointmentDO.getAppointmentId());
     appointmentEntity.setVersion(appointmentDO.getVersion());
 
-    appointmentEntity.setTitle(appointmentDO.getTitle());
     appointmentEntity.setDescription(appointmentDO.getDescription());
-    appointmentEntity.setAppointmentPriority(AppointmentMapper.fromPriority
-        .apply(appointmentDO.getAppointmentPriority()));
-    appointmentEntity.setAppointmentType(AppointmentMapper.fromType
-        .apply(appointmentDO.getAppointmentType()));
     appointmentEntity.setFinished(appointmentDO.getFinished());
 
     appointmentEntity.setDate(appointmentDO.getDate());
     appointmentEntity.setStartTime(appointmentDO.getStartTime());
-    appointmentEntity.setEndTime(appointmentDO.getEndTime());
+    appointmentEntity.setAppointmentDuration(
+        Duration.of(appointmentDO.getDurationInSeconds(), ChronoUnit.SECONDS));
     appointmentEntity.setTravelDuration(
         Duration.of(appointmentDO.getTravelDurationInSeconds(), ChronoUnit.SECONDS));
 
-    appointmentEntity.setInspectorId(appointmentDO.getInspectorId());
-    appointmentEntity.setLocationId(appointmentDO.getLocationId());
-    appointmentEntity.setContactId(appointmentDO.getContactId());
+    appointmentEntity.setProcessId(appointmentDO.getProcessId());
 
     return appointmentEntity;
   };

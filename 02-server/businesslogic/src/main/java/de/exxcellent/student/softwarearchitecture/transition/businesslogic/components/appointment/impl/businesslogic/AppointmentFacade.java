@@ -50,8 +50,6 @@ public class AppointmentFacade implements AppointmentComponent {
       Preconditions.checkNull(appointmentDO.getAppointmentId(), "AppointmentId must be null");
       Preconditions.checkNull(appointmentDO.getVersion(), "AppointmentDO version must be null");
 
-      Preconditions.checkNotNull(appointmentDO.getAppointmentType(), "AppointmentDO type must not be null");
-      Preconditions.checkNotNull(appointmentDO.getAppointmentPriority(), "AppointmentDO priority must not be null");
       Preconditions.checkNotNull(appointmentDO.getDate(), "AppointmentDO date must not be null");
       Preconditions.checkNotNull(appointmentDO.getFinished(), "AppointmentDO isFinished must not be null");
 
@@ -68,8 +66,6 @@ public class AppointmentFacade implements AppointmentComponent {
       Preconditions.checkNotNull(appointmentDO.getVersion(), "AppointmentDO version must not be null");
       Preconditions.checkArgument(appointmentDO.getVersion() >= 0, "AppointmentDO version must be positive");
 
-      Preconditions.checkNotNull(appointmentDO.getAppointmentType(), "AppointmentDO type must not be null");
-      Preconditions.checkNotNull(appointmentDO.getAppointmentPriority(), "AppointmentDO priority must not be null");
       Preconditions.checkNotNull(appointmentDO.getDate(), "AppointmentDO date must not be null");
       Preconditions.checkNotNull(appointmentDO.getFinished(), "AppointmentDO isFinished must not be null");
 

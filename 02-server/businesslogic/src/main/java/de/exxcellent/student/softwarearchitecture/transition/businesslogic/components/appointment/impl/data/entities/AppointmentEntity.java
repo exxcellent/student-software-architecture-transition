@@ -23,28 +23,11 @@ import java.time.LocalTime;
 )
 public class AppointmentEntity extends CommonEntity {
 
-  @Column(name = "inspector_id")
-  private Long inspectorId;
-
-  @Column(name = "location_id")
-  private Long locationId;
-
-  @Column(name = "contact_id")
-  private Long contactId;
-
-  @Column(name = "title")
-  private String title;
+  @Column(name = "process_id")
+  private Long processId;
 
   @Column(name = "description")
   private String description;
-
-  @Column(name = "type")
-  @Enumerated(EnumType.STRING)
-  private AppointmentType appointmentType;
-
-  @Column(name = "priority")
-  @Enumerated(EnumType.STRING)
-  private AppointmentPriority appointmentPriority;
 
   @Column(name = "date")
   private LocalDate date;
@@ -58,8 +41,10 @@ public class AppointmentEntity extends CommonEntity {
   @Column(name = "start_time")
   private LocalTime startTime;
 
-  @Column(name = "end_time")
-  private LocalTime endTime;
+  @Column(
+      name = "appointment_duration",
+      columnDefinition = "interval"
+  )  private Duration appointmentDuration;
 
   @Column(name = "finished")
   private Boolean finished;
@@ -68,12 +53,12 @@ public class AppointmentEntity extends CommonEntity {
   public AppointmentEntity() {
   }
 
-  public String getTitle() {
-    return title;
+  public Long getProcessId() {
+    return processId;
   }
 
-  public void setTitle(String title) {
-    this.title = title;
+  public void setProcessId(Long processId) {
+    this.processId = processId;
   }
 
   public String getDescription() {
@@ -82,22 +67,6 @@ public class AppointmentEntity extends CommonEntity {
 
   public void setDescription(String description) {
     this.description = description;
-  }
-
-  public AppointmentType getAppointmentType() {
-    return appointmentType;
-  }
-
-  public void setAppointmentType(AppointmentType appointmentType) {
-    this.appointmentType = appointmentType;
-  }
-
-  public AppointmentPriority getAppointmentPriority() {
-    return appointmentPriority;
-  }
-
-  public void setAppointmentPriority(AppointmentPriority appointmentPriority) {
-    this.appointmentPriority = appointmentPriority;
   }
 
   public LocalDate getDate() {
@@ -124,12 +93,12 @@ public class AppointmentEntity extends CommonEntity {
     this.startTime = startTime;
   }
 
-  public LocalTime getEndTime() {
-    return endTime;
+  public Duration getAppointmentDuration() {
+    return appointmentDuration;
   }
 
-  public void setEndTime(LocalTime endTime) {
-    this.endTime = endTime;
+  public void setAppointmentDuration(Duration appointmentDuration) {
+    this.appointmentDuration = appointmentDuration;
   }
 
   public Boolean getFinished() {
@@ -138,29 +107,5 @@ public class AppointmentEntity extends CommonEntity {
 
   public void setFinished(Boolean finished) {
     this.finished = finished;
-  }
-
-  public Long getInspectorId() {
-    return inspectorId;
-  }
-
-  public void setInspectorId(Long inspectorId) {
-    this.inspectorId = inspectorId;
-  }
-
-  public Long getLocationId() {
-    return locationId;
-  }
-
-  public void setLocationId(Long locationId) {
-    this.locationId = locationId;
-  }
-
-  public Long getContactId() {
-    return contactId;
-  }
-
-  public void setContactId(Long contactId) {
-    this.contactId = contactId;
   }
 }

@@ -10,19 +10,14 @@ import de.exxcellent.student.softwarearchitecture.transition.application.resourc
 public class AppointmentTO extends BusinessTO {
 
   private Long appointmentId;
-  private String title;
   private String description;
-  private AppointmentType appointmentType;
-  private AppointmentPriority appointmentPriority;
   private String date;
   private Long travelDurationInSeconds;
   private String startTime;
-  private String endTime;
+  private Long durationInSeconds;
   private Boolean finished;
 
-  private Long inspectorId;
-  private Long locationId;
-  private Long contactId;
+  private Long processId;
 
   public AppointmentTO() {
   }
@@ -35,36 +30,12 @@ public class AppointmentTO extends BusinessTO {
     this.appointmentId = appointmentId;
   }
 
-  public String getTitle() {
-    return title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
   public String getDescription() {
     return description;
   }
 
   public void setDescription(String description) {
     this.description = description;
-  }
-
-  public AppointmentType getAppointmentType() {
-    return appointmentType;
-  }
-
-  public void setAppointmentType(AppointmentType appointmentType) {
-    this.appointmentType = appointmentType;
-  }
-
-  public AppointmentPriority getAppointmentPriority() {
-    return appointmentPriority;
-  }
-
-  public void setAppointmentPriority(AppointmentPriority appointmentPriority) {
-    this.appointmentPriority = appointmentPriority;
   }
 
   public String getDate() {
@@ -91,12 +62,12 @@ public class AppointmentTO extends BusinessTO {
     this.startTime = startTime;
   }
 
-  public String getEndTime() {
-    return endTime;
+  public Long getDurationInSeconds() {
+    return durationInSeconds;
   }
 
-  public void setEndTime(String endTime) {
-    this.endTime = endTime;
+  public void setDurationInSeconds(Long durationInSeconds) {
+    this.durationInSeconds = durationInSeconds;
   }
 
   public Boolean getFinished() {
@@ -107,27 +78,11 @@ public class AppointmentTO extends BusinessTO {
     this.finished = finished;
   }
 
-  public Long getInspectorId() {
-    return inspectorId;
+  public Long getProcessId() {
+    return processId;
   }
 
-  public void setInspectorId(Long inspectorId) {
-    this.inspectorId = inspectorId;
-  }
-
-  public Long getLocationId() {
-    return locationId;
-  }
-
-  public void setLocationId(Long locationId) {
-    this.locationId = locationId;
-  }
-
-  public Long getContactId() {
-    return contactId;
-  }
-
-  public void setContactId(Long contactId) {
-    this.contactId = contactId;
+  public void setProcessId(Long processId) {
+    this.processId = processId;
   }
 }

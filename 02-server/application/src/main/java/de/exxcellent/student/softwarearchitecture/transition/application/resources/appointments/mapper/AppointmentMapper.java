@@ -44,21 +44,14 @@ public final class AppointmentMapper {
     appointmentTO.setAppointmentId(appointmentDO.getAppointmentId());
     appointmentTO.setVersion(appointmentDO.getVersion());
 
-    appointmentTO.setTitle(appointmentDO.getTitle());
     appointmentTO.setDescription(appointmentDO.getDescription());
-    appointmentTO.setAppointmentPriority(AppointmentMapper.toAppointmentPriority
-        .apply(appointmentDO.getAppointmentPriority()));
-    appointmentTO.setAppointmentType(AppointmentMapper.toAppointmentType
-        .apply(appointmentDO.getAppointmentType()));
     appointmentTO.setFinished(appointmentDO.getFinished());
     appointmentTO.setDate(appointmentDO.getDate().format(DATE_FORMATTER));
     appointmentTO.setStartTime(appointmentDO.getStartTime().format(TIME_FORMATTER));
-    appointmentTO.setEndTime(appointmentDO.getEndTime().format(TIME_FORMATTER));
+    appointmentTO.setDurationInSeconds(appointmentDO.getDurationInSeconds());
     appointmentTO.setTravelDurationInSeconds(appointmentDO.getTravelDurationInSeconds());
 
-    appointmentTO.setInspectorId(appointmentDO.getInspectorId());
-    appointmentTO.setLocationId(appointmentDO.getLocationId());
-    appointmentTO.setContactId(appointmentDO.getContactId());
+    appointmentTO.setProcessId(appointmentDO.getProcessId());
 
     return appointmentTO;
   };
@@ -69,21 +62,14 @@ public final class AppointmentMapper {
     appointmentDO.setAppointmentId(appointmentTO.getAppointmentId());
     appointmentDO.setVersion(appointmentTO.getVersion());
 
-    appointmentDO.setTitle(appointmentTO.getTitle());
     appointmentDO.setDescription(appointmentTO.getDescription());
-    appointmentDO.setAppointmentPriority(AppointmentMapper.fromAppointmentPriority
-      .apply(appointmentTO.getAppointmentPriority()));
-    appointmentDO.setAppointmentType(AppointmentMapper.fromAppointmentType
-      .apply(appointmentTO.getAppointmentType()));
     appointmentDO.setFinished(appointmentTO.getFinished());
     appointmentDO.setDate(LocalDate.from(DATE_FORMATTER.parse(appointmentTO.getDate())));
     appointmentDO.setStartTime(LocalTime.from(TIME_FORMATTER.parse(appointmentTO.getStartTime())));
-    appointmentDO.setEndTime(LocalTime.from(TIME_FORMATTER.parse(appointmentTO.getEndTime())));
+    appointmentDO.setDurationInSeconds(appointmentTO.getDurationInSeconds());
     appointmentDO.setTravelDurationInSeconds(appointmentTO.getTravelDurationInSeconds());
 
-    appointmentDO.setInspectorId(appointmentTO.getInspectorId());
-    appointmentDO.setLocationId(appointmentTO.getLocationId());
-    appointmentDO.setContactId(appointmentTO.getContactId());
+    appointmentDO.setProcessId(appointmentTO.getProcessId());
 
     return appointmentDO;
   };
