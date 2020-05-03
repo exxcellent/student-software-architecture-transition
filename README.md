@@ -95,6 +95,12 @@ Unterschreiben der Ansprechpartner und der Inspektor das Protokoll, dann gilt de
 Mit dem Abschluss eines Termins beginnt der Prozess mit der "Navigation zu nächsten Halt" erneut,
 sofern die Tagesroute nicht abgearbeitet wurde.
 
+### Event Storming
+
+Digitalisierte und reduzierte Ergebnisse des Event Stormings für das Szenario.
+
+![scenario-event-storming](./resources/scenario-event-storming.svg "Event Storming")
+
 ### Zusammenhang der fachlichen Entitäten
 
 Ein **Vorgang** wird mit der **Position einer Baustelle**, einem **Kontakt** und einem **Inspektor** angelegt. 
@@ -108,7 +114,7 @@ Die Termine werden entsprechend der Priorität, der optimalen Route und weiterer
 Nach dem Abschluss einer Tagesplanung wird diese in eine **Tagesroute** überführt. 
 Ein **Halt** auf dieser Tagesroute repräsentiert in der Regel einen Termin. 
 
-![scenario-business-entities](./resources/scenario-business-entities.png "Fachliche Entitäten")
+![scenario-business-entities](./resources/scenario-business-entities.svg "Fachliche Entitäten")
 
 Weitere Ressourcen im [resources](./resources) Ordner.
 
@@ -136,6 +142,11 @@ Port: 5432
 Die Datenbank wird über `docker` bzw. `docker-compose` bereitgestellt. 
 Docker Compose startet den Datenbank Service bei einem Neustart automatisch.
 Bei jeder Ausführung von `startup.sh` wird die Datenbank zurückgesetzt.
+
+#### Datenmodel
+
+![thesis-datamodel](./resources/thesis-business-datamodel.svg "Fachliches Datenmodell")
+
 
 Siehe:
 - https://www.docker.com/get-started
