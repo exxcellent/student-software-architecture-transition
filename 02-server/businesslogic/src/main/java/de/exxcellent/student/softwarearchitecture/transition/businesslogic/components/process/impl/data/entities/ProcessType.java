@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.application.resources.appointments.types;
+package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.process.impl.data.entities;
 
 /**
  * - Sondernutzung
@@ -8,12 +8,12 @@ package de.exxcellent.student.softwarearchitecture.transition.application.resour
  *
  * @author Andre Lehnert, eXXcellent solutions consulting and software gmbh
  */
-public enum AppointmentType {
+public enum ProcessType {
   SPECIAL_USE, // Sondernutzung
   WATER, // Wasser
   ROAD_CONSTRUCTION, // Straßenbau
   SEWER_CONSTRUCTION, // Kanalbau
   INITIAL_INSTRUCTION, // Ersteinweisung
-  TELECOMMUNICATIONS, // Telekommunikationsnetz
+  TELECOMMUNICATIONS, // Telekommunikation
   NORMAL
 }

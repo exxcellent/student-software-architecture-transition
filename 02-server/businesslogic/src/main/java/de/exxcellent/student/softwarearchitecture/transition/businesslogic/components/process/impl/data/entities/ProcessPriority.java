@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.application.resources.appointments.types;
+package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.process.impl.data.entities;
 
 /**
  * - Prio 1: Gefahr/sicherheitsrelevante Leitungen (100kV, Hauptwasserleitung, Gashochdruck)
@@ -8,7 +8,7 @@ package de.exxcellent.student.softwarearchitecture.transition.application.resour
  *
  * @author Andre Lehnert, eXXcellent solutions consulting and software gmbh
  */
-public enum AppointmentPriority {
+public enum ProcessPriority {
   DANGEROUS, // prio 1
   URGENT, // prio 2
   NORMAL // prio 3,4

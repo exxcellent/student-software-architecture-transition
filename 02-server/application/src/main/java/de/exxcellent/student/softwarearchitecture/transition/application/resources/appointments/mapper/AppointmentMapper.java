@@ -1,12 +1,12 @@
 package de.exxcellent.student.softwarearchitecture.transition.application.resources.appointments.mapper;
 
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.appointments.types.AppointmentPriority;
+import de.exxcellent.student.softwarearchitecture.transition.application.resources.processs.types.ProcessPriority;
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.appointments.types.AppointmentTO;
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.appointments.types.AppointmentType;
+import de.exxcellent.student.softwarearchitecture.transition.application.resources.processs.types.ProcessType;
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.appointments.types.AppointmentsCTO;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.appointment.api.types.AppointmentDO;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.appointment.api.types.Priority;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.appointment.api.types.Type;
+import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.process.api.types.Priority;
+import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.process.api.types.Type;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -72,54 +72,5 @@ public final class AppointmentMapper {
     appointmentDO.setProcessId(appointmentTO.getProcessId());
 
     return appointmentDO;
-  };
-
-
-  private static final Function<AppointmentType, Type> fromAppointmentType = appointmentType -> {
-    switch (appointmentType) {
-      case INITIAL_INSTRUCTION: return Type.INITIAL_INSTRUCTION;
-      case WATER: return Type.WATER;
-      case ROAD_CONSTRUCTION: return Type.ROAD_CONSTRUCTION;
-      case SPECIAL_USE: return Type.SPECIAL_USE;
-      case SEWER_CONSTRUCTION: return Type.SEWER_CONSTRUCTION;
-      case TELECOMMUNICATIONS: return Type.TELECOMMUNICATIONS;
-      case NORMAL:
-      default:
-        return Type.NORMAL;
-    }
-  };
-
-  private static final Function<Type, AppointmentType> toAppointmentType = type -> {
-    switch (type) {
-      case INITIAL_INSTRUCTION: return AppointmentType.INITIAL_INSTRUCTION;
-      case WATER: return AppointmentType.WATER;
-      case ROAD_CONSTRUCTION: return AppointmentType.ROAD_CONSTRUCTION;
-      case SPECIAL_USE: return AppointmentType.SPECIAL_USE;
-      case SEWER_CONSTRUCTION: return AppointmentType.SEWER_CONSTRUCTION;
-      case TELECOMMUNICATIONS: return AppointmentType.TELECOMMUNICATIONS;
-      case NORMAL:
-      default:
-        return AppointmentType.NORMAL;
-    }
-  };
-
-  private static final Function<AppointmentPriority, Priority> fromAppointmentPriority = appointmentPriority -> {
-    switch (appointmentPriority) {
-      case DANGEROUS: return Priority.DANGEROUS;
-      case URGENT: return Priority.URGENT;
-      case NORMAL:
-      default:
-        return Priority.NORMAL;
-    }
-  };
-
-  private static final Function<Priority, AppointmentPriority> toAppointmentPriority = priority -> {
-    switch (priority) {
-      case DANGEROUS: return AppointmentPriority.DANGEROUS;
-      case URGENT: return AppointmentPriority.URGENT;
-      case NORMAL:
-      default:
-        return AppointmentPriority.NORMAL;
-    }
   };
 }
