@@ -3,46 +3,51 @@
   <ID>DATABASE</ID>
   <OriginalElement>811f259a-43fd-47fd-a72e-84f91e02c87b.SCHEMA:thesis.thesis</OriginalElement>
   <nodes>
-    <node x="0.0" y="857.0">811f259a-43fd-47fd-a72e-84f91e02c87b.TABLE:thesis.thesis.application_user</node>
-    <node x="360.0" y="0.0">811f259a-43fd-47fd-a72e-84f91e02c87b.TABLE:thesis.thesis.location</node>
-    <node x="180.0" y="1134.0">811f259a-43fd-47fd-a72e-84f91e02c87b.TABLE:thesis.thesis.user_permission</node>
-    <node x="360.0" y="879.0">811f259a-43fd-47fd-a72e-84f91e02c87b.TABLE:thesis.thesis.permission</node>
-    <node x="720.0" y="22.0">811f259a-43fd-47fd-a72e-84f91e02c87b.TABLE:thesis.thesis.contact</node>
-    <node x="0.0" y="44.0">811f259a-43fd-47fd-a72e-84f91e02c87b.TABLE:thesis.thesis.inspector</node>
-    <node x="360.0" y="365.0">811f259a-43fd-47fd-a72e-84f91e02c87b.TABLE:thesis.thesis.appointment</node>
+    <node x="770.0" y="366.5">811f259a-43fd-47fd-a72e-84f91e02c87b.TABLE:thesis.thesis.application_user</node>
+    <node x="-130.0" y="366.5">811f259a-43fd-47fd-a72e-84f91e02c87b.TABLE:thesis.thesis.inspector</node>
+    <node x="770.0" y="637.5">811f259a-43fd-47fd-a72e-84f91e02c87b.TABLE:thesis.thesis.user_permission</node>
+    <node x="770.0" y="888.5">811f259a-43fd-47fd-a72e-84f91e02c87b.TABLE:thesis.thesis.permission</node>
+    <node x="-133.72769953051647" y="959.0798122065728">811f259a-43fd-47fd-a72e-84f91e02c87b.TABLE:thesis.thesis.contact</node>
+    <node x="350.0" y="362.5">811f259a-43fd-47fd-a72e-84f91e02c87b.TABLE:thesis.thesis.process</node>
+    <node x="350.0" y="891.5">811f259a-43fd-47fd-a72e-84f91e02c87b.TABLE:thesis.thesis.appointment</node>
+    <node x="-130.0" y="622.5">811f259a-43fd-47fd-a72e-84f91e02c87b.TABLE:thesis.thesis.location</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="811f259a-43fd-47fd-a72e-84f91e02c87b.TABLE:thesis.thesis.appointment" target="811f259a-43fd-47fd-a72e-84f91e02c87b.TABLE:thesis.thesis.location">
-      <point x="0.0" y="-223.5" />
+    <edge source="811f259a-43fd-47fd-a72e-84f91e02c87b.TABLE:thesis.thesis.appointment" target="811f259a-43fd-47fd-a72e-84f91e02c87b.TABLE:thesis.thesis.process">
+      <point x="0.0" y="-168.5" />
       <point x="0.0" y="157.5" />
     </edge>
-    <edge source="811f259a-43fd-47fd-a72e-84f91e02c87b.TABLE:thesis.thesis.appointment" target="811f259a-43fd-47fd-a72e-84f91e02c87b.TABLE:thesis.thesis.contact">
-      <point x="113.33333333333337" y="-223.5" />
-      <point x="643.3333333333334" y="340.0" />
-      <point x="890.0" y="340.0" />
+    <edge source="811f259a-43fd-47fd-a72e-84f91e02c87b.TABLE:thesis.thesis.process" target="811f259a-43fd-47fd-a72e-84f91e02c87b.TABLE:thesis.thesis.contact">
+      <point x="113.33333333333337" y="-157.5" />
+      <point x="501.88732394366195" y="549.6431924882629" />
+      <point x="460.61032863849755" y="600.1596244131456" />
       <point x="0.0" y="135.5" />
     </edge>
-    <edge source="811f259a-43fd-47fd-a72e-84f91e02c87b.TABLE:thesis.thesis.appointment" target="811f259a-43fd-47fd-a72e-84f91e02c87b.TABLE:thesis.thesis.inspector">
-      <point x="-113.33333333333331" y="-223.5" />
-      <point x="416.6666666666667" y="340.0" />
-      <point x="170.0" y="340.0" />
+    <edge source="811f259a-43fd-47fd-a72e-84f91e02c87b.TABLE:thesis.thesis.user_permission" target="811f259a-43fd-47fd-a72e-84f91e02c87b.TABLE:thesis.thesis.application_user">
+      <point x="85.0" y="-102.5" />
+      <point x="940.0" y="740.0" />
+      <point x="940.0" y="720.0" />
+      <point x="0.0" y="113.5" />
+    </edge>
+    <edge source="811f259a-43fd-47fd-a72e-84f91e02c87b.TABLE:thesis.thesis.process" target="811f259a-43fd-47fd-a72e-84f91e02c87b.TABLE:thesis.thesis.inspector">
+      <point x="-113.33333333333331" y="-157.5" />
+      <point x="497.4929577464788" y="481.44600938967136" />
+      <point x="500.8826291079813" y="491.5492957746479" />
       <point x="0.0" y="113.5" />
     </edge>
     <edge source="811f259a-43fd-47fd-a72e-84f91e02c87b.TABLE:thesis.thesis.user_permission" target="811f259a-43fd-47fd-a72e-84f91e02c87b.TABLE:thesis.thesis.permission">
-      <point x="85.0" y="-102.5" />
-      <point x="435.0" y="1109.0" />
-      <point x="530.0" y="1109.0" />
+      <point x="-85.0" y="-102.5" />
+      <point x="940.0" y="740.0" />
+      <point x="940.0" y="740.0" />
       <point x="0.0" y="91.5" />
     </edge>
-    <edge source="811f259a-43fd-47fd-a72e-84f91e02c87b.TABLE:thesis.thesis.user_permission" target="811f259a-43fd-47fd-a72e-84f91e02c87b.TABLE:thesis.thesis.application_user">
-      <point x="-85.0" y="-102.5" />
-      <point x="265.0" y="1109.0" />
-      <point x="170.0" y="1109.0" />
-      <point x="0.0" y="113.5" />
+    <edge source="811f259a-43fd-47fd-a72e-84f91e02c87b.TABLE:thesis.thesis.process" target="811f259a-43fd-47fd-a72e-84f91e02c87b.TABLE:thesis.thesis.location">
+      <point x="0.0" y="-157.5" />
+      <point x="0.0" y="157.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.376747608535688" x="530.0" y="669.5" />
+  <settings layout="Hierarchic Group" zoom="0.49591078066914496" x="529.9999999999999" y="797.0" />
   <SelectedNodes />
   <Categories>
     <Category>Key columns</Category>

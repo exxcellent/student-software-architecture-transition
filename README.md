@@ -145,7 +145,8 @@ Bei jeder Ausführung von `startup.sh` wird die Datenbank zurückgesetzt.
 
 #### Datenmodel
 
-![thesis-datamodel](./resources/thesis-business-datamodel.svg "Fachliches Datenmodell")
+![thesis-business-datamodel](./resources/thesis-business-datamodel.svg "Fachliches Datenmodell")
+![thesis-database](./resources/thesis-database.png "Technisches Datenmodell")
 
 
 Siehe:
