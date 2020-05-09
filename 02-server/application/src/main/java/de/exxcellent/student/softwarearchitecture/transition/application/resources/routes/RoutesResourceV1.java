@@ -1,5 +1,6 @@
 package de.exxcellent.student.softwarearchitecture.transition.application.resources.routes;
 
+import de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.mapper.RouteMapper;
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.types.notification.NotificationTO;
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.types.notification.NotificationsCTO;
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.types.route.*;
@@ -11,6 +12,8 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
 @RestController
 @CrossOrigin
@@ -29,10 +32,12 @@ public class RoutesResourceV1 {
   @RequestMapping(
       method = RequestMethod.GET,
       produces = MediaType.APPLICATION_JSON_VALUE)
-  public RouteOverviewCTO findAll(@RequestParam(name = "mode", required = false) RouteCalculation routeCalculation,
-                                  @RequestParam(name = "inspectors", required = false) List<String> showInspectors) {
-    return new RouteOverviewCTO();
+  public RoutesCTO findByDate(@RequestParam(name = "inspectors", required = false) List<String> showInspectors) {
 
+    var inspectorIds = RouteMapper.toInspectorIdList.apply(showInspectors);
+    var routes = routeComponent.findAll(inspectorIds);
+
+    return RouteMapper.toRoutesCTO.apply(routes);
   }
 
   @RequestMapping(
@@ -40,10 +45,13 @@ public class RoutesResourceV1 {
       path = "{date}",
       produces = MediaType.APPLICATION_JSON_VALUE)
   public RoutesCTO findByDate(@PathVariable("date") String dateOfRoutes,
-                            @RequestParam(name = "mode", required = false) RouteCalculation routeCalculation,
                             @RequestParam(name = "inspectors", required = false) List<String> showInspectors) {
-    return new RoutesCTO();
 
+    var date = RouteMapper.toLocalDate.apply(dateOfRoutes);
+    var inspectorIds = RouteMapper.toInspectorIdList.apply(showInspectors);
+    var routes = routeComponent.findAllByDate(date, inspectorIds);
+
+    return RouteMapper.toRoutesCTO.apply(routes);
   }
 
   @RequestMapping(
@@ -53,8 +61,11 @@ public class RoutesResourceV1 {
   public RouteCTO findByInspectorId(@PathVariable("date") String dateOfRoutes,
                                     @PathVariable("inspectorId") Long inspectorId,
                                     @RequestParam(name = "mode", required = false) RouteCalculation routeCalculation) {
-    return new RouteCTO();
 
+    var date = RouteMapper.toLocalDate.apply(dateOfRoutes);
+    var route = routeComponent.findAllByDateAndInspector(date, inspectorId);
+
+    return RouteMapper.toRouteCTO.apply(route);
   }
 
   @RequestMapping(

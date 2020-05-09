@@ -5,28 +5,28 @@ package de.exxcellent.student.softwarearchitecture.transition.businesslogic.comp
  *
  * @author Andre Lehnert, eXXcellent solutions consulting and software gmbh
  */
-public class LocationDO {
+public class LocationRequestDO {
 
-  private int id;
+  private long id;
   private int index;
   private float latitude;
   private float longitude;
 
-  public LocationDO() {
+  public LocationRequestDO() {
   }
 
-  public LocationDO(int id, int index, float latitude, float longitude) {
+  public LocationRequestDO(int id, int index, float latitude, float longitude) {
     this.id = id;
     this.index = index;
     this.latitude = latitude;
     this.longitude = longitude;
   }
 
-  public int getId() {
+  public long getId() {
     return id;
   }
 
-  public void setId(int id) {
+  public void setId(long id) {
     this.id = id;
   }
 

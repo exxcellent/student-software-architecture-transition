@@ -8,5 +8,6 @@ package de.exxcellent.student.softwarearchitecture.transition.businesslogic.comp
 public enum WaypointCategory {
   GAS_STATION,
   PRIVATE,
-  APPOINTMENT
+  APPOINTMENT,
+  ALL
 }

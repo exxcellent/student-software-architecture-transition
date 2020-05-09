@@ -1,6 +1,6 @@
 package de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.converter;
 
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.types.WaypointCategory;
+import de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.types.route.RouteWaypointCategory;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.convert.converter.Converter;
 
@@ -9,13 +9,13 @@ import org.springframework.core.convert.converter.Converter;
  *
  * @author Andre Lehnert, eXXcellent solutions consulting and software gmbh
  */
-public class WaypointCategoryConverter implements Converter<String, WaypointCategory> {
+public class WaypointCategoryConverter implements Converter<String, RouteWaypointCategory> {
 
-  private static final String DEFAULT_CATEGORY = WaypointCategory.ALL.name();
+  private static final String DEFAULT_CATEGORY = RouteWaypointCategory.ALL.name();
 
   @Override
-  public WaypointCategory convert(String source) {
-    return WaypointCategory.valueOf(StringUtils.defaultIfBlank(source, DEFAULT_CATEGORY).toUpperCase());
+  public RouteWaypointCategory convert(String source) {
+    return RouteWaypointCategory.valueOf(StringUtils.defaultIfBlank(source, DEFAULT_CATEGORY).toUpperCase());
   }
 
 }

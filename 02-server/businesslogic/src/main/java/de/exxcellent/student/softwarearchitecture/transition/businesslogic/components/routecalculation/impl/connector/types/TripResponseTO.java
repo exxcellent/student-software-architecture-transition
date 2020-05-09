@@ -7,12 +7,13 @@ import java.util.List;
  *
  * @author Andre Lehnert, eXXcellent solutions consulting and software gmbh
  */
-public class TripTO {
+public class TripResponseTO {
 
   private String departure_time;
-  private List<LocationTO> locations;
+  private float travel_time;
+  private List<LocationResponseTO> locations;
 
-  public TripTO() {
+  public TripResponseTO() {
   }
 
   public String getDeparture_time() {
@@ -23,11 +24,19 @@ public class TripTO {
     this.departure_time = departure_time;
   }
 
-  public List<LocationTO> getLocations() {
+  public float getTravel_time() {
+    return travel_time;
+  }
+
+  public void setTravel_time(float travel_time) {
+    this.travel_time = travel_time;
+  }
+
+  public List<LocationResponseTO> getLocations() {
     return locations;
   }
 
-  public void setLocations(List<LocationTO> locations) {
+  public void setLocations(List<LocationResponseTO> locations) {
     this.locations = locations;
   }
 }

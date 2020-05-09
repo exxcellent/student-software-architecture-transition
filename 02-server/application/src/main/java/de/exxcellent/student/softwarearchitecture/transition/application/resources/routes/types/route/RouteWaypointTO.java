@@ -1,7 +1,6 @@
 package de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.types.route;
 
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.common.BusinessTO;
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.types.WaypointCategory;
 
 /**
  * JSON example:
@@ -16,20 +15,16 @@ import de.exxcellent.student.softwarearchitecture.transition.application.resourc
 public class RouteWaypointTO extends BusinessTO {
 
   private Long waypointId;
+  private String date;
   private Integer orderIndex;
-
-  private String address;
-
-  private Float latitude;
-  private Float longitude;
-
-  private WaypointCategory category;
-
-  private String arrivalStartedAt;
-  private String finishedAt;
+  private RouteWaypointCategory category;
+  private RouteWaypointStatus status;
 
   private Long inspectorId;
+  private Long appointmentId;
+
   private RouteWaypointContactTO contact;
+  private RouteWaypointLocationTO location;
 
   public RouteWaypointTO() {
   }
@@ -42,6 +37,14 @@ public class RouteWaypointTO extends BusinessTO {
     this.waypointId = waypointId;
   }
 
+  public String getDate() {
+    return date;
+  }
+
+  public void setDate(String date) {
+    this.date = date;
+  }
+
   public Integer getOrderIndex() {
     return orderIndex;
   }
@@ -50,52 +53,20 @@ public class RouteWaypointTO extends BusinessTO {
     this.orderIndex = orderIndex;
   }
 
-  public String getAddress() {
-    return address;
-  }
-
-  public void setAddress(String address) {
-    this.address = address;
-  }
-
-  public Float getLatitude() {
-    return latitude;
-  }
-
-  public void setLatitude(Float latitude) {
-    this.latitude = latitude;
-  }
-
-  public Float getLongitude() {
-    return longitude;
-  }
-
-  public void setLongitude(Float longitude) {
-    this.longitude = longitude;
-  }
-
-  public WaypointCategory getCategory() {
+  public RouteWaypointCategory getCategory() {
     return category;
   }
 
-  public void setCategory(WaypointCategory category) {
+  public void setCategory(RouteWaypointCategory category) {
     this.category = category;
   }
 
-  public String getArrivalStartedAt() {
-    return arrivalStartedAt;
+  public RouteWaypointStatus getStatus() {
+    return status;
   }
 
-  public void setArrivalStartedAt(String arrivalStartedAt) {
-    this.arrivalStartedAt = arrivalStartedAt;
-  }
-
-  public String getFinishedAt() {
-    return finishedAt;
-  }
-
-  public void setFinishedAt(String finishedAt) {
-    this.finishedAt = finishedAt;
+  public void setStatus(RouteWaypointStatus status) {
+    this.status = status;
   }
 
   public Long getInspectorId() {
@@ -106,11 +77,27 @@ public class RouteWaypointTO extends BusinessTO {
     this.inspectorId = inspectorId;
   }
 
+  public Long getAppointmentId() {
+    return appointmentId;
+  }
+
+  public void setAppointmentId(Long appointmentId) {
+    this.appointmentId = appointmentId;
+  }
+
   public RouteWaypointContactTO getContact() {
     return contact;
   }
 
   public void setContact(RouteWaypointContactTO contact) {
     this.contact = contact;
+  }
+
+  public RouteWaypointLocationTO getLocation() {
+    return location;
+  }
+
+  public void setLocation(RouteWaypointLocationTO location) {
+    this.location = location;
   }
 }

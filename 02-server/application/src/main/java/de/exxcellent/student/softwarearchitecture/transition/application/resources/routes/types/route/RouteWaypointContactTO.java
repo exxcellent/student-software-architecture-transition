@@ -1,6 +1,5 @@
 package de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.types.route;
 
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.common.BusinessTO;
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.common.ReadOnlyTO;
 
 /**
@@ -10,20 +9,11 @@ import de.exxcellent.student.softwarearchitecture.transition.application.resourc
  */
 public class RouteWaypointContactTO implements ReadOnlyTO {
 
-  private Long contactId;
   private String name;
   private String phoneNumber;
   private String email;
 
   public RouteWaypointContactTO() {
-  }
-
-  public Long getContactId() {
-    return contactId;
-  }
-
-  public void setContactId(Long contactId) {
-    this.contactId = contactId;
   }
 
   public String getName() {
