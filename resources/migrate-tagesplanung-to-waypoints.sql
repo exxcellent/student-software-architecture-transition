@@ -20,7 +20,7 @@ INSERT INTO waypoint (
 SELECT a.id,
        p.inspector_id,
        a.date,
-       0                                          AS order_index,
+       row_number() OVER () - 1                   AS order_index,
        'PENDING'                                  AS status,
        'APPOINTMENT'                              AS category,
        l.street || ', ' || l.zip || ' ' || l.city AS address,
