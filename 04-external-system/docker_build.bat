@@ -1,0 +1,1 @@
+docker build -t routenplaner-backend:latest .

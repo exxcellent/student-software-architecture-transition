@@ -1,0 +1,4 @@
+Flask==1.1.1
+flask-cors==3.0.8
+googlemaps==3.0.2
+numpy==1.16.4
