@@ -135,9 +135,9 @@ CREATE TABLE waypoint (
     start_time          TIME,
     duration            INTERVAL,
 
-    name           TEXT,
-    phone_number   PHONE_NUMBER   NOT NULL,
-    email          EMAIL,
+    contact_name           TEXT,
+    contact_phone_number   PHONE_NUMBER   NOT NULL,
+    contact_email          EMAIL,
 
     version                 INTEGER                     NOT NULL,
     created_at_utc          TIMESTAMP WITH TIME ZONE    NOT NULL,
