@@ -124,9 +124,9 @@ Weitere Ressourcen im [resources](./resources) Ordner.
 >
 > Der Docker Deamon muss laufen
 
-### Datenbank
+### Externe Systeme: Datenbank + Routenberechnungsservice
 
-Führe das `startup.sh` Shell-Script aus, um die PostgeSQL Datenbank zu starten.
+Führe das `startup.sh` Shell-Script aus, um die PostgeSQL Datenbank und den Routenberechnungsservice(-Mock) zu starten.
 
 ```
 jdbc:postgresql://localhost:5432/thesis
@@ -157,6 +157,63 @@ Siehe:
 - https://www.docker.com/get-started
 - https://docs.docker.com/compose/
 - https://www.postgresql.org/docs/12/index.html
+
+#### Routenberechnungsservice
+
+Der Service bietet nur einen (funktionierenden) REST-Endpunkt an: 
+`POST http://localhost:5000/optimize?mode=random`
+
+```
+{
+	"departure_time": "2020-05-09T18:30:00.000Z",
+	"locations": [
+		{
+			"id": 1,
+            "_index": 0,
+            "lat": 48.118289,
+            "lng": 11.641278,
+            "duration": 10
+		},
+		{
+			"id": 2,
+            "_index": 1,
+            "lat": 48.094597,
+            "lng": 11.534644,
+            "duration": 0
+		}
+	]
+}
+```
+
+Die Antwort enthält die `travel_time` zum nächsten Wegpunkt und die Ankunftszeit `eta`.
+Über `duration` kann die Termindauer am Wegpunkt definiert werden. 
+Die `duration` und die `travel_time` werden addiert, um die `eta` zum nächsten Wegpunkt zu berechnen.
+
+```
+{
+  "departure_time": "2020-05-09T18:30:00.000Z",
+  "locations": [
+    {
+      "_index": 0,
+      "duration": 10,
+      "eta": "2020-05-09T18:30:00.000Z",
+      "id": 1,
+      "lat": 48.118289,
+      "lng": 11.641278,
+      "travel_time": 11.1
+    },
+    {
+      "_index": 1,
+      "duration": 0,
+      "eta": "2020-05-09T18:51:06.000Z",
+      "id": 2,
+      "lat": 48.094597,
+      "lng": 11.534644
+    }
+  ],
+  "travel_time": 11.1
+}
+```
 
 ### Server
 

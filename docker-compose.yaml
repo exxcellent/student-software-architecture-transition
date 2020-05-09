@@ -16,7 +16,11 @@ services:
             - thesis_data:/var/lib/postgresql/data
             - ./03-database/db-setup:/docker-entrypoint-initdb.d     # Ensures that the DB initialization scripts
                                                                             # run once if there is no DB yet
-
+    thesis-external-system:
+        container_name: thesis-external-system
+        build: ./04-external-system
+        ports:
+            - "5000:5000"
 volumes:
     # Storing postgres DB data
     thesis_data:

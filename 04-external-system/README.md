@@ -5,11 +5,13 @@
 > eingetragen werden!
 > Ohne den API-Key ist nur ?mode=random möglich.
 
+Dieser Service basiert auf einem Prototypen zur optimierten Routenberechnung. 
+Für die Bachelor-Arbeit wird nur der `random` Modus genutzt, 
+um die Routenoptimierung zu simulieren.
+
 ## Getting started
 
-`python3 main.py`
-
-startet einen REST-Service auf Port 5000.
+`python3 main.py` startet einen REST-Service auf Port 5000.
 
 ### Beispiel
 
