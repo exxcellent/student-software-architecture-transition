@@ -114,6 +114,57 @@ CREATE TABLE appointment (
 
 );
 
+
+CREATE SEQUENCE waypoint_id_seq START WITH 1000 INCREMENT BY 1;
+
+CREATE TABLE waypoint (
+    id                  DECIMAL(19,0)   NOT NULL    PRIMARY KEY  DEFAULT nextval('waypoint_id_seq'),
+    appointment_id      DECIMAL(19,0)   NOT NULL    REFERENCES appointment (id) ON DELETE CASCADE,
+    inspector_id        DECIMAL(19,0)   NOT NULL    REFERENCES inspector (id) ON DELETE CASCADE,
+
+    date           DATE         NOT NULL,
+    order_index    INTEGER      NOT NULL,
+    status         VARCHAR(50)  NOT NULL,
+    category       VARCHAR(50)  NOT NULL,
+
+    address        TEXT      NOT NULL,
+    latitude       FLOAT     NOT NULL,
+    longitude      FLOAT     NOT NULL,
+
+    travel_duration     INTERVAL,
+    start_time          TIME,
+    duration            INTERVAL,
+
+    name           TEXT,
+    phone_number   PHONE_NUMBER   NOT NULL,
+    email          EMAIL,
+
+    version                 INTEGER                     NOT NULL,
+    created_at_utc          TIMESTAMP WITH TIME ZONE    NOT NULL,
+    created_by              TEXT                        NOT NULL,
+    last_modified_at_utc    TIMESTAMP WITH TIME ZONE,
+    last_modified_by        TEXT
+);
+
+
+CREATE SEQUENCE notification_id_seq START WITH 1000 INCREMENT BY 1;
+
+CREATE TABLE notification (
+    id               DECIMAL(19,0)   NOT NULL    PRIMARY KEY  DEFAULT nextval('notification_id_seq'),
+    waypoint_id      DECIMAL(19,0)   NOT NULL    REFERENCES waypoint (id) ON DELETE CASCADE,
+
+    notified_at      TIMESTAMP WITH TIME ZONE    NOT NULL,
+    channel          VARCHAR(50)  NOT NULL,
+    arrival_in       INTERVAL,
+
+    version                 INTEGER                     NOT NULL,
+    created_at_utc          TIMESTAMP WITH TIME ZONE    NOT NULL,
+    created_by              TEXT                        NOT NULL,
+    last_modified_at_utc    TIMESTAMP WITH TIME ZONE,
+    last_modified_by        TEXT
+);
+
+
 -- technical tables
 
 CREATE SEQUENCE application_user_id_seq START WITH 1000 INCREMENT BY 1;
