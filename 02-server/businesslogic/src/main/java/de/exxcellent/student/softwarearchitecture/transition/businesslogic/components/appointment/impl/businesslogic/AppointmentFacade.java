@@ -76,14 +76,10 @@ public class AppointmentFacade implements AppointmentComponent {
     }
   
     @Override
-    public void delete(AppointmentDO appointmentDO) {
-      Preconditions.checkNotNull(appointmentDO.getAppointmentId(), "AppointmentId must not be null");
-      Preconditions.checkArgument(appointmentDO.getAppointmentId() > 0, "AppointmentId must be positive");
-      Preconditions.checkNotNull(appointmentDO.getVersion(), "AppointmentDO version must not be null");
-      Preconditions.checkArgument(appointmentDO.getVersion() >= 0, "AppointmentDO version must be positive");
+    public void delete(Long appointmentId) {
+      Preconditions.checkNotNull(appointmentId, "AppointmentId must not be null");
+      Preconditions.checkArgument(appointmentId > 0, "AppointmentId must be positive");
 
-      var appointmentEntity = AppointmentMapper.toAppointmentEntity.apply(appointmentDO);
-
-      appointmentLogic.delete(appointmentEntity);
+      appointmentLogic.delete(appointmentId);
     }
 }

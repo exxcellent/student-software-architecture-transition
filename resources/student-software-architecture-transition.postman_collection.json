@@ -112,17 +112,8 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"version\": 2,\n    \"locationId\": 1005,\n    \"name\": null,\n    \"street\": \"TEST UPDATE\",\n    \"zip\": \"80809\",\n    \"city\": \"München\",\n    \"latitude\": 48.1758,\n    \"longitude\": 11.556489\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "http://localhost:9000/v1/locations",
+							"raw": "http://localhost:9000/v1/locations/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -130,7 +121,8 @@
 							"port": "9000",
 							"path": [
 								"v1",
-								"locations"
+								"locations",
+								"2"
 							]
 						}
 					},
@@ -246,17 +238,8 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"version\": 2,\n    \"inspectorId\": 1000,\n    \"firstName\": \"Update\",\n    \"lastName\": \"Mustermann\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "http://localhost:9000/v1/inspectors",
+							"raw": "http://localhost:9000/v1/inspectors/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -264,7 +247,8 @@
 							"port": "9000",
 							"path": [
 								"v1",
-								"inspectors"
+								"inspectors",
+								"1"
 							]
 						}
 					},
@@ -380,17 +364,8 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"version\": 1,\n    \"contactId\": 1000,\n    \"firstName\": \"Update\",\n    \"lastName\": \"Kappel\",\n    \"phoneNumber\": \"+49372470194\",\n    \"email\": \"Thorsten.Kappel@beispiel-bauunternehmen.de\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "http://localhost:9000/v1/contacts",
+							"raw": "http://localhost:9000/v1/contacts/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -398,7 +373,8 @@
 							"port": "9000",
 							"path": [
 								"v1",
-								"contacts"
+								"contacts",
+								"1"
 							]
 						}
 					},
@@ -514,17 +490,8 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"version\": 1,\n    \"appointmentId\": 1002,\n    \"description\": \"Updated\",\n    \"date\": \"2020-05-04\",\n    \"travelDurationInSeconds\": 5400,\n    \"startTime\": \"10:00\",\n    \"durationInSeconds\": 3600,\n    \"finished\": false,\n    \"processId\": 1001\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "http://localhost:9000/v1/appointments",
+							"raw": "http://localhost:9000/v1/appointments/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -532,7 +499,8 @@
 							"port": "9000",
 							"path": [
 								"v1",
-								"appointments"
+								"appointments",
+								"2"
 							]
 						}
 					},
@@ -648,17 +616,8 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"version\": 1,\n    \"processId\": 1000,\n    \"inspectorId\": 1,\n    \"locationId\": 2,\n    \"contactId\": 1,\n    \"title\": \"Updated\",\n    \"type\": \"NORMAL\",\n    \"priority\": \"NORMAL\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "http://localhost:9000/v1/processes",
+							"raw": "http://localhost:9000/v1/processes/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -666,7 +625,8 @@
 							"port": "9000",
 							"path": [
 								"v1",
-								"processes"
+								"processes",
+								"1"
 							]
 						}
 					},
@@ -743,7 +703,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\n}",
+									"raw": "{\n    \"version\": 1,\n    \"waypointId\": 2,\n    \"date\": \"2020-05-09\",\n    \"orderIndex\": 0,\n    \"category\": \"APPOINTMENT\",\n    \"status\": \"PENDING\",\n    \"inspectorId\": 1,\n    \"appointmentId\": 1,\n    \"contact\": {\n        \"name\": \"Thorsten Kappel\",\n        \"phoneNumber\": \"+49372470197\",\n        \"email\": \"Thorsten.Kappel@beispiel-bauunternehmen.de\"\n    },\n    \"location\": {\n        \"address\": \"Spiridon-Louis-Ring 21-3, 80809 München\",\n        \"latitude\": 48.1758,\n        \"longitude\": 11.556489\n    }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -751,7 +711,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:9000/v1/routes/2020-10-01/inspectors/1/waypoints/1",
+									"raw": "http://localhost:9000/v1/routes/2020-05-09/inspectors/1/waypoints/2",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -760,11 +720,11 @@
 									"path": [
 										"v1",
 										"routes",
-										"2020-10-01",
+										"2020-05-09",
 										"inspectors",
 										"1",
 										"waypoints",
-										"1"
+										"2"
 									]
 								},
 								"description": "Example: Finish waypoint, start arrival, change order index"

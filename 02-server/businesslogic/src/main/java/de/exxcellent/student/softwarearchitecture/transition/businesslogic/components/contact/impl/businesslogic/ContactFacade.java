@@ -78,15 +78,10 @@ public class ContactFacade implements ContactComponent {
   }
 
   @Override
-  public void delete(ContactDO contactDO) {
-    Preconditions.checkNotNull(contactDO, "ContactDO must not be null");
-    Preconditions.checkNotNull(contactDO.getContactId(), "ContactId must not be null");
-    Preconditions.checkArgument(contactDO.getContactId() > 0, "ContactId must be positive");
-    Preconditions.checkNotNull(contactDO.getVersion(), "ContactDO version must not be null");
-    Preconditions.checkArgument(contactDO.getVersion() >= 0, "ContactDO version must be positive");
+  public void delete(Long id) {
+    Preconditions.checkNotNull(id, "ContactId must not be null");
+    Preconditions.checkArgument(id > 0, "ContactId must be positive");
 
-    var contactEntity = ContactMapper.toContactEntity.apply(contactDO);
-
-    contactLogic.delete(contactEntity);
+    contactLogic.delete(id);
   }
 }

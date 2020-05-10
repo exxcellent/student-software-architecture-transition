@@ -78,15 +78,10 @@ public class InspectorFacade implements InspectorComponent {
     return InspectorMapper.toInspectorDO.apply(updatedInspectorEntity);  }
 
   @Override
-  public void delete(InspectorDO inspectorDO) {
-    Preconditions.checkNotNull(inspectorDO, "Inspector must not be null");
-    Preconditions.checkNotNull(inspectorDO.getInspectorId(), "InspectorId name must not be null");
-    Preconditions.checkArgument(inspectorDO.getInspectorId() > 0, "InspectorId must be positive");
-    Preconditions.checkNotNull(inspectorDO.getVersion(), "Inspector version name must not be null");
-    Preconditions.checkArgument(inspectorDO.getVersion() >= 0, "Inspector version name must be positive");
+  public void delete(Long id) {
+    Preconditions.checkNotNull(id, "InspectorId name must not be null");
+    Preconditions.checkArgument(id > 0, "InspectorId must be positive");
 
-    var inspectorEntity = InspectorMapper.toInspectorEntity.apply(inspectorDO);
-
-    inspectorLogic.delete(inspectorEntity);
+    inspectorLogic.delete(id);
   }
 }

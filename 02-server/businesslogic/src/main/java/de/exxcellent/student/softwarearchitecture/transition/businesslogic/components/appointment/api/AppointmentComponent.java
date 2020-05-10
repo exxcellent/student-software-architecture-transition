@@ -20,5 +20,5 @@ public interface AppointmentComponent {
 
   AppointmentDO update(AppointmentDO appointmentDO, User user);
 
-  void delete(AppointmentDO appointmentDO);
+  void delete(Long id);
 }

@@ -21,5 +21,5 @@ public interface LocationComponent extends BusinessComponent {
 
   LocationDO update(LocationDO locationDO, User user);
 
-  void delete(LocationDO locationDO);
+  void delete(Long id);
 }

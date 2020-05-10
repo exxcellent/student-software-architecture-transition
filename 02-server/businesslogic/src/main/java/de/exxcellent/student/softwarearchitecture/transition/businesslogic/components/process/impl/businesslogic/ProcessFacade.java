@@ -92,13 +92,10 @@ public class ProcessFacade implements ProcessComponent {
     }
   
     @Override
-    public void delete(ProcessDO processDO) {
-      Preconditions.checkNotNull(processDO.getProcessId(), "ProcessId must not be null");
-      Preconditions.checkArgument(processDO.getProcessId() > 0, "ProcessId must be positive");
-      Preconditions.checkNotNull(processDO.getVersion(), "ProcessDO version must not be null");
-      Preconditions.checkArgument(processDO.getVersion() >= 0, "ProcessDO version must be positive");
+    public void delete(Long id) {
+      Preconditions.checkNotNull(id, "ProcessId must not be null");
+      Preconditions.checkArgument(id > 0, "ProcessId must be positive");
 
-      var processEntity = ProcessMapper.toProcessEntity.apply(processDO);
-      processLogic.delete(processEntity);
+      processLogic.delete(id);
     }
 }

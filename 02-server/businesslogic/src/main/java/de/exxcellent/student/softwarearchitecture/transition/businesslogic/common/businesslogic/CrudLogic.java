@@ -63,8 +63,9 @@ public abstract class CrudLogic<T extends CommonEntity> {
 
   @Transactional
   @Modifying
-  public void delete(T entity) {
-    Retry.execute(() -> { repository.delete(entity); return null; });
+  public void delete(Long id) {
+    Retry.execute(() -> {
+      repository.deleteById(id); return null; });
   }
 
 

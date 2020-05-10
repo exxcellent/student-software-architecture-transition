@@ -77,11 +77,10 @@ public class ContactsResourceV1 {
 
   @RequestMapping(
       method = RequestMethod.DELETE,
+      path = "{id}",
       produces = MediaType.TEXT_PLAIN_VALUE)
-  @RequiresPermission(Permission.DELETE_ALL)
-  public ResponseEntity<String> delete(@RequestBody ContactTO contactTO) {
-    var locationDO = ContactMapper.toContactDO.apply(contactTO);
-    contactComponent.delete(locationDO);
+  public ResponseEntity<String> delete(@PathVariable(value = "id") Long id) {
+      contactComponent.delete(id);
     return ResponseEntity.ok().build();
   }
 }

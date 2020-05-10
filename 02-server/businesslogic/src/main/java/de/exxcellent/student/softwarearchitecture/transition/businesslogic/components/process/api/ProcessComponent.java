@@ -21,5 +21,5 @@ public interface ProcessComponent extends BusinessComponent {
 
   ProcessDO update(ProcessDO processDO, User user);
 
-  void delete(ProcessDO processDO);
+  void delete(Long id);
 }

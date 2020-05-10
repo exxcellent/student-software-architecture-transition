@@ -71,10 +71,10 @@ public class AppointmentsResourceV1 {
 
   @RequestMapping(
       method = RequestMethod.DELETE,
+      path = "{id}",
       produces = MediaType.TEXT_PLAIN_VALUE)
-  public ResponseEntity<String> delete(@RequestBody AppointmentTO appointmentTO) {
-    var locationDO = AppointmentMapper.toAppointmentDO.apply(appointmentTO);
-    appointmentComponent.delete(locationDO);
+  public ResponseEntity<String> delete(@PathVariable(value = "id") Long appointmentId) {
+    appointmentComponent.delete(appointmentId);
     return ResponseEntity.ok().build();
   }
 }

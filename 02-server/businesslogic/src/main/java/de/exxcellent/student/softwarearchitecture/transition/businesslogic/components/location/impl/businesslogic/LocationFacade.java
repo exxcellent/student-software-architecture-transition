@@ -84,15 +84,10 @@ public class LocationFacade implements LocationComponent {
   }
 
   @Override
-  public void delete(LocationDO locationDO) {
-    Preconditions.checkNotNull(locationDO, "LocationDO must not be null");
-    Preconditions.checkNotNull(locationDO.getLocationId(), "LocationId must not be null");
-    Preconditions.checkArgument(locationDO.getLocationId() > 0, "LocationId must be positive");
-    Preconditions.checkNotNull(locationDO.getVersion(), "Version must not be null");
-    Preconditions.checkArgument(locationDO.getVersion() >= 0, "Location version must be positive");
+  public void delete(Long id) {
+    Preconditions.checkNotNull(id, "LocationId must not be null");
+    Preconditions.checkArgument(id > 0, "LocationId must be positive");
 
-    var locationEntity = LocationMapper.toLocationEntity.apply(locationDO);
-
-    locationLogic.delete(locationEntity);
+    locationLogic.delete(id);
   }
 }

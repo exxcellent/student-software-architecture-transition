@@ -77,11 +77,10 @@ public class InspectorsResourceV1 {
 
   @RequestMapping(
       method = RequestMethod.DELETE,
+      path = "{id}",
       produces = MediaType.TEXT_PLAIN_VALUE)
-  @RequiresPermission(Permission.DELETE_ALL)
-  public ResponseEntity<String> delete(@RequestBody InspectorTO inspectorTO) {
-    var locationDO = InspectorsMapper.toInspectorDO.apply(inspectorTO);
-    inspectorComponent.delete(locationDO);
+  public ResponseEntity<String> delete(@PathVariable(value = "id") Long id) {
+    inspectorComponent.delete(id);
     return ResponseEntity.ok().build();
   }
 }

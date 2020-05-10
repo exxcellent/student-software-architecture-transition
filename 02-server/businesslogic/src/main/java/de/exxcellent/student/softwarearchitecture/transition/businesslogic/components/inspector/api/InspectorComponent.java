@@ -21,5 +21,5 @@ public interface InspectorComponent extends BusinessComponent {
 
   InspectorDO update(InspectorDO inspectorDO, User user);
 
-  void delete(InspectorDO inspectorDO);
+  void delete(Long id);
 }

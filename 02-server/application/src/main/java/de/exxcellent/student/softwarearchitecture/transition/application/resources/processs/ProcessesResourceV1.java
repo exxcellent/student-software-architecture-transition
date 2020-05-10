@@ -77,11 +77,10 @@ public class ProcessesResourceV1 {
 
   @RequestMapping(
       method = RequestMethod.DELETE,
+      path = "{id}",
       produces = MediaType.TEXT_PLAIN_VALUE)
-  @RequiresPermission(Permission.DELETE_ALL)
-  public ResponseEntity<String> delete(@RequestBody ProcessTO processTO) {
-    var locationDO = ProcessMapper.toProcessDO.apply(processTO);
-    processComponent.delete(locationDO);
+  public ResponseEntity<String> delete(@PathVariable(value = "id") Long id) {
+    processComponent.delete(id);
     return ResponseEntity.ok().build();
   }
 }

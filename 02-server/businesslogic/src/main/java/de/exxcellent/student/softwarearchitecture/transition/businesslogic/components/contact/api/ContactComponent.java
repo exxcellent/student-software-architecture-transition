@@ -21,5 +21,5 @@ public interface ContactComponent extends BusinessComponent {
 
   ContactDO update(ContactDO contactDO, User user);
 
-  void delete(ContactDO contactDO);
+  void delete(Long id);
 }

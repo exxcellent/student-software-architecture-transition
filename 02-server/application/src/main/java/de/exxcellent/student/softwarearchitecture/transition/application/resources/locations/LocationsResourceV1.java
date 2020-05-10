@@ -78,11 +78,10 @@ public class LocationsResourceV1 implements BusinessResource {
 
   @RequestMapping(
       method = RequestMethod.DELETE,
+      path = "{id}",
       produces = MediaType.TEXT_PLAIN_VALUE)
-  @RequiresPermission(Permission.DELETE_ALL)
-  public ResponseEntity<String> delete(@RequestBody LocationTO locationTO) {
-    var locationDO = LocationsMapper.toLocationDO.apply(locationTO);
-    locationComponent.delete(locationDO);
+  public ResponseEntity<String> delete(@PathVariable(value = "id") Long id) {
+    locationComponent.delete(id);
     return ResponseEntity.ok().build();
   }
 }
