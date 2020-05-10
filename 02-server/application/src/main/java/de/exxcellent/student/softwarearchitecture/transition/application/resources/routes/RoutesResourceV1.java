@@ -93,16 +93,6 @@ public class RoutesResourceV1 {
   }
 
   @RequestMapping(
-      method = RequestMethod.PUT,
-      path = "{date}/inspectors/{inspectorId}/waypoints",
-      consumes = MediaType.APPLICATION_JSON_VALUE,
-      produces = MediaType.APPLICATION_JSON_VALUE)
-  public RouteWaypointsCTO updateWayPoints(@PathVariable("date") String dateOfRoutes,
-                                          @PathVariable("inspectorId") Long inspectorId) {
-    return new RouteWaypointsCTO();
-  }
-
-  @RequestMapping(
       method = RequestMethod.GET,
       path = "{date}/inspectors/{inspectorId}/waypoints/{wayPointId}",
       produces = MediaType.APPLICATION_JSON_VALUE)
@@ -126,10 +116,15 @@ public class RoutesResourceV1 {
       produces = MediaType.APPLICATION_JSON_VALUE)
   public RouteWaypointTO updateWayPoint(@PathVariable("date") String dateOfRoutes,
                                           @PathVariable("inspectorId") Long inspectorId,
-                                          @PathVariable("wayPointId") Long wayPointId) {
-    return new RouteWaypointTO();
-  }
+                                          @PathVariable("wayPointId") Long wayPointId,
+                                          @RequestBody() RouteWaypointTO routeWaypointTO) {
 
+    var waypointDO = RouteMapper.toWaypointDO.apply(routeWaypointTO);
+
+    var updatedWaypoint = routeComponent.updateWaypoint(wayPointId, waypointDO, CurrentUser.getUser());
+
+    return RouteMapper.toRouteWaypointTO.apply(updatedWaypoint);
+  }
 
   @RequestMapping(
       method = RequestMethod.GET,

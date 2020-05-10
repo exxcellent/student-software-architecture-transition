@@ -1,5 +1,6 @@
 package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.businesslogic;
 
+import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.data.User;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.validation.Preconditions;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.RouteComponent;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.route.RouteCalculationMode;
@@ -77,6 +78,26 @@ public class RouteFacade implements RouteComponent {
     var waypoint = routeLogic.findByDateAndInspectorAndWaypointId(date, inspectorId, wayPointId);
 
     return RouteMapper.toWaypointDO.apply(waypoint);
+  }
+
+
+  @Override
+  public WaypointDO updateWaypoint(Long wayPointId, WaypointDO waypointDO, User user) {
+    Preconditions.checkNotNull(wayPointId, "WaypointId must not be null");
+    Preconditions.checkArgument(wayPointId > 0, "WaypointId must be positive");
+
+    Preconditions.checkNotNull(waypointDO, "Waypoint must not be null");
+    Preconditions.checkNotNull(waypointDO.getWaypointId(), "WaypointId must not be null");
+    Preconditions.checkArgument(wayPointId.equals(waypointDO.getWaypointId()),
+        String.format("WaypointId of the path '%s' and the waypointId of the payload '%s' must be equals",
+            wayPointId, waypointDO.getWaypointId()));
+    Preconditions.checkNotNull(waypointDO.getVersion(), "Waypoint version must not be null");
+    Preconditions.checkArgument(waypointDO.getVersion() >= 0, "Waypoint version must be positive");
+
+    var waypointEntity = RouteMapper.toWaypointEntity.apply(waypointDO);
+    var updatedWaypoint = routeLogic.update(waypointEntity, user);
+
+    return RouteMapper.toWaypointDO.apply(updatedWaypoint);
   }
 
   private List<RouteDO> calculateRoutes(List<WaypointEntity> waypoints, RouteCalculationMode routeCalculationMode) {

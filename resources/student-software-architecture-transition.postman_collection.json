@@ -712,40 +712,6 @@
 							"response": []
 						},
 						{
-							"name": "Update Route Waypoints of the day and Inspector",
-							"request": {
-								"method": "PUT",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n\t\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:9000/v1/routes/2020-10-01/inspectors/1/waypoints",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "9000",
-									"path": [
-										"v1",
-										"routes",
-										"2020-10-01",
-										"inspectors",
-										"1",
-										"waypoints"
-									]
-								},
-								"description": "Example: Change orderIndex/ sequence of waypoints"
-							},
-							"response": []
-						},
-						{
 							"name": "Find Route Waypoint",
 							"request": {
 								"method": "GET",

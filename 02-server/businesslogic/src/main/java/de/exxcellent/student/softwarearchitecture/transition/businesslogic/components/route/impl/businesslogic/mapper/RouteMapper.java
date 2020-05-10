@@ -47,6 +47,33 @@ public final class RouteMapper {
     return waypointDO;
   };
 
+  public static final Function<WaypointDO, WaypointEntity> toWaypointEntity = waypoint -> {
+    var waypointEntity = new WaypointEntity();
+
+    waypointEntity.setId(waypoint.getWaypointId());
+    waypointEntity.setVersion(waypoint.getVersion());
+    waypointEntity.setInspectorId(waypoint.getInspectorId());
+    waypointEntity.setAppointmentId(waypoint.getAppointmentId());
+    waypointEntity.setDate(waypoint.getDate());
+    waypointEntity.setOrderIndex(waypoint.getOrderIndex());
+
+    waypointEntity.setCategory(RouteMapper.fromWaypointCategory.apply(waypoint.getCategory()));
+    waypointEntity.setStatus(RouteMapper.fromWaypointStatus.apply(waypoint.getStatus()));
+    waypointEntity.setStartTime(waypoint.getStartTime());
+    waypointEntity.setTravelDuration(waypoint.getTravelDuration());
+    waypointEntity.setDuration(waypoint.getDuration());
+
+    waypointEntity.setAddress(waypoint.getAddress());
+    waypointEntity.setLatitude(waypoint.getLatitude());
+    waypointEntity.setLongitude(waypoint.getLongitude());
+
+    waypointEntity.setContactname(waypoint.getContactName());
+    waypointEntity.setContactPhoneNumber(waypoint.getPhoneNumber());
+    waypointEntity.setContactEmail(waypoint.getEmail());
+
+    return waypointEntity;
+  };
+
   public static final Function<List<WaypointDO>, RouteDO> toRouteDO = waypoints -> {
     var routeDO = new RouteDO();
 
