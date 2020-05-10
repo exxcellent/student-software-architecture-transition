@@ -1,5 +1,6 @@
 package de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.mapper;
 
+import de.exxcellent.student.softwarearchitecture.transition.application.resources.common.validation.RequestCondition;
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.types.route.*;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.route.*;
 
@@ -102,6 +103,10 @@ public final class RouteMapper {
   };
 
   public static final Function<RouteCalculation, RouteCalculationMode> toRouteCalculationMode = mode -> {
+    if (mode == null) {
+      return RouteCalculationMode.RANDOM;
+    }
+
     switch (mode) {
       case NORMAL: return RouteCalculationMode.NORMAL;
       case OPTIMAL: return RouteCalculationMode.OPTIMAL;

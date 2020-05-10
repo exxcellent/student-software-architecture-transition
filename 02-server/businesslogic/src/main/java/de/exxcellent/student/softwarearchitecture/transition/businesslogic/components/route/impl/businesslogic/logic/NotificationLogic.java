@@ -1,6 +1,7 @@
 package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.businesslogic.logic;
 
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.businesslogic.CrudLogic;
+import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.data.User;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.datetime.DateTimeUtil;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data.NotificationRepository;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data.entities.notification.NotificationEntity;
@@ -17,15 +18,31 @@ import java.util.List;
  */
 @Component
 public class NotificationLogic extends CrudLogic<NotificationEntity> {
+
   private final NotificationRepository notificationRepository;
+  private final RouteLogic routeLogic;
 
   @Autowired
-  protected NotificationLogic(NotificationRepository repository, DateTimeUtil dateTimeUtil) {
+  protected NotificationLogic(NotificationRepository repository, DateTimeUtil dateTimeUtil, RouteLogic routeLogic) {
     super(repository, dateTimeUtil);
     this.notificationRepository = repository;
+    this.routeLogic = routeLogic;
   }
 
   public List<NotificationEntity> findAllByDateAndInspectorId(LocalDate date, Long inspectorId) {
     return notificationRepository.findAllByDateAndInspectorId(date, inspectorId);
+  }
+
+  public List<NotificationEntity> findAllByWaypointId(Long waypointId) {
+    return notificationRepository.findAllByWaypointId(waypointId);
+  }
+
+  public NotificationEntity create(NotificationEntity notificationEntity, Long waypointId, User user) {
+
+    // resolve relationship
+    var waypointEntity = routeLogic.findById(waypointId);
+    notificationEntity.setWaypoint(waypointEntity);
+
+    return create(notificationEntity, user);
   }
 }

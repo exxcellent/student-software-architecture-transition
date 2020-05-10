@@ -5,6 +5,7 @@ import de.exxcellent.student.softwarearchitecture.transition.businesslogic.compo
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data.entities.notification.Channel;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data.entities.notification.NotificationEntity;
 
+import java.time.ZoneOffset;
 import java.util.function.Function;
 
 /**
@@ -27,8 +28,19 @@ public final class NotificationMapper {
     notificationDO.setNotifiedAtUtc(notification.getNotifiedAt().toInstant());
     notificationDO.setArrivalIn(notification.getArrivalIn());
 
-
     return notificationDO;
+  };
+
+  public static final Function<NotificationDO, NotificationEntity> toNotificationEntity = notification -> {
+    var notificationEntity = new NotificationEntity();
+
+    notificationEntity.setId(notification.getNotificationId());
+    notificationEntity.setVersion(notification.getVersion());
+    notificationEntity.setChannel(NotificationMapper.fromNotificationChannel.apply(notification.getNotificationChannel()));
+    notificationEntity.setNotifiedAt(notification.getNotifiedAtUtc().atOffset(ZoneOffset.UTC));
+    notificationEntity.setArrivalIn(notification.getArrivalIn());
+
+    return notificationEntity;
   };
 
   private static final Function<Channel, NotificationChannel> toNotificationChannel = channel -> {
@@ -39,6 +51,17 @@ public final class NotificationMapper {
       case AUTOMATIC:
       default:
         return NotificationChannel.AUTOMATIC;
+    }
+  };
+
+  private static final Function<NotificationChannel, Channel> fromNotificationChannel = channel -> {
+    switch (channel) {
+      case EMAIL: return Channel.EMAIL;
+      case PHONE: return Channel.PHONE;
+      case SMS: return Channel.SMS;
+      case AUTOMATIC:
+      default:
+        return Channel.AUTOMATIC;
     }
   };
 }

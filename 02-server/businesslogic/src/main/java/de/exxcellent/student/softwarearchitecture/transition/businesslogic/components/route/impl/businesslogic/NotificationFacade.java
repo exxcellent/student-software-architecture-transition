@@ -1,5 +1,6 @@
 package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.businesslogic;
 
+import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.data.User;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.validation.Preconditions;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.NotificationComponent;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.notification.NotificationDO;
@@ -41,8 +42,41 @@ public class NotificationFacade implements NotificationComponent {
         .collect(Collectors.toList());
   }
 
+
   @Override
-  public NotificationDO addNotificationToRoute(LocalDate date, Long inspectorId, NotificationDO notificationDO) {
-    return null;
+  public List<NotificationDO> findAllNotificationsByWaypointId(Long waypointId) {
+    Preconditions.checkNotNull(waypointId, "WaypointId must not be null");
+    Preconditions.checkArgument(waypointId > 0, "WaypointId must be positive");
+
+    var notificationEntities = notificationLogic.findAllByWaypointId(waypointId);
+
+    return notificationEntities.stream()
+        .map(NotificationMapper.toNotificationDO)
+        .collect(Collectors.toList());
+  }
+
+  @Override
+  public NotificationDO addNotificationToRoute(Long waypointId, NotificationDO notificationDO, User user) {
+    Preconditions.checkNull(notificationDO.getNotificationId(), "NotificationId must be null");
+    Preconditions.checkNull(notificationDO.getVersion(), "NotificationDO version must be null");
+
+    Preconditions.checkNotNull(notificationDO, "NotificationDO must not be null");
+    Preconditions.checkNotNull(notificationDO.getNotificationChannel(), "NotificationDO channel must not be null");
+    Preconditions.checkNotNull(notificationDO.getNotifiedAtUtc(), "NotificationDO notifiedAt must not be null");
+
+    Preconditions.checkNotNull(waypointId, "WaypointId must not be null");
+    Preconditions.checkArgument(waypointId > 0, "WaypointId must be positive");
+
+    if (notificationDO.getWaypointId() != null) {
+      Preconditions.checkArgument(waypointId.equals(notificationDO.getWaypointId()),
+          String.format("WaypointId of the path '%s' and the NotificationDO waypointId '%s' are not identical",
+              waypointId, notificationDO.getWaypointId()));
+    }
+
+    var notificationEntity = NotificationMapper.toNotificationEntity.apply(notificationDO);
+
+    var persistedNotificationEntity = notificationLogic.create(notificationEntity, waypointId, user);
+
+    return NotificationMapper.toNotificationDO.apply(persistedNotificationEntity);
   }
 }

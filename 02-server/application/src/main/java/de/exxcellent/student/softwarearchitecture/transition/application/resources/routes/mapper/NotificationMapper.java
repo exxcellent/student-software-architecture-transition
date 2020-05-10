@@ -34,6 +34,7 @@ public final class NotificationMapper {
     var notificationTO = new NotificationTO();
 
     notificationTO.setNotificationId(notification.getNotificationId());
+    notificationTO.setWaypointId(notification.getWaypointId());
     notificationTO.setVersion(notification.getVersion());
     notificationTO.setChannel(NotificationMapper.toChannel.apply(notification.getNotificationChannel()));
     notificationTO.setNotifiedAt(notification.getNotifiedAtUtc().toString());
@@ -47,6 +48,7 @@ public final class NotificationMapper {
 
     notificationDO.setNotificationId(notification.getNotificationId());
     notificationDO.setVersion(notification.getVersion());
+    notificationDO.setWaypointId(notification.getWaypointId());
     notificationDO.setNotificationChannel(NotificationMapper.fromChannel.apply(notification.getChannel()));
     notificationDO.setNotifiedAtUtc(Instant.parse(notification.getNotifiedAt()));
     notificationDO.setArrivalIn(Duration.of(notification.getArrivalTimeInSeconds(), ChronoUnit.SECONDS));

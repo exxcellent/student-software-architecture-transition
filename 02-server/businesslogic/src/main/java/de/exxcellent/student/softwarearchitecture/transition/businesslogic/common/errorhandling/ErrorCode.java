@@ -41,6 +41,8 @@ public enum ErrorCode {
     JSON_SERIALIZATION_ERROR(ErrorCategory.TECHNICAL, "JSON_SERIALIZATION_ERROR"),
     JSON_PARSING_ERROR(ErrorCategory.TECHNICAL, "JSON_PARSING_ERROR"),
 
+    NOT_FOUND_ERROR(ErrorCategory.BUSINESS, "NOT_FOUND_ERROR"),
+
     UNDEFINED(ErrorCategory.UNDEFINED, "UNDEFINED");
 
     private final ErrorCategory errorCategory;

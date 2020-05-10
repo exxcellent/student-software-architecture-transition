@@ -1,5 +1,6 @@
 package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api;
 
+import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.data.User;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.common.BusinessComponent;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.notification.NotificationDO;
 
@@ -15,5 +16,7 @@ public interface NotificationComponent extends BusinessComponent {
 
   List<NotificationDO> findAllNotificationsByDateAndInspector(LocalDate date, Long inspectorId);
 
-  NotificationDO addNotificationToRoute(LocalDate date, Long inspectorId, NotificationDO notificationDO);
+  List<NotificationDO> findAllNotificationsByWaypointId(Long waypointId);
+
+  NotificationDO addNotificationToRoute(Long waypointId, NotificationDO notificationDO, User user);
 }

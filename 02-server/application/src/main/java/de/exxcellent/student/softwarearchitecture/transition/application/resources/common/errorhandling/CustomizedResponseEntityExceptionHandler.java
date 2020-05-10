@@ -46,6 +46,7 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
         HttpStatus errorStatus;
         switch (ex.getErrorCode()) {
             case ENTITY_NOT_FOUND_ERROR:
+            case NOT_FOUND_ERROR:
                 errorStatus = HttpStatus.NOT_FOUND;
                 break;
             case ENTITY_CONFLICT_ERROR:

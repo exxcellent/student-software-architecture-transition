@@ -59,6 +59,10 @@ public class RouteFacade implements RouteComponent {
 
     var waypoints = routeLogic.findAllByDateAndInspector(date, inspector);
 
+    if (waypoints == null || waypoints.isEmpty()) {
+      return null;
+    }
+
     return calculateRoutes(waypoints, calculationMode).get(0);
   }
 

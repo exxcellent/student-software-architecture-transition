@@ -1,5 +1,8 @@
 package de.exxcellent.student.softwarearchitecture.transition.application.resources.routes;
 
+import de.exxcellent.student.softwarearchitecture.transition.application.resources.common.user.CurrentUser;
+import de.exxcellent.student.softwarearchitecture.transition.application.resources.common.validation.RequestCondition;
+import de.exxcellent.student.softwarearchitecture.transition.application.resources.common.validation.ResponseCondition;
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.mapper.NotificationMapper;
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.mapper.RouteMapper;
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.types.notification.NotificationTO;
@@ -62,11 +65,14 @@ public class RoutesResourceV1 {
       produces = MediaType.APPLICATION_JSON_VALUE)
   public RouteCTO findByInspectorId(@PathVariable("date") String dateOfRoutes,
                                     @PathVariable("inspectorId") Long inspectorId,
-                                    @RequestParam(name = "mode", required = false) RouteCalculation routeCalculation) {
+                                    @RequestParam(name = "mode", required = false, defaultValue = "RANDOM") RouteCalculation routeCalculation) {
 
     var date = RouteMapper.toLocalDate.apply(dateOfRoutes);
     var mode = RouteMapper.toRouteCalculationMode.apply(routeCalculation);
     var route = routeComponent.findByDateAndInspector(date, inspectorId, mode);
+
+    ResponseCondition.checkNotNull(route, "No route found with date = '%s' and inspector = '%s'",
+        dateOfRoutes, inspectorId);
 
     return RouteMapper.toRouteCTO.apply(route);
   }
@@ -77,7 +83,7 @@ public class RoutesResourceV1 {
       produces = MediaType.APPLICATION_JSON_VALUE)
   public RouteWaypointsCTO findWayPointById(@PathVariable("date") String dateOfRoutes,
                                           @PathVariable("inspectorId") Long inspectorId,
-                                          @RequestParam(name = "mode", required = false) RouteCalculation routeCalculation) {
+                                          @RequestParam(name = "mode", required = false, defaultValue = "RANDOM") RouteCalculation routeCalculation) {
 
     var date = RouteMapper.toLocalDate.apply(dateOfRoutes);
     var mode = RouteMapper.toRouteCalculationMode.apply(routeCalculation);
@@ -106,6 +112,9 @@ public class RoutesResourceV1 {
 
     var date = RouteMapper.toLocalDate.apply(dateOfRoutes);
     var waypoint = routeComponent.findWaypoint(date, inspectorId, wayPointId);
+
+    ResponseCondition.checkNotNull(waypoint, "No waypoint found with date = '%s' and inspector = '%s'",
+        dateOfRoutes, inspectorId);
 
     return RouteMapper.toRouteWaypointTO.apply(waypoint);
   }
@@ -137,18 +146,32 @@ public class RoutesResourceV1 {
   }
 
   @RequestMapping(
+      method = RequestMethod.GET,
+      path = "{date}/inspectors/{inspectorId}/waypoints/{waypointId}/notifications",
+      produces = MediaType.APPLICATION_JSON_VALUE)
+  public NotificationsCTO findNotificationsByInspectorId(@PathVariable("date") String dateOfRoutes,
+                                                         @PathVariable("inspectorId") Long inspectorId,
+                                                         @PathVariable("waypointId") Long wayPointId) {
+
+    var notifications = notificationComponent.findAllNotificationsByWaypointId(wayPointId);
+
+    return NotificationMapper.toNotificationsCTO.apply(notifications);
+  }
+
+  @RequestMapping(
       method = RequestMethod.POST,
-      path = "{date}/inspectors/{inspectorId}/notifications",
+      path = "{date}/inspectors/{inspectorId}/waypoints/{waypointId}/notifications",
       consumes = MediaType.APPLICATION_JSON_VALUE,
       produces = MediaType.APPLICATION_JSON_VALUE)
   public NotificationTO createNotification(@PathVariable("date") String dateOfRoutes,
                                            @PathVariable("inspectorId") Long inspectorId,
+                                           @PathVariable("waypointId") Long wayPointId,
                                            @RequestBody() NotificationTO notificationTO) {
 
-    var date = RouteMapper.toLocalDate.apply(dateOfRoutes);
     var notificationDO = NotificationMapper.toNotificationDO.apply(notificationTO);
 
-    var notification = notificationComponent.addNotificationToRoute(date, inspectorId, notificationDO);
+    var notification = notificationComponent.addNotificationToRoute(wayPointId, notificationDO,
+        CurrentUser.getUser());
 
     return NotificationMapper.toNotificationTO.apply(notification);
   }

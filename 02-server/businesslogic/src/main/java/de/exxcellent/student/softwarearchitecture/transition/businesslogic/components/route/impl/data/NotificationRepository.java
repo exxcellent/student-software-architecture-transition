@@ -14,4 +14,6 @@ public interface NotificationRepository extends JpaRepository<NotificationEntity
       + "WHERE n.waypoint.date = :date AND n.waypoint.inspectorId = :inspectorId")
   List<NotificationEntity> findAllByDateAndInspectorId(@Param("date") LocalDate date,
                                                        @Param("inspectorId") Long inspectorId);
+
+  List<NotificationEntity> findAllByWaypointId(Long waypointId);
 }

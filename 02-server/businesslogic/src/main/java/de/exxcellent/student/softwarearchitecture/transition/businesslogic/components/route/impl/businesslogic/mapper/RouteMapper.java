@@ -17,6 +17,10 @@ public final class RouteMapper {
   private RouteMapper() {}
 
   public static final Function<WaypointEntity, WaypointDO> toWaypointDO = entity -> {
+    if (entity == null) {
+      return null;
+    }
+
     var waypointDO = new WaypointDO();
 
     waypointDO.setWaypointId(entity.getId());

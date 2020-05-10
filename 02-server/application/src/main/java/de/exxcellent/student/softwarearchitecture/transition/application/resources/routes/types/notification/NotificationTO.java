@@ -11,6 +11,7 @@ import de.exxcellent.student.softwarearchitecture.transition.application.resourc
 public class NotificationTO extends BusinessTO {
 
   private Long notificationId;
+  private Long waypointId;
   private NotificationChannel channel;
   private String notifiedAt;
   private Long arrivalTimeInSeconds;
@@ -24,6 +25,14 @@ public class NotificationTO extends BusinessTO {
 
   public void setNotificationId(Long notificationId) {
     this.notificationId = notificationId;
+  }
+
+  public Long getWaypointId() {
+    return waypointId;
+  }
+
+  public void setWaypointId(Long waypointId) {
+    this.waypointId = waypointId;
   }
 
   public NotificationChannel getChannel() {
