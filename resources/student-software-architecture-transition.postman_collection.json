@@ -687,7 +687,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:9000/v1/routes/2020-10-01/inspectors/1/waypoints",
+									"raw": "http://localhost:9000/v1/routes/2020-05-09/inspectors/1/waypoints?mode=random",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -696,10 +696,16 @@
 									"path": [
 										"v1",
 										"routes",
-										"2020-10-01",
+										"2020-05-09",
 										"inspectors",
 										"1",
 										"waypoints"
+									],
+									"query": [
+										{
+											"key": "mode",
+											"value": "random"
+										}
 									]
 								}
 							},
@@ -745,7 +751,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:9000/v1/routes/2020-10-01/inspectors/1/waypoints/1",
+									"raw": "http://localhost:9000/v1/routes/2020-05-09/inspectors/1/waypoints/2",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -754,11 +760,11 @@
 									"path": [
 										"v1",
 										"routes",
-										"2020-10-01",
+										"2020-05-09",
 										"inspectors",
 										"1",
 										"waypoints",
-										"1"
+										"2"
 									]
 								}
 							},
@@ -812,7 +818,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:9000/v1/routes/2020-10-01/inspectors/1/notifications",
+									"raw": "http://localhost:9000/v1/routes/2020-05-09/inspectors/2/notifications",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -821,9 +827,9 @@
 									"path": [
 										"v1",
 										"routes",
-										"2020-10-01",
+										"2020-05-09",
 										"inspectors",
-										"1",
+										"2",
 										"notifications"
 									]
 								}
@@ -831,13 +837,13 @@
 							"response": []
 						},
 						{
-							"name": "Create Route Notification",
+							"name": "Create Waypoint Notification",
 							"request": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\n}",
+									"raw": "{\n    \"channel\": \"SMS\",\n    \"notifiedAt\": \"2020-05-10T16:44:35.308Z\",\n    \"arrivalTimeInSeconds\": 12345\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -845,7 +851,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:9000/v1/routes/2020-10-01/inspectors/1/notifications",
+									"raw": "http://localhost:9000/v1/routes/2020-10-01/inspectors/1/waypoints/2/notifications",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -857,6 +863,34 @@
 										"2020-10-01",
 										"inspectors",
 										"1",
+										"waypoints",
+										"2",
+										"notifications"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find All Waypoint Notifications",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9000/v1/routes/2020-05-09/inspectors/2/waypoints/7/notifications",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9000",
+									"path": [
+										"v1",
+										"routes",
+										"2020-05-09",
+										"inspectors",
+										"2",
+										"waypoints",
+										"7",
 										"notifications"
 									]
 								}
@@ -919,7 +953,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:9000/v1/routes/2020-10-01",
+							"raw": "http://localhost:9000/v1/routes/2020-05-09",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -928,7 +962,7 @@
 							"path": [
 								"v1",
 								"routes",
-								"2020-10-01"
+								"2020-05-09"
 							]
 						}
 					},
@@ -940,7 +974,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:9000/v1/routes/2020-10-01?inspectors=1,2",
+							"raw": "http://localhost:9000/v1/routes/2020-05-09?inspectors=1,2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -949,7 +983,7 @@
 							"path": [
 								"v1",
 								"routes",
-								"2020-10-01"
+								"2020-05-09"
 							],
 							"query": [
 								{
@@ -967,7 +1001,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:9000/v1/routes/2020-10-01/inspectors/1",
+							"raw": "http://localhost:9000/v1/routes/2020-05-09/inspectors/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -976,7 +1010,7 @@
 							"path": [
 								"v1",
 								"routes",
-								"2020-10-01",
+								"2020-05-09",
 								"inspectors",
 								"1"
 							]
@@ -1017,6 +1051,49 @@
 			"protocolProfileBehavior": {}
 		},
 		{
+			"name": "external-system",
+			"item": [
+				{
+					"name": "Optimize Trip",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"departure_time\":\"2020-05-09T20:02:10.112143Z\",\"locations\":[{\"id\":2,\"_index\":0,\"lat\":48.1758,\"lng\":11.556489,\"duration\":0},{\"id\":3,\"_index\":1,\"lat\":48.174454,\"lng\":11.527382,\"duration\":0},{\"id\":4,\"_index\":2,\"lat\":48.15558,\"lng\":11.50577,\"duration\":0},{\"id\":5,\"_index\":3,\"lat\":48.149883,\"lng\":11.509006,\"duration\":0}]}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/optimize?mode=random",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"optimize"
+							],
+							"query": [
+								{
+									"key": "mode",
+									"value": "random"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
 			"name": "Authenticate yourself before using the API <===",
 			"event": [
 				{
@@ -1035,6 +1112,9 @@
 				}
 			],
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
