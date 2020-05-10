@@ -71,7 +71,6 @@ public class AppointmentsResourceV1 {
 
   @RequestMapping(
       method = RequestMethod.DELETE,
-      consumes = MediaType.APPLICATION_JSON_VALUE,
       produces = MediaType.TEXT_PLAIN_VALUE)
   public ResponseEntity<String> delete(@RequestBody AppointmentTO appointmentTO) {
     var locationDO = AppointmentMapper.toAppointmentDO.apply(appointmentTO);

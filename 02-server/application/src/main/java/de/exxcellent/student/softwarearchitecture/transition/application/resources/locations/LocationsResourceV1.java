@@ -78,7 +78,6 @@ public class LocationsResourceV1 implements BusinessResource {
 
   @RequestMapping(
       method = RequestMethod.DELETE,
-      consumes = MediaType.APPLICATION_JSON_VALUE,
       produces = MediaType.TEXT_PLAIN_VALUE)
   @RequiresPermission(Permission.DELETE_ALL)
   public ResponseEntity<String> delete(@RequestBody LocationTO locationTO) {
