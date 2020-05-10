@@ -17,4 +17,6 @@ public interface WaypointRepository extends JpaRepository<WaypointEntity, Long> 
   List<WaypointEntity> findAllByDateAndInspectorId(LocalDate date, Long inspectorId);
 
   List<WaypointEntity> findAllByInspectorIdIn(Set<Long> inspectorIds);
+
+  WaypointEntity findByDateAndInspectorIdAndId(LocalDate date, Long inspectorId, Long waypointId);
 }

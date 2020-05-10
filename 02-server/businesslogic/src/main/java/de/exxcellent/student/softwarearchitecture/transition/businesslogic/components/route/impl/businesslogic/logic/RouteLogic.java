@@ -3,6 +3,7 @@ package de.exxcellent.student.softwarearchitecture.transition.businesslogic.comp
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.businesslogic.CrudLogic;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.datetime.DateTimeUtil;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.RouteDO;
+import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.WaypointDO;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data.WaypointRepository;
 
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data.entities.WaypointEntity;
@@ -44,4 +45,8 @@ public class RouteLogic extends CrudLogic<WaypointEntity> {
       return waypointRepository.findAllByDateAndInspectorId(date, inspectorId);
    }
 
- }
+  public WaypointEntity findByDateAndInspectorAndWaypointId(LocalDate date, Long inspectorId, Long wayPointId) {
+    return waypointRepository.findByDateAndInspectorIdAndId(date, inspectorId, wayPointId);
+
+  }
+}

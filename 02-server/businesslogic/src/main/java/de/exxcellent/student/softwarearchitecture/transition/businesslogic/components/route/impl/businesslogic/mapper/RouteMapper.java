@@ -1,12 +1,10 @@
 package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.businesslogic.mapper;
 
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.RouteDO;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.WaypointCategory;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.WaypointDO;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.WaypointStatus;
+import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.*;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data.entities.Category;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data.entities.Status;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data.entities.WaypointEntity;
+import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.api.types.CalculationMode;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.api.types.LocationRequestDO;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.api.types.RouteCalculationDO;
 
@@ -80,6 +78,16 @@ public final class RouteMapper {
 
 
 
+
+  public static final Function<RouteCalculationMode, CalculationMode> toCalculationMode = mode -> {
+    switch (mode) {
+      case NORMAL: return CalculationMode.NORMAL;
+      case OPTIMAL: return CalculationMode.OPTIMAL;
+      case RANDOM:
+      default:
+        return CalculationMode.RANDOM;
+    }
+  };
 
   private static final Function<Category, WaypointCategory> toWaypointCategory = category -> {
     switch (category) {

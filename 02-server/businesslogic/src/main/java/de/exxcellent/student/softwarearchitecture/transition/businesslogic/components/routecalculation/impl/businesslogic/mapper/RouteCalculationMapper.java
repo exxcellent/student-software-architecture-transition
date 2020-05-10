@@ -1,12 +1,11 @@
 package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.impl.businesslogic.mapper;
 
+import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.RouteCalculationMode;
+import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.api.types.CalculationMode;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.api.types.LocationRequestDO;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.api.types.LocationResponseDO;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.api.types.RouteCalculationDO;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.impl.connector.types.LocationResponseTO;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.impl.connector.types.LocationTO;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.impl.connector.types.TripResponseTO;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.impl.connector.types.TripTO;
+import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.impl.connector.types.*;
 
 import java.time.Instant;
 import java.util.List;
@@ -67,5 +66,16 @@ public final class RouteCalculationMapper {
     locationDO.setTravelDuration((long) travelDuration);
 
     return locationDO;
+  };
+
+
+  public static final Function<CalculationMode, Mode> toMode = mode -> {
+    switch (mode) {
+      case NORMAL: return Mode.NONE;
+      case OPTIMAL: return Mode.BRUTE_FORCE;
+      case RANDOM:
+      default:
+        return Mode.RANDOM;
+    }
   };
 }

@@ -4,6 +4,7 @@ import de.exxcellent.student.softwarearchitecture.transition.businesslogic.commo
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.errorhandling.exception.BusinessException;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.errorhandling.exception.TechnicalException;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.json.JsonMapper;
+import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.impl.connector.types.Mode;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.impl.connector.types.TripResponseTO;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.impl.connector.types.TripTO;
 import kong.unirest.HttpRequestWithBody;
@@ -32,12 +33,12 @@ public class RouteCalculationConnector {
     this.tripResponseJsonMapper = new JsonMapper<>(TripResponseTO.class);
   }
 
-  public TripResponseTO calculateTrip(TripTO tripTO) {
+  public TripResponseTO calculateTrip(TripTO tripTO, Mode mode) {
     String payload = tripJsonMapper.toJson(tripTO);
     LOG.trace("Send request to {} with payload '{}'", ENDPOINT, payload);
 
     var response = POST(ENDPOINT)
-        .queryString("mode", "random")
+        .queryString("mode", mode.getValue())
         .body(payload)
         .asString();
 

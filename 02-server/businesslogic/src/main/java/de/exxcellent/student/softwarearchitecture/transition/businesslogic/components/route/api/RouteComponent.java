@@ -1,6 +1,8 @@
 package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api;
 
+import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.RouteCalculationMode;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.RouteDO;
+import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.WaypointDO;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -12,6 +14,7 @@ public interface RouteComponent {
 
   List<RouteDO> findAllByDate(LocalDate date, Set<Long> filterByInspectorIds);
 
-  RouteDO findAllByDateAndInspector(LocalDate date, Long inspector);
+  RouteDO findByDateAndInspector(LocalDate date, Long inspector, RouteCalculationMode calculationMode);
 
+  WaypointDO findWaypoint(LocalDate date, Long inspectorId, Long wayPointId);
 }

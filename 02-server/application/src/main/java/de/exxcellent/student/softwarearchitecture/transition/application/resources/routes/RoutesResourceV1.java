@@ -12,8 +12,6 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.Set;
 
 @RestController
 @CrossOrigin
@@ -63,7 +61,8 @@ public class RoutesResourceV1 {
                                     @RequestParam(name = "mode", required = false) RouteCalculation routeCalculation) {
 
     var date = RouteMapper.toLocalDate.apply(dateOfRoutes);
-    var route = routeComponent.findAllByDateAndInspector(date, inspectorId);
+    var mode = RouteMapper.toRouteCalculationMode.apply(routeCalculation);
+    var route = routeComponent.findByDateAndInspector(date, inspectorId, mode);
 
     return RouteMapper.toRouteCTO.apply(route);
   }
@@ -75,7 +74,12 @@ public class RoutesResourceV1 {
   public RouteWaypointsCTO findWayPointById(@PathVariable("date") String dateOfRoutes,
                                           @PathVariable("inspectorId") Long inspectorId,
                                           @RequestParam(name = "mode", required = false) RouteCalculation routeCalculation) {
-    return new RouteWaypointsCTO();
+
+    var date = RouteMapper.toLocalDate.apply(dateOfRoutes);
+    var mode = RouteMapper.toRouteCalculationMode.apply(routeCalculation);
+    var route = routeComponent.findByDateAndInspector(date, inspectorId, mode);
+
+    return RouteMapper.toRouteWaypointsCTO.apply(route);
   }
 
   @RequestMapping(
@@ -95,7 +99,11 @@ public class RoutesResourceV1 {
   public RouteWaypointTO findWayPointById(@PathVariable("date") String dateOfRoutes,
                                           @PathVariable("inspectorId") Long inspectorId,
                                           @PathVariable("wayPointId") Long wayPointId) {
-    return new RouteWaypointTO();
+
+    var date = RouteMapper.toLocalDate.apply(dateOfRoutes);
+    var waypoint = routeComponent.findWaypoint(date, inspectorId, wayPointId);
+
+    return RouteMapper.toRouteWaypointTO.apply(waypoint);
   }
 
   @RequestMapping(

@@ -2,10 +2,7 @@ package de.exxcellent.student.softwarearchitecture.transition.application.resour
 
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.processs.types.ProcessPriority;
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.types.route.*;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.RouteDO;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.WaypointCategory;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.WaypointDO;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.WaypointStatus;
+import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.*;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -37,9 +34,22 @@ public final class RouteMapper {
     routeCTO.setDate(route.getDate().format(DATE_FORMATTER));
     routeCTO.setTotalDurationInSeconds(route.getTotalDurationInSeconds().toSeconds());
     routeCTO.setTimeRemainingInSeconds(route.getTimeRemainingInSeconds().toSeconds());
-    routeCTO.setWaypoints(route.getWaypoints().stream().map(RouteMapper.toRouteWaypointTO).collect(Collectors.toList()));
+    routeCTO.setWaypoints(route.getWaypoints().stream()
+        .map(RouteMapper.toRouteWaypointTO)
+        .collect(Collectors.toList()));
 
     return routeCTO;
+  };
+
+
+  public static Function<RouteDO, RouteWaypointsCTO> toRouteWaypointsCTO = route -> {
+    var routeWaypointsCTO = new RouteWaypointsCTO();
+
+    routeWaypointsCTO.setWaypoints(route.getWaypoints().stream()
+        .map(RouteMapper.toRouteWaypointTO)
+        .collect(Collectors.toList()));
+
+    return routeWaypointsCTO;
   };
 
   public static Function<WaypointDO, RouteWaypointTO> toRouteWaypointTO = waypoint -> {
@@ -91,6 +101,16 @@ public final class RouteMapper {
     return inspectors.stream()
         .map(Long::valueOf)
         .collect(Collectors.toSet());
+  };
+
+  public static final Function<RouteCalculation, RouteCalculationMode> toRouteCalculationMode = mode -> {
+    switch (mode) {
+      case NORMAL: return RouteCalculationMode.NORMAL;
+      case OPTIMAL: return RouteCalculationMode.OPTIMAL;
+      case RANDOM:
+      default:
+        return RouteCalculationMode.RANDOM;
+    }
   };
 
   private static final Function<WaypointCategory, RouteWaypointCategory> toRouteWaypointCategory = category -> {
