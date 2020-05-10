@@ -2,13 +2,10 @@ package de.exxcellent.student.softwarearchitecture.transition.businesslogic.comp
 
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.businesslogic.CrudLogic;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.datetime.DateTimeUtil;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.RouteDO;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.WaypointDO;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data.WaypointRepository;
 
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data.entities.WaypointEntity;
+import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data.entities.waypoint.WaypointEntity;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;

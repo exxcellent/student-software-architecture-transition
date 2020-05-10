@@ -8,7 +8,7 @@ import de.exxcellent.student.softwarearchitecture.transition.application.resourc
  *
  * @author Andre Lehnert, eXXcellent solutions consulting and software gmbh
  */
-public class NotificationTO implements ReadOnlyTO {
+public class NotificationTO extends BusinessTO {
 
   private Long notificationId;
   private NotificationChannel channel;

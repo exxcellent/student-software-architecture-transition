@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types;
+package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.route;
 
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.types.BusinessDO;
 

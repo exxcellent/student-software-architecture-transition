@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data.entities;
+package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data.entities.waypoint;
 
 import com.vladmihalcea.hibernate.type.interval.PostgreSQLIntervalType;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.data.entities.CommonEntity;

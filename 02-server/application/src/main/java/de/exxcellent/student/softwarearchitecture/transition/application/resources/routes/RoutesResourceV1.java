@@ -1,9 +1,11 @@
 package de.exxcellent.student.softwarearchitecture.transition.application.resources.routes;
 
+import de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.mapper.NotificationMapper;
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.mapper.RouteMapper;
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.types.notification.NotificationTO;
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.types.notification.NotificationsCTO;
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.types.route.*;
+import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.NotificationComponent;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.RouteComponent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,10 +23,12 @@ public class RoutesResourceV1 {
   private static final Logger LOG = LoggerFactory.getLogger(RoutesResourceV1.class);
 
   private final RouteComponent routeComponent;
+  private final NotificationComponent notificationComponent;
 
   @Autowired
-  public RoutesResourceV1(RouteComponent routeComponent) {
+  public RoutesResourceV1(RouteComponent routeComponent, NotificationComponent notificationComponent) {
     this.routeComponent = routeComponent;
+    this.notificationComponent = notificationComponent;
   }
 
   @RequestMapping(
@@ -124,7 +128,12 @@ public class RoutesResourceV1 {
       produces = MediaType.APPLICATION_JSON_VALUE)
   public NotificationsCTO findNotificationsByInspectorId(@PathVariable("date") String dateOfRoutes,
                                                          @PathVariable("inspectorId") Long inspectorId) {
-    return new NotificationsCTO();
+
+    var date = RouteMapper.toLocalDate.apply(dateOfRoutes);
+
+    var notifications = notificationComponent.findAllNotificationsByDateAndInspector(date, inspectorId);
+
+    return NotificationMapper.toNotificationsCTO.apply(notifications);
   }
 
   @RequestMapping(
@@ -133,8 +142,15 @@ public class RoutesResourceV1 {
       consumes = MediaType.APPLICATION_JSON_VALUE,
       produces = MediaType.APPLICATION_JSON_VALUE)
   public NotificationTO createNotification(@PathVariable("date") String dateOfRoutes,
-                                           @PathVariable("inspectorId") Long inspectorId) {
-    return new NotificationTO();
+                                           @PathVariable("inspectorId") Long inspectorId,
+                                           @RequestBody() NotificationTO notificationTO) {
+
+    var date = RouteMapper.toLocalDate.apply(dateOfRoutes);
+    var notificationDO = NotificationMapper.toNotificationDO.apply(notificationTO);
+
+    var notification = notificationComponent.addNotificationToRoute(date, inspectorId, notificationDO);
+
+    return NotificationMapper.toNotificationTO.apply(notification);
   }
 
 }

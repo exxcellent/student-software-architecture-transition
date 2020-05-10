@@ -1,8 +1,8 @@
 package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api;
 
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.RouteCalculationMode;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.RouteDO;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.WaypointDO;
+import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.route.RouteCalculationMode;
+import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.route.RouteDO;
+import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.route.WaypointDO;
 
 import java.time.LocalDate;
 import java.util.List;

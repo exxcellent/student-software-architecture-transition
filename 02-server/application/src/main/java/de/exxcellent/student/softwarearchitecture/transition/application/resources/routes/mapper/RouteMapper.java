@@ -1,12 +1,10 @@
 package de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.mapper;
 
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.processs.types.ProcessPriority;
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.types.route.*;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.*;
+import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.route.*;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;

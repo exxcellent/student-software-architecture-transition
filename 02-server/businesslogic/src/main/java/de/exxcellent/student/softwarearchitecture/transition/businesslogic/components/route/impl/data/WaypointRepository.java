@@ -1,6 +1,6 @@
 package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data;
 
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data.entities.WaypointEntity;
+import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data.entities.waypoint.WaypointEntity;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
