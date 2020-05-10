@@ -46,8 +46,12 @@ public final class AppointmentMapper {
 
     appointmentTO.setDescription(appointmentDO.getDescription());
     appointmentTO.setFinished(appointmentDO.getFinished());
-    appointmentTO.setDate(appointmentDO.getDate().format(DATE_FORMATTER));
-    appointmentTO.setStartTime(appointmentDO.getStartTime().format(TIME_FORMATTER));
+    if (appointmentDO.getDate() != null) {
+      appointmentTO.setDate(appointmentDO.getDate().format(DATE_FORMATTER));
+    }
+    if (appointmentDO.getStartTime() != null) {
+      appointmentTO.setStartTime(appointmentDO.getStartTime().format(TIME_FORMATTER));
+    }
     appointmentTO.setDurationInSeconds(appointmentDO.getDurationInSeconds());
     appointmentTO.setTravelDurationInSeconds(appointmentDO.getTravelDurationInSeconds());
 

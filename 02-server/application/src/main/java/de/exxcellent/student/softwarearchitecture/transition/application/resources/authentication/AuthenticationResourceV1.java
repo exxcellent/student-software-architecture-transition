@@ -7,6 +7,9 @@ import de.exxcellent.student.softwarearchitecture.transition.application.springc
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.errorhandling.exception.BusinessException;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.user.api.UserComponent;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.errorhandling.ErrorCode;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +24,7 @@ import org.springframework.web.bind.annotation.*;
  *
  * @author Andre Lehnert, eXXcellent solutions consulting and software gmbh
  */
+@Tag(name = "Technical endpoints")
 @RestController
 @CrossOrigin
 @RequestMapping("v1/authenticate")
@@ -41,6 +45,7 @@ public class AuthenticationResourceV1 implements TechnicalResource {
   }
 
 
+  @Operation(summary = "Authenticate (generates the jwtAuth Token", description = "Username: 'ADMIN' oder 'USER' with password: 'thesis' ")
   @RequestMapping(
       method = RequestMethod.POST,
       produces = MediaType.APPLICATION_JSON_VALUE)

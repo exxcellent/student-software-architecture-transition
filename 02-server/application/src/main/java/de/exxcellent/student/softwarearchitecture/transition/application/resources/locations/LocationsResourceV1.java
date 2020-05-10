@@ -1,6 +1,7 @@
 package de.exxcellent.student.softwarearchitecture.transition.application.resources.locations;
 
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.common.BusinessResource;
+import de.exxcellent.student.softwarearchitecture.transition.application.resources.common.SecuredResource;
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.locations.mapper.LocationsMapper;
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.locations.types.LocationTO;
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.locations.types.LocationsCTO;
@@ -8,6 +9,9 @@ import de.exxcellent.student.softwarearchitecture.transition.application.springc
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.location.api.LocationComponent;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.user.api.types.Permission;
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.common.user.CurrentUser;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +25,11 @@ import org.springframework.web.bind.annotation.*;
  *
  * @author Andre Lehnert, eXXcellent solutions consulting and software gmbh
  */
+@Tag(name = "Planning")
 @RestController
 @CrossOrigin
 @RequestMapping("v1/locations")
-public class LocationsResourceV1 implements BusinessResource {
+public class LocationsResourceV1 extends SecuredResource implements BusinessResource {
 
   private static final Logger LOG = LoggerFactory.getLogger(LocationsResourceV1.class);
 
@@ -35,6 +40,8 @@ public class LocationsResourceV1 implements BusinessResource {
     this.locationComponent = locationComponent;
   }
 
+  @Operation(summary = "Find All Locations")
+  @SecurityRequirement(name = "jwtAuth")
   @RequestMapping(
       method = RequestMethod.GET,
       produces = MediaType.APPLICATION_JSON_VALUE)
@@ -44,6 +51,8 @@ public class LocationsResourceV1 implements BusinessResource {
     return LocationsMapper.toLocationsCTO.apply(locationList);
   }
 
+  @Operation(summary = "Find Location")
+  @SecurityRequirement(name = "jwtAuth")
   @RequestMapping(
       method = RequestMethod.GET,
       path = "{locationId}",
@@ -53,6 +62,8 @@ public class LocationsResourceV1 implements BusinessResource {
     return LocationsMapper.toLocationTO.apply(locationComponent.findById(locationId));
   }
 
+  @Operation(summary = "Create Location")
+  @SecurityRequirement(name = "jwtAuth")
   @RequestMapping(
       method = RequestMethod.POST,
       consumes = MediaType.APPLICATION_JSON_VALUE,
@@ -65,6 +76,8 @@ public class LocationsResourceV1 implements BusinessResource {
     return new ResponseEntity<>(response, HttpStatus.CREATED);
   }
 
+  @Operation(summary = "Update Location")
+  @SecurityRequirement(name = "jwtAuth")
   @RequestMapping(
       method = RequestMethod.PUT,
       consumes = MediaType.APPLICATION_JSON_VALUE,
@@ -76,6 +89,8 @@ public class LocationsResourceV1 implements BusinessResource {
     return LocationsMapper.toLocationTO.apply(updatedLocationDO);
   }
 
+  @Operation(summary = "Delete Location")
+  @SecurityRequirement(name = "jwtAuth")
   @RequestMapping(
       method = RequestMethod.DELETE,
       path = "{id}",

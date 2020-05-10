@@ -1,5 +1,7 @@
 package de.exxcellent.student.softwarearchitecture.transition.application.resources.inspectors;
 
+import de.exxcellent.student.softwarearchitecture.transition.application.resources.common.BusinessResource;
+import de.exxcellent.student.softwarearchitecture.transition.application.resources.common.SecuredResource;
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.inspectors.types.InspectorTO;
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.common.user.CurrentUser;
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.inspectors.mapper.InspectorsMapper;
@@ -7,6 +9,9 @@ import de.exxcellent.student.softwarearchitecture.transition.application.resourc
 import de.exxcellent.student.softwarearchitecture.transition.application.springconfiguration.permissions.RequiresPermission;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.inspector.api.InspectorComponent;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.user.api.types.Permission;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +25,11 @@ import org.springframework.web.bind.annotation.*;
  *
  * @author Andre Lehnert, eXXcellent solutions consulting and software gmbh
  */
+@Tag(name = "Planning")
 @RestController
 @CrossOrigin
 @RequestMapping("v1/inspectors")
-public class InspectorsResourceV1 {
+public class InspectorsResourceV1 extends SecuredResource implements BusinessResource {
 
   private static final Logger LOG = LoggerFactory.getLogger(InspectorsResourceV1.class);
 
@@ -34,6 +40,9 @@ public class InspectorsResourceV1 {
     this.inspectorComponent = inspectorComponent;
   }
 
+
+  @Operation(summary = "Find All Inspectors")
+  @SecurityRequirement(name = "jwtAuth")
   @RequestMapping(
       method = RequestMethod.GET,
       produces = MediaType.APPLICATION_JSON_VALUE)
@@ -43,6 +52,8 @@ public class InspectorsResourceV1 {
     return InspectorsMapper.toInspectorsCTO.apply(inspectorList);
   }
 
+  @Operation(summary = "Find Inspector")
+  @SecurityRequirement(name = "jwtAuth")
   @RequestMapping(
       method = RequestMethod.GET,
       path = "{inspectorId}",
@@ -52,6 +63,8 @@ public class InspectorsResourceV1 {
     return InspectorsMapper.toInspectorTO.apply(inspectorComponent.findById(inspectorId));
   }
 
+  @Operation(summary = "Create Inspector")
+  @SecurityRequirement(name = "jwtAuth")
   @RequestMapping(
       method = RequestMethod.POST,
       consumes = MediaType.APPLICATION_JSON_VALUE,
@@ -64,6 +77,8 @@ public class InspectorsResourceV1 {
     return new ResponseEntity<>(response, HttpStatus.CREATED);
   }
 
+  @Operation(summary = "Update Inspector")
+  @SecurityRequirement(name = "jwtAuth")
   @RequestMapping(
       method = RequestMethod.PUT,
       consumes = MediaType.APPLICATION_JSON_VALUE,
@@ -75,6 +90,8 @@ public class InspectorsResourceV1 {
     return InspectorsMapper.toInspectorTO.apply(updatedInspectorDO);
   }
 
+  @Operation(summary = "Delete Inspector")
+  @SecurityRequirement(name = "jwtAuth")
   @RequestMapping(
       method = RequestMethod.DELETE,
       path = "{id}",

@@ -1,10 +1,18 @@
 package de.exxcellent.student.softwarearchitecture.transition.application.resources.appointments;
 
+import de.exxcellent.student.softwarearchitecture.transition.application.resources.appointments.mapper.AppointmentMapper;
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.appointments.types.AppointmentTO;
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.appointments.types.AppointmentsCTO;
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.appointments.mapper.AppointmentMapper;
+import de.exxcellent.student.softwarearchitecture.transition.application.resources.common.BusinessResource;
+import de.exxcellent.student.softwarearchitecture.transition.application.resources.common.SecuredResource;
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.common.user.CurrentUser;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.appointment.api.AppointmentComponent;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.enums.SecuritySchemeIn;
+import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.security.SecurityScheme;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +26,11 @@ import org.springframework.web.bind.annotation.*;
  *
  * @author Andre Lehnert, eXXcellent solutions consulting and software gmbh
  */
+@Tag(name = "Planning")
 @RestController
 @CrossOrigin
 @RequestMapping("v1/appointments")
-public class AppointmentsResourceV1 {
+public class AppointmentsResourceV1 extends SecuredResource implements BusinessResource {
 
   private static final Logger LOG = LoggerFactory.getLogger(AppointmentsResourceV1.class);
 
@@ -32,6 +41,8 @@ public class AppointmentsResourceV1 {
     this.appointmentComponent = appointmentComponent;
   }
 
+  @Operation(summary = "Find All Appointments")
+  @SecurityRequirement(name = "jwtAuth")
   @RequestMapping(
       method = RequestMethod.GET,
       produces = MediaType.APPLICATION_JSON_VALUE)
@@ -40,6 +51,8 @@ public class AppointmentsResourceV1 {
     return AppointmentMapper.toAppointmentsCTO.apply(appointmentList);
   }
 
+  @Operation(summary = "Find All Appointments")
+  @SecurityRequirement(name = "jwtAuth")
   @RequestMapping(
       method = RequestMethod.GET,
       path = "{id}",
@@ -48,6 +61,8 @@ public class AppointmentsResourceV1 {
     return AppointmentMapper.toAppointmentTO.apply(appointmentComponent.findById(id));
   }
 
+  @Operation(summary = "Create new Appointment")
+  @SecurityRequirement(name = "jwtAuth")
   @RequestMapping(
       method = RequestMethod.POST,
       consumes = MediaType.APPLICATION_JSON_VALUE,
@@ -59,6 +74,8 @@ public class AppointmentsResourceV1 {
     return new ResponseEntity<>(response, HttpStatus.CREATED);
   }
 
+  @Operation(summary = "Update Appointment")
+  @SecurityRequirement(name = "jwtAuth")
   @RequestMapping(
       method = RequestMethod.PUT,
       consumes = MediaType.APPLICATION_JSON_VALUE,
@@ -69,6 +86,8 @@ public class AppointmentsResourceV1 {
     return AppointmentMapper.toAppointmentTO.apply(updatedAppointmentDO);
   }
 
+  @Operation(summary = "Delete Appointment")
+  @SecurityRequirement(name = "jwtAuth")
   @RequestMapping(
       method = RequestMethod.DELETE,
       path = "{id}",

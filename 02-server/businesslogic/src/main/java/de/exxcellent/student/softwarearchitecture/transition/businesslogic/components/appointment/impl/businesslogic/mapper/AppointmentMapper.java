@@ -27,8 +27,13 @@ public final class AppointmentMapper {
 
     appointmentDO.setDate(entity.getDate());
     appointmentDO.setStartTime(entity.getStartTime());
-    appointmentDO.setDurationInSeconds(entity.getAppointmentDuration().toSeconds());
-    appointmentDO.setTravelDurationInSeconds(entity.getTravelDuration().toSeconds());
+
+    if (entity.getAppointmentDuration() != null) {
+      appointmentDO.setDurationInSeconds(entity.getAppointmentDuration().toSeconds());
+    }
+    if (entity.getTravelDuration() != null) {
+      appointmentDO.setTravelDurationInSeconds(entity.getTravelDuration().toSeconds());
+    }
 
     appointmentDO.setProcessId(entity.getProcessId());
 

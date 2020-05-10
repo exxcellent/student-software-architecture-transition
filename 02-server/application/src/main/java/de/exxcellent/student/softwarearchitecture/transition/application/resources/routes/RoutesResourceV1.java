@@ -10,6 +10,12 @@ import de.exxcellent.student.softwarearchitecture.transition.application.resourc
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.types.route.*;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.NotificationComponent;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.RouteComponent;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.enums.SecuritySchemeIn;
+import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.security.SecurityScheme;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +24,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Tag(name = "Navigation")
+@SecurityScheme(name = "jwtAuth",
+    type = SecuritySchemeType.HTTP,
+    in = SecuritySchemeIn.HEADER,
+    scheme = "bearer")
 @RestController
 @CrossOrigin
 @RequestMapping("v1/routes")
@@ -34,6 +45,8 @@ public class RoutesResourceV1 {
     this.notificationComponent = notificationComponent;
   }
 
+  @Operation(summary = "Find All Routes")
+  @SecurityRequirement(name = "jwtAuth")
   @RequestMapping(
       method = RequestMethod.GET,
       produces = MediaType.APPLICATION_JSON_VALUE)
@@ -45,6 +58,8 @@ public class RoutesResourceV1 {
     return RouteMapper.toRoutesCTO.apply(routes);
   }
 
+  @Operation(summary = "Find All Routes of a Day")
+  @SecurityRequirement(name = "jwtAuth")
   @RequestMapping(
       method = RequestMethod.GET,
       path = "{date}",
@@ -59,6 +74,8 @@ public class RoutesResourceV1 {
     return RouteMapper.toRoutesCTO.apply(routes);
   }
 
+  @Operation(summary = "Find All Routes of a Day and Inspector")
+  @SecurityRequirement(name = "jwtAuth")
   @RequestMapping(
       method = RequestMethod.GET,
       path = "{date}/inspectors/{inspectorId}",
@@ -77,6 +94,8 @@ public class RoutesResourceV1 {
     return RouteMapper.toRouteCTO.apply(route);
   }
 
+  @Operation(summary = "Find All Waypoints of a Day and Inspector")
+  @SecurityRequirement(name = "jwtAuth")
   @RequestMapping(
       method = RequestMethod.GET,
       path = "{date}/inspectors/{inspectorId}/waypoints",
@@ -92,6 +111,8 @@ public class RoutesResourceV1 {
     return RouteMapper.toRouteWaypointsCTO.apply(route);
   }
 
+  @Operation(summary = "Find Waypoint")
+  @SecurityRequirement(name = "jwtAuth")
   @RequestMapping(
       method = RequestMethod.GET,
       path = "{date}/inspectors/{inspectorId}/waypoints/{wayPointId}",
@@ -109,6 +130,8 @@ public class RoutesResourceV1 {
     return RouteMapper.toRouteWaypointTO.apply(waypoint);
   }
 
+  @Operation(summary = "Update Waypoint")
+  @SecurityRequirement(name = "jwtAuth")
   @RequestMapping(
       method = RequestMethod.PUT,
       path = "{date}/inspectors/{inspectorId}/waypoints/{wayPointId}",
@@ -126,6 +149,8 @@ public class RoutesResourceV1 {
     return RouteMapper.toRouteWaypointTO.apply(updatedWaypoint);
   }
 
+  @Operation(summary = "Find All Notifications of a Route")
+  @SecurityRequirement(name = "jwtAuth")
   @RequestMapping(
       method = RequestMethod.GET,
       path = "{date}/inspectors/{inspectorId}/notifications",
@@ -140,6 +165,8 @@ public class RoutesResourceV1 {
     return NotificationMapper.toNotificationsCTO.apply(notifications);
   }
 
+  @Operation(summary = "Find All Notifications of a Waypoint")
+  @SecurityRequirement(name = "jwtAuth")
   @RequestMapping(
       method = RequestMethod.GET,
       path = "{date}/inspectors/{inspectorId}/waypoints/{waypointId}/notifications",
@@ -153,6 +180,8 @@ public class RoutesResourceV1 {
     return NotificationMapper.toNotificationsCTO.apply(notifications);
   }
 
+  @Operation(summary = "Create a new Notification for a Waypoint")
+  @SecurityRequirement(name = "jwtAuth")
   @RequestMapping(
       method = RequestMethod.POST,
       path = "{date}/inspectors/{inspectorId}/waypoints/{waypointId}/notifications",
