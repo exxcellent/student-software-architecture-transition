@@ -221,6 +221,26 @@ Führe `sh ./startServer.sh` aus, um den Spring Boot Server zu starten.
 Der Server läuft unter `http://localhost:9000/`
 
 Zum Zugriff auf die API existiert eine [Postman Collection](./resources/student-software-architecture-transition.postman_collection.json).
+Als Alternative kann die API auch direkt über die [Swagger UI](`http://localhost:9000/swagger-ui/index.html`) bedient werden.
+Bei Explore folgenden Link eingeben: `/api-docs`.
+
+#### Schichtenarchitektur
+
+Hier ein paar generierte Diagramme zur Bausteinsicht. 
+
+Modul-Übersicht
+![Module](./resources/module-overview.png "Module")
+
+Komponenten-Diagramm für _Appointment (Termin)_ und die Sub-Domäne "Navigation" mit ihrer _Route_ Komponente
+![Komponenten](./resources/component-overview.png "Komponenten")
+
+Innensicht für Appointment mit den Bestandteilen aus jeder Schicht innerhalb der Komponente
+![Komponentensicht](./resources/component-appointment-details.png "Komponentensicht Appointment")
+
+für folgende Package-Struktur:
+
+![Appointment](./resources/component-appointment-details-files.png "Appointment")
+
 
 
 Siehe:
