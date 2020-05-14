@@ -1,0 +1,27 @@
+@startuml
+ skinparam componentStyle uml2
+
+package "system: Thesis" { 
+package "subsystem: default_subsystem" { 
+package "service: software-architecture-transition-project" { 
+package "module: businesslogic" { 
+["d.e.s.s.t.businesslogic.components.route"] 
+["d.e.s.s.t.businesslogic.components.routecalculation"] 
+["d.e.s.s.t.businesslogic.components.appointment"]
+}
+
+package "module: application" { 
+["d.e.s.s.t.application.resources.appointments"] 
+["d.e.s.s.t.application.resources.routes"] 
+}
+
+}
+
+}
+
+}
+
+["d.e.s.s.t.businesslogic.components.route"] ..> ["d.e.s.s.t.businesslogic.components.routecalculation"] : <<use>> 
+["d.e.s.s.t.application.resources.appointments"] ..> ["d.e.s.s.t.businesslogic.components.appointment"] : <<use>>
+["d.e.s.s.t.application.resources.routes"] ..> ["d.e.s.s.t.businesslogic.components.route"] : <<use>> 
+@enduml

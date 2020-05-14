@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" contentScriptType="application/ecmascript" contentStyleType="text/css"
+     height="603px" preserveAspectRatio="none" style="width:991px;height:603px;" version="1.1" viewBox="0 0 991 603"
+     width="991px" zoomAndPan="magnify"><defs><filter height="300%" id="fscpafx65wyy9" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[9c750bf3661f1b0dae68bef6e9c8aa44]
+cluster system: Thesis--><polygon fill="#FFFFFF" filter="url(#fscpafx65wyy9)" points="22,24,151,24,158,46.2969,969,46.2969,969,591,22,591,22,24" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="22" x2="158" y1="46.2969" y2="46.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="123" x="26" y="38.9951">system: Thesis</text><!--MD5=[04f418592a66e4bbbe5793cf7dace520]
+cluster subsystem: default_subsystem--><polygon fill="#FFFFFF" filter="url(#fscpafx65wyy9)" points="46,67,305,67,312,89.2969,945,89.2969,945,567,46,567,46,67" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="46" x2="312" y1="89.2969" y2="89.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="253" x="50" y="81.9951">subsystem: default_subsystem</text><!--MD5=[f06605bceeca57fc87938ab9949f7b4e]
+cluster service: software-architecture-transition-project--><polygon fill="#FFFFFF" filter="url(#fscpafx65wyy9)" points="70,110,476,110,483,132.2969,921,132.2969,921,543,70,543,70,110" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="70" x2="483" y1="132.2969" y2="132.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="400" x="74" y="124.9951">service: software-architecture-transition-project</text><!--MD5=[89bf149bf103d431bd8249f43ad8c1ac]
+cluster module: businesslogic--><polygon fill="#FFFFFF" filter="url(#fscpafx65wyy9)" points="94,299,280,299,287,321.2969,897,321.2969,897,519,94,519,94,299" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="94" x2="287" y1="321.2969" y2="321.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="180" x="98" y="313.9951">module: businesslogic</text><!--MD5=[8934b708d825e7d8234a039e48c8016b]
+cluster module: application--><polygon fill="#FFFFFF" filter="url(#fscpafx65wyy9)" points="126,153,294,153,301,175.2969,871,175.2969,871,250,126,250,126,153" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="126" x2="301" y1="175.2969" y2="175.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="162" x="130" y="167.9951">module: application</text><!--MD5=[0963c7b478c25884d46de290a9fc9cc7]
+entity "d.e.s.s.t.businesslogic.components.route"--><rect fill="#FEFECE" filter="url(#fscpafx65wyy9)" height="46.2969" style="stroke: #A80036; stroke-width: 1.5;" width="339" x="541.5" y="334"/><rect fill="#FEFECE" height="10" style="stroke: #A80036; stroke-width: 1.5;" width="15" x="860.5" y="339"/><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="858.5" y="341"/><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="858.5" y="345"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="299" x="556.5" y="366.9951">d.e.s.s.t.businesslogic.components.route</text><!--MD5=[7cc3b7c49baa01de10255c3cb9601290]
+entity "d.e.s.s.t.businesslogic.components.routecalculation"--><rect fill="#FEFECE" filter="url(#fscpafx65wyy9)" height="46.2969" style="stroke: #A80036; stroke-width: 1.5;" width="416" x="465" y="457"/><rect fill="#FEFECE" height="10" style="stroke: #A80036; stroke-width: 1.5;" width="15" x="861" y="462"/><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="859" y="464"/><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="859" y="468"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="376" x="480" y="489.9951">d.e.s.s.t.businesslogic.components.routecalculation</text><!--MD5=[206ea4dc4ea13ddbe7ab176f49dbfe8f]
+entity "d.e.s.s.t.businesslogic.components.appointment"--><rect fill="#FEFECE" filter="url(#fscpafx65wyy9)" height="46.2969" style="stroke: #A80036; stroke-width: 1.5;" width="396" x="110" y="334"/><rect fill="#FEFECE" height="10" style="stroke: #A80036; stroke-width: 1.5;" width="15" x="486" y="339"/><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="484" y="341"/><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="484" y="345"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="356" x="125" y="366.9951">d.e.s.s.t.businesslogic.components.appointment</text><!--MD5=[ef05f3b6a4d4243194de2df7b253acd0]
+entity "d.e.s.s.t.application.resources.appointments"--><rect fill="#FEFECE" filter="url(#fscpafx65wyy9)" height="46.2969" style="stroke: #A80036; stroke-width: 1.5;" width="367" x="142.5" y="188"/><rect fill="#FEFECE" height="10" style="stroke: #A80036; stroke-width: 1.5;" width="15" x="489.5" y="193"/><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="487.5" y="195"/><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="487.5" y="199"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="327" x="157.5" y="220.9951">d.e.s.s.t.application.resources.appointments</text><!--MD5=[b01455ccb72e81f3a229938fdba8e6c5]
+entity "d.e.s.s.t.application.resources.routes"--><rect fill="#FEFECE" filter="url(#fscpafx65wyy9)" height="46.2969" style="stroke: #A80036; stroke-width: 1.5;" width="310" x="545" y="188"/><rect fill="#FEFECE" height="10" style="stroke: #A80036; stroke-width: 1.5;" width="15" x="835" y="193"/><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="833" y="195"/><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="833" y="199"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="270" x="560" y="220.9951">d.e.s.s.t.application.resources.routes</text><!--MD5=[ecc113ccb8971f9e28aa4c4c020fd3c7]
+link "d.e.s.s.t.businesslogic.components.route" to "d.e.s.s.t.businesslogic.components.routecalculation"--><path d="M704.03,380.193 C697.683,400.405 688.292,430.307 681.505,451.919 " fill="none" id="&quot;d.e.s.s.t.businesslogic.components.route&quot;-&gt;&quot;d.e.s.s.t.businesslogic.components.routecalculation&quot;" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="679.926,456.947,686.4376,449.5579,681.4233,452.1765,678.8047,447.1622,679.926,456.947" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="39" x="695" y="423.0669">«use»</text><!--MD5=[dfada748a284e4cca5b9a5a98221f7c0]
+link "d.e.s.s.t.application.resources.appointments" to "d.e.s.s.t.businesslogic.components.appointment"--><path d="M323.227,234.184 C320.065,259.479 314.892,300.864 311.467,328.268 " fill="none" id="&quot;d.e.s.s.t.application.resources.appointments&quot;-&gt;&quot;d.e.s.s.t.businesslogic.components.appointment&quot;" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="310.806,333.553,315.8911,325.1185,311.426,328.5916,307.9529,324.1265,310.806,333.553" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="39" x="320" y="279.0669">«use»</text><!--MD5=[0942317174c27cad5a92a3b025a1ab9f]
+link "d.e.s.s.t.application.resources.routes" to "d.e.s.s.t.businesslogic.components.route"--><path d="M701.695,234.184 C703.627,259.479 706.788,300.864 708.882,328.268 " fill="none" id="&quot;d.e.s.s.t.application.resources.routes&quot;-&gt;&quot;d.e.s.s.t.businesslogic.components.route&quot;" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="709.285,333.553,712.5868,324.2741,708.9036,328.5676,704.6101,324.8843,709.285,333.553" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="39" x="706" y="279.0669">«use»</text><!--MD5=[6bba5a1836f9c65e9904381c3018395f]
+@startuml
+skinparam componentStyle uml2
+
+package "system: Thesis" { 
+package "subsystem: default_subsystem" { 
+package "service: software-architecture-transition-project" { 
+package "module: businesslogic" { 
+["d.e.s.s.t.businesslogic.components.route"] 
+["d.e.s.s.t.businesslogic.components.routecalculation"] 
+["d.e.s.s.t.businesslogic.components.appointment"]
+}
+
+package "module: application" { 
+["d.e.s.s.t.application.resources.appointments"] 
+["d.e.s.s.t.application.resources.routes"] 
+}
+
+}
+}
+}
+
+["d.e.s.s.t.businesslogic.components.route"] ..> ["d.e.s.s.t.businesslogic.components.routecalculation"] : <<use>> 
+["d.e.s.s.t.application.resources.appointments"] ..> ["d.e.s.s.t.businesslogic.components.appointment"] : <<use>> 
+["d.e.s.s.t.application.resources.routes"] ..> ["d.e.s.s.t.businesslogic.components.route"] : <<use>>
+@enduml
+
+PlantUML version 1.2020.09(Sun May 10 10:51:06 UTC 2020)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 14.0.1+7
+Operating System: Linux
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

@@ -1,0 +1,67 @@
+@startuml
+ skinparam componentStyle uml2
+
+package "system: Thesis" { 
+package "service: software-architecture-transition-project" {
+
+
+
+
+package "module: businesslogic" {
+package "component: appointment" {
+package "layer: access" {
+["d.e.s.s.t.businesslogic.components.appointment.api"]
+["d.e.s.s.t.businesslogic.components.appointment.api.types"]
+["d.e.s.s.t.businesslogic.components.appointment.impl.businesslogic"]
+["d.e.s.s.t.businesslogic.components.appointment.impl.businesslogic.mapper"]
+
+}
+
+package "layer: businesslogic" {
+["d.e.s.s.t.businesslogic.components.appointment.impl.businesslogic.logic"]
+
+}
+
+package "layer: data access" {
+["d.e.s.s.t.businesslogic.components.appointment.impl.data"]
+["d.e.s.s.t.businesslogic.components.appointment.impl.data.entities"]
+
+}
+
+}
+}
+
+
+package "module: application" {
+package "component: appointments" {
+package "layer: access (REST)" {
+["d.e.s.s.t.application.resources.appointments.types"]
+["d.e.s.s.t.application.resources.appointments"]
+["d.e.s.s.t.application.resources.appointments.mapper"]
+
+}
+}
+}
+
+
+}
+}
+
+
+
+["d.e.s.s.t.businesslogic.components.appointment.impl.businesslogic.logic"] ..> ["d.e.s.s.t.businesslogic.components.appointment.impl.data.entities"] : <<use>> 
+["d.e.s.s.t.businesslogic.components.appointment.impl.businesslogic.logic"] ..> ["d.e.s.s.t.businesslogic.components.appointment.impl.data"] : <<use>> 
+["d.e.s.s.t.businesslogic.components.appointment.api"] ..> ["d.e.s.s.t.businesslogic.components.appointment.api.types"] : <<use>> 
+["d.e.s.s.t.businesslogic.components.appointment.impl.businesslogic"] ..> ["d.e.s.s.t.businesslogic.components.appointment.api.types"] : <<use>> 
+["d.e.s.s.t.businesslogic.components.appointment.impl.businesslogic"] ..> ["d.e.s.s.t.businesslogic.components.appointment.api"] : <<use>> 
+["d.e.s.s.t.businesslogic.components.appointment.impl.businesslogic"] ..> ["d.e.s.s.t.businesslogic.components.appointment.impl.businesslogic.logic"] : <<use>> 
+["d.e.s.s.t.businesslogic.components.appointment.impl.businesslogic"] ..> ["d.e.s.s.t.businesslogic.components.appointment.impl.businesslogic.mapper"] : <<use>> 
+["d.e.s.s.t.businesslogic.components.appointment.impl.businesslogic.mapper"] ..> ["d.e.s.s.t.businesslogic.components.appointment.impl.data.entities"] : <<use>> 
+["d.e.s.s.t.businesslogic.components.appointment.impl.businesslogic.mapper"] ..> ["d.e.s.s.t.businesslogic.components.appointment.api.types"] : <<use>> 
+["d.e.s.s.t.businesslogic.components.appointment.impl.data"] ..> ["d.e.s.s.t.businesslogic.components.appointment.impl.data.entities"] : <<use>> 
+["d.e.s.s.t.application.resources.appointments"] ..> ["d.e.s.s.t.businesslogic.components.appointment.api"] : <<use>> 
+["d.e.s.s.t.application.resources.appointments"] ..> ["d.e.s.s.t.application.resources.appointments.types"] : <<use>> 
+["d.e.s.s.t.application.resources.appointments"] ..> ["d.e.s.s.t.application.resources.appointments.mapper"] : <<use>> 
+["d.e.s.s.t.application.resources.appointments.mapper"] ..> ["d.e.s.s.t.businesslogic.components.appointment.api.types"] : <<use>> 
+["d.e.s.s.t.application.resources.appointments.mapper"] ..> ["d.e.s.s.t.application.resources.appointments.types"] : <<use>> 
+@enduml

@@ -1,0 +1,16 @@
+@startuml
+ skinparam componentStyle uml2
+
+package "system: Thesis" { 
+package "subsystem: default_subsystem" { 
+package "service: software-architecture-transition-project" { 
+["businesslogic"]
+["application"]
+}
+
+}
+
+}
+
+["application"] ..> ["businesslogic"] : <<use>> 
+@enduml
