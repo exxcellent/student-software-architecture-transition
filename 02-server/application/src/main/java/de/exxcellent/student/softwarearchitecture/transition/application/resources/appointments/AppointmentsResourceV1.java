@@ -8,10 +8,7 @@ import de.exxcellent.student.softwarearchitecture.transition.application.resourc
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.common.user.CurrentUser;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.appointment.api.AppointmentComponent;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.enums.SecuritySchemeIn;
-import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
-import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

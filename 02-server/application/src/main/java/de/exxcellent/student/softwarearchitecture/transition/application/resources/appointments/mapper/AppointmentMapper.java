@@ -1,18 +1,14 @@
 package de.exxcellent.student.softwarearchitecture.transition.application.resources.appointments.mapper;
 
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.processs.types.ProcessPriority;
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.appointments.types.AppointmentTO;
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.processs.types.ProcessType;
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.appointments.types.AppointmentsCTO;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.appointment.api.types.AppointmentDO;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.process.api.types.Priority;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.process.api.types.Type;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.function.Function;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**

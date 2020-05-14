@@ -1,13 +1,15 @@
 package de.exxcellent.student.softwarearchitecture.transition.application.resources.routes;
 
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.common.user.CurrentUser;
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.common.validation.RequestCondition;
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.common.validation.ResponseCondition;
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.mapper.NotificationMapper;
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.mapper.RouteMapper;
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.types.notification.NotificationTO;
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.types.notification.NotificationsCTO;
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.types.route.*;
+import de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.types.route.RouteCTO;
+import de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.types.route.RouteCalculation;
+import de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.types.route.RouteWaypointTO;
+import de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.types.route.RoutesCTO;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.NotificationComponent;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.RouteComponent;
 import io.swagger.v3.oas.annotations.Operation;
@@ -92,23 +94,6 @@ public class RoutesResourceV1 {
         dateOfRoutes, inspectorId);
 
     return RouteMapper.toRouteCTO.apply(route);
-  }
-
-  @Operation(summary = "Find All Waypoints of a Day and Inspector")
-  @SecurityRequirement(name = "jwtAuth")
-  @RequestMapping(
-      method = RequestMethod.GET,
-      path = "{date}/inspectors/{inspectorId}/waypoints",
-      produces = MediaType.APPLICATION_JSON_VALUE)
-  public RouteWaypointsCTO findWayPointById(@PathVariable("date") String dateOfRoutes,
-                                          @PathVariable("inspectorId") Long inspectorId,
-                                          @RequestParam(name = "mode", required = false, defaultValue = "RANDOM") RouteCalculation routeCalculation) {
-
-    var date = RouteMapper.toLocalDate.apply(dateOfRoutes);
-    var mode = RouteMapper.toRouteCalculationMode.apply(routeCalculation);
-    var route = routeComponent.findByDateAndInspector(date, inspectorId, mode);
-
-    return RouteMapper.toRouteWaypointsCTO.apply(route);
   }
 
   @Operation(summary = "Find Waypoint")
