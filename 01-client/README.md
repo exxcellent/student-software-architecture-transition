@@ -29,3 +29,9 @@ $ ng add @nrwl/angular
 
 $ ng g @nrwl/angular:app route-planning --prefix r --skip-tests --style css --inline-style --inline-template --routing --enable-ivy --defaults
 ```
+
+_Hinweis: Die E2E-Tests befinden sich im Branch `feature/e2e-tests`_
+
+### Entwicklungsmodus starten
+
+```$ ng serve -o```
