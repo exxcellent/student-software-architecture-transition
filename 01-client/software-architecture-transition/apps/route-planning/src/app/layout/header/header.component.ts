@@ -1,10 +1,12 @@
 import {Component, OnInit} from '@angular/core';
+import {CommonComponent} from '../../modules/shared-ui-components';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'r-header',
   template: `
     <div class="top-bar shadow-bottom-small">
-      <h1 class="title"><i class="material-icons">near_me</i> Routenplaner</h1>
+        <h1 class="title"><i class="material-icons">near_me</i> Routenplaner</h1>
     </div>
   `,
   styles: [
@@ -26,13 +28,17 @@ import {Component, OnInit} from '@angular/core';
 
       .title {
         font-size: 1.3rem;
+        user-focus: none;
+        cursor: default;
       }
     `
   ],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent extends CommonComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) {
+    super(route);
+  }
 
   ngOnInit(): void {
   }

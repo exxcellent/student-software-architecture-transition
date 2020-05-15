@@ -29,7 +29,7 @@ import {NavigationGuard} from './guards/navigation.guard';
           { path: 'map', component: NavigationMapComponent },
           { path: 'waypoints', component: NavigationWaypointsComponent },
           { path: '', redirectTo: 'map', pathMatch: 'full'}
-        ]
+        ],
       },
       {
         path: 'navigation',

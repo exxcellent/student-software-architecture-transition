@@ -26,9 +26,21 @@ export class NavigationGuard implements CanActivate, CanActivateChild, CanLoad {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-    if (state.url.indexOf('footer:') === -1) {
+    log('State: '+ state.url);
+
+    if (state.url.indexOf('footer:') === -1 &&  state.url.indexOf('mode=mobile') > -1) {
       log('Add footer outlet to route');
-      this.router.navigate([{outlets: {primary: ['navigation'], footer: ['navigation']}}]);
+      let targetPath = 'navigation';
+
+      this.router.navigate([
+          {
+            outlets: {
+              primary: [ 'navigation' ],
+              footer: ['navigation']
+            }
+          }
+        ],
+        { queryParams: { mode: 'mobile'}, queryParamsHandling: 'merge' });
     }
 
     return true;
