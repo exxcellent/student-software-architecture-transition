@@ -1,4 +1,4 @@
-# Software Architecture Transition Example
+# Software Architecture Transition Referenz Projekt - Server
 
 > Hauptklasse: `de.exxcellent.student.softwarearchitecture.transition.Application`
 
