@@ -1,6 +1,126 @@
 {
   "version": 1,
-  "projects": {},
+  "projects": {
+    "route-planning": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@nrwl/angular:class": {
+          "skipTests": true
+        },
+        "@nrwl/angular:component": {
+          "inlineTemplate": true,
+          "inlineStyle": true,
+          "skipTests": true
+        },
+        "@nrwl/angular:directive": {
+          "skipTests": true
+        },
+        "@nrwl/angular:guard": {
+          "skipTests": true
+        },
+        "@nrwl/angular:module": {
+          "skipTests": true
+        },
+        "@nrwl/angular:pipe": {
+          "skipTests": true
+        },
+        "@nrwl/angular:service": {
+          "skipTests": true
+        }
+      },
+      "root": "apps/route-planning",
+      "sourceRoot": "apps/route-planning/src",
+      "prefix": "r",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/route-planning",
+            "index": "apps/route-planning/src/index.html",
+            "main": "apps/route-planning/src/main.ts",
+            "polyfills": "apps/route-planning/src/polyfills.ts",
+            "tsConfig": "apps/route-planning/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/route-planning/src/favicon.ico",
+              "apps/route-planning/src/assets"
+            ],
+            "styles": ["apps/route-planning/src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/route-planning/src/environments/environment.ts",
+                  "with": "apps/route-planning/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "route-planning:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "route-planning:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "route-planning:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/route-planning/tsconfig.app.json",
+              "apps/route-planning/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/route-planning/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/route-planning/jest.config.js",
+            "tsConfig": "apps/route-planning/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/route-planning/src/test-setup.ts"
+          }
+        }
+      }
+    }
+  },
   "cli": {
     "defaultCollection": "@nrwl/angular"
   },
@@ -12,5 +132,6 @@
     "@nrwl/angular:library": {
       "unitTestRunner": "jest"
     }
-  }
+  },
+  "defaultProject": "route-planning"
 }

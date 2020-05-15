@@ -27,5 +27,5 @@ $ ng add @nrwl/angular
 ? Which Unit Test Runner would you like to use for the application?     Jest        [ https://jestjs.io ]
 ? Which E2E Test Runner would you like to use?                          Cypress     [ https://www.cypress.io ]
 
-$ 
+$ ng g @nrwl/angular:app route-planning --prefix r --skip-tests --style css --inline-style --inline-template --routing --enable-ivy --defaults
 ```
