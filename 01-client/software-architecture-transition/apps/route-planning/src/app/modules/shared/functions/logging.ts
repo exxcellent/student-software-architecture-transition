@@ -1,4 +1,4 @@
-import {environment} from '@environment';
+import {environment} from '../../../../environments/environment';
 
 export function log(message: string): void {
   if (!environment.production) {

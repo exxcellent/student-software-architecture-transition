@@ -101,3 +101,19 @@ _Hinweis: Die E2E-Tests befinden sich im Branch `feature/e2e-tests`_
 ### Entwicklungsmodus starten
 
 ```$ ng serve -o```
+
+### Dialog-Komponente generieren
+
+```
+$ ng g component navigation-map -p nav -t false -s false
+CREATE .../navigation-map/navigation-map.component.css
+CREATE .../navigation-map/navigation-map.component.html
+CREATE .../navigation-map/navigation-map.component.ts 
+
+$ cd navigation-map
+
+$ ng g service navigation-map       
+CREATE .../navigation-map.service.ts (142 bytes)
+
+$ mv navigation-map.service.ts navigation-map.dialogcore.ts
+```

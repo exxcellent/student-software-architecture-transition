@@ -180,3 +180,12 @@ a.light-white-text:hover, a.light-white-text:active, a.light-white-text:focus {
 button {
 
 }
+
+
+.shadow-bottom-small {
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+}
+
+.shadow-top-small {
+  box-shadow: .125rem 0 .25rem rgba(0,0,0,.075);
+}

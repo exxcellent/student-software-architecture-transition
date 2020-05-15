@@ -5,23 +5,17 @@ import {Component} from '@angular/core';
   template: `
     <div with-theme class="application">
       <header>
-        <div style="width: 100%; height: 100%; background-color: orangered">
-          Header
-        </div>
+        <r-header></r-header>
       </header>
 
       <main>
         <ui-page>
-            <div style="width: 100%; height: 100%; background-color: #0060a9">
-              Main
-            </div>
+          <router-outlet></router-outlet>
         </ui-page>
       </main>
 
       <footer>
-        <div style="width: 100%; height: 100%; background-color: lightblue">
-          Footer
-        </div>
+        <router-outlet name="footer"></router-outlet>
       </footer>
     </div>
 
@@ -35,6 +29,10 @@ import {Component} from '@angular/core';
         display: grid;
         grid-template-rows: auto 1fr auto;
         grid-row-gap: 0;
+      }
+
+      main {
+        height: 100%;
       }
     `,
   ],

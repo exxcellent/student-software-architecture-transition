@@ -3,12 +3,8 @@
   "compilerOptions": {
     "types": ["node", "jest"]
   },
-  "baseUrl": "./",
+  "baseUrl": ".",
   "paths": {
-    "@navigation/*": ["src/app/modules/navigation/*"],
-    "@store/*": ["src/app/modules/store/*"],
-    "@shared/*": ["src/app/modules/shared/*"],
-    "@shared-ui/*": ["src/app/modules/shared-ui-components/*"],
-    "@environment": ["src/environments/environment"]
+
   }
 }
