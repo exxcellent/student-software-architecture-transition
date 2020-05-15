@@ -23,5 +23,9 @@ $ npx create-nx-workspace@latest software-architecture-transition
 ### Angular-Applikation anlegen
 
 ```
+$ ng add @nrwl/angular
+? Which Unit Test Runner would you like to use for the application?     Jest        [ https://jestjs.io ]
+? Which E2E Test Runner would you like to use?                          Cypress     [ https://www.cypress.io ]
 
+$ 
 ```
