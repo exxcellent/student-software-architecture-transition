@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {RouterModule} from '@angular/router';
+import {LIGHT_BLUE, SharedUiComponentsModule} from './modules/shared-ui-components';
 
 @NgModule({
   declarations: [AppComponent],
@@ -11,6 +12,7 @@ import {RouterModule} from '@angular/router';
     RouterModule.forRoot([
 
     ], { initialNavigation: 'enabled' }),
+    SharedUiComponentsModule.forRoot({ useTheme: LIGHT_BLUE } )
   ],
   providers: [],
   bootstrap: [AppComponent],

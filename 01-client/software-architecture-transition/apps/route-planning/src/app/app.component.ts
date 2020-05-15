@@ -3,37 +3,38 @@ import {Component} from '@angular/core';
 @Component({
   selector: 'r-root',
   template: `
-    <header class="flex">
-      <h1>Welcome to {{ title }}!</h1>
-    </header>
-    <main class="flex">
+    <div with-theme class="application">
+      <header>
+        <div style="width: 100%; height: 100%; background-color: orangered">
+          Header
+        </div>
+      </header>
 
-    </main>
+      <main>
+        <ui-page>
+            <div style="width: 100%; height: 100%; background-color: #0060a9">
+              Main
+            </div>
+        </ui-page>
+      </main>
+
+      <footer>
+        <div style="width: 100%; height: 100%; background-color: lightblue">
+          Footer
+        </div>
+      </footer>
+    </div>
+
   `,
 
   styles: [
     `
-      :host {
-        display: block;
-        margin: 5vw auto;
-      }
-
-      .flex {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      header {
-
-      }
-
-      main {
-
-      }
-
-      footer {
-
+      .application {
+        height: 100%;
+        height: 100vh;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        grid-row-gap: 0;
       }
     `,
   ],

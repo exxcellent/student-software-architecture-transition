@@ -1,1 +1,182 @@
-/* You can add global styles to this file, and also import other style files */
+/* Inject to <html> */
+@import url('./styles-fonts.css');
+
+:root {
+  --fontSize: calc(80% + 0.3vw);
+  --lineHeight: calc(var(--fontSize) * 1.6);
+  --letterSpacing: 0;
+  --fontWeight: 400;
+  --contentWidth: 100%;
+
+  --background: white;
+  --text: #333333;
+  --text-light: #ccd3d7;
+
+  --primary: #0060a9;
+  --primary-light: #ccdeee;
+  --primary-text: white;
+  --primary-text-disabled: rgba(255, 255, 255, .7);
+
+  --secondary: #c5c800;
+  --secondary-light: #e1e37b;
+  --secondary-text: white;
+  --secondary-text-disabled: rgba(255, 255, 255, .7);
+
+  --accent: #a568a8;
+  --accent-light: #e6d3ff;
+  --accent-text: white;
+  --accent-text-disabled: rgba(255, 255, 255, .7);
+
+  --warn: #f0bb29;
+  --warn-light: #ffd543;
+  --warn-text: white;
+  --warn-text-disabled: rgba(255, 255, 255, .7);
+
+  --error: #c81919;
+  --error-light: #fb4c4c;
+  --error-text: white;
+  --error-text-disabled: rgba(255, 255, 255, .7);
+
+  --font-family: "Roboto", sans-serif
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-family);
+
+  font-size: 100%;
+  height: 100%;
+  height: 100vh;
+
+  color: var(--text);
+  background-color: var(--background);
+  font-size: var(--fontSize);
+  font-weight: lighter;
+}
+
+body {
+  height: 100%;
+  height: 100vh;
+  width: 100%;
+}
+
+body, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+
+h6{
+  font-size: calc(var(--fontSize) * 1);
+  letter-spacing: var(--letterSpacing);
+  font-weight: calc(var(--fontWeight)* 1);
+}
+
+li, b, i, strong, a, mark, button {
+  font-size: var(--fontSize);
+  line-height: var(--lineHeight);
+  letter-spacing: var(--letterSpacing);
+  font-feature-settings: normal;
+}
+
+li , mark, a, blockquote {
+  font-weight: calc(var(--fontWeight)* 1.33);
+}
+
+code {
+  font-size: calc(var(--fontSize) * 1.1);
+  line-height: var(--lineHeight);
+  letter-spacing: var(--letterSpacing);
+  font-weight: calc(var(--fontWeight)* 1.33);
+}
+
+mark {
+  padding: 0.05vw 0.4vw;
+  border-radius: 0.2rem;
+  font-size: calc(var(--fontSize) * 1.1);
+  letter-spacing: var(--letterSpacing);
+  font-weight: calc(var(--fontWeight)* 1.33);
+  word-break: break-word;
+}
+
+blockquote {
+  font-size: calc(var(--fontSize) * 1.1);
+  letter-spacing: var(--letterSpacing);
+  border-radius: 0.2rem;
+  padding: 2.5vw;
+  margin: 2%;
+  font-style: italic;
+  border-left: 0.4rem solid var(--text);
+}
+
+pre {
+  display: block;
+  margin: 0 0 1.5625rem;
+  border-radius: 0.4rem;
+  overflow: auto;
+  padding: 2.5vw;
+  tab-size: 4;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  white-space: pre-wrap;
+  word-break: break-all;
+  font-size: calc(var(--fontSize) * 1.1);
+  letter-spacing: var(--letterSpacing);
+  font-family: monospace;
+}
+
+a, a:visited {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover, a:active, a:focus {
+  color: var(--text);
+  text-decoration: none;
+}
+
+
+.grey-text, a.grey-text, a.grey-text:visited {
+  color: var(--text);
+}
+
+a.grey-text:hover, a.grey-text:active, a.grey-text:focus {
+  color: var(--primary);
+}
+
+.white-text, a.white-text, a.white-text:visited {
+  color: var(--primary-text-disabled);
+}
+
+a.white-text:hover, a.white-text:active, a.white-text:focus {
+  color: var(--primary-text);
+}
+
+
+.light-white-text, a.light-white-text, a.light-white-text:visited {
+  color: var(--primary-text-disabled);
+}
+
+a.light-white-text:hover, a.light-white-text:active, a.light-white-text:focus {
+  color: var(--primary-text);
+}
+
+
+.small, a.small, a.small:visited {
+  font-size: calc(var(--fontSize) * 0.85);
+  line-height: calc(var(--lineHeight) * 0.85);
+}
+
+.smaller, a.smaller, a.smaller:visited {
+  font-size: calc(var(--fontSize) * 0.8);
+  line-height: calc(var(--lineHeight) * 0.8);
+}
+
+button {
+
+}
