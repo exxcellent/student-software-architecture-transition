@@ -4,7 +4,9 @@ import {Component, OnInit} from '@angular/core';
   selector: 'nav-navigation-page',
   template: `
     <div id="navigation-page">
+
       <router-outlet style="height: 100%;"></router-outlet>
+
     </div>
   `,
   styles: [

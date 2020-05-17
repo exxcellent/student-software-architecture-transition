@@ -43,7 +43,8 @@ import {environment} from '../../../environments/environment';
     AgmCoreModule.forRoot({
       // please get your own API key here:
       // https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en
-      apiKey: environment.googleMapsApiKey
+      apiKey: environment.googleMapsApiKey,
+      libraries: ['geometry']
     })
   ]
 })

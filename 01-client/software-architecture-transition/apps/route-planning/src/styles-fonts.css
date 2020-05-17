@@ -20,6 +20,9 @@
   direction: ltr;
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
+  position: relative;
+  bottom: 0;
+  top: .18rem;
 }
 
 /* cyrillic-ext */

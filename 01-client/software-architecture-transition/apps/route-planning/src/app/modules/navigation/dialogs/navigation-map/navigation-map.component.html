@@ -1,7 +1,51 @@
 <div class="navigation-map">
 
-  <agm-map class="map" [latitude]="latitude" [longitude]="longitude"></agm-map>
+  <agm-map class="map"
+           [latitude]="center.lat"
+           [longitude]="center.lng"
+
+           [zoom]="zoom"
+           [fitBounds]="boundary"
+
+           [mapTypeId]="type"
+
+           [zoomControl]="options.zoomControl"
+           [disableDefaultUI]="options.disableDefaultUi"
+           [mapTypeControl]="options.mapTypeControl"
+           [streetViewControl]="options.streetViewControl"
+           [scaleControl]="options.scaleControl"
+           [rotateControl]="options.rotateControl"
+           [fullscreenControl]="options.fullscreenControl"
+
+           (mapReady)="renderRoute($event)"
+           (zoomChange)="zoomChanged($event)"
+  >
+
+  </agm-map>
+
+  <div class="map-control">
+    <div class="map-control-group-list">
+
+      <ul class="map-control-group with-shadow">
+        <li class="map-control-item" (click)="toggleMapType()" [ngClass]="hasActiveClass(isMapTypeHybrid())">
+          <div class="map-control-item-container">
+            <i class="material-icons">layers</i></div>
+        </li>
+      </ul>
+
+      <ul class="map-control-group with-shadow">
+        <li class="map-control-item" (click)="zoomIn()">
+          <div class="map-control-item-container">
+            <i class="material-icons">add</i></div>
+        </li>
+        <li class="map-control-item" (click)="zoomOut()">
+          <div class="map-control-item-container">
+            <i class="material-icons">remove</i></div>
+        </li>
+      </ul>
 
 
+    </div>
+  </div>
 
 </div>

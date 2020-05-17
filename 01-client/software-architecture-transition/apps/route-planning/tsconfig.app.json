@@ -2,8 +2,8 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
-    "types": []
+    "types": ["googlemaps"]
   },
   "files": ["src/main.ts", "src/polyfills.ts"],
-  "include": ["src/environments/system-environment.d.ts"]
+  "include": ["src/environments/system-environment.d.ts", "**/*.d.ts"]
 }

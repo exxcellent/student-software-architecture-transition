@@ -102,6 +102,10 @@ _Hinweis: Die E2E-Tests befinden sich im Branch `feature/e2e-tests`_
 
 ```$ ng serve -o```
 
+> Achtung: Unter `/01-client/software-architecture-transition/apps/route-planning/src/environments/` 
+> muss eine `environment.local.ts` Datei mit dem GoogleMaps API Key angelegt werden oder 
+> `environment.ts` geändert werden.
+
 ### Dialog-Komponente generieren
 
 ```
@@ -116,4 +120,10 @@ $ ng g service navigation-map
 CREATE .../navigation-map.service.ts (142 bytes)
 
 $ mv navigation-map.service.ts navigation-map.dialogcore.ts
+```
+
+
+```
+npm install typings --global
+typings install dt~google.maps --global --save
 ```

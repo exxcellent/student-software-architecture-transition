@@ -3,7 +3,7 @@
   "compilerOptions": {
     "rootDir": ".",
     "sourceMap": true,
-    "declaration": false,
+    "declaration": true,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -17,5 +17,6 @@
     "baseUrl": ".",
     "paths": {}
   },
+  "include": ["**/*.d.ts"],
   "exclude": ["node_modules", "tmp"]
 }
