@@ -32,7 +32,6 @@ import java.util.List;
     in = SecuritySchemeIn.HEADER,
     scheme = "bearer")
 @RestController
-@CrossOrigin
 @RequestMapping("v1/routes")
 public class RoutesResourceV1 {
 
