@@ -9,7 +9,14 @@ import {Component, OnInit} from '@angular/core';
       </ui-content-area>
     </ui-fade-in-animation>
   `,
-  styles: []
+  styles: [
+    `
+      :host {
+        min-height: 100%
+        display: block;
+      }
+    `
+  ]
 })
 export class PageComponent implements OnInit {
 

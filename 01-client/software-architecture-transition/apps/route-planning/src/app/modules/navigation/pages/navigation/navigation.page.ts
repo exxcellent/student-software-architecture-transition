@@ -4,16 +4,14 @@ import {Component, OnInit} from '@angular/core';
   selector: 'nav-navigation-page',
   template: `
     <div id="navigation-page">
-      Navigation
-
-      <router-outlet></router-outlet>
+      <router-outlet style="height: 100%;"></router-outlet>
     </div>
   `,
   styles: [
     `
-      :host { display: block; }
+      :host { display: block; min-height: 100%; height: 100% }
       #navigation-page {
-
+        height: 100%;
       }
     `
   ],

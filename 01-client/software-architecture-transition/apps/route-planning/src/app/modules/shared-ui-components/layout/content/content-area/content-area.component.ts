@@ -4,13 +4,18 @@ import {Component, OnInit} from '@angular/core';
   selector: 'ui-content-area',
   template: `
     <div class="content-area">
-      <div>
-        <ng-content></ng-content>
+      <div style="height: 100%">
+        <ng-content style="height: 100%"></ng-content>
       </div>
     </div>
     `,
   styles: [
     `
+      :host {
+        height: 100%;
+        display: block;
+      }
+
       .content-area {
         width: 100%;
         height: 100%;

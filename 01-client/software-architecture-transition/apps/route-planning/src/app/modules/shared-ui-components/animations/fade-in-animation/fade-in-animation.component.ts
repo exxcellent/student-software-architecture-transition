@@ -8,12 +8,18 @@ import {Component, OnInit} from '@angular/core';
     </div>
   `,
   styles: [`
+    :host {
+      height: 100%;
+      display: block;
+    }
+
     .animation.fade-in {
       -webkit-animation: fadein 3s;
       -moz-animation: fadein 3s;
       -ms-animation: fadein 3s;
       -o-animation: fadein 3s;
       animation: fadein 3s;
+      height: 100%;
     }
 
     @keyframes fadein {

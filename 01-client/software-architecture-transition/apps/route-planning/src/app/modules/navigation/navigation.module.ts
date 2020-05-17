@@ -6,6 +6,7 @@ import {RouterModule} from '@angular/router';
 import {NavigationMapComponent} from './dialogs/navigation-map/navigation-map.component';
 import {NavigationWaypointsComponent} from './dialogs/navigation-waypoints/navigation-waypoints.component';
 import {NavigationGuard} from './guards/navigation.guard';
+import {AgmCoreModule} from '@agm/core';
 
 
 @NgModule({
@@ -37,7 +38,12 @@ import {NavigationGuard} from './guards/navigation.guard';
         outlet: "footer",
         pathMatch: 'prefix'
       },
-    ])
+    ]),
+    AgmCoreModule.forRoot({
+      // please get your own API key here:
+      // https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en
+      apiKey: 'API KEY'
+    })
   ]
 })
 export class NavigationModule {

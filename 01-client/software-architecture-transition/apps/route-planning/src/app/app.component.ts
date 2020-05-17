@@ -10,7 +10,7 @@ import {Component} from '@angular/core';
 
       <main>
         <ui-page>
-          <router-outlet></router-outlet>
+          <router-outlet style="height: 100%"></router-outlet>
         </ui-page>
       </main>
 

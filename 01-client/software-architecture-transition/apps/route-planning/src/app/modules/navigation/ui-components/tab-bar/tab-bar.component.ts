@@ -26,7 +26,8 @@ import {CommonComponent} from '../../../shared-ui-components';
   styles: [
       `
       :host {
-        display: block
+        display: block;
+        height: 100%;
       }
 
       .tab-bar {
