@@ -75,7 +75,7 @@ public class RoutesResourceV1 {
     return RouteMapper.toRoutesCTO.apply(routes);
   }
 
-  @Operation(summary = "Find All Routes of a Day and Inspector")
+  @Operation(summary = "Find Route of a Day and Inspector")
   @SecurityRequirement(name = "jwtAuth")
   @RequestMapping(
       method = RequestMethod.GET,
