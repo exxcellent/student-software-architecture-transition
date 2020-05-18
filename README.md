@@ -215,6 +215,20 @@ Die `duration` und die `travel_time` werden addiert, um die `eta` zum nächsten 
 }
 ```
 
+### Client
+
+Führe folgende Befehle aus, um die Angular SPA zu starten:
+
+```
+$ npm install
+
+$ npm run start
+```
+
+Öffne [http://localhost:4200](http://localhost:4200) mit einem modernen Browser. Das Projekt nutzt
+[CSS Variables](https://caniuse.com/#search=css%20variables) und der Internet Explorer unterstützt diese Funktion nicht.
+
+
 ### Server
 
 Führe `sh ./startServer.sh` aus, um den Spring Boot Server zu starten.

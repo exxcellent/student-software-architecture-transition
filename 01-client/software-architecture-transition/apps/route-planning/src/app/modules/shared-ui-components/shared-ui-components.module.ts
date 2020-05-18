@@ -10,19 +10,22 @@ import {
   RowLayoutComponent
 } from './layout';
 import {PageComponent} from './layout/page/page.component';
-import {FadeInAnimationComponent} from './animations';
+import {FadeInAnimationComponent, RotateAnimationComponent} from './animations';
+import {ButtonComponent} from './form-controls';
 
 @NgModule({
   declarations: [
     ThemeDirective,
     FadeInAnimationComponent,
+    RotateAnimationComponent,
     CenterOnPageComponent,
     CenteredLayoutComponent,
     ColLayoutComponent,
     ContentAreaComponent,
     GridLayoutComponent,
     PageComponent,
-    RowLayoutComponent
+    RowLayoutComponent,
+    ButtonComponent,
   ],
   imports: [
     CommonModule
@@ -30,6 +33,7 @@ import {FadeInAnimationComponent} from './animations';
   exports: [
     // animation
     FadeInAnimationComponent,
+    RotateAnimationComponent,
     // theme
     ThemeDirective,
     // layout
@@ -39,7 +43,9 @@ import {FadeInAnimationComponent} from './animations';
     ContentAreaComponent,
     GridLayoutComponent,
     PageComponent,
-    RowLayoutComponent
+    RowLayoutComponent,
+    // form controls
+    ButtonComponent
   ]
 })
 export class SharedUiComponentsModule {

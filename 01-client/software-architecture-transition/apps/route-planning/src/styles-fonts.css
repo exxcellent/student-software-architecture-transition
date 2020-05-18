@@ -11,7 +11,7 @@
   font-weight: normal;
   font-style: normal;
   font-size: 1em;
-  line-height: 1;
+  /*line-height: 1;*/
   letter-spacing: normal;
   text-transform: none;
   display: inline-block;
@@ -22,7 +22,7 @@
   -webkit-font-smoothing: antialiased;
   position: relative;
   bottom: 0;
-  top: .18rem;
+  top: .12rem;
 }
 
 /* cyrillic-ext */

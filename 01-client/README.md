@@ -2,6 +2,17 @@
 
 Der Client ist eine Angular SPA.
 
+```
+$ npm install
+
+$ npm run start
+```
+
+Öffne `http://localhost:4200` mit einem modernen Browser. Das Projekt nutzt
+[CSS Variables](https://caniuse.com/#search=css%20variables) und der Internet Explorer unterstützt diese Funktion nicht.
+
+## Struktur
+
 Eine Web-Applikation besteht aus fachlichen Modulen (navigation, ...), 
 die jeweils einen Anwendungsfalls beinhalten und 
 technischen Querschnittsmodulen (shared, ...).
@@ -100,6 +111,8 @@ _Hinweis: Die E2E-Tests befinden sich im Branch `feature/e2e-tests`_
 
 ### Entwicklungsmodus starten
 
+Über ```$ npm run start``` startet die Entwicklungsumgebung. Unter `http://localhost:4200` befindet sich die Anwendung.
+
 ```$ ng serve -o```
 
 > Achtung: Unter `/01-client/software-architecture-transition/apps/route-planning/src/environments/` 
@@ -122,6 +135,24 @@ CREATE .../navigation-map.service.ts (142 bytes)
 $ mv navigation-map.service.ts navigation-map.dialogcore.ts
 ```
 
+
+### NgRx Store Feature generieren
+
+```
+$ ng g @ngrx/schematics:feature state/app/app -m app.module.ts --creators --api --skip-test
+$ ng g @ngrx/schematics:feature modules/navigation/data-access/waypoint/state/route/route -m modules/navigation/navigation.module.ts --creators --api --skip-test
+$ ng g @ngrx/schematics:feature modules/user/data-access/authentication/state/user-credential/user-credential -m modules/user/user.module.ts --creators --api --skip-test
+```
+
+
+### Probleme mit GoogleMaps Node Types
+
+Für die Google Maps JavaScript API gibt es `@types/googlemaps`, 
+damit die JavaScript API auch in Angular mit TypeScript 
+genutzt werden kann. 
+
+> Der TypeScript Compiler und 
+manche IDEs erkennen die Typen aber nicht.
 
 ```
 npm install typings --global

@@ -3,7 +3,6 @@ import {NavigationMapDialogCore} from './navigation-map.dialogcore';
 
 // @ts-ignore
 
-
 @Component({
   selector: 'nav-navigation-map',
   templateUrl: './navigation-map.component.html',

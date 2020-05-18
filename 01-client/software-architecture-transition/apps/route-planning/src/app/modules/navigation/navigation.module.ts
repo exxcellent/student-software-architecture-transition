@@ -8,14 +8,19 @@ import {NavigationWaypointsComponent} from './dialogs/navigation-waypoints/navig
 import {NavigationGuard} from './guards/navigation.guard';
 import {AgmCoreModule} from '@agm/core';
 import {environment} from '../../../environments/environment';
-
+import {NavigationDaySelectorComponent} from './dialogs/navigation-day-selector/navigation-day-selector.component';
+import {StoreModule} from '@ngrx/store';
+import * as fromRoute from './data-access/waypoint/state/route/route.reducer';
+import {EffectsModule} from '@ngrx/effects';
+import {RouteEffects} from './guards/effects/route.effects';
 
 @NgModule({
   declarations: [
     NavigationPage,
     TabBarComponent,
     NavigationMapComponent,
-    NavigationWaypointsComponent
+    NavigationWaypointsComponent,
+    NavigationDaySelectorComponent,
   ],
   exports: [
     TabBarComponent
@@ -23,29 +28,31 @@ import {environment} from '../../../environments/environment';
   imports: [
     CommonModule,
     RouterModule.forChild([
-      {path: 'navigation', component: NavigationPage,
+      {path: '', component: NavigationPage,
         canActivate: [NavigationGuard],
         canActivateChild: [NavigationGuard],
         canLoad: [NavigationGuard],
         children: [
           { path: 'map', component: NavigationMapComponent },
           { path: 'waypoints', component: NavigationWaypointsComponent },
-          { path: '', redirectTo: 'map', pathMatch: 'full'}
+          { path: '', redirectTo: 'map', pathMatch: 'full'},
         ],
       },
-      {
-        path: 'navigation',
-        component: TabBarComponent,
-        outlet: "footer",
-        pathMatch: 'prefix'
-      },
+      // {
+      //   path: 'navigation',
+      //   component: TabBarComponent,
+      //   outlet: "footer",
+      //   pathMatch: 'prefix'
+      // },
     ]),
     AgmCoreModule.forRoot({
       // please get your own API key here:
       // https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en
       apiKey: environment.googleMapsApiKey,
       libraries: ['geometry']
-    })
+    }),
+    StoreModule.forFeature(fromRoute.routeFeatureKey, fromRoute.reducer),
+    EffectsModule.forFeature([RouteEffects]),
   ]
 })
 export class NavigationModule {

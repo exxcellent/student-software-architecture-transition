@@ -9,8 +9,10 @@
   --contentWidth: 100%;
 
   --background: white;
+  --background-dark: #fcfcfc;
   --text: #333333;
   --text-light: #ccd3d7;
+  --text-lighter: #eeeeee;
 
   --primary: #0060a9;
   --primary-light: #ccdeee;

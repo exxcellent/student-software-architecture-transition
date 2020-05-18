@@ -4,3 +4,4 @@ export * from './translation-utils';
 export * from './logging';
 export * from './decoder';
 export * from './uuid-generator';
+export * from './date-utils';

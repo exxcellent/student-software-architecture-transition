@@ -7,6 +7,8 @@ import {ActivatedRoute} from '@angular/router';
   template: `
     <div class="top-bar shadow-bottom-small">
         <h1 class="title"><i class="material-icons">near_me</i> Routenplaner</h1>
+
+        <r-login-button></r-login-button>
     </div>
   `,
   styles: [
@@ -24,6 +26,8 @@ import {ActivatedRoute} from '@angular/router';
         -webkit-box-direction: normal;
         flex-flow: row nowrap;
         border-bottom: 1px solid rgba(0,0,0,.125);
+        justify-content: space-between;
+        align-items: baseline;
       }
 
       .title {

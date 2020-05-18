@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {WaypointRepositoryService} from '../../data-access/waypoint/waypoint-repository.service';
+import {today} from '../../../shared/functions';
 
 @Component({
   selector: 'nav-navigation-waypoints',
@@ -7,9 +9,13 @@ import {Component, OnInit} from '@angular/core';
 })
 export class NavigationWaypointsComponent implements OnInit {
 
-  constructor() { }
+  routes: any;
+
+  constructor(private waypointRepositoryService: WaypointRepositoryService) { }
 
   ngOnInit(): void {
+    this.waypointRepositoryService.myRouteOfDay$(today()).subscribe(routes => {
+      this.routes = routes;
+    });
   }
-
 }

@@ -3,6 +3,7 @@ import {exists, log, logWarn} from '../../../shared/functions';
 // @ts-ignore
 import {LatLngBoundsLiteral, LatLngLiteral} from '@agm/core';
 import {Waypoint} from '../../model/waypoint';
+import {WaypointRepositoryService} from '../../data-access/waypoint/waypoint-repository.service';
 
 @Injectable()
 export class NavigationMapDialogCore {
@@ -44,7 +45,7 @@ export class NavigationMapDialogCore {
     'https://firebasestorage.googleapis.com/v0/b/swm-onpo-routenplaner-deploy.appspot.com/o/icon-J-32.png?alt=media&token=21be1fe5-c7f9-4e35-839e-0c8305cdbdc3',
   ];
 
-  constructor() {
+  constructor(private waypointRepository: WaypointRepositoryService) {
   }
 
   renderRoute(map: google.maps.Map): void {
@@ -52,11 +53,11 @@ export class NavigationMapDialogCore {
 
     this.directionsRenderer.setMap(map);
 
-    const waypoints = this.requestCurrentWaypoints();
-    log('Waypoints: ' + JSON.stringify(waypoints));
-
-    this.directionsService.route(this.routeWaypoints(waypoints),
-      (response: google.maps.DirectionsResult, status: google.maps.DirectionsStatus) => this.routeCalculated(waypoints, response, status, map));
+    //const waypoints = this.requestCurrentWaypoints();
+    // log('Waypoints: ' + JSON.stringify(waypoints));
+    //
+    // this.directionsService.route(this.routeWaypoints(waypoints),
+    //   (response: google.maps.DirectionsResult, status: google.maps.DirectionsStatus) => this.routeCalculated(waypoints, response, status, map));
   }
 
   private latLng(waypoint: Waypoint): google.maps.LatLng {
@@ -99,11 +100,14 @@ export class NavigationMapDialogCore {
   }
 
   private requestCurrentWaypoints(): Waypoint[] {
-    return [
-      { location: { lat: 48.12738575287784, lng: 11.416353270520176} },
-      { location: { lat: 48.219012, lng: 11.624689} },
-      { location: { lat: 48.250615, lng: 11.6553616} },
-    ];
+
+    //this.waypointRepository.findDailyWaypoints(new Date(2020, 4, 10), 1);
+return null;
+    // return [
+    //   { location: { lat: 48.12738575287784, lng: 11.416353270520176} },
+    //   { location: { lat: 48.219012, lng: 11.624689} },
+    //   { location: { lat: 48.250615, lng: 11.6553616} },
+    // ];
   }
 
 
