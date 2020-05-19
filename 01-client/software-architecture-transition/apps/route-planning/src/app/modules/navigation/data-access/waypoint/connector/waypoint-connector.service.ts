@@ -23,7 +23,12 @@ export class WaypointConnectorService extends DataProviderService{
 
     return this.http.GET<RouteCTO>(this.getDailyWaypointUrl(date, inspectorId)).pipe(
       map((response: RouteCTO) => {
-        return fromResponse(response);
+        console.log('Waypoint Connector: Receive: ' + JSON.stringify(response));
+        const route = fromResponse(response);
+        console.log('Waypoint Connector: Mapped: ' + JSON.stringify(route));
+
+
+        return route;
     }),
       catchError((error: ConnectionError) => {
         console.error('Waypoint Connector: Dispatch show notification');

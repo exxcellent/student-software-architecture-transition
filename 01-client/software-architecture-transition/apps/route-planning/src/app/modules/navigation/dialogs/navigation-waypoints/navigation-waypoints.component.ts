@@ -1,21 +1,22 @@
 import {Component, OnInit} from '@angular/core';
-import {WaypointRepositoryService} from '../../data-access/waypoint/waypoint-repository.service';
-import {today} from '../../../shared/functions';
+import {NavigationWaypointsDialogCore} from './navigation-waypoints.dialogcore';
+import {Waypoint} from '../../model/waypoint';
 
 @Component({
   selector: 'nav-navigation-waypoints',
   templateUrl: './navigation-waypoints.component.html',
-  styleUrls: ['./navigation-waypoints.component.css']
+  styleUrls: ['./navigation-waypoints.component.css'],
+  providers: [NavigationWaypointsDialogCore]
 })
 export class NavigationWaypointsComponent implements OnInit {
 
-  routes: any;
-
-  constructor(private waypointRepositoryService: WaypointRepositoryService) { }
+  constructor(private dialogCore: NavigationWaypointsDialogCore) { }
 
   ngOnInit(): void {
-    this.waypointRepositoryService.myRouteOfDay$(today()).subscribe(routes => {
-      this.routes = routes;
-    });
+
+  }
+
+  get waypoints(): Waypoint[] {
+    return this.dialogCore.waypoints;
   }
 }

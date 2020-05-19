@@ -2,5 +2,11 @@
 
   <nav-navigation-day-selector></nav-navigation-day-selector>
 
-  {{ routes | json }}
+  <div>
+    <ul class="waypoint-list">
+      <li *ngFor="let waypoint of waypoints">
+        {{ waypoint.address }}
+      </li>
+    </ul>
+  </div>
 </div>

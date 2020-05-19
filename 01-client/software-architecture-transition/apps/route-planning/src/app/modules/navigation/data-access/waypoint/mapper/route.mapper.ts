@@ -21,6 +21,7 @@ export function fromResponse(response: RouteCTO): Route {
         orderIndex: waypointTO.orderIndex,
         category: fromResponseCategory(waypointTO.category),
         status: fromResponseStatus(waypointTO.status),
+        address: waypointTO.location.address,
         location: { lat: waypointTO.location.latitude, lng: waypointTO.location.longitude },
         contact: {
           name: waypointTO.contact.name,

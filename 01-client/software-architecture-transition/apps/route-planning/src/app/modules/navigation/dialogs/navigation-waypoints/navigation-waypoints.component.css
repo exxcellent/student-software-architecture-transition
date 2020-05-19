@@ -1,0 +1,24 @@
+.waypoint-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.waypoint-list li {
+  margin: 0;
+  border-top: .05rem solid rgba(0,0,0,.2);
+  min-height: 4rem;
+  padding: 1rem;
+}
+
+.waypoint-list li:hover, .waypoint-list li:focus {
+  background-color: var(--text-lighter);
+}
+
+.waypoint-list li:first-child {
+  border-top: none;
+}
+
+.waypoint-list li:last-child {
+  border-bottom: .05rem solid rgba(0,0,0,.2);
+}

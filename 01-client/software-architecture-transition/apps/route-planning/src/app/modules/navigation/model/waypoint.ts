@@ -12,6 +12,7 @@ export interface Waypoint {
   category: WaypointCategory;
   status: WaypointStatus;
 
+  address: string;
   location: { lat: number, lng: number }
 
   contact: {
