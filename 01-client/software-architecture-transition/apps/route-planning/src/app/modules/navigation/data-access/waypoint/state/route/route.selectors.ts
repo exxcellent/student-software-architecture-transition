@@ -8,10 +8,12 @@ const selectRoutesState = createFeatureSelector<fromRoute.RoutesState>(
 const selectRoutes = createSelector(selectRoutesState, fromRoute.getter.getRoutes);
 const selectRoutesLoading = createSelector(selectRoutesState, fromRoute.getter.getRoutesLoading);
 const selectRoutesLoaded = createSelector(selectRoutesState, fromRoute.getter.getRoutesLoaded);
+const selectCurrentDay = createSelector(selectRoutesState, fromRoute.getter.getCurrentDay);
 
 export const selectors = {
   selectRoutesState,
   selectRoutes,
   selectRoutesLoading,
-  selectRoutesLoaded
+  selectRoutesLoaded,
+  selectCurrentDay
 };

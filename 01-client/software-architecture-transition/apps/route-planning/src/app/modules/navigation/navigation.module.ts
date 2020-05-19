@@ -13,6 +13,7 @@ import {StoreModule} from '@ngrx/store';
 import * as fromRoute from './data-access/waypoint/state/route/route.reducer';
 import {EffectsModule} from '@ngrx/effects';
 import {RouteEffects} from './data-access/waypoint/state/route/route.effects';
+import {SharedUiComponentsModule} from '../shared-ui-components';
 
 @NgModule({
   declarations: [
@@ -28,14 +29,15 @@ import {RouteEffects} from './data-access/waypoint/state/route/route.effects';
   imports: [
     CommonModule,
     RouterModule.forChild([
-      {path: '', component: NavigationPage,
+      {
+        path: '', component: NavigationPage,
         canActivate: [NavigationGuard],
         canActivateChild: [NavigationGuard],
         canLoad: [NavigationGuard],
         children: [
-          { path: 'map', component: NavigationMapComponent },
-          { path: 'waypoints', component: NavigationWaypointsComponent },
-          { path: '', redirectTo: 'waypoints', pathMatch: 'full'},
+          {path: 'map', component: NavigationMapComponent},
+          {path: 'waypoints', component: NavigationWaypointsComponent},
+          {path: '', redirectTo: 'waypoints', pathMatch: 'full'},
         ],
       },
       // {
@@ -53,6 +55,7 @@ import {RouteEffects} from './data-access/waypoint/state/route/route.effects';
     }),
     StoreModule.forFeature(fromRoute.routeFeatureKey, fromRoute.reducer),
     EffectsModule.forFeature([RouteEffects]),
+    SharedUiComponentsModule,
   ]
 })
 export class NavigationModule {

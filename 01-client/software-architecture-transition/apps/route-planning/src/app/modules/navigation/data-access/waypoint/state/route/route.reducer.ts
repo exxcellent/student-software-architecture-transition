@@ -1,7 +1,7 @@
 import {createReducer, on} from '@ngrx/store';
 import {actions} from './route.actions';
 import {Route} from '../../../../model/route';
-import {toISODateString} from '../../../../../shared/functions';
+import {modifyDay, today, toISODateString} from '../../../../../shared/functions';
 import {ConnectionErrorState, ErrorCategory} from '../../../../../shared/data-access';
 
 export const routeFeatureKey = 'route';
@@ -12,6 +12,7 @@ export interface RoutesState {
       myRoute: Route
     }
   },
+  currentDay: Date,
   loading: boolean,
   loaded: boolean,
   error: ConnectionErrorState
@@ -21,6 +22,7 @@ export const initialState: RoutesState = {
   routes: {
 
   },
+  currentDay: today(),
   loading: false,
   loaded: false,
   error: null
@@ -69,15 +71,34 @@ export const reducer = createReducer(
 
     return updatedState;
   }),
+
+  on(actions.nextDay, state => {
+    const updatedState: RoutesState = {
+      ...state,
+      currentDay: modifyDay(state.currentDay, 1)
+    };
+
+    return updatedState;
+  }),
+  on(actions.previousDay, state => {
+    const updatedState: RoutesState = {
+      ...state,
+      currentDay: modifyDay(state.currentDay, -1)
+    };
+
+    return updatedState;
+  }),
 );
 
 const getRoutes = (state: RoutesState) => state.routes;
 const getRoutesLoading = (state: RoutesState) => state.loading;
 const getRoutesLoaded = (state: RoutesState) => state.loaded;
+const getCurrentDay = (state: RoutesState) => state.currentDay;
 
 export const getter = {
   getRoutes,
   getRoutesLoading,
-  getRoutesLoaded
+  getRoutesLoaded,
+  getCurrentDay
 };
 

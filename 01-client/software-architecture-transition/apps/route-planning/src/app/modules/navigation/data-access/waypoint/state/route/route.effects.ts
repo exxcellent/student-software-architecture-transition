@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
-import {catchError, concatMap, map, tap} from 'rxjs/operators';
+import {catchError, concatMap, map} from 'rxjs/operators';
 import {of} from 'rxjs';
 
 import {actions} from './route.actions';
@@ -20,7 +20,6 @@ export class RouteEffects {
       ofType(actions.loadMyRouteOfToday),
       concatMap(() =>
             this.connector.findRoute(today(), 1).pipe(
-              tap(data => console.log(data)),
               map(data => {
                 return actions.loadMyRouteSuccess({data: data})
               }),

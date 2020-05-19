@@ -19,9 +19,20 @@ const loadMyRouteFailure = createAction(
   props<{ error: any }>()
 );
 
+const nextDay = createAction(
+  '[Route] Switch to next day'
+);
+
+const previousDay = createAction(
+  '[Route] Switch to previous day'
+);
+
+
 export const actions = {
   loadMyRouteOfToday,
   loadMyRoute,
   loadMyRouteSuccess,
-  loadMyRouteFailure
+  loadMyRouteFailure,
+  nextDay,
+  previousDay
 };

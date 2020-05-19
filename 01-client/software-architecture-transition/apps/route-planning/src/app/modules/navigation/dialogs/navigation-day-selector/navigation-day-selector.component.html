@@ -1,3 +1,16 @@
 <div class="day-selector shadow-bottom-small">
-HEUTE
+  <div>
+    <ui-button (click)="onPreviousDay()">
+      <i class="material-icons">keyboard_arrow_left</i>
+    </ui-button>
+  </div>
+  <h4>
+    <span *ngIf="!!currentDayString">{{ currentDayString }}</span>
+    <span *ngIf="!currentDayString">{{ currentDay | date }}</span>
+  </h4>
+  <div>
+    <ui-button (click)="onNextDay()">
+      <i class="material-icons">keyboard_arrow_right</i>
+    </ui-button>
+  </div>
 </div>

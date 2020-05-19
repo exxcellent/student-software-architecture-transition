@@ -3,7 +3,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 @Component({
   selector: 'ui-button',
   template: `
-    <button [disabled]="disabled || loading" (click)="onClick($event)">
+    <button [disabled]="disabled || loading">
       <ng-content></ng-content>
     </button>
   `,
