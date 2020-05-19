@@ -4,8 +4,16 @@
 
   <div>
     <ul class="waypoint-list">
-      <li *ngFor="let waypoint of waypoints">
-        {{ waypoint.address }}
+      <li *ngFor="let wp of waypoints">
+        <img [src]="wp.iconUrl" [alt]="wp.iconUrl" class="waypoint-icon" />
+        <div class="waypoint-description">
+          <div class="waypoint-title">
+            <span>{{ wp.waypoint.address | truncate : 40 }}</span>
+          </div>
+          <div class="waypoint-type">
+            {{ WaypointCategory[wp.waypoint.category] }}
+          </div>
+        </div>
       </li>
     </ul>
   </div>

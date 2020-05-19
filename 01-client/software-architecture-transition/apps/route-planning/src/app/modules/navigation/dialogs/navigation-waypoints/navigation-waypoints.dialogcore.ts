@@ -3,6 +3,8 @@ import {WaypointRepositoryService} from '../../data-access/waypoint/waypoint-rep
 import {Observable} from 'rxjs';
 import {Route} from '../../model/route';
 import {Waypoint} from '../../model/waypoint';
+import {WaypointWithIcon} from './types/waypoint-with-icon.interface';
+import {WAYPOINT_ICONS} from '../waypoint-icons';
 
 @Injectable()
 export class NavigationWaypointsDialogCore {
@@ -18,8 +20,15 @@ export class NavigationWaypointsDialogCore {
     });
   }
 
-  get waypoints(): Waypoint[] {
+  get waypoints(): WaypointWithIcon[] {
     const sortedWaypoints = Object.assign([], this._currentRoute.waypoints);
-    return sortedWaypoints.sort((a, b) => a.orderIndex - b.orderIndex);
+    sortedWaypoints.sort((a, b) => a.orderIndex - b.orderIndex);
+
+    const waypointsWithIcon: WaypointWithIcon[] = [];
+    sortedWaypoints.forEach((wp: Waypoint, index: number) => {
+      waypointsWithIcon.push({ waypoint: wp, iconUrl: WAYPOINT_ICONS.appointmentIcons[index]})
+    });
+
+    return waypointsWithIcon;
   }
 }

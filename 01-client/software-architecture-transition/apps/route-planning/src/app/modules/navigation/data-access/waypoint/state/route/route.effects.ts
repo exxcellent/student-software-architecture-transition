@@ -24,8 +24,6 @@ export class RouteEffects {
                 return actions.loadMyRouteSuccess({data: data})
               }),
               catchError(error => {
-                console.error(error);
-
                 return of(actions.loadMyRouteFailure({error}))
               })
           )

@@ -9,6 +9,8 @@
   border-top: .05rem solid rgba(0,0,0,.2);
   min-height: 4rem;
   padding: 1rem;
+  display: flex;
+  align-items: center;
 }
 
 .waypoint-list li:hover, .waypoint-list li:focus {
@@ -21,4 +23,23 @@
 
 .waypoint-list li:last-child {
   border-bottom: .05rem solid rgba(0,0,0,.2);
+}
+
+.waypoint-icon {
+  height: 2.5rem;
+  width: 2.5rem;
+  margin-right: 1rem;
+}
+
+.waypoint-description {
+  display: flex;
+  flex-direction: column;
+}
+
+.waypoint-description .waypoint-title {
+  font-size: 1.1rem;
+}
+.waypoint-description .waypoint-type {
+  font-size: 0.8rem;
+  font-style: italic;
 }

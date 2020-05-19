@@ -14,6 +14,8 @@ import * as fromRoute from './data-access/waypoint/state/route/route.reducer';
 import {EffectsModule} from '@ngrx/effects';
 import {RouteEffects} from './data-access/waypoint/state/route/route.effects';
 import {SharedUiComponentsModule} from '../shared-ui-components';
+import {WaypointIconComponent} from './ui-components/waypoint-icon/waypoint-icon.component';
+import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import {SharedUiComponentsModule} from '../shared-ui-components';
     NavigationMapComponent,
     NavigationWaypointsComponent,
     NavigationDaySelectorComponent,
+    WaypointIconComponent,
   ],
   exports: [
     TabBarComponent
@@ -55,7 +58,8 @@ import {SharedUiComponentsModule} from '../shared-ui-components';
     }),
     StoreModule.forFeature(fromRoute.routeFeatureKey, fromRoute.reducer),
     EffectsModule.forFeature([RouteEffects]),
-    SharedUiComponentsModule,
+    SharedUiComponentsModule.forChild(),
+    SharedModule.forChild()
   ]
 })
 export class NavigationModule {

@@ -2,17 +2,19 @@ import {ModuleWithProviders, NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 import {RestClient} from './data-access';
-import {LocalStorageDataProvider} from './webstorage/data-sources/local-storage-data-provider.service';
-import {SessionStorageDataProvider} from './webstorage/data-sources/session-storage-data-provider.service';
+import {LocalStorageDataProvider, SessionStorageDataProvider} from './webstorage';
+import {TruncatePipe} from './pipes/truncate.pipe';
 
 @NgModule({
   declarations: [
+    TruncatePipe
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    HttpClientModule
+    HttpClientModule,
+    TruncatePipe
   ]
 })
 export class SharedModule {
