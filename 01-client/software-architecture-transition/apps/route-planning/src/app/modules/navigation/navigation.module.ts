@@ -12,9 +12,8 @@ import {NavigationDaySelectorComponent} from './dialogs/navigation-day-selector/
 import {StoreModule} from '@ngrx/store';
 import * as fromRoute from './data-access/waypoint/state/route/route.reducer';
 import {EffectsModule} from '@ngrx/effects';
-import {RouteEffects} from './data-access/waypoint/state/route/route.effects';
+import {RouteEffects} from './data-access/waypoint/state/route';
 import {SharedUiComponentsModule} from '../shared-ui-components';
-import {WaypointIconComponent} from './ui-components/waypoint-icon/waypoint-icon.component';
 import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
@@ -24,7 +23,6 @@ import {SharedModule} from '../shared/shared.module';
     NavigationMapComponent,
     NavigationWaypointsComponent,
     NavigationDaySelectorComponent,
-    WaypointIconComponent,
   ],
   exports: [
     TabBarComponent
