@@ -1,13 +1,13 @@
 import {Injectable} from '@angular/core';
 import {AuthenticationConnectorService} from './connector/authentication-connector.service';
 import {UserCredentials} from '../../model/user-credentials';
-import {RestResponse} from '../../../shared/data-access/types/rest-response.interface';
-import {RequestResult} from '../../../shared/data-access';
 import {exists} from '../../../shared/functions';
 import {UserCredentialState} from './state/user-credential/user-credential.reducer';
 import {Store} from '@ngrx/store';
 import {actions, selectors} from './state/user-credential';
 import {AuthenticationWebStorageService} from './webstorage/authentication-web-storage.service';
+import {map} from 'rxjs/operators';
+import {Observable} from 'rxjs';
 
 @Injectable()
 export class AuthenticationRepositoryService {
@@ -47,8 +47,6 @@ export class AuthenticationRepositoryService {
   }
 
   private updateSessionStorage() {
-    console.log('updateSessionStorage ');
-
     // update session storage
     if (exists(this._userCredentials?.jwtToken)) {
       this.webstorage.jwtToken = this._userCredentials.jwtToken;
@@ -64,26 +62,13 @@ export class AuthenticationRepositoryService {
     }
   }
 
-  public authenticate(userCredentials: UserCredentials = this._defaultUser): Promise<UserCredentials> {
-    this.store.dispatch(actions.loadUserCredentials());
+  public authenticate(userCredentials: UserCredentials = this._defaultUser): Observable<UserCredentials> {
+     return this.connector.authenticate(userCredentials).pipe(
+        map((response: UserCredentials) => {
+          this.store.dispatch(actions.loadUserCredentialsSuccess({ data: response }));
 
-    return new Promise<UserCredentials>((resolve, reject) => {
-
-      this.connector.authenticate(userCredentials).then((response: RestResponse<UserCredentials>) => {
-        if (response.result === RequestResult.SUCCESS) {
-
-          this.store.dispatch(actions.loadUserCredentialsSuccess({ data: response.payload }));
-
-          resolve(response.payload);
-        }
-      }, (response: RestResponse<UserCredentials>) => {
-        console.log('Failed to authenticate');
-
-        this.store.dispatch(actions.loadUserCredentialsFailure({ error: response }));
-
-        reject();
-      });
-    });
+          return response;
+      }));
   }
 
   public get userCredentials(): UserCredentials {

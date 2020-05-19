@@ -11,36 +11,33 @@ import {
   UrlTree
 } from '@angular/router';
 import {Observable, of} from 'rxjs';
-import {actions, RoutesState, selectors} from '../data-access/waypoint/state/route';
 import {Store} from '@ngrx/store';
 import {catchError, filter, switchMap, take, tap} from 'rxjs/operators';
-import {ErrorCategory} from '../../shared/data-access';
+import {
+  actions,
+  selectors,
+  UserCredentialState
+} from '../modules/user/data-access/authentication/state/user-credential';
 
 @Injectable({
   providedIn: 'root'
 })
-export class NavigationGuard implements CanActivate, CanActivateChild, CanLoad {
+export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
 
-  constructor(private router: Router, private store: Store<RoutesState>) {
+  constructor(private router: Router, private store: Store<UserCredentialState>) {
 
   }
 
   private getFromStoreOrAPI(): Observable<any> {
     // return an Observable stream from the store
-    return this.store.select(selectors.selectRoutesState).pipe(
-      tap(routes => console.log('Nav Guard: RouteState: ' + JSON.stringify(routes))),
-      tap(routes => {
-        if (routes.error?.category) {
-          console.error('Nav Guard: Detect connection error: ' + ErrorCategory[routes.error.category])
-        }
-      }),
-      tap(routes => {
-        if (!routes.loaded && !routes.loading && (!routes?.error || routes.error?.category === ErrorCategory.TECHNICAL)) {
-          this.store.dispatch(actions.loadMyRouteOfToday());
+    return this.store.select(selectors.selectUserCredentialState).pipe(
+      tap(userCredentials => {
+        if (!userCredentials.loaded && !userCredentials.loading) {
+          this.store.dispatch(actions.loadUserCredentials());
         }
       }),
       // filter unloaded
-      filter(routes => routes.loaded),
+      filter(userCredentials => userCredentials.loaded),
       take(1)
     );
   }
@@ -57,11 +54,18 @@ export class NavigationGuard implements CanActivate, CanActivateChild, CanLoad {
       catchError(() => of(false))
     );
   }
+
   canActivateChild(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-    return true;
+    // return our Observable stream from above
+    return this.getFromStoreOrAPI().pipe(
+      // if it was successful, we can return Observable.of(true)
+      switchMap(() => of(true)),
+      // otherwise, something went wrong
+      catchError(() => of(false))
+    );
   }
   canLoad(
     route: Route,

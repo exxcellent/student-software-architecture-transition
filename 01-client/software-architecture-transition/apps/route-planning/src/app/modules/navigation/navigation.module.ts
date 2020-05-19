@@ -12,7 +12,7 @@ import {NavigationDaySelectorComponent} from './dialogs/navigation-day-selector/
 import {StoreModule} from '@ngrx/store';
 import * as fromRoute from './data-access/waypoint/state/route/route.reducer';
 import {EffectsModule} from '@ngrx/effects';
-import {RouteEffects} from './guards/effects/route.effects';
+import {RouteEffects} from './data-access/waypoint/state/route/route.effects';
 
 @NgModule({
   declarations: [
@@ -35,7 +35,7 @@ import {RouteEffects} from './guards/effects/route.effects';
         children: [
           { path: 'map', component: NavigationMapComponent },
           { path: 'waypoints', component: NavigationWaypointsComponent },
-          { path: '', redirectTo: 'map', pathMatch: 'full'},
+          { path: '', redirectTo: 'waypoints', pathMatch: 'full'},
         ],
       },
       // {

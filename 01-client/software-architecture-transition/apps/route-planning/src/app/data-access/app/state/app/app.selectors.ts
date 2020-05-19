@@ -7,8 +7,10 @@ const selectAppState = createFeatureSelector<fromApp.AppState>(
 );
 
 const selectPageLoading = createSelector(selectAppState, getter.getPageLoading);
+const selectNotification = createSelector(selectAppState, getter.getNotification);
 
 export const selectors = {
   selectAppState,
-  selectPageLoading
+  selectPageLoading,
+  selectNotification
 };

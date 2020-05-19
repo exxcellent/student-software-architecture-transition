@@ -45,9 +45,7 @@ export class ThemeDirective implements OnInit, OnDestroy, OnChanges {
   }
 
   updateTheme(theme: Theme) {
-    console.log('ignoreParentTheme ? ' + this.withDefaultTheme + ' for ' + theme.name)
     if (!!theme && (this.withDefaultTheme || theme.name !== this.appTheme.name)) {
-      console.log('Update theme: ', theme.name);
 
       // project properties onto the element
       if (!!theme.properties) {

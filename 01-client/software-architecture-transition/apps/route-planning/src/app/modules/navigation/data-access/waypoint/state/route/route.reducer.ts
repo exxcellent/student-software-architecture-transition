@@ -2,6 +2,7 @@ import {createReducer, on} from '@ngrx/store';
 import {actions} from './route.actions';
 import {Route} from '../../../../model/route';
 import {toISODateString} from '../../../../../shared/functions';
+import {ConnectionErrorState, ErrorCategory} from '../../../../../shared/data-access';
 
 export const routeFeatureKey = 'route';
 
@@ -12,7 +13,8 @@ export interface RoutesState {
     }
   },
   loading: boolean,
-  loaded: boolean
+  loaded: boolean,
+  error: ConnectionErrorState
 }
 
 export const initialState: RoutesState = {
@@ -20,7 +22,8 @@ export const initialState: RoutesState = {
 
   },
   loading: false,
-  loaded: false
+  loaded: false,
+  error: null
 };
 
 
@@ -53,10 +56,15 @@ export const reducer = createReducer(
     return updatedState;
   }),
   on(actions.loadMyRouteFailure, (state, action) => {
+    console.log('Load Routes Failure: ' + JSON.stringify(action.error));
+
     const updatedState: RoutesState = {
       ...state,
       loading: false,
-      loaded: false
+      loaded: false,
+      error: {
+        category: ErrorCategory.BUSINESS
+      }
     };
 
     return updatedState;

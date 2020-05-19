@@ -21,24 +21,24 @@ export class JwtInterceptor implements HttpInterceptor {
         return next.handle(request);
       }
 
-      if (!this.authService.isAuthenticated) {
-        console.log('No authenticated user found. Authenticate...');
-
-        this.authService.authenticate().then(userCredentials => {
-          console.log('...authenticated');
-
-          if (exists(userCredentials?.jwtToken)) {
-              request = request.clone({
-                setHeaders: {
-                  Authorization: `Bearer ${userCredentials.jwtToken}`
-                }
-              });
-            }
-
-          return next.handle(request);
-          });
-
-      } else {
+      // if (!this.authService.isAuthenticated) {
+      //   console.log('No authenticated user found. Authenticate...');
+      //
+      //   this.authService.authenticate().then(userCredentials => {
+      //     console.log('...authenticated');
+      //
+      //     if (exists(userCredentials?.jwtToken)) {
+      //         request = request.clone({
+      //           setHeaders: {
+      //             Authorization: `Bearer ${userCredentials.jwtToken}`
+      //           }
+      //         });
+      //       }
+      //
+      //     return next.handle(request);
+      //     });
+      //
+      // } else {
 
         // add authorization header with jwt token if available
         const jwt = this.authService.jwtToken;
@@ -52,7 +52,7 @@ export class JwtInterceptor implements HttpInterceptor {
         }
 
         return next.handle(request);
-      }
+
 
     } catch (e) {
       // TODO correct error handling

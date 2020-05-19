@@ -18,7 +18,7 @@ export const initialState: UserCredentialState = {
     jwtToken: null
   },
   loading: false,
-  loaded: true,
+  loaded: false,
   authenticated: false
 };
 

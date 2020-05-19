@@ -1,7 +1,9 @@
 import {Component} from '@angular/core';
 import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterEvent} from '@angular/router';
 import {Store} from '@ngrx/store';
-import {actions, AppState, selectors} from './state/app';
+import {actions, AppState, selectors} from './data-access/app/state/app';
+import {NotificationLevel, NotificationMessage} from './modules/shared/types';
+import {exists} from './modules/shared/functions';
 
 @Component({
   selector: 'r-root',
@@ -12,15 +14,29 @@ import {actions, AppState, selectors} from './state/app';
       </header>
 
       <main>
-        <ui-page *ngIf="!loading">
+        <ui-page *ngIf="!loading && !hasNotification">
           <router-outlet style="height: 100%"></router-outlet>
         </ui-page>
-        <ui-page *ngIf="loading">
+        <ui-page *ngIf="loading && !hasNotification">
           <ui-center-on-page>
             <ui-rotate-animation style="font-size: 3rem">
               <i class="material-icons">autorenew</i>
 
             </ui-rotate-animation>
+          </ui-center-on-page>
+        </ui-page>
+        <ui-page *ngIf="hasNotification">
+          <ui-center-on-page>
+            <div style="background-color: var(--background-dark); border: 1px solid var(--text-light); padding: 0 1rem 1rem 1rem; border-radius: 2px">
+              <h3>
+                <span style="color: var(--primary)" *ngIf="notification.level === NotificationLevel.INFO"><i class="material-icons">info</i> Hinweis</span>
+                <span style="color: var(--warn)" *ngIf="notification.level === NotificationLevel.WARN"><i class="material-icons">warning</i> Warnung</span>
+                <span style="color: var(--error)" *ngIf="notification.level === NotificationLevel.ERROR"><i class="material-icons">error</i> Fehler</span>
+              </h3>
+              <p>
+              {{ notification.message }}
+              </p>
+            </div>
           </ui-center-on-page>
         </ui-page>
       </main>
@@ -50,6 +66,8 @@ import {actions, AppState, selectors} from './state/app';
 })
 export class AppComponent {
   loading = false;
+  notification: NotificationMessage;
+  NotificationLevel = NotificationLevel;
 
   constructor(private router: Router, private store: Store<AppState>) {
     // show/ hide loading indicator in navigation events
@@ -59,6 +77,10 @@ export class AppComponent {
 
     store.select(selectors.selectPageLoading).subscribe(loading => {
       this.loading = loading;
+    });
+
+    store.select(selectors.selectNotification).subscribe(notification => {
+      this.notification = notification;
     });
   }
 
@@ -80,5 +102,8 @@ export class AppComponent {
     }
   }
 
+  get hasNotification(): boolean {
+    return exists(this.notification);
+  }
 
 }

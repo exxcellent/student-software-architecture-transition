@@ -14,7 +14,8 @@ import {SharedModule} from './modules/shared/shared.module';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {JwtInterceptor} from './modules/shared/data-access/interceptors/jwt-interceptor.service';
 import {UserModule} from './modules/user/user.module';
-import * as fromApp from './state/app/app.reducer';
+import * as fromApp from './data-access/app/state/app/app.reducer';
+import {AuthGuard} from './guards/auth.guard';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
@@ -24,7 +25,9 @@ import * as fromApp from './state/app/app.reducer';
     RouterModule.forRoot([
       {
         path: 'navigation',
-        loadChildren: () => import('./modules/navigation/navigation.module').then(m => m.NavigationModule)
+        loadChildren: () => import('./modules/navigation/navigation.module').then(m => m.NavigationModule),
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard]
       },
       {
         path: '',

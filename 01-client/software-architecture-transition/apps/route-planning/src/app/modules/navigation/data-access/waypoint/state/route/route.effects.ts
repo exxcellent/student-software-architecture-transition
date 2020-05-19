@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
-import {catchError, concatMap, map} from 'rxjs/operators';
+import {catchError, concatMap, map, tap} from 'rxjs/operators';
 import {of} from 'rxjs';
 
-import {actions} from '../../data-access/waypoint/state/route';
-import {AuthenticationRepositoryService} from '../../../user/data-access/authentication/authentication-repository.service';
-import {today} from '../../../shared/functions';
-import {WaypointConnectorService} from '../../data-access/waypoint/connector/waypoint-connector.service';
+import {actions} from './route.actions';
+import {AuthenticationRepositoryService} from '../../../../../user/data-access/authentication/authentication-repository.service';
+import {today} from '../../../../../shared/functions';
+import {WaypointConnectorService} from '../../connector/waypoint-connector.service';
 
 @Injectable()
 export class RouteEffects {
@@ -20,10 +20,15 @@ export class RouteEffects {
       ofType(actions.loadMyRouteOfToday),
       concatMap(() =>
             this.connector.findRoute(today(), 1).pipe(
+              tap(data => console.log(data)),
               map(data => {
                 return actions.loadMyRouteSuccess({data: data})
               }),
-              catchError(error => of(actions.loadMyRouteFailure({error})))
+              catchError(error => {
+                console.error(error);
+
+                return of(actions.loadMyRouteFailure({error}))
+              })
           )
         )
       );
