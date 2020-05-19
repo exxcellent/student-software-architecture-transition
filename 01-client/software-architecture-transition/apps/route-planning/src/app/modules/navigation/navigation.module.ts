@@ -15,6 +15,7 @@ import {EffectsModule} from '@ngrx/effects';
 import {RouteEffects} from './data-access/waypoint/state/route';
 import {SharedUiComponentsModule} from '../shared-ui-components';
 import {SharedModule} from '../shared/shared.module';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import {SharedModule} from '../shared/shared.module';
       //   pathMatch: 'prefix'
       // },
     ]),
+    DragDropModule,
     AgmCoreModule.forRoot({
       // please get your own API key here:
       // https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en

@@ -2,9 +2,8 @@
 
   <nav-navigation-day-selector></nav-navigation-day-selector>
 
-  <div>
-    <ul class="waypoint-list">
-      <li *ngFor="let wp of waypoints">
+  <div class="waypoint-list" cdkDropList (cdkDropListDropped)="drop($event)">
+      <div class="waypoint" *ngFor="let wp of dragableWaypoints" cdkDrag>
         <img [src]="wp.iconUrl" [alt]="wp.iconUrl" class="waypoint-icon" />
         <div class="waypoint-description">
           <div class="waypoint-title">
@@ -14,7 +13,7 @@
             {{ WaypointCategory[wp.waypoint.category] }}
           </div>
         </div>
-      </li>
-    </ul>
+      </div>
+      <div class="waypoint" style="background-color: red; height: 4rem" *cdkDragPlaceholder></div>
   </div>
 </div>
