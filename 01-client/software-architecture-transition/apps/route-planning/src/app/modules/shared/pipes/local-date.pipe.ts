@@ -1,13 +1,12 @@
 import {Pipe, PipeTransform} from '@angular/core';
 import {formatDate} from '@angular/common';
-import {SessionService} from '../services';
 
 @Pipe({
   name: 'localDate'
 })
 export class LocalDatePipe implements PipeTransform {
 
-  constructor(private session: SessionService) {
+  constructor() {
   }
 
   /**
@@ -20,10 +19,7 @@ export class LocalDatePipe implements PipeTransform {
     if (!value) {
       return '';
     }
-    if (!format) {
-      format = this.session.getLocalDateFormat();
-    }
-    return formatDate(value, format, this.session.getLocale());
+    return formatDate(value, format, 'de-DE');
   }
 
 }
