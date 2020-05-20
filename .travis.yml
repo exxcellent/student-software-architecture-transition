@@ -34,8 +34,8 @@ addons:
 
 script:
   # switch to newer JDK
-  - export JAVA_HOME=$HOME/openjdk14
-  - $TRAVIS_BUILD_DIR/install-jdk.sh --install openjdk14 --target $JAVA_HOME
+  #- export JAVA_HOME=$HOME/openjdk14
+  #- $TRAVIS_BUILD_DIR/install-jdk.sh --install openjdk14 --target $JAVA_HOME
   # change to project directory
   - cd 02-server
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
