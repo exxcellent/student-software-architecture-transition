@@ -4,7 +4,7 @@
 
   <div class="waypoint-list" cdkDropList (cdkDropListDropped)="drop($event)">
       <div class="waypoint" *ngFor="let wp of dragableWaypoints" cdkDrag>
-        <img [src]="wp.iconUrl" [alt]="wp.iconUrl" class="waypoint-icon" />
+        <img [src]="wp.iconUrl" [alt]="" class="waypoint-icon" />
         <div class="waypoint-description">
           <div class="waypoint-title">
             <span>{{ wp.waypoint.address | truncate : 40 }}</span>

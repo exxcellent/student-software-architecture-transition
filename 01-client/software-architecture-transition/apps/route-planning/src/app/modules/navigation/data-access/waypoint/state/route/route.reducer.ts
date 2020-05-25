@@ -47,6 +47,7 @@ export const reducer = createReducer(
     const updatedState: RoutesState = {
       ...state,
       routes: {
+        ...state.routes,
         [toISODateString(myRoute.date)]: {
           myRoute: myRoute,
         }

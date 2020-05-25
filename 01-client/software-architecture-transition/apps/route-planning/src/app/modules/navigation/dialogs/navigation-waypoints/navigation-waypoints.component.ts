@@ -21,7 +21,11 @@ export class NavigationWaypointsComponent implements OnInit {
 
   ngOnInit(): void {
     // initial waypoint list
-    this.dragableWaypoints = this.dialogCore.waypoints;
+    // this.dragableWaypoints = this.dialogCore.waypoints;
+    this.dialogCore.currentWaypointsWithIconsSubject$.subscribe((waypoints: WaypointWithIcon[]) => {
+      this.dragableWaypoints = waypoints;
+    })
+
   }
 
   drop(event: CdkDragDrop<string[]>) {

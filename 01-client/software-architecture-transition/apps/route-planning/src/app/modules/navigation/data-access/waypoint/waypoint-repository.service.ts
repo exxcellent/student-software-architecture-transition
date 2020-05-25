@@ -33,10 +33,12 @@ export class WaypointRepositoryService {
 
   nextDay(): void {
     this.store.dispatch(actions.nextDay());
+    this.store.dispatch(actions.loadMyRouteOfToday())
   }
 
   previousDay(): void {
     this.store.dispatch(actions.previousDay());
+    this.store.dispatch(actions.loadMyRouteOfToday())
   }
 
   myRouteOfDay$(date: Date): Observable<Route> {

@@ -28,7 +28,6 @@ export class NavigationGuard implements CanActivate, CanActivateChild, CanLoad {
   private getFromStoreOrAPI(): Observable<any> {
     // return an Observable stream from the store
     return this.store.select(selectors.selectRoutesState).pipe(
-      tap(routes => console.log('Nav Guard: RouteState: ' + JSON.stringify(routes))),
       tap(routes => {
         if (routes.error?.category) {
           console.error('Nav Guard: Detect connection error: ' + ErrorCategory[routes.error.category])
