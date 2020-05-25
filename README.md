@@ -1,5 +1,7 @@
 # Eine hybride Software-Architektur für plattformübergreifende Anwendungen
 
+[![Build Status](https://travis-ci.org/exxcellent/student-software-architecture-transition.svg?branch=master)](https://travis-ci.org/exxcellent/student-software-architecture-transition)
+
 ## Fachliches Szenario
 
 ### Bauüberwachung durch die Stadtwerke einer Landeshauptstadt.
