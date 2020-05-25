@@ -35,14 +35,14 @@ export function fromResponse(response: RouteCTO): Route {
   }
 }
 
-function fromResponseStatus(responseStatus: Status): WaypointStatus {
+function fromResponseStatus(responseStatus): WaypointStatus {
   switch (responseStatus) {
-    case Status.ACTIVE: return WaypointStatus.ACTIVE;
-    case Status.FINISHED: return WaypointStatus.FINISHED;
-    case Status.CANCELED: return WaypointStatus.CANCELED;
-    case Status.PENDING:
+    case Status[Status.ACTIVE]: return WaypointStatus.ACTIVE;
+    case Status[Status.FINISHED]: return WaypointStatus.FINISHED;
+    case Status[Status.CANCELED]: return WaypointStatus.CANCELED;
+    case Status[Status.PENDING]:
     default:
-      return WaypointStatus.ACTIVE;
+      return WaypointStatus.PENDING;
   }
 }
 

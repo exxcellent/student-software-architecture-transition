@@ -37,6 +37,8 @@ export class NavigationMapDialogCore {
 
   private _currentRoute$: Observable<Route>;
   private _currentRoute: Route;
+  public currentWaypoint$: Observable<Waypoint>;
+  private _currentWaypoint: Waypoint;
 
   constructor(private waypointRepository: WaypointRepositoryService) {
     this._currentRoute$ = waypointRepository.currentRoute$;
@@ -44,6 +46,12 @@ export class NavigationMapDialogCore {
     this._currentRoute$.subscribe((route: Route) => {
       this._currentRoute = route;
     });
+
+    this.currentWaypoint$ = waypointRepository.currentWaypoint$;
+
+    this.currentWaypoint$.subscribe(waypoint => {
+      this._currentWaypoint = waypoint;
+    })
   }
 
   renderRoute(map: google.maps.Map): void {
@@ -137,6 +145,12 @@ export class NavigationMapDialogCore {
     this.options.zoom--;
   }
 
+  callContact(): void {
+    window.open('tel:' + this._currentWaypoint.contact.phoneNumber, "_blank");
+  }
+  sendMail(): void {
+    window.open('mailto:' + this._currentWaypoint.contact.email, "_blank");
+  }
 
   get mapType(): 'roadmap' | 'hybrid' | 'satellite' | 'terrain' {
     return this.type;

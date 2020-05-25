@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NavigationMapDialogCore} from './navigation-map.dialogcore';
+import {Waypoint} from '../../model/waypoint';
 
 // @ts-ignore
 
@@ -11,10 +12,14 @@ import {NavigationMapDialogCore} from './navigation-map.dialogcore';
 })
 export class NavigationMapComponent implements OnInit {
 
+  currentWayPoint: Waypoint;
+
   constructor(private dialogCore: NavigationMapDialogCore) { }
 
   ngOnInit(): void {
-
+    this.dialogCore.currentWaypoint$.subscribe(waypoint => {
+      this.currentWayPoint = waypoint;
+    })
   }
 
   get center() {
@@ -55,6 +60,14 @@ export class NavigationMapComponent implements OnInit {
 
   toggleMapType(): void {
     this.dialogCore.toggleMapType();
+  }
+
+  callContact(): void {
+    this.dialogCore.callContact();
+  }
+
+  sendMail(): void {
+    this.dialogCore.sendMail();
   }
 
   isMapTypeHybrid(): boolean {

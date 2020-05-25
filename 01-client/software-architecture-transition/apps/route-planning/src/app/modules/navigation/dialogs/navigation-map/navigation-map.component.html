@@ -23,6 +23,7 @@
 
   </agm-map>
 
+
   <div class="map-control">
     <div class="map-control-group-list">
 
@@ -44,6 +45,16 @@
         </li>
       </ul>
 
+      <ul class="map-control-group with-shadow">
+        <li class="map-control-item" (click)="callContact()">
+          <div class="map-control-item-container">
+            <i class="material-icons">phone</i></div>
+        </li>
+        <li class="map-control-item" (click)="sendMail()">
+          <div class="map-control-item-container">
+            <i class="material-icons">mail</i></div>
+        </li>
+      </ul>
 
     </div>
   </div>

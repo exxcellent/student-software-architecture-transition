@@ -44,3 +44,7 @@
   font-size: 0.8rem;
   font-style: italic;
 }
+
+.current-waypoint {
+  background-color: var(--primary-light);
+}

@@ -7,6 +7,7 @@ import {WaypointWithIcon} from './types/waypoint-with-icon.interface';
 import {WAYPOINT_ICONS} from '../waypoint-icons';
 import {filter, map} from 'rxjs/operators';
 import {toISODateString} from '../../../shared/functions';
+import {WaypointStatus} from '../../model/waypoint-status.enum';
 
 @Injectable()
 export class NavigationWaypointsDialogCore {
@@ -33,7 +34,7 @@ export class NavigationWaypointsDialogCore {
 
           const waypointsWithIcon: WaypointWithIcon[] = [];
           sortedWaypoints.forEach((wp: Waypoint, index: number) => {
-            waypointsWithIcon.push({waypoint: wp, iconUrl: WAYPOINT_ICONS.appointmentIcons[index]})
+            waypointsWithIcon.push({waypoint: wp, iconUrl: WAYPOINT_ICONS.appointmentIcons[index], currentWaypoint: wp.status === WaypointStatus.ACTIVE})
           });
 
           return waypointsWithIcon;
@@ -48,19 +49,5 @@ export class NavigationWaypointsDialogCore {
 
 
 
-  }
-
-  get waypoints(): WaypointWithIcon[] {
-    const sortedWaypoints = Object.assign([], this._currentRoute.waypoints);
-    sortedWaypoints.sort((a, b) => a.orderIndex - b.orderIndex);
-
-    const waypointsWithIcon: WaypointWithIcon[] = [];
-    sortedWaypoints.forEach((wp: Waypoint, index: number) => {
-      waypointsWithIcon.push({ waypoint: wp, iconUrl: WAYPOINT_ICONS.appointmentIcons[index]})
-    });
-
-    return waypointsWithIcon;
-
-    // return this._currentWaypointsWithIcons;
   }
 }

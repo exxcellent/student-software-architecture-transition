@@ -3,9 +3,11 @@ import {Store} from '@ngrx/store';
 import {Route} from '../../model/route';
 import {WaypointConnectorService} from './connector/waypoint-connector.service';
 import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
+import {filter, flatMap, map} from 'rxjs/operators';
 import {toISODateString} from '../../../shared/functions';
 import {actions, RoutesState, selectors} from './state/route';
+import {Waypoint} from '../../model/waypoint';
+import {WaypointStatus} from '../../model/waypoint-status.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -49,5 +51,13 @@ export class WaypointRepositoryService {
 
   get currentRoute$(): Observable<Route> {
     return this.myRouteOfDay$(this.currentDay);
+  }
+
+  get currentWaypoint$(): Observable<Waypoint> {
+    return this.currentRoute$.pipe(
+      map((route:Route) => route.waypoints),
+      flatMap((waypoint) => waypoint),
+      filter(waypoint => waypoint.status === WaypointStatus.ACTIVE),
+    );
   }
 }
