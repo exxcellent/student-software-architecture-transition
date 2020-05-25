@@ -42,13 +42,6 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- Support for PostgreSQL data type: interval -->
-		<dependency>
-			<groupId>com.vladmihalcea</groupId>
-			<artifactId>hibernate-types-52</artifactId>
-			<version>2.9.8</version>
-		</dependency>
-
 		<dependency>
 			<groupId>com.konghq</groupId>
 			<artifactId>unirest-java</artifactId>

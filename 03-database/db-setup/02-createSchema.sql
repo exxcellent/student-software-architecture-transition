@@ -99,12 +99,12 @@ CREATE TABLE appointment (
     id              DECIMAL(19,0)   NOT NULL    PRIMARY KEY  DEFAULT nextval('appointment_id_seq'),
     process_id      DECIMAL(19,0)   NOT NULL    REFERENCES process (id) ON DELETE CASCADE,
 
-    description             TEXT,
-    date                    DATE         NOT NULL,
-    travel_duration         INTERVAL,
-    start_time              TIME,
-    appointment_duration    INTERVAL,
-    finished                BOOLEAN      NOT NULL    DEFAULT false,
+    description                 TEXT,
+    date                        DATE         NOT NULL,
+    travel_duration_sec         DECIMAL(19,0),
+    start_time                  TIME,
+    appointment_duration_sec    DECIMAL(19,0),
+    finished                    BOOLEAN      NOT NULL    DEFAULT false,
 
     version                 INTEGER                     NOT NULL,
     created_at_utc          TIMESTAMP WITH TIME ZONE    NOT NULL,
@@ -131,9 +131,9 @@ CREATE TABLE waypoint (
     latitude       FLOAT     NOT NULL,
     longitude      FLOAT     NOT NULL,
 
-    travel_duration     INTERVAL,
+    travel_duration_sec DECIMAL(19,0),
     start_time          TIME,
-    duration            INTERVAL,
+    duration_sec        DECIMAL(19,0),
 
     contact_name           TEXT,
     contact_phone_number   PHONE_NUMBER   NOT NULL,
@@ -155,7 +155,7 @@ CREATE TABLE notification (
 
     notified_at      TIMESTAMP WITH TIME ZONE    NOT NULL,
     channel          VARCHAR(50)  NOT NULL,
-    arrival_in       INTERVAL,
+    arrival_in_sec   DECIMAL(19,0),
 
     version                 INTEGER                     NOT NULL,
     created_at_utc          TIMESTAMP WITH TIME ZONE    NOT NULL,

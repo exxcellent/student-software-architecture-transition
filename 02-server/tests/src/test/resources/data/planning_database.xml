@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <application_user id="1" name="ADMIN" password="$2a$10$6HxIJ6fWLL9xsf92xCAILutytFl0rYAzh9fnIlMWgQ7EfWA9nUtN." version="0" created_at_utc="2020-04-25 15:11:05.765000" created_by="TEST"/>
+
+  <permission name="READ" version="0" created_at_utc="2020-04-25 15:11:05.765000" created_by="TEST"/>
+  <permission name="WRITE" version="0" created_at_utc="2020-04-25 15:11:05.765000" created_by="TEST"/>
+  <permission name="DELETE" version="0" created_at_utc="2020-04-25 15:11:05.765000" created_by="TEST"/>
+
+  <user_permission user_id="1" permission="READ" version="0" created_at_utc="2020-04-25 15:11:05.765000" created_by="TEST"/>
+  <user_permission user_id="1" permission="WRITE" version="0" created_at_utc="2020-04-25 15:11:05.765000" created_by="TEST"/>
+  <user_permission user_id="1" permission="DELETE" version="0" created_at_utc="2020-04-25 15:11:05.765000" created_by="TEST"/>
+
+  <inspector id="1" first_name="Inspector" last_name="Integrationtest" version="0" created_at_utc="2020-04-25 15:11:05.765000" created_by="TEST"/>
+  <location id="1" name="Location #1" street="Spiridon-Louis-Ring 21-3" zip="80809" city="München" latitude="48.175799" longitude="11.556489" version="0" created_at_utc="2020-04-25 15:11:05.765000" created_by="TEST"/>
+  <contact id="1" first_name="Thorsten" last_name="Kappel" phone_number="+49372470197" email="Thorsten.Kappel@beispiel-bauunternehmen.de" version="0" created_at_utc="2020-04-25 15:11:05.765000" created_by="TEST"/>
+
+  <process id="1" inspector_id="1" location_id="1" contact_id="1" title="Process #1" type="NORMAL" priority="NORMAL" version="0" created_at_utc="2020-04-25 15:11:05.765000" created_by="TEST"/>
+
+  <appointment id="1" process_id="1" date="2020-05-09" finished="false" version="0" created_at_utc="2020-04-25 15:11:05.765000" created_by="TEST"/>
+</dataset>

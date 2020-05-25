@@ -1,20 +1,13 @@
 package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data.entities.waypoint;
 
-import com.vladmihalcea.hibernate.type.interval.PostgreSQLIntervalType;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.data.entities.CommonEntity;
-import org.hibernate.annotations.TypeDef;
 
 import javax.persistence.*;
-import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Table(name = "waypoint")
 @Entity
-@TypeDef(
-    typeClass = PostgreSQLIntervalType.class,
-    defaultForType = Duration.class
-)
 public class WaypointEntity extends CommonEntity {
 
   @Column(name = "appointment_id")
@@ -46,20 +39,14 @@ public class WaypointEntity extends CommonEntity {
   @Column(name = "longitude")
   private Float longitude;
 
-  @Column(
-      name = "travel_duration",
-      columnDefinition = "interval"
-  )
-  private Duration travelDuration;
+  @Column(name = "travel_duration_sec")
+  private Long travelDuration;
 
   @Column(name = "start_time")
   private LocalTime startTime;
 
-  @Column(
-      name = "duration",
-      columnDefinition = "interval"
-  )
-  private Duration duration;
+  @Column(name = "duration_sec")
+  private Long duration;
 
   @Column(name = "contact_name")
   private String contactname;
@@ -145,11 +132,11 @@ public class WaypointEntity extends CommonEntity {
     this.longitude = longitude;
   }
 
-  public Duration getTravelDuration() {
+  public Long getTravelDuration() {
     return travelDuration;
   }
 
-  public void setTravelDuration(Duration travelDuration) {
+  public void setTravelDuration(Long travelDuration) {
     this.travelDuration = travelDuration;
   }
 
@@ -161,11 +148,11 @@ public class WaypointEntity extends CommonEntity {
     this.startTime = startTime;
   }
 
-  public Duration getDuration() {
+  public Long getDuration() {
     return duration;
   }
 
-  public void setDuration(Duration duration) {
+  public void setDuration(Long duration) {
     this.duration = duration;
   }
 

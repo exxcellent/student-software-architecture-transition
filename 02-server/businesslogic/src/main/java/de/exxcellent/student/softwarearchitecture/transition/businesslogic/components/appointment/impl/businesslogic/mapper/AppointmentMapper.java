@@ -3,8 +3,6 @@ package de.exxcellent.student.softwarearchitecture.transition.businesslogic.comp
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.appointment.api.types.AppointmentDO;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.appointment.impl.data.entities.AppointmentEntity;
 
-import java.time.Duration;
-import java.time.temporal.ChronoUnit;
 import java.util.function.Function;
 
 /**
@@ -29,10 +27,10 @@ public final class AppointmentMapper {
     appointmentDO.setStartTime(entity.getStartTime());
 
     if (entity.getAppointmentDuration() != null) {
-      appointmentDO.setDurationInSeconds(entity.getAppointmentDuration().toSeconds());
+      appointmentDO.setDurationInSeconds(entity.getAppointmentDuration());
     }
     if (entity.getTravelDuration() != null) {
-      appointmentDO.setTravelDurationInSeconds(entity.getTravelDuration().toSeconds());
+      appointmentDO.setTravelDurationInSeconds(entity.getTravelDuration());
     }
 
     appointmentDO.setProcessId(entity.getProcessId());
@@ -51,10 +49,8 @@ public final class AppointmentMapper {
 
     appointmentEntity.setDate(appointmentDO.getDate());
     appointmentEntity.setStartTime(appointmentDO.getStartTime());
-    appointmentEntity.setAppointmentDuration(
-        Duration.of(appointmentDO.getDurationInSeconds(), ChronoUnit.SECONDS));
-    appointmentEntity.setTravelDuration(
-        Duration.of(appointmentDO.getTravelDurationInSeconds(), ChronoUnit.SECONDS));
+    appointmentEntity.setAppointmentDuration(appointmentDO.getDurationInSeconds());
+    appointmentEntity.setTravelDuration(appointmentDO.getTravelDurationInSeconds());
 
     appointmentEntity.setProcessId(appointmentDO.getProcessId());
 

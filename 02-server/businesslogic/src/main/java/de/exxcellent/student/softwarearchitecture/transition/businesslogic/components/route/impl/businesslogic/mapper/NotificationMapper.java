@@ -5,7 +5,9 @@ import de.exxcellent.student.softwarearchitecture.transition.businesslogic.compo
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data.entities.notification.Channel;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data.entities.notification.NotificationEntity;
 
+import java.time.Duration;
 import java.time.ZoneOffset;
+import java.time.temporal.ChronoUnit;
 import java.util.function.Function;
 
 /**
@@ -26,7 +28,7 @@ public final class NotificationMapper {
     notificationDO.setWaypointId(notification.getWaypoint().getId());
     notificationDO.setNotificationChannel(NotificationMapper.toNotificationChannel.apply(notification.getChannel()));
     notificationDO.setNotifiedAtUtc(notification.getNotifiedAt().toInstant());
-    notificationDO.setArrivalIn(notification.getArrivalIn());
+    notificationDO.setArrivalIn(Duration.of(notification.getArrivalIn(), ChronoUnit.SECONDS));
 
     return notificationDO;
   };
@@ -38,7 +40,7 @@ public final class NotificationMapper {
     notificationEntity.setVersion(notification.getVersion());
     notificationEntity.setChannel(NotificationMapper.fromNotificationChannel.apply(notification.getNotificationChannel()));
     notificationEntity.setNotifiedAt(notification.getNotifiedAtUtc().atOffset(ZoneOffset.UTC));
-    notificationEntity.setArrivalIn(notification.getArrivalIn());
+    notificationEntity.setArrivalIn(notification.getArrivalIn().toSeconds());
 
     return notificationEntity;
   };

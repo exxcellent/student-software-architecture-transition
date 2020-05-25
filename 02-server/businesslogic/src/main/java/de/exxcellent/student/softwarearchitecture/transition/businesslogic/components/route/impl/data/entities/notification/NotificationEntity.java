@@ -1,12 +1,9 @@
 package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data.entities.notification;
 
-import com.vladmihalcea.hibernate.type.interval.PostgreSQLIntervalType;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.data.entities.CommonEntity;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data.entities.waypoint.WaypointEntity;
-import org.hibernate.annotations.TypeDef;
 
 import javax.persistence.*;
-import java.time.Duration;
 import java.time.OffsetDateTime;
 
 /**
@@ -16,10 +13,6 @@ import java.time.OffsetDateTime;
  */
 @Table(name = "notification")
 @Entity
-@TypeDef(
-    typeClass = PostgreSQLIntervalType.class,
-    defaultForType = Duration.class
-)
 public class NotificationEntity extends CommonEntity {
 
   @ManyToOne(fetch = FetchType.EAGER)
@@ -34,7 +27,7 @@ public class NotificationEntity extends CommonEntity {
   private Channel channel;
 
   @Column(name = "arrival_in")
-  private Duration arrivalIn;
+  private Long arrivalIn;
 
   public NotificationEntity() {
   }
@@ -63,11 +56,11 @@ public class NotificationEntity extends CommonEntity {
     this.channel = channel;
   }
 
-  public Duration getArrivalIn() {
+  public Long getArrivalIn() {
     return arrivalIn;
   }
 
-  public void setArrivalIn(Duration arrivalIn) {
+  public void setArrivalIn(Long arrivalIn) {
     this.arrivalIn = arrivalIn;
   }
 }

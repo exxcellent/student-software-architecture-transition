@@ -1,12 +1,10 @@
 package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.appointment.impl.data.entities;
 
-import com.vladmihalcea.hibernate.type.interval.PostgreSQLIntervalType;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.data.entities.CommonEntity;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.inspector.impl.data.entities.InspectorEntity;
-import org.hibernate.annotations.TypeDef;
 
-import javax.persistence.*;
-import java.time.Duration;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -17,10 +15,6 @@ import java.time.LocalTime;
  */
 @Table(name = "appointment")
 @Entity
-@TypeDef(
-    typeClass = PostgreSQLIntervalType.class,
-    defaultForType = Duration.class
-)
 public class AppointmentEntity extends CommonEntity {
 
   @Column(name = "process_id")
@@ -32,19 +26,14 @@ public class AppointmentEntity extends CommonEntity {
   @Column(name = "date")
   private LocalDate date;
 
-  @Column(
-      name = "travel_duration",
-      columnDefinition = "interval"
-  )
-  private Duration travelDuration;
+  @Column(name = "travel_duration_sec")
+  private Long travelDuration;
 
   @Column(name = "start_time")
   private LocalTime startTime;
 
-  @Column(
-      name = "appointment_duration",
-      columnDefinition = "interval"
-  )  private Duration appointmentDuration;
+  @Column(name = "appointment_duration_sec")
+  private Long appointmentDuration;
 
   @Column(name = "finished")
   private Boolean finished;
@@ -77,11 +66,11 @@ public class AppointmentEntity extends CommonEntity {
     this.date = date;
   }
 
-  public Duration getTravelDuration() {
+  public Long getTravelDuration() {
     return travelDuration;
   }
 
-  public void setTravelDuration(Duration travelDuration) {
+  public void setTravelDuration(Long travelDuration) {
     this.travelDuration = travelDuration;
   }
 
@@ -93,11 +82,11 @@ public class AppointmentEntity extends CommonEntity {
     this.startTime = startTime;
   }
 
-  public Duration getAppointmentDuration() {
+  public Long getAppointmentDuration() {
     return appointmentDuration;
   }
 
-  public void setAppointmentDuration(Duration appointmentDuration) {
+  public void setAppointmentDuration(Long appointmentDuration) {
     this.appointmentDuration = appointmentDuration;
   }
 

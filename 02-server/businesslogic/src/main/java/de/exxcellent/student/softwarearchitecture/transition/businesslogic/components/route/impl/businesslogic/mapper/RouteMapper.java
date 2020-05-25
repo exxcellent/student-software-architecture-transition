@@ -7,7 +7,9 @@ import de.exxcellent.student.softwarearchitecture.transition.businesslogic.compo
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.api.types.CalculationMode;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.api.types.LocationRequestDO;
 
+import java.time.Duration;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -33,8 +35,8 @@ public final class RouteMapper {
     waypointDO.setCategory(RouteMapper.toWaypointCategory.apply(entity.getCategory()));
     waypointDO.setStatus(RouteMapper.toWaypointStatus.apply(entity.getStatus()));
     waypointDO.setStartTime(entity.getStartTime());
-    waypointDO.setTravelDuration(entity.getTravelDuration());
-    waypointDO.setDuration(entity.getDuration());
+    waypointDO.setTravelDuration(Duration.of(entity.getTravelDuration(), ChronoUnit.SECONDS));
+    waypointDO.setDuration(Duration.of(entity.getDuration(), ChronoUnit.SECONDS));
 
     waypointDO.setAddress(entity.getAddress());
     waypointDO.setLatitude(entity.getLatitude());
@@ -60,8 +62,8 @@ public final class RouteMapper {
     waypointEntity.setCategory(RouteMapper.fromWaypointCategory.apply(waypoint.getCategory()));
     waypointEntity.setStatus(RouteMapper.fromWaypointStatus.apply(waypoint.getStatus()));
     waypointEntity.setStartTime(waypoint.getStartTime());
-    waypointEntity.setTravelDuration(waypoint.getTravelDuration());
-    waypointEntity.setDuration(waypoint.getDuration());
+    waypointEntity.setTravelDuration(waypoint.getTravelDuration().toSeconds());
+    waypointEntity.setDuration(waypoint.getDuration().toSeconds());
 
     waypointEntity.setAddress(waypoint.getAddress());
     waypointEntity.setLatitude(waypoint.getLatitude());
