@@ -1,0 +1,20 @@
+.waypoint-details {
+  padding: 1rem;
+}
+.waypoint-details-group-title {
+  color: var(--primary);
+}
+.no-decoration, .no-decoration:hover, .no-decoration:focus, .no-decoration:active {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: lighter;
+  font-size: 1rem;
+}
+
+.button-row {
+  display: flex;
+}
+
+.button-row ui-button{
+  margin-right: 1rem;
+}

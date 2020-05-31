@@ -11,11 +11,17 @@ import {environment} from '../environments/environment';
 import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
 import {SharedModule} from './modules/shared/shared.module';
-import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClient} from '@angular/common/http';
 import {JwtInterceptor} from './modules/shared/data-access/interceptors/jwt-interceptor.service';
 import {UserModule} from './modules/user/user.module';
 import * as fromApp from './data-access/app/state/app/app.reducer';
 import {AuthGuard} from './guards/auth.guard';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
@@ -45,6 +51,15 @@ import {AuthGuard} from './guards/auth.guard';
 
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([]),
+
+    TranslateModule.forRoot({
+      defaultLanguage: 'de',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    })
   ],
   /* HTTP INTERCEPTORS */
   providers:    [

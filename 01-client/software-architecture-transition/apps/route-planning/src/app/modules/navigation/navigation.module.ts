@@ -16,6 +16,9 @@ import {RouteEffects} from './data-access/waypoint/state/route';
 import {SharedUiComponentsModule} from '../shared-ui-components';
 import {SharedModule} from '../shared/shared.module';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import {NavigationWaypointDetailsComponent} from './dialogs/navigation-waypoint-details/navigation-waypoint-details.component';
+import {LocalDatePipe} from '../shared/pipes';
+import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -24,12 +27,15 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     NavigationMapComponent,
     NavigationWaypointsComponent,
     NavigationDaySelectorComponent,
+    NavigationWaypointDetailsComponent,
+    LocalDatePipe,
   ],
   exports: [
     TabBarComponent
   ],
   imports: [
     CommonModule,
+    TranslateModule,
     RouterModule.forChild([
       {
         path: '', component: NavigationPage,
@@ -39,6 +45,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
         children: [
           {path: 'map', component: NavigationMapComponent},
           {path: 'waypoints', component: NavigationWaypointsComponent},
+          {path: 'details/:waypointId', component: NavigationWaypointDetailsComponent},
           {path: '', redirectTo: 'waypoints', pathMatch: 'full'},
         ],
       },

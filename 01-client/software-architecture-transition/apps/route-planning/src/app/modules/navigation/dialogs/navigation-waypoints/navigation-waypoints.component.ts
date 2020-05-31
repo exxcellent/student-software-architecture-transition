@@ -35,7 +35,15 @@ export class NavigationWaypointsComponent implements OnInit {
 
   }
 
-  getCurrentClass(currentWaypoint: boolean): string {
-    return currentWaypoint ? 'current-waypoint' : '';
+  isCurrentWaypoint(waypoint: WaypointWithIcon): boolean {
+    return this.dialogCore.isNextWaypoint(waypoint.waypoint);
+  }
+
+  currentWaypointClass(waypoint: WaypointWithIcon): string {
+    return this.isCurrentWaypoint(waypoint) ? 'current-waypoint' : '';
+  }
+
+  openDetails(waypoint: WaypointWithIcon): void {
+    this.dialogCore.openDetails(waypoint.waypoint);
   }
 }

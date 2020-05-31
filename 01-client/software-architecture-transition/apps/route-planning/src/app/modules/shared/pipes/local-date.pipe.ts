@@ -19,7 +19,7 @@ export class LocalDatePipe implements PipeTransform {
     if (!value) {
       return '';
     }
-    return formatDate(value, format, 'de-DE');
+    return formatDate(value, format, 'en-US');
   }
 
 }

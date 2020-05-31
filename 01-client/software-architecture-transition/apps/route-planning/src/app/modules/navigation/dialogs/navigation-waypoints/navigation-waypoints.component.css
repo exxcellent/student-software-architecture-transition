@@ -16,6 +16,7 @@
 
 .waypoint:hover, .waypoint:focus {
   background-color: var(--text-lighter);
+  cursor: pointer;
 }
 
 .waypoint:first-child {

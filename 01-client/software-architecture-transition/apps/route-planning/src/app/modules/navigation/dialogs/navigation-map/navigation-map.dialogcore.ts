@@ -196,6 +196,10 @@ export class NavigationMapDialogCore {
   sendMail(): void {
     window.open('mailto:' + this._currentWaypoint.contact.email, "_blank");
   }
+  navigateTo(): void {
+    // TODO use Google Maps Intent window.open(`google.navigation:q=${this._currentWaypoint.location.lat},${this._currentWaypoint.location.lng}`, "_blank");
+    window.open(`http://maps.google.com/maps?saddr=${this._currentLocation.lat()},${this._currentLocation.lng()}&daddr=${this._currentWaypoint.location.lat},${this._currentWaypoint.location.lng}`, "_blank");
+  }
 
   get mapType(): 'roadmap' | 'hybrid' | 'satellite' | 'terrain' {
     return this.type;

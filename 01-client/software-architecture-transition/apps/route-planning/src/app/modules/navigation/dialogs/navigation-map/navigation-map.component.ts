@@ -70,6 +70,10 @@ export class NavigationMapComponent implements OnInit {
     this.dialogCore.sendMail();
   }
 
+  navigateToCurrentWaypoint(): void {
+    this.dialogCore.navigateTo();
+  }
+
   isMapTypeHybrid(): boolean {
     return this.dialogCore.mapType === 'hybrid';
   }

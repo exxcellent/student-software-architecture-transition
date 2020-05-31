@@ -8,6 +8,7 @@ import {WAYPOINT_ICONS} from '../waypoint-icons';
 import {filter, map} from 'rxjs/operators';
 import {toISODateString} from '../../../shared/functions';
 import {WaypointStatus} from '../../model/waypoint-status.enum';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Injectable()
 export class NavigationWaypointsDialogCore {
@@ -18,7 +19,7 @@ export class NavigationWaypointsDialogCore {
 
   private _currentRouteSubscription$: Subscription;
 
-  constructor(private waypointRepository: WaypointRepositoryService) {
+  constructor(private waypointRepository: WaypointRepositoryService, private router: Router, private route: ActivatedRoute) {
     waypointRepository.currentDay$.subscribe((currentDay: Date) => {
 
       if (this._currentRouteSubscription$) {
@@ -48,6 +49,15 @@ export class NavigationWaypointsDialogCore {
 
 
 
+
+  }
+
+  isNextWaypoint(waypoint: Waypoint): boolean {
+    return waypoint.status === WaypointStatus.ACTIVE;
+  }
+
+  openDetails(waypoint: Waypoint): void {
+    this.router.navigate(['navigation','details', waypoint.waypointId]);
 
   }
 }
