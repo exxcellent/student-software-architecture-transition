@@ -40,6 +40,10 @@ export class NavigationMapDialogCore {
   public currentWaypoint$: Observable<Waypoint>;
   private _currentWaypoint: Waypoint;
 
+  private _currentLocation: google.maps.LatLng;
+  private _currentLocationMarker: google.maps.Marker;
+  private _map: google.maps.Map;
+
   constructor(private waypointRepository: WaypointRepositoryService) {
     this._currentRoute$ = waypointRepository.currentRoute$;
 
@@ -55,6 +59,9 @@ export class NavigationMapDialogCore {
   }
 
   renderRoute(map: google.maps.Map): void {
+    this._map = map;
+    this.trackMe();
+
     this.initGoogleMaps();
 
     this.directionsRenderer.setMap(map);
@@ -126,6 +133,44 @@ export class NavigationMapDialogCore {
 
     } else {
       logWarn('Render route failed with status: ' + status);
+    }
+  }
+
+  private findMe() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.showTrackingPosition(position);
+      });
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  };
+
+  private trackMe() {
+    if (navigator.geolocation) {
+      navigator.geolocation.watchPosition((position) => {
+        this.showTrackingPosition(position);
+      });
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  }
+
+  private showTrackingPosition(position: Position) {
+    console.log(`tracking postion:  ${position.coords.latitude} - ${position.coords.longitude}`);
+
+    this._currentLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+    if (!this._currentLocationMarker) {
+      this._currentLocationMarker = new google.maps.Marker({
+        position: this._currentLocation,
+        map: this._map,
+        title: 'Hier bist du!',
+        icon: WAYPOINT_ICONS.me
+      });
+    }
+    else {
+      this._currentLocationMarker.setPosition(this._currentLocation);
     }
   }
 

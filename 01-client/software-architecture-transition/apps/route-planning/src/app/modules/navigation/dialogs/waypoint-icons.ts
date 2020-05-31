@@ -11,5 +11,7 @@ export const WAYPOINT_ICONS = {
     'https://firebasestorage.googleapis.com/v0/b/swm-onpo-routenplaner-deploy.appspot.com/o/icon-H-32.png?alt=media&token=8d492946-36cb-4f67-93f0-2d78f577df00',
     'https://firebasestorage.googleapis.com/v0/b/swm-onpo-routenplaner-deploy.appspot.com/o/icon-I-32.png?alt=media&token=b744f696-e0c2-47aa-ab0d-4a25330e741a',
     'https://firebasestorage.googleapis.com/v0/b/swm-onpo-routenplaner-deploy.appspot.com/o/icon-J-32.png?alt=media&token=21be1fe5-c7f9-4e35-839e-0c8305cdbdc3',
-  ]
+  ],
+
+  me: 'https://firebasestorage.googleapis.com/v0/b/swm-onpo-routenplaner-deploy.appspot.com/o/icon-me-32.png?alt=media&token=aed8e84e-e1e1-4efd-aa21-ecb9b4ad9660'
 };
