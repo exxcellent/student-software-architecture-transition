@@ -3,6 +3,7 @@ import {actions} from './route.actions';
 import {Route} from '../../../../model/route';
 import {modifyDay, today, toISODateString} from '../../../../../shared/functions';
 import {ConnectionErrorState, ErrorCategory} from '../../../../../shared/data-access';
+import {Waypoint} from '../../../../model/waypoint';
 
 export const routeFeatureKey = 'route';
 
@@ -89,17 +90,58 @@ export const reducer = createReducer(
 
     return updatedState;
   }),
+
+  on(actions.updateWaypointSuccess, (state, action) => {
+    const newWaypoint: Waypoint = action.waypoint;
+
+    const myRoute = state.routes[toISODateString(newWaypoint.date)].myRoute;
+    const oldWaypoints = myRoute.waypoints;
+    const updatedWaypoints: Waypoint[] = [];
+
+    oldWaypoints.forEach((waypoint: Waypoint) => {
+      if (waypoint.waypointId === newWaypoint.waypointId) {
+        updatedWaypoints.push(newWaypoint);
+      } else {
+        updatedWaypoints.push(waypoint);
+      }
+    });
+
+    const updatedState: RoutesState = {
+      ...state,
+      routes: {
+        ...state.routes,
+        [toISODateString(newWaypoint.date)]: {
+          myRoute: {
+            ...myRoute,
+            waypoints: updatedWaypoints
+          }
+        }
+      },
+      loading: false,
+      loaded: true
+    };
+
+    return updatedState;
+  }),
 );
 
 const getRoutes = (state: RoutesState) => state.routes;
 const getRoutesLoading = (state: RoutesState) => state.loading;
 const getRoutesLoaded = (state: RoutesState) => state.loaded;
 const getCurrentDay = (state: RoutesState) => state.currentDay;
+const getCurrentRoute = (state: RoutesState) => state.routes[toISODateString(state.currentDay)].myRoute;
+const getCurrentWaypoints = (state: RoutesState) => {
+  console.log('[STORE] getCurrentWaypoints', state.routes[toISODateString(state.currentDay)].myRoute.waypoints);
+
+  return state.routes[toISODateString(state.currentDay)].myRoute.waypoints;
+}
 
 export const getter = {
   getRoutes,
   getRoutesLoading,
   getRoutesLoaded,
-  getCurrentDay
+  getCurrentDay,
+  getCurrentRoute,
+  getCurrentWaypoints
 };
 

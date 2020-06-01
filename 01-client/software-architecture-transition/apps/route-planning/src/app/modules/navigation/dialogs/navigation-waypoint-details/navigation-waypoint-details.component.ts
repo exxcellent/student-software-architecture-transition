@@ -45,4 +45,11 @@ export class NavigationWaypointDetailsComponent implements OnInit {
   mapLink(): SafeUrl {
     return this.dialogCore.openMapLink;
   }
+
+  finishWaypoint(): void {
+    this.dialogCore.finishWaypoint();
+  }
+  cancelWaypoint(): void {
+    this.dialogCore.cancelWaypoint();
+  }
 }

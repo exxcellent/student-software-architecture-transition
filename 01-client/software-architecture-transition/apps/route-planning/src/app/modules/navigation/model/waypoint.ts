@@ -4,6 +4,7 @@ import {WaypointStatus} from './waypoint-status.enum';
 export interface Waypoint {
 
   waypointId: number;
+  version: number;
   inspectorId: number;
   appointmentId: number;
 

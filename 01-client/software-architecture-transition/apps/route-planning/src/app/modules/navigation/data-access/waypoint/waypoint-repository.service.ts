@@ -60,4 +60,12 @@ export class WaypointRepositoryService {
       filter(waypoint => waypoint.status === WaypointStatus.ACTIVE),
     );
   }
+
+  finishWaypoint(waypointId: number): void {
+    this.store.dispatch(actions.finishWaypoint({ waypointId: waypointId}))
+  }
+
+  cancelWaypoint(waypointId: number): void {
+    this.store.dispatch(actions.cancelWaypoint({ waypointId: waypointId}))
+  }
 }

@@ -57,12 +57,12 @@ export class RestClient {
    * @param payload
    * @constructor type of response T
    */
-  public PUT<T>(url: string, payload: TransferObject): Promise<T> {
+  public PUT<T>(url: string, payload: TransferObject): Observable<T> {
     console.log('Send PUT request to ' + url + ' with payload ' + JSON.stringify(payload));
 
     return this.http.put<T>(url, payload, httpOptions).pipe(
       catchError(this.handleError)
-    ).toPromise();
+    );
   }
 
   /**
@@ -71,12 +71,12 @@ export class RestClient {
    * @param url of the REST resource
    * @constructor type of response T
    */
-  public DELETE<T>(url: string): Promise<T> {
+  public DELETE<T>(url: string): Observable<T> {
     console.log('Send DELETE request to ' + url);
 
     return this.http.delete<T>(url, httpOptions).pipe(
       catchError(this.handleError)
-    ).toPromise();
+    );
   }
 
   public DOWNLOAD(url: string): Promise<Blob> {

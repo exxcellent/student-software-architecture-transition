@@ -9,11 +9,15 @@ const selectRoutes = createSelector(selectRoutesState, fromRoute.getter.getRoute
 const selectRoutesLoading = createSelector(selectRoutesState, fromRoute.getter.getRoutesLoading);
 const selectRoutesLoaded = createSelector(selectRoutesState, fromRoute.getter.getRoutesLoaded);
 const selectCurrentDay = createSelector(selectRoutesState, fromRoute.getter.getCurrentDay);
+const selectCurrentRoute = createSelector(selectRoutesState, fromRoute.getter.getCurrentRoute);
+const selectCurrentWaypoints = createSelector(selectRoutesState, fromRoute.getter.getCurrentWaypoints);
 
 export const selectors = {
   selectRoutesState,
   selectRoutes,
   selectRoutesLoading,
   selectRoutesLoaded,
-  selectCurrentDay
+  selectCurrentDay,
+  selectCurrentRoute,
+  selectCurrentWaypoints
 };

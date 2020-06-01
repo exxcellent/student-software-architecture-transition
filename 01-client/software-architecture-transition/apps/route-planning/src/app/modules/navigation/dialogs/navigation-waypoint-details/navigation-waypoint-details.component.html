@@ -38,9 +38,9 @@
   </p>
 
   <div class="button-row">
-    <ui-button *ngIf="isCurrentWaypoint"><i class="material-icons">check</i> Abschließen</ui-button>
+    <ui-button *ngIf="isCurrentWaypoint" (click)="finishWaypoint()"><i class="material-icons">check</i> Abschließen</ui-button>
 
-    <ui-button *ngIf="isCurrentWaypoint || isPendingWaypoint"><i class="material-icons">cancel</i> Absagen</ui-button>
+    <ui-button *ngIf="isCurrentWaypoint || isPendingWaypoint" (click)="cancelWaypoint()"><i class="material-icons">cancel</i> Absagen</ui-button>
   </div>
 
 </div>

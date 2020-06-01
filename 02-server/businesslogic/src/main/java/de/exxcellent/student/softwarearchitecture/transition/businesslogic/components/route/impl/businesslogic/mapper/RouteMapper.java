@@ -65,9 +65,16 @@ public final class RouteMapper {
 
     waypointEntity.setCategory(RouteMapper.fromWaypointCategory.apply(waypoint.getCategory()));
     waypointEntity.setStatus(RouteMapper.fromWaypointStatus.apply(waypoint.getStatus()));
-    waypointEntity.setStartTime(waypoint.getStartTime());
-    waypointEntity.setTravelDuration(waypoint.getTravelDuration().toSeconds());
-    waypointEntity.setDuration(waypoint.getDuration().toSeconds());
+
+    if (waypoint.getStartTime() != null) {
+      waypointEntity.setStartTime(waypoint.getStartTime());
+    }
+    if (waypoint.getTravelDuration() != null) {
+      waypointEntity.setTravelDuration(waypoint.getTravelDuration().toSeconds());
+    }
+    if (waypoint.getDuration() != null) {
+      waypointEntity.setDuration(waypoint.getDuration().toSeconds());
+    }
 
     waypointEntity.setAddress(waypoint.getAddress());
     waypointEntity.setLatitude(waypoint.getLatitude());

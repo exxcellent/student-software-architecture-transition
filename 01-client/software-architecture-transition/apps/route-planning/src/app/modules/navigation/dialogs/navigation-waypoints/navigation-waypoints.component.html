@@ -10,7 +10,8 @@
             <span>{{ wp.waypoint.address | truncate : 40 }}</span>
           </div>
           <div class="waypoint-type">
-            {{ WaypointCategory[wp.waypoint.category] }}
+            <i class="material-icons">category</i> {{ WaypointCategory[wp.waypoint.category] | translate }}
+            <i class="material-icons">check_box</i> {{ WaypointStatus[wp.waypoint.status] | translate }}
           </div>
         </div>
       </div>

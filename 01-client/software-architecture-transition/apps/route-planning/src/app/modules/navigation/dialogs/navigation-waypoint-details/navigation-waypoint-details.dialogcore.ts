@@ -16,7 +16,9 @@ export class NavigationWaypointDetailsDialogCore {
   private _waypoint: Waypoint;
   private _waypointId: number;
 
-  constructor(private waypointRepository: WaypointRepositoryService, private route: ActivatedRoute, private sanitizer: DomSanitizer) {
+  constructor(private waypointRepository: WaypointRepositoryService,
+              private route: ActivatedRoute,
+              private sanitizer: DomSanitizer) {
     this.route.paramMap.pipe(
       filter((paramMap: ParamMap) => paramMap.has('waypointId')),
       map((paramMap: ParamMap) => paramMap.get('waypointId')),
@@ -57,5 +59,12 @@ export class NavigationWaypointDetailsDialogCore {
   }
   get isCurrentWaypoint(): boolean {
     return this._waypoint.status === WaypointStatus.ACTIVE;
+  }
+
+  finishWaypoint(): void {
+    this.waypointRepository.finishWaypoint(this._waypoint.waypointId)
+  }
+  cancelWaypoint(): void {
+    this.waypointRepository.cancelWaypoint(this._waypoint.waypointId)
   }
 }
