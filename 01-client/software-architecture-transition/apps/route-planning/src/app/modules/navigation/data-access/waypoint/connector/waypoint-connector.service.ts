@@ -2,13 +2,20 @@ import {Injectable} from '@angular/core';
 import {ConnectionError, DataProviderService, RestClient, UriBuilder} from '../../../../shared/data-access';
 import {Route} from '../../../model/route';
 import {RouteCTO} from '../types/route.cto';
-import {fromResponse, fromWaypointResponse, toWaypointRequest} from '../mapper/route.mapper';
+import {
+  fromResponse,
+  fromUpdatedWaypointResponse,
+  fromWaypointResponse,
+  toWaypointRequest
+} from '../mapper/route.mapper';
 import {Observable, throwError} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
 import {actions, AppState} from '../../../../../data-access/app/state/app';
 import {Store} from '@ngrx/store';
 import {Waypoint} from '../../../model/waypoint';
 import {WaypointTO} from '../types/waypoint.to';
+import {exists} from '../../../../shared/functions';
+import {UpdatedWaypointsTO} from '../types/updated-waypoints.to';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +23,7 @@ import {WaypointTO} from '../types/waypoint.to';
 export class WaypointConnectorService extends DataProviderService{
 
   serviceSubUrl = 'v1/routes/{date}/inspectors/{inspectorId}';
-  waypointsSubUrl = 'v1/routes/{date}/inspectors/{inspectorId}/waypoints/{waypointId}';
+  waypointsSubUrl = 'v1/waypoints/{waypointId}';
 
   constructor(private http: RestClient, private appStore: Store<AppState>) {
     super()
@@ -36,13 +43,36 @@ export class WaypointConnectorService extends DataProviderService{
   }
 
   updateWaypoint(waypoint: Waypoint): Observable<Waypoint>{
-    const date = waypoint.date;
-    const inspectorId = waypoint.inspectorId;
-
-    return this.http.PUT<WaypointTO>(this.getWaypointUrl(date, inspectorId, waypoint.waypointId),
+    return this.http.PUT<WaypointTO>(this.getWaypointUrl(waypoint.waypointId),
       toWaypointRequest(waypoint)).pipe(
         map((response: WaypointTO) => {
           return fromWaypointResponse(response);
+        }),
+        catchError((error: ConnectionError) => {
+          this.appStore.dispatch(actions.showNotification({data: error.asNotification }));
+
+          return throwError(error)
+        }));
+  }
+
+  finishWaypoint(waypoint: Waypoint): Observable<Waypoint[]>{
+    return this.http.PUT<UpdatedWaypointsTO>(this.getWaypointUrl(waypoint.waypointId, 'finish'),
+      toWaypointRequest(waypoint)).pipe(
+        map((response: UpdatedWaypointsTO) => {
+          return fromUpdatedWaypointResponse(response);
+        }),
+        catchError((error: ConnectionError) => {
+          this.appStore.dispatch(actions.showNotification({data: error.asNotification }));
+
+          return throwError(error)
+        }));
+  }
+
+  cancelWaypoint(waypoint: Waypoint): Observable<Waypoint[]>{
+    return this.http.PUT<UpdatedWaypointsTO>(this.getWaypointUrl(waypoint.waypointId, 'cancel'),
+      toWaypointRequest(waypoint)).pipe(
+        map((response: UpdatedWaypointsTO) => {
+          return fromUpdatedWaypointResponse(response);
         }),
         catchError((error: ConnectionError) => {
           this.appStore.dispatch(actions.showNotification({data: error.asNotification }));
@@ -55,22 +85,22 @@ export class WaypointConnectorService extends DataProviderService{
     const dateString = date.toISOString().split('T')[0];
 
     let url = this.getUrl().replace("{date}", `${dateString}`);
-    url = url.replace("{inspectorId}", `${inspectorId}`)
+    url = url.replace("{inspectorId}", `${inspectorId}`);
 
     return url;
   }
 
-  private getWaypointUrl(date: Date, inspectorId: number, waypointId: number): string {
-    const dateString = date.toISOString().split('T')[0];
-
-    let url = new UriBuilder()
+  private getWaypointUrl(waypointId: number, action?: string): string {
+    let uriBuilder = new UriBuilder()
       .fromPath(this.baseUrl)
-      .path(this.waypointsSubUrl)
-      .build();
+      .path(this.waypointsSubUrl);
 
-    url = url.replace("{date}", `${dateString}`);
-    url = url.replace("{inspectorId}", `${inspectorId}`)
-    url = url.replace("{waypointId}", `${waypointId}`)
+    if (exists(action)) {
+      uriBuilder.path(action);
+    }
+
+    let url = uriBuilder.build();
+    url = url.replace("{waypointId}", `${waypointId}`);
 
     return url;
   }

@@ -7,6 +7,7 @@ import {WaypointStatus} from '../../../model/waypoint-status.enum';
 import {Category} from '../types/waypoint-category.enum';
 import {WaypointCategory} from '../../../model/waypoint-category.enum';
 import {toISODateString} from '../../../../shared/functions';
+import {UpdatedWaypointsTO} from '../types/updated-waypoints.to';
 
 export function fromResponse(response: RouteCTO): Route {
   return {
@@ -16,6 +17,13 @@ export function fromResponse(response: RouteCTO): Route {
     waypoints: response.waypoints.map<Waypoint>(fromWaypointResponse)
   }
 }
+export function fromUpdatedWaypointResponse(updatedWaypointsTO: UpdatedWaypointsTO): Waypoint[] {
+  return [
+    fromWaypointResponse(updatedWaypointsTO.updatedWaypoint),
+    fromWaypointResponse(updatedWaypointsTO.nextWaypoint)
+  ]
+}
+
 export function fromWaypointResponse(waypointTO: WaypointTO): Waypoint {
   return {
         waypointId: waypointTO.waypointId,

@@ -61,11 +61,12 @@ export class WaypointRepositoryService {
     );
   }
 
-  finishWaypoint(waypointId: number): void {
-    this.store.dispatch(actions.finishWaypoint({ waypointId: waypointId}))
+  finishWaypoint(waypointId: number, version: number): void {
+    console.log('Repository dispatch finishWaypoint');
+    this.store.dispatch(actions.finishWaypoint({ waypointId: waypointId, version: version}))
   }
 
-  cancelWaypoint(waypointId: number): void {
-    this.store.dispatch(actions.cancelWaypoint({ waypointId: waypointId}))
+  cancelWaypoint(waypointId: number, version: number): void {
+    this.store.dispatch(actions.cancelWaypoint({ waypointId: waypointId, version: version}))
   }
 }

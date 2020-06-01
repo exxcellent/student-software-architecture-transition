@@ -1,6 +1,7 @@
 {
   "PENDING": "Offener Wegpunkt",
   "ACTIVE": "Aktueller Wegpunkt",
+  "FINISHED": "Abgeschlossen",
   "CANCELED": "Abgesagter Wegpunkt",
   "APPOINTMENT": "Termin"
 }

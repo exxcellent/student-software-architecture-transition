@@ -28,25 +28,23 @@ const previousDay = createAction(
   '[Route] Switch to previous day'
 );
 
-
 const finishWaypoint = createAction(
   '[Waypoint] Finish',
-  props<{ waypointId: number }>()
+  props<{ waypointId: number, version: number }>()
+);
+const cancelWaypoint = createAction(
+  '[Waypoint] Cancel',
+  props<{ waypointId: number, version: number }>()
 );
 
 const updateWaypointSuccess = createAction(
   '[Waypoint] Update success',
-  props<{ waypoint: Waypoint }>()
+  props<{ waypoint: Waypoint, nextWaypoint: Waypoint }>()
 );
 
 const updateWaypointFailure = createAction(
   '[Waypoint] Update failed',
   props<{ error: any }>()
-);
-
-const cancelWaypoint = createAction(
-  '[Waypoint] Cancel',
-  props<{ waypointId: number }>()
 );
 
 

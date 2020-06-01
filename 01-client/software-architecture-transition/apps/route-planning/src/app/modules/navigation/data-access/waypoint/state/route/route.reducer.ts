@@ -92,15 +92,18 @@ export const reducer = createReducer(
   }),
 
   on(actions.updateWaypointSuccess, (state, action) => {
-    const newWaypoint: Waypoint = action.waypoint;
+    const updatedWaypoint: Waypoint = action.waypoint;
+    const nextWaypoint: Waypoint = action.nextWaypoint;
 
-    const myRoute = state.routes[toISODateString(newWaypoint.date)].myRoute;
+    const myRoute = state.routes[toISODateString(updatedWaypoint.date)].myRoute;
     const oldWaypoints = myRoute.waypoints;
     const updatedWaypoints: Waypoint[] = [];
 
     oldWaypoints.forEach((waypoint: Waypoint) => {
-      if (waypoint.waypointId === newWaypoint.waypointId) {
-        updatedWaypoints.push(newWaypoint);
+      if (waypoint.waypointId === updatedWaypoint.waypointId) {
+        updatedWaypoints.push(updatedWaypoint);
+      } else if (waypoint.waypointId === nextWaypoint.waypointId) {
+        updatedWaypoints.push(nextWaypoint);
       } else {
         updatedWaypoints.push(waypoint);
       }
@@ -110,7 +113,7 @@ export const reducer = createReducer(
       ...state,
       routes: {
         ...state.routes,
-        [toISODateString(newWaypoint.date)]: {
+        [toISODateString(updatedWaypoint.date)]: {
           myRoute: {
             ...myRoute,
             waypoints: updatedWaypoints
@@ -118,7 +121,20 @@ export const reducer = createReducer(
         }
       },
       loading: false,
-      loaded: true
+      loaded: true,
+    };
+
+    return updatedState;
+  }),
+
+  on(actions.finishWaypoint, (state, action) => {
+    const waypointId: number = action.waypointId;
+    console.log('[STORE] finishWaypoint set QUEUED = ', waypointId);
+
+    const updatedState: RoutesState = {
+      ...state,
+      loaded: false,
+      loading: true
     };
 
     return updatedState;
@@ -134,7 +150,8 @@ const getCurrentWaypoints = (state: RoutesState) => {
   console.log('[STORE] getCurrentWaypoints', state.routes[toISODateString(state.currentDay)].myRoute.waypoints);
 
   return state.routes[toISODateString(state.currentDay)].myRoute.waypoints;
-}
+};
+
 
 export const getter = {
   getRoutes,

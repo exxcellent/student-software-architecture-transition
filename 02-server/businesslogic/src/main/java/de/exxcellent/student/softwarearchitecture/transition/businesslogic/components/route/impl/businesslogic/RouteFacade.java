@@ -3,9 +3,7 @@ package de.exxcellent.student.softwarearchitecture.transition.businesslogic.comp
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.data.User;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.validation.Preconditions;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.RouteComponent;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.route.RouteCalculationMode;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.route.RouteDO;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.route.WaypointDO;
+import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.route.*;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.businesslogic.logic.RouteLogic;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.businesslogic.mapper.RouteMapper;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data.entities.waypoint.WaypointEntity;
@@ -80,6 +78,16 @@ public class RouteFacade implements RouteComponent {
     return RouteMapper.toWaypointDO.apply(waypoint);
   }
 
+  @Override
+  public WaypointDO findWaypoint(Long wayPointId) {
+    Preconditions.checkNotNull(wayPointId, "WaypointId must not be null");
+    Preconditions.checkArgument(wayPointId > 0, "WaypointId must be positive");
+
+    var waypoint = routeLogic.findById(wayPointId);
+
+    return RouteMapper.toWaypointDO.apply(waypoint);
+  }
+
 
   @Override
   public WaypointDO updateWaypoint(Long wayPointId, WaypointDO waypointDO, User user) {
@@ -98,6 +106,62 @@ public class RouteFacade implements RouteComponent {
     var updatedWaypoint = routeLogic.update(waypointEntity, user);
 
     return RouteMapper.toWaypointDO.apply(updatedWaypoint);
+  }
+
+  @Override
+  public UpdatedWaypointDO finishWaypoint(Long wayPointId, WaypointDO waypointDO, User user) {
+    Preconditions.checkNotNull(wayPointId, "WaypointId must not be null");
+    Preconditions.checkArgument(wayPointId > 0, "WaypointId must be positive");
+
+    Preconditions.checkNotNull(waypointDO, "Waypoint must not be null");
+    Preconditions.checkNotNull(waypointDO.getWaypointId(), "WaypointId must not be null");
+    Preconditions.checkArgument(wayPointId.equals(waypointDO.getWaypointId()),
+        String.format("WaypointId of the path '%s' and the waypointId of the payload '%s' must be equals",
+            wayPointId, waypointDO.getWaypointId()));
+    Preconditions.checkNotNull(waypointDO.getVersion(), "Waypoint version must not be null");
+    Preconditions.checkArgument(waypointDO.getVersion() >= 0, "Waypoint version must be positive");
+
+    Preconditions.checkArgument(waypointDO.getStatus() == WaypointStatus.FINISHED, "Waypoint must be FINISHED");
+
+    var waypointEntity = RouteMapper.toWaypointEntity.apply(waypointDO);
+    var waypointPair = routeLogic.finishWaypoint(waypointEntity, user);
+
+    var updatedWaypoints = new UpdatedWaypointDO();
+    updatedWaypoints.setUpdated(RouteMapper.toWaypointDO.apply(waypointPair.left));
+
+    if (waypointPair.right != null) {
+      updatedWaypoints.setNext(RouteMapper.toWaypointDO.apply(waypointPair.right));
+    }
+
+    return updatedWaypoints;
+  }
+
+  @Override
+  public UpdatedWaypointDO cancelWaypoint(Long wayPointId, WaypointDO waypointDO, User user) {
+    Preconditions.checkNotNull(wayPointId, "WaypointId must not be null");
+    Preconditions.checkArgument(wayPointId > 0, "WaypointId must be positive");
+
+    Preconditions.checkNotNull(waypointDO, "Waypoint must not be null");
+    Preconditions.checkNotNull(waypointDO.getWaypointId(), "WaypointId must not be null");
+    Preconditions.checkArgument(wayPointId.equals(waypointDO.getWaypointId()),
+        String.format("WaypointId of the path '%s' and the waypointId of the payload '%s' must be equals",
+            wayPointId, waypointDO.getWaypointId()));
+    Preconditions.checkNotNull(waypointDO.getVersion(), "Waypoint version must not be null");
+    Preconditions.checkArgument(waypointDO.getVersion() >= 0, "Waypoint version must be positive");
+
+    Preconditions.checkArgument(waypointDO.getStatus() == WaypointStatus.CANCELED, "Waypoint must be CANCELED");
+
+    var waypointEntity = RouteMapper.toWaypointEntity.apply(waypointDO);
+    var waypointPair = routeLogic.cancelWaypoint(waypointEntity, user);
+
+    var updatedWaypoints = new UpdatedWaypointDO();
+    updatedWaypoints.setUpdated(RouteMapper.toWaypointDO.apply(waypointPair.left));
+
+    if (waypointPair.right != null) {
+      updatedWaypoints.setNext(RouteMapper.toWaypointDO.apply(waypointPair.right));
+    }
+
+    return updatedWaypoints;
   }
 
   private List<RouteDO> calculateRoutes(List<WaypointEntity> waypoints, RouteCalculationMode routeCalculationMode) {

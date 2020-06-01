@@ -1,7 +1,6 @@
 package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data;
 
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data.entities.waypoint.WaypointEntity;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.LocalDate;
@@ -19,4 +18,6 @@ public interface WaypointRepository extends JpaRepository<WaypointEntity, Long> 
   List<WaypointEntity> findAllByInspectorIdIn(Set<Long> inspectorIds);
 
   WaypointEntity findByDateAndInspectorIdAndId(LocalDate date, Long inspectorId, Long waypointId);
+
+  WaypointEntity findByDateAndInspectorIdAndOrderIndex(LocalDate date, Long inspectorId, Integer orderIndex);
 }

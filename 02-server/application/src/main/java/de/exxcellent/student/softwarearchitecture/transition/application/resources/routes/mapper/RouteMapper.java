@@ -1,6 +1,5 @@
 package de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.mapper;
 
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.common.validation.RequestCondition;
 import de.exxcellent.student.softwarearchitecture.transition.application.resources.routes.types.route.*;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.route.*;
 
@@ -49,6 +48,15 @@ public final class RouteMapper {
         .collect(Collectors.toList()));
 
     return routeWaypointsCTO;
+  };
+
+  public static Function<UpdatedWaypointDO, WaypointUpdateCTO> toWaypointUpdateCTO = waypoint -> {
+    var waypointUpdateCTO = new WaypointUpdateCTO();
+
+    waypointUpdateCTO.setUpdatedWaypoint(RouteMapper.toRouteWaypointTO.apply(waypoint.getUpdated()));
+    waypointUpdateCTO.setNextWaypoint(RouteMapper.toRouteWaypointTO.apply(waypoint.getNext()));
+
+    return waypointUpdateCTO;
   };
 
   public static Function<WaypointDO, RouteWaypointTO> toRouteWaypointTO = waypoint -> {

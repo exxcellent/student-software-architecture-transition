@@ -43,13 +43,14 @@ export class RouteEffects {
   updateWaypointStateToFinished$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(actions.finishWaypoint),
-      map(({waypointId}) => {
-        return waypointId;
+      map(({waypointId, version}) => {
+        return { waypointId: waypointId, version: version };
       }),
-      concatMap((waypointId: number) =>
+      concatMap(({waypointId, version}) =>
+
         this.store.select(selectors.selectCurrentWaypoints).pipe(
           flatMap(x => x),
-          filter((waypoint: Waypoint) => waypoint.waypointId === waypointId),
+          filter((wp: Waypoint) => wp.waypointId === waypointId && wp.version === version),
           map((waypoint: Waypoint) => {
             const clone: Waypoint = {
               ...waypoint,
@@ -58,16 +59,17 @@ export class RouteEffects {
 
             return clone;
           }),
-          concatMap((waypointWithState: Waypoint) =>
-            this.connector.updateWaypoint(waypointWithState).pipe(
-              map((waypoint: Waypoint) => {
-                return actions.updateWaypointSuccess({ waypoint: waypoint })
-              }),
-              catchError(error => {
-                return of(actions.finishWaypointFailure({error}))
-              })
-            )
-          )
+          concatMap((waypointWithState: Waypoint) => {
+
+              return this.connector.finishWaypoint(waypointWithState).pipe(
+                map((waypoint: Waypoint[]) => {
+                  return actions.updateWaypointSuccess({waypoint: waypoint[0], nextWaypoint: waypoint[1]})
+                }),
+                catchError(error => {
+                  return of(actions.updateWaypointFailure({error}))
+                })
+              );
+            })
         )
       )
     );
@@ -77,13 +79,14 @@ export class RouteEffects {
   updateWaypointStateToCanceled$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(actions.cancelWaypoint),
-      map(({waypointId}) => {
-        return waypointId;
+      map(({waypointId, version}) => {
+        return { waypointId: waypointId, version: version };
       }),
-      concatMap((waypointId: number) =>
+      concatMap(({waypointId, version}) =>
+
         this.store.select(selectors.selectCurrentWaypoints).pipe(
           flatMap(x => x),
-          filter((waypoint: Waypoint) => waypoint.waypointId === waypointId),
+          filter((wp: Waypoint) => wp.waypointId === waypointId && wp.version === version),
           map((waypoint: Waypoint) => {
             const clone: Waypoint = {
               ...waypoint,
@@ -92,16 +95,17 @@ export class RouteEffects {
 
             return clone;
           }),
-          concatMap((waypointWithState: Waypoint) =>
-            this.connector.updateWaypoint(waypointWithState).pipe(
-              map((waypoint: Waypoint) => {
-                return actions.updateWaypointSuccess({ waypoint: waypoint })
+          concatMap((waypointWithState: Waypoint) => {
+
+            return this.connector.cancelWaypoint(waypointWithState).pipe(
+              map((waypoint: Waypoint[]) => {
+                return actions.updateWaypointSuccess({waypoint: waypoint[0], nextWaypoint: waypoint[1]})
               }),
               catchError(error => {
                 return of(actions.updateWaypointFailure({error}))
               })
-            )
-          )
+            );
+          })
         )
       )
     );

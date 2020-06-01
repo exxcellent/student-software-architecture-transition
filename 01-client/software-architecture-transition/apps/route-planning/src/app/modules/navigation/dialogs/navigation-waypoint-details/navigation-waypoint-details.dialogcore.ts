@@ -62,9 +62,9 @@ export class NavigationWaypointDetailsDialogCore {
   }
 
   finishWaypoint(): void {
-    this.waypointRepository.finishWaypoint(this._waypoint.waypointId)
+    this.waypointRepository.finishWaypoint(this._waypoint.waypointId, this._waypoint.version)
   }
   cancelWaypoint(): void {
-    this.waypointRepository.cancelWaypoint(this._waypoint.waypointId)
+    this.waypointRepository.cancelWaypoint(this._waypoint.waypointId, this._waypoint.version)
   }
 }

@@ -1,9 +1,12 @@
 package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.businesslogic.logic;
 
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.businesslogic.CrudLogic;
+import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.data.User;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.datetime.DateTimeUtil;
+import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.types.Pair;
+import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.validation.Preconditions;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data.WaypointRepository;
-
+import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data.entities.waypoint.Status;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data.entities.waypoint.WaypointEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -45,5 +48,85 @@ public class RouteLogic extends CrudLogic<WaypointEntity> {
   public WaypointEntity findByDateAndInspectorAndWaypointId(LocalDate date, Long inspectorId, Long wayPointId) {
     return waypointRepository.findByDateAndInspectorIdAndId(date, inspectorId, wayPointId);
 
+  }
+
+  public Pair<WaypointEntity, WaypointEntity> finishWaypoint(WaypointEntity waypoint, User user) {
+    var waypointEntity = this.findById(waypoint.getId());
+    var currentOrderIndex = waypointEntity.getOrderIndex();
+    var nextOrderIndex = currentOrderIndex + 1;
+
+    // check current state
+    Preconditions.checkArgument(waypointEntity.getStatus() == Status.ACTIVE, "Current Waypoint state must be ACTIVE");
+    Preconditions.checkArgument(waypoint.getStatus() == Status.FINISHED, "Target Waypoint state must be FINISHED");
+
+    // finish current waypoint
+    var updatedWaypoint = this.update(waypoint, user);
+    WaypointEntity next = null;
+
+    // activate next waypoint
+    boolean nextWaypointUpdated = false;
+    while(!nextWaypointUpdated) {
+      var nextWaypoint = this.waypointRepository.findByDateAndInspectorIdAndOrderIndex(waypointEntity.getDate(),
+          waypointEntity.getInspectorId(), nextOrderIndex);
+
+      if (nextWaypoint == null) {
+        nextWaypointUpdated = true; // all waypoints of the route completed
+      } else if (nextWaypoint.getStatus() == Status.PENDING) {
+
+        // set next waypoint state to ACTIVE
+        nextWaypoint.setStatus(Status.ACTIVE);
+        next = this.update(nextWaypoint, user);
+
+        nextWaypointUpdated = true;
+      } else {
+        // find next waypoint
+        nextOrderIndex++;
+      }
+    }
+
+    return new Pair<>(updatedWaypoint, next);
+  }
+
+
+  public Pair<WaypointEntity, WaypointEntity> cancelWaypoint(WaypointEntity waypoint, User user) {
+      var waypointEntity = this.findById(waypoint.getId());
+      var currentOrderIndex = waypointEntity.getOrderIndex();
+      var nextOrderIndex = currentOrderIndex + 1;
+
+      // check current state
+      boolean wasActive = waypointEntity.getStatus() == Status.ACTIVE;
+      boolean wasPending = waypointEntity.getStatus() == Status.PENDING;
+      Preconditions.checkArgument(wasActive || wasPending,
+          "Current Waypoint state must be ACTIVE or PENDING");
+      Preconditions.checkArgument(waypoint.getStatus() == Status.CANCELED, "Target Waypoint state must be CANCELED");
+
+      // finish current waypoint
+      var updatedWaypoint = this.update(waypoint, user);
+      WaypointEntity next = null;
+
+      // activate next waypoint
+      if (wasActive) {
+        boolean nextWaypointUpdated = false;
+        while (!nextWaypointUpdated) {
+          var nextWaypoint = this.waypointRepository.findByDateAndInspectorIdAndOrderIndex(waypointEntity.getDate(),
+              waypointEntity.getInspectorId(), nextOrderIndex);
+
+          if (nextWaypoint == null) {
+            nextWaypointUpdated = true; // all waypoints of the route completed
+          } else if (nextWaypoint.getStatus() == Status.PENDING) {
+
+            // set next waypoint state to ACTIVE
+            nextWaypoint.setStatus(Status.ACTIVE);
+            next = this.update(nextWaypoint, user);
+
+            nextWaypointUpdated = true;
+          } else {
+            // find next waypoint
+            nextOrderIndex++;
+          }
+        }
+      }
+
+      return new Pair<>(updatedWaypoint, next);
   }
 }

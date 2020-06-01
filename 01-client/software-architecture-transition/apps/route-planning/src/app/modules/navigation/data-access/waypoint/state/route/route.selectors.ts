@@ -19,5 +19,5 @@ export const selectors = {
   selectRoutesLoaded,
   selectCurrentDay,
   selectCurrentRoute,
-  selectCurrentWaypoints
+  selectCurrentWaypoints,
 };
