@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.application.resources.common.errorhandling;
+package de.exxcellent.student.softwarearchitecture.transition.resources.common.errorhandling;
 
 
 import de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.ErrorCode;

@@ -1,7 +1,7 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.validation;
+package de.exxcellent.student.softwarearchitecture.transition.common.validation;
 
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.errorhandling.ErrorCode;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.errorhandling.exception.BusinessException;
+import de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.ErrorCode;
+import de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.exception.BusinessException;
 
 /**
  * I perform precondition checks.

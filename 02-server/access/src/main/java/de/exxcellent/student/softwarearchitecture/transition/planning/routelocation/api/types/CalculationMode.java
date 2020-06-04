@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.api.types;
+package de.exxcellent.student.softwarearchitecture.transition.planning.routelocation.api.types;
 
 /**
  * TODO [AL]: Add class documentation

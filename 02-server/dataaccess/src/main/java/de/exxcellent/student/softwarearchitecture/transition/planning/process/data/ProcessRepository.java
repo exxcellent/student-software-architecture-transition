@@ -1,6 +1,6 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.process.impl.data;
+package de.exxcellent.student.softwarearchitecture.transition.planning.process.data;
 
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.process.impl.data.entities.ProcessEntity;
+import de.exxcellent.student.softwarearchitecture.transition.planning.process.data.entities.ProcessEntity;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

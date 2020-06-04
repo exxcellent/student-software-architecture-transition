@@ -1,8 +1,8 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api;
+package de.exxcellent.student.softwarearchitecture.transition.planning.route.api;
 
 import de.exxcellent.student.softwarearchitecture.transition.common.data.User;
 import de.exxcellent.student.softwarearchitecture.transition.components.common.BusinessComponent;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.notification.NotificationDO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.route.api.types.notification.NotificationDO;
 
 import java.time.LocalDate;
 import java.util.List;

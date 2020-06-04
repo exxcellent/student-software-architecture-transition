@@ -1,8 +1,8 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.inspector.api;
+package de.exxcellent.student.softwarearchitecture.transition.planning.inspector.api;
 
 import de.exxcellent.student.softwarearchitecture.transition.common.data.User;
 import de.exxcellent.student.softwarearchitecture.transition.components.common.BusinessComponent;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.inspector.api.types.InspectorDO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.inspector.api.types.InspectorDO;
 
 import java.util.List;
 

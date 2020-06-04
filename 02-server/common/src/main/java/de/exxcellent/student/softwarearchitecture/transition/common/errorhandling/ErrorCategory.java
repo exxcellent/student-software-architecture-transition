@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.errorhandling;
+package de.exxcellent.student.softwarearchitecture.transition.common.errorhandling;
 
 /**
  * I define the categories for the error codes.

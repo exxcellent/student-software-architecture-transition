@@ -1,7 +1,7 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.appointment.api;
+package de.exxcellent.student.softwarearchitecture.transition.planning.appointment.api;
 
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.data.User;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.appointment.api.types.AppointmentDO;
+import de.exxcellent.student.softwarearchitecture.transition.common.data.User;
+import de.exxcellent.student.softwarearchitecture.transition.planning.appointment.api.types.AppointmentDO;
 
 import java.util.List;
 

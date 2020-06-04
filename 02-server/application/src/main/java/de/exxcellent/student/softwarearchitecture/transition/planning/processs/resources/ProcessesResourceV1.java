@@ -1,14 +1,14 @@
-package de.exxcellent.student.softwarearchitecture.transition.application.resources.processs;
+package de.exxcellent.student.softwarearchitecture.transition.planning.processs.resources;
 
 import de.exxcellent.student.softwarearchitecture.transition.resources.common.BusinessResource;
 import de.exxcellent.student.softwarearchitecture.transition.resources.common.SecuredResource;
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.user.CurrentUser;
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.processs.types.ProcessTO;
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.processs.types.ProcesssCTO;
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.processs.mapper.ProcessMapper;
+import de.exxcellent.student.softwarearchitecture.transition.planning.user.resources.CurrentUser;
+import de.exxcellent.student.softwarearchitecture.transition.planning.processs.resources.types.ProcessTO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.processs.resources.types.ProcesssCTO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.processs.resources.mapper.ProcessMapper;
 import de.exxcellent.student.softwarearchitecture.transition.application.springconfiguration.permissions.RequiresPermission;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.process.api.ProcessComponent;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.user.api.types.Permission;
+import de.exxcellent.student.softwarearchitecture.transition.planning.process.api.ProcessComponent;
+import de.exxcellent.student.softwarearchitecture.transition.planning.user.api.types.Permission;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;

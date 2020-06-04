@@ -1,8 +1,8 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.process.api;
+package de.exxcellent.student.softwarearchitecture.transition.planning.process.api;
 
 import de.exxcellent.student.softwarearchitecture.transition.common.data.User;
 import de.exxcellent.student.softwarearchitecture.transition.components.common.BusinessComponent;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.process.api.types.ProcessDO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.process.api.types.ProcessDO;
 
 import java.util.List;
 

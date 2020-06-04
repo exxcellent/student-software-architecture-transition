@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.application.resources.inspectors.types;
+package de.exxcellent.student.softwarearchitecture.transition.planning.inspectors.resources.types;
 
 import de.exxcellent.student.softwarearchitecture.transition.resources.common.BusinessTO;
 

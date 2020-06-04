@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.location.impl.data.entities;
+package de.exxcellent.student.softwarearchitecture.transition.planning.location.data.entities;
 
 import de.exxcellent.student.softwarearchitecture.transition.common.data.entities.CommonEntity;
 

@@ -1,7 +1,7 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.errorhandling.exception;
+package de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.exception;
 
 
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.errorhandling.ErrorCode;
+import de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.ErrorCode;
 
 /**
  * Technische Fehler werden über die Facade durch diese CoreException transportiert.

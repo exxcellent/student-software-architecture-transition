@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.application.resources.common.validation;
+package de.exxcellent.student.softwarearchitecture.transition.resources.common.validation;
 
 import de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.ErrorCode;
 import de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.exception.BusinessException;

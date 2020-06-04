@@ -1,8 +1,8 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.resilience;
+package de.exxcellent.student.softwarearchitecture.transition.common.resilience;
 
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.errorhandling.ErrorCode;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.errorhandling.exception.BusinessException;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.errorhandling.exception.TechnicalException;
+import de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.ErrorCode;
+import de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.exception.BusinessException;
+import de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.exception.TechnicalException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

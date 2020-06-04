@@ -1,7 +1,7 @@
-package de.exxcellent.student.softwarearchitecture.transition.springconfiguration.requestfilters;
+package de.exxcellent.student.softwarearchitecture.transition.application.springconfiguration.requestfilters;
 
-import de.exxcellent.student.softwarearchitecture.transition.springconfiguration.requestfilters.filters.CorsFilter;
-import de.exxcellent.student.softwarearchitecture.transition.springconfiguration.requestfilters.filters.RequestResponseLoggingFilter;
+import de.exxcellent.student.softwarearchitecture.transition.application.springconfiguration.requestfilters.filters.CorsFilter;
+import de.exxcellent.student.softwarearchitecture.transition.application.springconfiguration.requestfilters.filters.RequestResponseLoggingFilter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

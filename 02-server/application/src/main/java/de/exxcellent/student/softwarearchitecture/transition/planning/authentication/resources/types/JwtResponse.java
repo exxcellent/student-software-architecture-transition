@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.application.resources.authentication.types;
+package de.exxcellent.student.softwarearchitecture.transition.planning.authentication.resources.types;
 
 import de.exxcellent.student.softwarearchitecture.transition.resources.common.ReadOnlyTO;
 

@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.process.api.types;
+package de.exxcellent.student.softwarearchitecture.transition.planning.process.api.types;
 
 import de.exxcellent.student.softwarearchitecture.transition.common.types.BusinessDO;
 

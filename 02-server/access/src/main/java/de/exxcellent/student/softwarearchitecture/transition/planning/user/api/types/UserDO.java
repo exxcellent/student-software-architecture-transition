@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.user.api.types;
+package de.exxcellent.student.softwarearchitecture.transition.planning.user.api.types;
 
 import java.util.List;
 

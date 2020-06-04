@@ -1,6 +1,6 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.contact.impl.businesslogic.mapper;
+package de.exxcellent.student.softwarearchitecture.transition.planning.contact.mapper;
 
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.contact.api.types.ContactDO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.contact.api.types.ContactDO;
 import de.exxcellent.student.softwarearchitecture.transition.planning.contact.data.entities.ContactEntity;
 
 import java.util.function.Function;

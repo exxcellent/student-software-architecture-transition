@@ -1,8 +1,8 @@
-package de.exxcellent.student.softwarearchitecture.transition.application.resources.locations.mapper;
+package de.exxcellent.student.softwarearchitecture.transition.planning.locations.resources.mapper;
 
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.locations.types.LocationTO;
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.locations.types.LocationsCTO;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.location.api.types.LocationDO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.locations.resources.types.LocationTO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.locations.resources.types.LocationsCTO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.location.api.types.LocationDO;
 
 import java.util.List;
 import java.util.function.Function;

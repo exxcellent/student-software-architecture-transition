@@ -1,6 +1,6 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.contact.impl.data;
+package de.exxcellent.student.softwarearchitecture.transition.planning.contact.data;
 
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.contact.impl.data.entities.ContactEntity;
+import de.exxcellent.student.softwarearchitecture.transition.planning.contact.data.entities.ContactEntity;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

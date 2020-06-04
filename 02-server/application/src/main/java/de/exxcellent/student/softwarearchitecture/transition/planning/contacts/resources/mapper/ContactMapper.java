@@ -1,8 +1,8 @@
-package de.exxcellent.student.softwarearchitecture.transition.application.resources.contacts.mapper;
+package de.exxcellent.student.softwarearchitecture.transition.planning.contacts.resources.mapper;
 
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.contacts.types.ContactTO;
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.contacts.types.ContactsCTO;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.contact.api.types.ContactDO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.contacts.resources.types.ContactTO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.contacts.resources.types.ContactsCTO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.contact.api.types.ContactDO;
 
 import java.util.function.Function;
 import java.util.List;

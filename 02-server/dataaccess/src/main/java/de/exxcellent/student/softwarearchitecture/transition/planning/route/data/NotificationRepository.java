@@ -1,6 +1,6 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data;
+package de.exxcellent.student.softwarearchitecture.transition.planning.route.data;
 
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data.entities.notification.NotificationEntity;
+import de.exxcellent.student.softwarearchitecture.transition.planning.route.data.entities.notification.NotificationEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

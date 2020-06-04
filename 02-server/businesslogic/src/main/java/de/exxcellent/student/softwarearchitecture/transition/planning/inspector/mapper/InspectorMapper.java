@@ -1,6 +1,6 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.inspector.impl.businesslogic.mapper;
+package de.exxcellent.student.softwarearchitecture.transition.planning.inspector.mapper;
 
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.inspector.api.types.InspectorDO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.inspector.api.types.InspectorDO;
 import de.exxcellent.student.softwarearchitecture.transition.planning.inspector.data.entities.InspectorEntity;
 
 import java.util.function.Function;

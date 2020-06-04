@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.application.resources.appointments.types;
+package de.exxcellent.student.softwarearchitecture.transition.planning.appointments.resources.types;
 
 import de.exxcellent.student.softwarearchitecture.transition.resources.common.BusinessTO;
 

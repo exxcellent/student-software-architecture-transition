@@ -1,6 +1,6 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.location.impl.businesslogic.mapper;
+package de.exxcellent.student.softwarearchitecture.transition.planning.location.mapper;
 
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.location.api.types.LocationDO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.location.api.types.LocationDO;
 import de.exxcellent.student.softwarearchitecture.transition.planning.location.data.entities.LocationEntity;
 
 import java.util.function.Function;

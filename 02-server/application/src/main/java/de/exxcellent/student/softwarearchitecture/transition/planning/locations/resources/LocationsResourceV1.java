@@ -1,14 +1,14 @@
-package de.exxcellent.student.softwarearchitecture.transition.application.resources.locations;
+package de.exxcellent.student.softwarearchitecture.transition.planning.locations.resources;
 
 import de.exxcellent.student.softwarearchitecture.transition.resources.common.BusinessResource;
 import de.exxcellent.student.softwarearchitecture.transition.resources.common.SecuredResource;
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.locations.mapper.LocationsMapper;
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.locations.types.LocationTO;
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.locations.types.LocationsCTO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.locations.resources.mapper.LocationsMapper;
+import de.exxcellent.student.softwarearchitecture.transition.planning.locations.resources.types.LocationTO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.locations.resources.types.LocationsCTO;
 import de.exxcellent.student.softwarearchitecture.transition.application.springconfiguration.permissions.RequiresPermission;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.location.api.LocationComponent;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.user.api.types.Permission;
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.user.CurrentUser;
+import de.exxcellent.student.softwarearchitecture.transition.planning.location.api.LocationComponent;
+import de.exxcellent.student.softwarearchitecture.transition.planning.user.api.types.Permission;
+import de.exxcellent.student.softwarearchitecture.transition.planning.user.resources.CurrentUser;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;

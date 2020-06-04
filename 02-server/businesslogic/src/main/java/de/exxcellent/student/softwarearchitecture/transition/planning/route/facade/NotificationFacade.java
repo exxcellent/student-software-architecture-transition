@@ -1,11 +1,11 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.businesslogic;
+package de.exxcellent.student.softwarearchitecture.transition.planning.route.facade;
 
 import de.exxcellent.student.softwarearchitecture.transition.common.data.User;
 import de.exxcellent.student.softwarearchitecture.transition.common.validation.Preconditions;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.NotificationComponent;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.notification.NotificationDO;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.businesslogic.logic.NotificationLogic;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.businesslogic.mapper.NotificationMapper;
+import de.exxcellent.student.softwarearchitecture.transition.planning.route.api.NotificationComponent;
+import de.exxcellent.student.softwarearchitecture.transition.planning.route.api.types.notification.NotificationDO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.route.logic.NotificationLogic;
+import de.exxcellent.student.softwarearchitecture.transition.planning.route.mapper.NotificationMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

@@ -1,10 +1,10 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.impl.businesslogic.mapper;
+package de.exxcellent.student.softwarearchitecture.transition.planning.routecalculation.mapper;
 
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.api.types.CalculationMode;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.api.types.LocationRequestDO;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.api.types.LocationResponseDO;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.api.types.RouteCalculationDO;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.impl.connector.types.*;
+import de.exxcellent.student.softwarearchitecture.transition.planning.routelocation.api.types.CalculationMode;
+import de.exxcellent.student.softwarearchitecture.transition.planning.routelocation.api.types.LocationRequestDO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.routelocation.api.types.LocationResponseDO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.routelocation.api.types.RouteCalculationDO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.routecalculation.connector.types.*;
 
 import java.time.Instant;
 import java.util.List;
@@ -22,7 +22,7 @@ public final class RouteCalculationMapper {
         .map(RouteCalculationMapper.toLocationTO)
         .collect(Collectors.toList());
 
-    tripTO.setDeparture_time(Instant.now().toString());
+    tripTO.setDeparture_time("2020-06-04T12:49:22.257Z");
     tripTO.setLocations(locations);
 
     return tripTO;

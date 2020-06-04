@@ -1,6 +1,6 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.location.api;
+package de.exxcellent.student.softwarearchitecture.transition.planning.location.api;
 
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.location.api.types.LocationDO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.location.api.types.LocationDO;
 import de.exxcellent.student.softwarearchitecture.transition.common.data.User;
 import de.exxcellent.student.softwarearchitecture.transition.components.common.BusinessComponent;
 

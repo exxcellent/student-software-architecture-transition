@@ -1,7 +1,7 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.user.impl.businesslogic.logic;
+package de.exxcellent.student.softwarearchitecture.transition.planning.user.logic;
 
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.user.impl.businesslogic.mapper.UserMapper;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.user.api.types.Permission;
+import de.exxcellent.student.softwarearchitecture.transition.planning.user.mapper.UserMapper;
+import de.exxcellent.student.softwarearchitecture.transition.planning.user.api.types.Permission;
 import de.exxcellent.student.softwarearchitecture.transition.planning.user.data.UserPermissionRepository;
 import de.exxcellent.student.softwarearchitecture.transition.planning.user.data.UserRepository;
 import de.exxcellent.student.softwarearchitecture.transition.planning.user.data.entities.UserEntity;

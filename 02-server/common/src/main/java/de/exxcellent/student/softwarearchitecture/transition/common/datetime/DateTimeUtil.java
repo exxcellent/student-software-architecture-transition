@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.datetime;
+package de.exxcellent.student.softwarearchitecture.transition.common.datetime;
 
 import org.springframework.stereotype.Component;
 

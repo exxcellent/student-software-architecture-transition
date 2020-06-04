@@ -1,13 +1,13 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.businesslogic;
+package de.exxcellent.student.softwarearchitecture.transition.planning.route.facade;
 
 import de.exxcellent.student.softwarearchitecture.transition.common.data.User;
 import de.exxcellent.student.softwarearchitecture.transition.common.validation.Preconditions;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.RouteComponent;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.route.*;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.businesslogic.logic.RouteLogic;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.businesslogic.mapper.RouteMapper;
+import de.exxcellent.student.softwarearchitecture.transition.planning.route.api.RouteComponent;
+import de.exxcellent.student.softwarearchitecture.transition.planning.route.api.types.route.*;
+import de.exxcellent.student.softwarearchitecture.transition.planning.route.logic.RouteLogic;
+import de.exxcellent.student.softwarearchitecture.transition.planning.route.mapper.RouteMapper;
 import de.exxcellent.student.softwarearchitecture.transition.planning.route.data.entities.waypoint.WaypointEntity;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.api.RouteCalculationComponent;
+import de.exxcellent.student.softwarearchitecture.transition.planning.routelocation.api.RouteCalculationComponent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

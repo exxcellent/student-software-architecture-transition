@@ -1,6 +1,6 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.appointment.api.types;
+package de.exxcellent.student.softwarearchitecture.transition.planning.appointment.api.types;
 
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.types.BusinessDO;
+import de.exxcellent.student.softwarearchitecture.transition.common.types.BusinessDO;
 
 import java.time.LocalDate;
 import java.time.LocalTime;

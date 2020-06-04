@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.application.resources.user;
+package de.exxcellent.student.softwarearchitecture.transition.planning.user.resources;
 
 import de.exxcellent.student.softwarearchitecture.transition.resources.common.SecuredResource;
 import de.exxcellent.student.softwarearchitecture.transition.resources.common.TechnicalResource;

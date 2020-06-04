@@ -1,8 +1,8 @@
-package de.exxcellent.student.softwarearchitecture.transition.application.resources.inspectors.mapper;
+package de.exxcellent.student.softwarearchitecture.transition.planning.inspectors.resources.mapper;
 
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.inspectors.types.InspectorTO;
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.inspectors.types.InspectorsCTO;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.inspector.api.types.InspectorDO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.inspectors.resources.types.InspectorTO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.inspectors.resources.types.InspectorsCTO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.inspector.api.types.InspectorDO;
 
 import java.util.List;
 import java.util.function.Function;

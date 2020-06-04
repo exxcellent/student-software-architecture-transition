@@ -3,7 +3,7 @@ package de.exxcellent.student.softwarearchitecture.transition.application.spring
 import java.util.stream.Collectors;
 
 import de.exxcellent.student.softwarearchitecture.transition.application.springconfiguration.security.types.UserPermission;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.user.api.UserComponent;
+import de.exxcellent.student.softwarearchitecture.transition.planning.user.api.UserComponent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;

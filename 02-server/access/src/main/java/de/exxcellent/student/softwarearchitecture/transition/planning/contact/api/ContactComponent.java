@@ -1,8 +1,8 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.contact.api;
+package de.exxcellent.student.softwarearchitecture.transition.planning.contact.api;
 
 import de.exxcellent.student.softwarearchitecture.transition.common.data.User;
 import de.exxcellent.student.softwarearchitecture.transition.components.common.BusinessComponent;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.contact.api.types.ContactDO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.contact.api.types.ContactDO;
 
 import java.util.List;
 

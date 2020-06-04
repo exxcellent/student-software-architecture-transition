@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.data;
+package de.exxcellent.student.softwarearchitecture.transition.common.data;
 
 /**
  * TODO [AL]: Add class documentation

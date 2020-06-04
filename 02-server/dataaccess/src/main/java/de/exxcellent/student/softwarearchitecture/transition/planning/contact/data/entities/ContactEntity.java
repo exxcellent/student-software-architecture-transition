@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.contact.impl.data.entities;
+package de.exxcellent.student.softwarearchitecture.transition.planning.contact.data.entities;
 
 import de.exxcellent.student.softwarearchitecture.transition.common.data.entities.CommonEntity;
 

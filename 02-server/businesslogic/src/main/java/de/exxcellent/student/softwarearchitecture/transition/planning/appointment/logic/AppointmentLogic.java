@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.appointment.logic;
+package de.exxcellent.student.softwarearchitecture.transition.planning.appointment.logic;
 
 import de.exxcellent.student.softwarearchitecture.transition.common.businesslogic.CrudLogic;
 import de.exxcellent.student.softwarearchitecture.transition.common.datetime.DateTimeUtil;

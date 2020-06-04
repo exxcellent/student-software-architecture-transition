@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.application.resources.user;
+package de.exxcellent.student.softwarearchitecture.transition.planning.user.resources;
 
 import de.exxcellent.student.softwarearchitecture.transition.application.springconfiguration.security.types.UserCredentials;
 import de.exxcellent.student.softwarearchitecture.transition.common.data.User;

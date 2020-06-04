@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.planning.appointment;
+package de.exxcellent.student.softwarearchitecture.transition.planning.appointment.facade;
 
 import de.exxcellent.student.softwarearchitecture.transition.common.data.User;
 import de.exxcellent.student.softwarearchitecture.transition.common.validation.Preconditions;

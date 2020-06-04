@@ -1,6 +1,6 @@
 package de.exxcellent.student.softwarearchitecture.transition.planning.routes.resources;
 
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.user.CurrentUser;
+import de.exxcellent.student.softwarearchitecture.transition.planning.user.resources.CurrentUser;
 import de.exxcellent.student.softwarearchitecture.transition.resources.common.validation.ResponseCondition;
 import de.exxcellent.student.softwarearchitecture.transition.planning.routes.resources.mapper.NotificationMapper;
 import de.exxcellent.student.softwarearchitecture.transition.planning.routes.resources.mapper.RouteMapper;

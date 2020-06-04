@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.contact.api.types;
+package de.exxcellent.student.softwarearchitecture.transition.planning.contact.api.types;
 
 import de.exxcellent.student.softwarearchitecture.transition.common.types.BusinessDO;
 

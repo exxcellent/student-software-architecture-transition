@@ -1,11 +1,11 @@
-package de.exxcellent.student.softwarearchitecture.transition.application.resources.authentication;
+package de.exxcellent.student.softwarearchitecture.transition.planning.authentication.resources;
 
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.authentication.types.JwtRequest;
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.authentication.types.JwtResponse;
+import de.exxcellent.student.softwarearchitecture.transition.planning.authentication.resources.types.JwtRequest;
+import de.exxcellent.student.softwarearchitecture.transition.planning.authentication.resources.types.JwtResponse;
 import de.exxcellent.student.softwarearchitecture.transition.resources.common.TechnicalResource;
 import de.exxcellent.student.softwarearchitecture.transition.application.springconfiguration.security.JwtTokenUtil;
 import de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.exception.BusinessException;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.user.api.UserComponent;
+import de.exxcellent.student.softwarearchitecture.transition.planning.user.api.UserComponent;
 import de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.ErrorCode;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

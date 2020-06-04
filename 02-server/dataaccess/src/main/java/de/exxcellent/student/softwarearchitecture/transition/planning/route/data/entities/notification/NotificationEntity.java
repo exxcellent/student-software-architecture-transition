@@ -1,7 +1,7 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data.entities.notification;
+package de.exxcellent.student.softwarearchitecture.transition.planning.route.data.entities.notification;
 
 import de.exxcellent.student.softwarearchitecture.transition.common.data.entities.CommonEntity;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data.entities.waypoint.WaypointEntity;
+import de.exxcellent.student.softwarearchitecture.transition.planning.route.data.entities.waypoint.WaypointEntity;
 
 import javax.persistence.*;
 import java.time.OffsetDateTime;

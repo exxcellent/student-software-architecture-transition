@@ -1,6 +1,6 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.errorhandling.exception;
+package de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.exception;
 
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.errorhandling.ErrorCode;
+import de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.ErrorCode;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;

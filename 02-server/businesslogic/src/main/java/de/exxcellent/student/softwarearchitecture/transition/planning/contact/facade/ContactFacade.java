@@ -1,13 +1,12 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.contact.impl.businesslogic;
+package de.exxcellent.student.softwarearchitecture.transition.planning.contact.facade;
 
 import de.exxcellent.student.softwarearchitecture.transition.common.data.User;
 import de.exxcellent.student.softwarearchitecture.transition.common.validation.Preconditions;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.contact.api.ContactComponent;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.contact.api.types.ContactDO;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.contact.impl.businesslogic.logic.ContactLogic;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.contact.impl.businesslogic.mapper.ContactMapper;
+import de.exxcellent.student.softwarearchitecture.transition.planning.contact.api.ContactComponent;
+import de.exxcellent.student.softwarearchitecture.transition.planning.contact.api.types.ContactDO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.contact.logic.ContactLogic;
+import de.exxcellent.student.softwarearchitecture.transition.planning.contact.mapper.ContactMapper;
 
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.inspector.impl.businesslogic.mapper.InspectorMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

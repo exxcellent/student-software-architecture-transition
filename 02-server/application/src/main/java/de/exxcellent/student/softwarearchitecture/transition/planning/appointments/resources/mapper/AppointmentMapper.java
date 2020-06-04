@@ -1,7 +1,7 @@
-package de.exxcellent.student.softwarearchitecture.transition.application.resources.appointments.mapper;
+package de.exxcellent.student.softwarearchitecture.transition.planning.appointments.resources.mapper;
 
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.appointments.types.AppointmentTO;
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.appointments.types.AppointmentsCTO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.appointments.resources.types.AppointmentTO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.appointments.resources.types.AppointmentsCTO;
 import de.exxcellent.student.softwarearchitecture.transition.planning.appointment.api.types.AppointmentDO;
 
 import java.time.LocalDate;

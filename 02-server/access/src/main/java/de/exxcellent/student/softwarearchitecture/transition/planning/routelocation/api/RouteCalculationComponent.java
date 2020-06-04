@@ -1,8 +1,8 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.api;
+package de.exxcellent.student.softwarearchitecture.transition.planning.routelocation.api;
 
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.api.types.CalculationMode;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.api.types.LocationRequestDO;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.api.types.RouteCalculationDO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.routelocation.api.types.CalculationMode;
+import de.exxcellent.student.softwarearchitecture.transition.planning.routelocation.api.types.LocationRequestDO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.routelocation.api.types.RouteCalculationDO;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.application.resources.contacts.types;
+package de.exxcellent.student.softwarearchitecture.transition.planning.contacts.resources.types;
 
 import de.exxcellent.student.softwarearchitecture.transition.resources.common.BusinessTO;
 

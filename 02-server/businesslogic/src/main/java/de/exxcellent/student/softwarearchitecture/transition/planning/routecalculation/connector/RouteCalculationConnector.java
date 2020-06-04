@@ -1,12 +1,12 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.impl.connector;
+package de.exxcellent.student.softwarearchitecture.transition.planning.routecalculation.connector;
 
 import de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.ErrorCode;
 import de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.exception.BusinessException;
 import de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.exception.TechnicalException;
 import de.exxcellent.student.softwarearchitecture.transition.common.json.JsonMapper;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.impl.connector.types.Mode;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.impl.connector.types.TripResponseTO;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.impl.connector.types.TripTO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.routecalculation.connector.types.Mode;
+import de.exxcellent.student.softwarearchitecture.transition.planning.routecalculation.connector.types.TripResponseTO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.routecalculation.connector.types.TripTO;
 import kong.unirest.HttpRequestWithBody;
 import kong.unirest.Unirest;
 import kong.unirest.UnirestParsingException;

@@ -1,12 +1,11 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.inspector.impl.businesslogic;
+package de.exxcellent.student.softwarearchitecture.transition.planning.inspector.facade;
 
 import de.exxcellent.student.softwarearchitecture.transition.common.data.User;
 import de.exxcellent.student.softwarearchitecture.transition.common.validation.Preconditions;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.inspector.api.InspectorComponent;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.inspector.api.types.InspectorDO;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.inspector.impl.businesslogic.logic.InspectorLogic;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.inspector.impl.businesslogic.mapper.InspectorMapper;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.location.impl.businesslogic.mapper.LocationMapper;
+import de.exxcellent.student.softwarearchitecture.transition.planning.inspector.api.InspectorComponent;
+import de.exxcellent.student.softwarearchitecture.transition.planning.inspector.api.types.InspectorDO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.inspector.logic.InspectorLogic;
+import de.exxcellent.student.softwarearchitecture.transition.planning.inspector.mapper.InspectorMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

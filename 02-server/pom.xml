@@ -28,6 +28,9 @@
 		<module>./application</module>
 		<module>./businesslogic</module>
 		<module>./tests</module>
+        <module>./access</module>
+		<module>./dataaccess</module>
+		<module>common</module>
 	</modules>
 
 	<dependencyManagement>

@@ -1,8 +1,8 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.user.api;
+package de.exxcellent.student.softwarearchitecture.transition.planning.user.api;
 
 import de.exxcellent.student.softwarearchitecture.transition.components.common.TechnicalComponent;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.user.api.types.Permission;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.user.api.types.UserDO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.user.api.types.Permission;
+import de.exxcellent.student.softwarearchitecture.transition.planning.user.api.types.UserDO;
 
 /**
  * TODO [AL]: Add class documentation

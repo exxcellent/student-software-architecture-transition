@@ -12,7 +12,7 @@ public class MyArchUnitAT {
 
   @ArchTest
   public static final ArchRule appointments = classes()
-        .that().resideInAPackage("de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.appointment")
+        .that().resideInAPackage("de.exxcellent.student.softwarearchitecture.transition.planning.appointment")
         .should().onlyBeAccessed().byAnyPackage("de.exxcellent.student.softwarearchitecture.transition.application.resources.appointments");
 
   @ArchTest
@@ -25,22 +25,22 @@ public class MyArchUnitAT {
   @ArchTest
   public static final ArchRule appointmentComponent = layeredArchitecture()
       .layer("REST_RESOURCE").definedBy("de.exxcellent.student.softwarearchitecture.transition.application.resources.appointments")
-      .layer("ACCESS:API").definedBy("de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.appointment.api")
-      .layer("ACCESS:Facade").definedBy("de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.appointment.impl.businesslogic")
-      .layer("BUSINESS").definedBy("de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.appointment.impl.businesslogic.logic")
-      .layer("DATA_ACCESS").definedBy("de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.appointment.impl.data")
+      .layer("ACCESS:API").definedBy("de.exxcellent.student.softwarearchitecture.transition.planning.appointment.api")
+      .layer("ACCESS:Facade").definedBy("de.exxcellent.student.softwarearchitecture.transition.planning.appointment.impl.businesslogic")
+      .layer("BUSINESS").definedBy("de.exxcellent.student.softwarearchitecture.transition.planning.appointment.logic")
+      .layer("DATA_ACCESS").definedBy("de.exxcellent.student.softwarearchitecture.transition.planning.appointment.data")
 
 //      .layer("COMMON").definedBy(
-//          "de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.businesslogic",
-//          "de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.data",
-//          "de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.datetime",
-//          "de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.errorhandling",
-//          "de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.json",
-//          "de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.resilience",
-//          "de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.types",
-//          "de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.validation",
+//          "de.exxcellent.student.softwarearchitecture.transition.common.businesslogic",
+//          "de.exxcellent.student.softwarearchitecture.transition.common.data",
+//          "de.exxcellent.student.softwarearchitecture.transition.common.datetime",
+//          "de.exxcellent.student.softwarearchitecture.transition.common.errorhandling",
+//          "de.exxcellent.student.softwarearchitecture.transition.common.json",
+//          "de.exxcellent.student.softwarearchitecture.transition.common.resilience",
+//          "de.exxcellent.student.softwarearchitecture.transition.common.types",
+//          "de.exxcellent.student.softwarearchitecture.transition.common.validation",
 //
-//          "de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.common"
+//          "de.exxcellent.student.softwarearchitecture.transition.components.common"
 //      )
 
       .whereLayer("REST_RESOURCE").mayNotBeAccessedByAnyLayer()

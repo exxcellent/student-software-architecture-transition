@@ -1,11 +1,11 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.user.impl.businesslogic;
+package de.exxcellent.student.softwarearchitecture.transition.planning.user.facade;
 
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.user.api.UserComponent;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.user.impl.businesslogic.logic.UserLogic;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.user.impl.businesslogic.mapper.UserMapper;
+import de.exxcellent.student.softwarearchitecture.transition.planning.user.api.UserComponent;
+import de.exxcellent.student.softwarearchitecture.transition.planning.user.logic.UserLogic;
+import de.exxcellent.student.softwarearchitecture.transition.planning.user.mapper.UserMapper;
 import de.exxcellent.student.softwarearchitecture.transition.common.validation.Preconditions;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.user.api.types.Permission;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.user.api.types.UserDO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.user.api.types.Permission;
+import de.exxcellent.student.softwarearchitecture.transition.planning.user.api.types.UserDO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.impl.connector.types;
+package de.exxcellent.student.softwarearchitecture.transition.planning.routecalculation.connector.types;
 
 /**
  * TODO [AL]: Add class documentation

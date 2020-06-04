@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.application.resources.processs.types;
+package de.exxcellent.student.softwarearchitecture.transition.planning.processs.resources.types;
 
 import de.exxcellent.student.softwarearchitecture.transition.resources.common.ReadOnlyTO;
 

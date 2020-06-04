@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.types;
+package de.exxcellent.student.softwarearchitecture.transition.common.types;
 
 public class Pair<X, Y> {
   public final X left;

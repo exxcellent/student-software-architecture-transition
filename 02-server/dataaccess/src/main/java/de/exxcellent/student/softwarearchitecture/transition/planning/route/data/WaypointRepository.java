@@ -1,6 +1,6 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data;
+package de.exxcellent.student.softwarearchitecture.transition.planning.route.data;
 
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data.entities.waypoint.WaypointEntity;
+import de.exxcellent.student.softwarearchitecture.transition.planning.route.data.entities.waypoint.WaypointEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.LocalDate;

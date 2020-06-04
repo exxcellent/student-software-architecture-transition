@@ -12,7 +12,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @Configuration
 @EnableJpaRepositories
-@EntityScan("de.exxcellent.student.softwarearchitecture.transition.businesslogic.components")
+@EntityScan("de.exxcellent.student.softwarearchitecture.transition")
 @OpenAPIDefinition(
 		info = @Info(title = "Thesis Server API", version = "1.0", description = "REST-API of the reference project."),
 		servers = @Server(url = "http://localhost:9000")

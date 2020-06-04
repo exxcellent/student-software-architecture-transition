@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.application.resources.common;
+package de.exxcellent.student.softwarearchitecture.transition.resources.common;
 
 /**
  * TODO [AL]: Add class documentation

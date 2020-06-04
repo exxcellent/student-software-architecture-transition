@@ -1,12 +1,12 @@
-package de.exxcellent.student.softwarearchitecture.transition.application.resources.processs.mapper;
+package de.exxcellent.student.softwarearchitecture.transition.planning.processs.resources.mapper;
 
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.processs.types.ProcessPriority;
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.processs.types.ProcessTO;
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.processs.types.ProcessType;
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.processs.types.ProcesssCTO;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.process.api.types.Priority;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.process.api.types.ProcessDO;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.process.api.types.Type;
+import de.exxcellent.student.softwarearchitecture.transition.planning.processs.resources.types.ProcessPriority;
+import de.exxcellent.student.softwarearchitecture.transition.planning.processs.resources.types.ProcessTO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.processs.resources.types.ProcessType;
+import de.exxcellent.student.softwarearchitecture.transition.planning.processs.resources.types.ProcesssCTO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.process.api.types.Priority;
+import de.exxcellent.student.softwarearchitecture.transition.planning.process.api.types.ProcessDO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.process.api.types.Type;
 
 import java.util.function.Function;
 import java.util.List;

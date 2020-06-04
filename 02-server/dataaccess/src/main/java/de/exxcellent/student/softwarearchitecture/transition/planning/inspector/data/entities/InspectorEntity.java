@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.inspector.impl.data.entities;
+package de.exxcellent.student.softwarearchitecture.transition.planning.inspector.data.entities;
 
 import de.exxcellent.student.softwarearchitecture.transition.common.data.entities.CommonEntity;
 

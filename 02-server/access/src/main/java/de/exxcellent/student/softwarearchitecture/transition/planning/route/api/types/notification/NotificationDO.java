@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.notification;
+package de.exxcellent.student.softwarearchitecture.transition.planning.route.api.types.notification;
 
 import de.exxcellent.student.softwarearchitecture.transition.common.types.BusinessDO;
 

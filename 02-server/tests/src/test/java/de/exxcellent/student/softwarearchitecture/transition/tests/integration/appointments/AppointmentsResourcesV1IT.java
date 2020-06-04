@@ -1,7 +1,7 @@
 package de.exxcellent.student.softwarearchitecture.transition.tests.integration.appointments;
 
 import com.github.springtestdbunit.annotation.DatabaseSetup;
-import de.exxcellent.student.softwarearchitecture.transition.application.resources.appointments.types.AppointmentTO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.appointments.resources.types.AppointmentTO;
 import de.exxcellent.student.softwarearchitecture.transition.tests.integration.AuthenticationUtil;
 import de.exxcellent.student.softwarearchitecture.transition.tests.integration.IntegrationTest;
 import org.json.JSONException;

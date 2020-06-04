@@ -1,11 +1,11 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.location.impl.businesslogic;
+package de.exxcellent.student.softwarearchitecture.transition.planning.location.facade;
 
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.location.impl.businesslogic.logic.LocationLogic;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.location.impl.businesslogic.mapper.LocationMapper;
+import de.exxcellent.student.softwarearchitecture.transition.planning.location.logic.LocationLogic;
+import de.exxcellent.student.softwarearchitecture.transition.planning.location.mapper.LocationMapper;
 import de.exxcellent.student.softwarearchitecture.transition.common.data.User;
 import de.exxcellent.student.softwarearchitecture.transition.common.validation.Preconditions;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.location.api.LocationComponent;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.location.api.types.LocationDO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.location.api.LocationComponent;
+import de.exxcellent.student.softwarearchitecture.transition.planning.location.api.types.LocationDO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

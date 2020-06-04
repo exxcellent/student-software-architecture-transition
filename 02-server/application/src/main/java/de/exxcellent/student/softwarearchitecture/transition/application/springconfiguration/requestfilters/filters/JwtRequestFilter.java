@@ -1,8 +1,8 @@
-package de.exxcellent.student.softwarearchitecture.transition.springconfiguration.requestfilters.filters;
+package de.exxcellent.student.softwarearchitecture.transition.application.springconfiguration.requestfilters.filters;
 
-import de.exxcellent.student.softwarearchitecture.transition.springconfiguration.security.JwtTokenUtil;
-import de.exxcellent.student.softwarearchitecture.transition.springconfiguration.security.types.UserCredentials;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.user.api.UserComponent;
+import de.exxcellent.student.softwarearchitecture.transition.application.springconfiguration.security.JwtTokenUtil;
+import de.exxcellent.student.softwarearchitecture.transition.application.springconfiguration.security.types.UserCredentials;
+import de.exxcellent.student.softwarearchitecture.transition.planning.user.api.UserComponent;
 import io.jsonwebtoken.ExpiredJwtException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

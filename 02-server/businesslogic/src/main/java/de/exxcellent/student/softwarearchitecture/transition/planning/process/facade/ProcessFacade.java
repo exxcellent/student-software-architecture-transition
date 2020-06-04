@@ -1,11 +1,11 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.process.impl.businesslogic;
+package de.exxcellent.student.softwarearchitecture.transition.planning.process.facade;
 
 import de.exxcellent.student.softwarearchitecture.transition.common.data.User;
 import de.exxcellent.student.softwarearchitecture.transition.common.validation.Preconditions;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.process.api.ProcessComponent;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.process.api.types.ProcessDO;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.process.impl.businesslogic.logic.ProcessLogic;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.process.impl.businesslogic.mapper.ProcessMapper;
+import de.exxcellent.student.softwarearchitecture.transition.planning.process.api.ProcessComponent;
+import de.exxcellent.student.softwarearchitecture.transition.planning.process.api.types.ProcessDO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.process.logic.ProcessLogic;
+import de.exxcellent.student.softwarearchitecture.transition.planning.process.mapper.ProcessMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

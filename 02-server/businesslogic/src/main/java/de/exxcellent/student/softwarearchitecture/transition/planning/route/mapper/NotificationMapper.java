@@ -1,7 +1,7 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.businesslogic.mapper;
+package de.exxcellent.student.softwarearchitecture.transition.planning.route.mapper;
 
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.notification.NotificationChannel;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.notification.NotificationDO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.route.api.types.notification.NotificationChannel;
+import de.exxcellent.student.softwarearchitecture.transition.planning.route.api.types.notification.NotificationDO;
 import de.exxcellent.student.softwarearchitecture.transition.planning.route.data.entities.notification.Channel;
 import de.exxcellent.student.softwarearchitecture.transition.planning.route.data.entities.notification.NotificationEntity;
 

@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data.entities.waypoint;
+package de.exxcellent.student.softwarearchitecture.transition.planning.route.data.entities.waypoint;
 
 /**
  * TODO [AL]: Add class documentation

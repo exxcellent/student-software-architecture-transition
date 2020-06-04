@@ -1,9 +1,9 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.user.impl.businesslogic.mapper;
+package de.exxcellent.student.softwarearchitecture.transition.planning.user.mapper;
 
 import de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.ErrorCode;
 import de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.exception.BusinessException;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.user.api.types.Permission;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.user.api.types.UserDO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.user.api.types.Permission;
+import de.exxcellent.student.softwarearchitecture.transition.planning.user.api.types.UserDO;
 import de.exxcellent.student.softwarearchitecture.transition.planning.user.data.entities.PermissionName;
 import de.exxcellent.student.softwarearchitecture.transition.planning.user.data.entities.UserEntity;
 import de.exxcellent.student.softwarearchitecture.transition.planning.user.data.entities.UserPermissionEntity;

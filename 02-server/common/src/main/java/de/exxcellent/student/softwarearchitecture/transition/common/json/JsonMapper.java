@@ -1,9 +1,9 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.json;
+package de.exxcellent.student.softwarearchitecture.transition.common.json;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.errorhandling.ErrorCode;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.errorhandling.exception.TechnicalException;
+import de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.ErrorCode;
+import de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.exception.TechnicalException;
 
 /**
  * TODO [AL]: Add class documentation

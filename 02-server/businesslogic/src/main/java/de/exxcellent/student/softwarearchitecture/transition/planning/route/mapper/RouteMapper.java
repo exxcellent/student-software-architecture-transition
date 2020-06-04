@@ -1,11 +1,11 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.businesslogic.mapper;
+package de.exxcellent.student.softwarearchitecture.transition.planning.route.mapper;
 
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.route.*;
+import de.exxcellent.student.softwarearchitecture.transition.planning.route.api.types.route.*;
 import de.exxcellent.student.softwarearchitecture.transition.planning.route.data.entities.waypoint.Category;
 import de.exxcellent.student.softwarearchitecture.transition.planning.route.data.entities.waypoint.Status;
 import de.exxcellent.student.softwarearchitecture.transition.planning.route.data.entities.waypoint.WaypointEntity;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.api.types.CalculationMode;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.routecalculation.api.types.LocationRequestDO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.routelocation.api.types.CalculationMode;
+import de.exxcellent.student.softwarearchitecture.transition.planning.routelocation.api.types.LocationRequestDO;
 
 import java.time.Duration;
 import java.time.LocalDate;

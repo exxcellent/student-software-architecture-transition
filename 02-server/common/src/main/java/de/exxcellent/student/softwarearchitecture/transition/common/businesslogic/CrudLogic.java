@@ -1,11 +1,11 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.businesslogic;
+package de.exxcellent.student.softwarearchitecture.transition.common.businesslogic;
 
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.data.User;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.errorhandling.ErrorCode;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.errorhandling.exception.BusinessException;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.data.entities.CommonEntity;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.datetime.DateTimeUtil;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.resilience.Retry;
+import de.exxcellent.student.softwarearchitecture.transition.common.data.User;
+import de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.ErrorCode;
+import de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.exception.BusinessException;
+import de.exxcellent.student.softwarearchitecture.transition.common.data.entities.CommonEntity;
+import de.exxcellent.student.softwarearchitecture.transition.common.datetime.DateTimeUtil;
+import de.exxcellent.student.softwarearchitecture.transition.common.resilience.Retry;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.orm.ObjectOptimisticLockingFailureException;

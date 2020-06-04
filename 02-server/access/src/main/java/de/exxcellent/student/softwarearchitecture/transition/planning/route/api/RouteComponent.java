@@ -1,10 +1,10 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api;
+package de.exxcellent.student.softwarearchitecture.transition.planning.route.api;
 
 import de.exxcellent.student.softwarearchitecture.transition.common.data.User;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.route.RouteCalculationMode;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.route.RouteDO;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.route.UpdatedWaypointDO;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.api.types.route.WaypointDO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.route.api.types.route.RouteCalculationMode;
+import de.exxcellent.student.softwarearchitecture.transition.planning.route.api.types.route.RouteDO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.route.api.types.route.UpdatedWaypointDO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.route.api.types.route.WaypointDO;
 
 import java.time.LocalDate;
 import java.util.List;

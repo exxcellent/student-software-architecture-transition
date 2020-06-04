@@ -1,8 +1,8 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.process.impl.businesslogic.mapper;
+package de.exxcellent.student.softwarearchitecture.transition.planning.process.mapper;
 
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.process.api.types.Priority;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.process.api.types.ProcessDO;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.process.api.types.Type;
+import de.exxcellent.student.softwarearchitecture.transition.planning.process.api.types.Priority;
+import de.exxcellent.student.softwarearchitecture.transition.planning.process.api.types.ProcessDO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.process.api.types.Type;
 import de.exxcellent.student.softwarearchitecture.transition.planning.process.data.entities.ProcessEntity;
 import de.exxcellent.student.softwarearchitecture.transition.planning.process.data.entities.ProcessPriority;
 import de.exxcellent.student.softwarearchitecture.transition.planning.process.data.entities.ProcessType;

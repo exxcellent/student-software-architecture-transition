@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.appointment.mapper;
+package de.exxcellent.student.softwarearchitecture.transition.planning.appointment.mapper;
 
 import de.exxcellent.student.softwarearchitecture.transition.planning.appointment.api.types.AppointmentDO;
 import de.exxcellent.student.softwarearchitecture.transition.planning.appointment.data.entities.AppointmentEntity;

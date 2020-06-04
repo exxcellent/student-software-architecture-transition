@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.data.entities;
+package de.exxcellent.student.softwarearchitecture.transition.common.data.entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
