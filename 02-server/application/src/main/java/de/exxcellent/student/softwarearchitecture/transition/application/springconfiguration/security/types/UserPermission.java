@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.application.springconfiguration.security.types;
+package de.exxcellent.student.softwarearchitecture.transition.springconfiguration.security.types;
 
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.user.api.types.Permission;
 import org.springframework.security.core.GrantedAuthority;

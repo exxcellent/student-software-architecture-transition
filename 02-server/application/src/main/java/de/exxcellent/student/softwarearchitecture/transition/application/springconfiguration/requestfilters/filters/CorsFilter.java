@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.application.springconfiguration.requestfilters.filters;
+package de.exxcellent.student.softwarearchitecture.transition.springconfiguration.requestfilters.filters;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,6 +1,6 @@
-package de.exxcellent.student.softwarearchitecture.transition.application.springconfiguration.security;
+package de.exxcellent.student.softwarearchitecture.transition.springconfiguration.security;
 
-import de.exxcellent.student.softwarearchitecture.transition.application.springconfiguration.requestfilters.filters.JwtRequestFilter;
+import de.exxcellent.student.softwarearchitecture.transition.springconfiguration.requestfilters.filters.JwtRequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

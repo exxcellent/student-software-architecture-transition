@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.application.springconfiguration.permissions;
+package de.exxcellent.student.softwarearchitecture.transition.springconfiguration.permissions;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -7,10 +7,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletRequest;
 
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.errorhandling.exception.BusinessException;
+import de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.exception.BusinessException;
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.user.api.types.Permission;
-import de.exxcellent.student.softwarearchitecture.transition.application.springconfiguration.security.JwtTokenUtil;
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.errorhandling.ErrorCode;
+import de.exxcellent.student.softwarearchitecture.transition.springconfiguration.security.JwtTokenUtil;
+import de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.ErrorCode;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -57,7 +57,7 @@ public class RequiresPermissionAspect {
      * @throws Throwable         if the {@link ProceedingJoinPoint} throws an exception
      * @throws BusinessException if the user has not all required permissions
      */
-    @Around("@annotation(de.exxcellent.student.softwarearchitecture.transition.application.springconfiguration.permissions.RequiresPermission)")
+    @Around("@annotation(de.exxcellent.student.softwarearchitecture.transition.springconfiguration.permissions.RequiresPermission)")
     public Object checkPermission(ProceedingJoinPoint joinPoint) throws Throwable {
 
         List<Permission> requiredPermissions = new ArrayList<>();

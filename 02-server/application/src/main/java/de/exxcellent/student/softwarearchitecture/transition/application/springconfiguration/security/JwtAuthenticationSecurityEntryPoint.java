@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.application.springconfiguration.security;
+package de.exxcellent.student.softwarearchitecture.transition.springconfiguration.security;
 
 import java.io.IOException;
 import java.io.Serializable;

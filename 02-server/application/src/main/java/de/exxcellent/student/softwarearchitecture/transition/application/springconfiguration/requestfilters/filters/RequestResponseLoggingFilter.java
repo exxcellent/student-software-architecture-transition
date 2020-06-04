@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.application.springconfiguration.requestfilters.filters;
+package de.exxcellent.student.softwarearchitecture.transition.springconfiguration.requestfilters.filters;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

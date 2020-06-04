@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.application.springconfiguration.permissions;
+package de.exxcellent.student.softwarearchitecture.transition.springconfiguration.permissions;
 
 import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.user.api.types.Permission;
 
