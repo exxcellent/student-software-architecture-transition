@@ -5,7 +5,7 @@ import de.exxcellent.student.softwarearchitecture.transition.component.authentic
 import de.exxcellent.student.softwarearchitecture.transition.resources.common.TechnicalResource;
 import de.exxcellent.student.softwarearchitecture.transition.application.springconfiguration.security.JwtTokenUtil;
 import de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.exception.BusinessException;
-import de.exxcellent.student.softwarearchitecture.transition.user.api.UserComponent;
+import de.exxcellent.student.softwarearchitecture.transition.component.user.api.UserComponent;
 import de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.ErrorCode;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

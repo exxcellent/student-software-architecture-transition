@@ -5,7 +5,7 @@ import de.exxcellent.student.softwarearchitecture.transition.component.appointme
 import de.exxcellent.student.softwarearchitecture.transition.component.appointments.resources.types.AppointmentsCTO;
 import de.exxcellent.student.softwarearchitecture.transition.resources.common.BusinessResource;
 import de.exxcellent.student.softwarearchitecture.transition.resources.common.SecuredResource;
-import de.exxcellent.student.softwarearchitecture.transition.user.resources.CurrentUser;
+import de.exxcellent.student.softwarearchitecture.transition.component.user.resources.CurrentUser;
 import de.exxcellent.student.softwarearchitecture.transition.appointment.api.AppointmentComponent;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;

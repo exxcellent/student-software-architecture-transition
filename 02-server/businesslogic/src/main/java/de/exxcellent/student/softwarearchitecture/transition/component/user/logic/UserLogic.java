@@ -1,10 +1,10 @@
-package de.exxcellent.student.softwarearchitecture.transition.user.logic;
+package de.exxcellent.student.softwarearchitecture.transition.component.user.logic;
 
-import de.exxcellent.student.softwarearchitecture.transition.user.mapper.UserMapper;
-import de.exxcellent.student.softwarearchitecture.transition.user.api.types.Permission;
-import de.exxcellent.student.softwarearchitecture.transition.user.data.UserPermissionRepository;
-import de.exxcellent.student.softwarearchitecture.transition.user.data.UserRepository;
-import de.exxcellent.student.softwarearchitecture.transition.user.data.entities.UserEntity;
+import de.exxcellent.student.softwarearchitecture.transition.component.user.mapper.UserMapper;
+import de.exxcellent.student.softwarearchitecture.transition.component.user.api.types.Permission;
+import de.exxcellent.student.softwarearchitecture.transition.component.user.data.UserPermissionRepository;
+import de.exxcellent.student.softwarearchitecture.transition.component.user.data.UserRepository;
+import de.exxcellent.student.softwarearchitecture.transition.component.user.data.entities.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

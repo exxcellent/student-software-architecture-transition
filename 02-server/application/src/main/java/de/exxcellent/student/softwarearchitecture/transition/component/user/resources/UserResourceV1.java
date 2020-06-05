@@ -1,9 +1,9 @@
-package de.exxcellent.student.softwarearchitecture.transition.user.resources;
+package de.exxcellent.student.softwarearchitecture.transition.component.user.resources;
 
 import de.exxcellent.student.softwarearchitecture.transition.resources.common.SecuredResource;
 import de.exxcellent.student.softwarearchitecture.transition.resources.common.TechnicalResource;
-import de.exxcellent.student.softwarearchitecture.transition.user.api.UserComponent;
-import de.exxcellent.student.softwarearchitecture.transition.user.api.types.Permission;
+import de.exxcellent.student.softwarearchitecture.transition.component.user.api.UserComponent;
+import de.exxcellent.student.softwarearchitecture.transition.component.user.api.types.Permission;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;

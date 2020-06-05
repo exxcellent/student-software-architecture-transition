@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.user.data.entities;
+package de.exxcellent.student.softwarearchitecture.transition.component.user.data.entities;
 
 /**
  * TODO [AL]: Add class documentation

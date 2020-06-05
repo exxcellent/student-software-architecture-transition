@@ -2,13 +2,13 @@ package de.exxcellent.student.softwarearchitecture.transition.component.contacts
 
 import de.exxcellent.student.softwarearchitecture.transition.resources.common.BusinessResource;
 import de.exxcellent.student.softwarearchitecture.transition.resources.common.SecuredResource;
-import de.exxcellent.student.softwarearchitecture.transition.user.resources.CurrentUser;
+import de.exxcellent.student.softwarearchitecture.transition.component.user.resources.CurrentUser;
 import de.exxcellent.student.softwarearchitecture.transition.component.contacts.resources.types.ContactTO;
 import de.exxcellent.student.softwarearchitecture.transition.component.contacts.resources.types.ContactsCTO;
 import de.exxcellent.student.softwarearchitecture.transition.component.contacts.resources.mapper.ContactMapper;
 import de.exxcellent.student.softwarearchitecture.transition.application.springconfiguration.permissions.RequiresPermission;
 import de.exxcellent.student.softwarearchitecture.transition.contact.api.ContactComponent;
-import de.exxcellent.student.softwarearchitecture.transition.user.api.types.Permission;
+import de.exxcellent.student.softwarearchitecture.transition.component.user.api.types.Permission;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;

@@ -7,8 +7,8 @@ import de.exxcellent.student.softwarearchitecture.transition.component.locations
 import de.exxcellent.student.softwarearchitecture.transition.component.locations.resources.types.LocationsCTO;
 import de.exxcellent.student.softwarearchitecture.transition.application.springconfiguration.permissions.RequiresPermission;
 import de.exxcellent.student.softwarearchitecture.transition.location.api.LocationComponent;
-import de.exxcellent.student.softwarearchitecture.transition.user.api.types.Permission;
-import de.exxcellent.student.softwarearchitecture.transition.user.resources.CurrentUser;
+import de.exxcellent.student.softwarearchitecture.transition.component.user.api.types.Permission;
+import de.exxcellent.student.softwarearchitecture.transition.component.user.resources.CurrentUser;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;

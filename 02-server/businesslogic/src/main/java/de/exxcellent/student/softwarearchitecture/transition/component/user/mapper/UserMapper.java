@@ -1,12 +1,12 @@
-package de.exxcellent.student.softwarearchitecture.transition.user.mapper;
+package de.exxcellent.student.softwarearchitecture.transition.component.user.mapper;
 
 import de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.ErrorCode;
 import de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.exception.BusinessException;
-import de.exxcellent.student.softwarearchitecture.transition.user.api.types.Permission;
-import de.exxcellent.student.softwarearchitecture.transition.user.api.types.UserDO;
-import de.exxcellent.student.softwarearchitecture.transition.user.data.entities.PermissionName;
-import de.exxcellent.student.softwarearchitecture.transition.user.data.entities.UserEntity;
-import de.exxcellent.student.softwarearchitecture.transition.user.data.entities.UserPermissionEntity;
+import de.exxcellent.student.softwarearchitecture.transition.component.user.api.types.Permission;
+import de.exxcellent.student.softwarearchitecture.transition.component.user.api.types.UserDO;
+import de.exxcellent.student.softwarearchitecture.transition.component.user.data.entities.PermissionName;
+import de.exxcellent.student.softwarearchitecture.transition.component.user.data.entities.UserEntity;
+import de.exxcellent.student.softwarearchitecture.transition.component.user.data.entities.UserPermissionEntity;
 
 import java.util.List;
 import java.util.function.Function;

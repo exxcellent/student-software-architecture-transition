@@ -1,6 +1,6 @@
 package de.exxcellent.student.softwarearchitecture.transition.application.springconfiguration.security.types;
 
-import de.exxcellent.student.softwarearchitecture.transition.user.api.types.Permission;
+import de.exxcellent.student.softwarearchitecture.transition.component.user.api.types.Permission;
 import org.springframework.security.core.GrantedAuthority;
 
 /**

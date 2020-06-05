@@ -1,11 +1,11 @@
-package de.exxcellent.student.softwarearchitecture.transition.user.facade;
+package de.exxcellent.student.softwarearchitecture.transition.component.user.facade;
 
-import de.exxcellent.student.softwarearchitecture.transition.user.api.UserComponent;
-import de.exxcellent.student.softwarearchitecture.transition.user.logic.UserLogic;
-import de.exxcellent.student.softwarearchitecture.transition.user.mapper.UserMapper;
+import de.exxcellent.student.softwarearchitecture.transition.component.user.api.UserComponent;
+import de.exxcellent.student.softwarearchitecture.transition.component.user.logic.UserLogic;
+import de.exxcellent.student.softwarearchitecture.transition.component.user.mapper.UserMapper;
 import de.exxcellent.student.softwarearchitecture.transition.common.validation.Preconditions;
-import de.exxcellent.student.softwarearchitecture.transition.user.api.types.Permission;
-import de.exxcellent.student.softwarearchitecture.transition.user.api.types.UserDO;
+import de.exxcellent.student.softwarearchitecture.transition.component.user.api.types.Permission;
+import de.exxcellent.student.softwarearchitecture.transition.component.user.api.types.UserDO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
