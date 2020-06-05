@@ -10,8 +10,8 @@ import de.exxcellent.student.softwarearchitecture.transition.component.routes.re
 import de.exxcellent.student.softwarearchitecture.transition.component.routes.resources.types.route.RouteCalculation;
 import de.exxcellent.student.softwarearchitecture.transition.component.routes.resources.types.route.RouteWaypointTO;
 import de.exxcellent.student.softwarearchitecture.transition.component.routes.resources.types.route.RoutesCTO;
-import de.exxcellent.student.softwarearchitecture.transition.route.api.NotificationComponent;
-import de.exxcellent.student.softwarearchitecture.transition.route.api.RouteComponent;
+import de.exxcellent.student.softwarearchitecture.transition.component.route.api.NotificationComponent;
+import de.exxcellent.student.softwarearchitecture.transition.component.route.api.RouteComponent;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeIn;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;

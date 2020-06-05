@@ -7,7 +7,7 @@ import de.exxcellent.student.softwarearchitecture.transition.component.contacts.
 import de.exxcellent.student.softwarearchitecture.transition.component.contacts.resources.types.ContactsCTO;
 import de.exxcellent.student.softwarearchitecture.transition.component.contacts.resources.mapper.ContactMapper;
 import de.exxcellent.student.softwarearchitecture.transition.application.springconfiguration.permissions.RequiresPermission;
-import de.exxcellent.student.softwarearchitecture.transition.contact.api.ContactComponent;
+import de.exxcellent.student.softwarearchitecture.transition.component.contact.api.ContactComponent;
 import de.exxcellent.student.softwarearchitecture.transition.component.user.api.types.Permission;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;

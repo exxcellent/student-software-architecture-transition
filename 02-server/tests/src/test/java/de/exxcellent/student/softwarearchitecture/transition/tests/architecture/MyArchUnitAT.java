@@ -12,7 +12,7 @@ public class MyArchUnitAT {
 
   @ArchTest
   public static final ArchRule appointments = classes()
-        .that().resideInAPackage("de.exxcellent.student.softwarearchitecture.transition.appointment")
+        .that().resideInAPackage("de.exxcellent.student.softwarearchitecture.transition.component.appointment")
         .should().onlyBeAccessed().byAnyPackage("de.exxcellent.student.softwarearchitecture.transition.application.resources.appointments");
 
   @ArchTest
@@ -25,10 +25,10 @@ public class MyArchUnitAT {
   @ArchTest
   public static final ArchRule appointmentComponent = layeredArchitecture()
       .layer("REST_RESOURCE").definedBy("de.exxcellent.student.softwarearchitecture.transition.application.resources.appointments")
-      .layer("ACCESS:API").definedBy("de.exxcellent.student.softwarearchitecture.transition.appointment.api")
-      .layer("ACCESS:Facade").definedBy("de.exxcellent.student.softwarearchitecture.transition.appointment.impl.businesslogic")
-      .layer("BUSINESS").definedBy("de.exxcellent.student.softwarearchitecture.transition.appointment.logic")
-      .layer("DATA_ACCESS").definedBy("de.exxcellent.student.softwarearchitecture.transition.appointment.data")
+      .layer("ACCESS:API").definedBy("de.exxcellent.student.softwarearchitecture.transition.component.appointment.api")
+      .layer("ACCESS:Facade").definedBy("de.exxcellent.student.softwarearchitecture.transition.component.appointment.impl.businesslogic")
+      .layer("BUSINESS").definedBy("de.exxcellent.student.softwarearchitecture.transition.component.appointment.logic")
+      .layer("DATA_ACCESS").definedBy("de.exxcellent.student.softwarearchitecture.transition.component.appointment.data")
 
 //      .layer("COMMON").definedBy(
 //          "de.exxcellent.student.softwarearchitecture.transition.common.businesslogic",

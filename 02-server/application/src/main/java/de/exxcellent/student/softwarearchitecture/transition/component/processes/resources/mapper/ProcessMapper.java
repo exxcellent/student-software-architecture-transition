@@ -4,9 +4,9 @@ import de.exxcellent.student.softwarearchitecture.transition.component.processes
 import de.exxcellent.student.softwarearchitecture.transition.component.processes.resources.types.ProcessTO;
 import de.exxcellent.student.softwarearchitecture.transition.component.processes.resources.types.ProcessType;
 import de.exxcellent.student.softwarearchitecture.transition.component.processes.resources.types.ProcesssCTO;
-import de.exxcellent.student.softwarearchitecture.transition.process.api.types.Priority;
-import de.exxcellent.student.softwarearchitecture.transition.process.api.types.ProcessDO;
-import de.exxcellent.student.softwarearchitecture.transition.process.api.types.Type;
+import de.exxcellent.student.softwarearchitecture.transition.component.process.api.types.Priority;
+import de.exxcellent.student.softwarearchitecture.transition.component.process.api.types.ProcessDO;
+import de.exxcellent.student.softwarearchitecture.transition.component.process.api.types.Type;
 
 import java.util.function.Function;
 import java.util.List;

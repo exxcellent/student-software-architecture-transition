@@ -7,7 +7,7 @@ import de.exxcellent.student.softwarearchitecture.transition.component.user.reso
 import de.exxcellent.student.softwarearchitecture.transition.component.inspectors.resources.mapper.InspectorsMapper;
 import de.exxcellent.student.softwarearchitecture.transition.component.inspectors.resources.types.InspectorsCTO;
 import de.exxcellent.student.softwarearchitecture.transition.application.springconfiguration.permissions.RequiresPermission;
-import de.exxcellent.student.softwarearchitecture.transition.inspector.api.InspectorComponent;
+import de.exxcellent.student.softwarearchitecture.transition.component.inspector.api.InspectorComponent;
 import de.exxcellent.student.softwarearchitecture.transition.component.user.api.types.Permission;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;

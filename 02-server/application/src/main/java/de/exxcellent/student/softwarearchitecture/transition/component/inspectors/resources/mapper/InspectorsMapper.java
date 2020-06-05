@@ -2,7 +2,7 @@ package de.exxcellent.student.softwarearchitecture.transition.component.inspecto
 
 import de.exxcellent.student.softwarearchitecture.transition.component.inspectors.resources.types.InspectorTO;
 import de.exxcellent.student.softwarearchitecture.transition.component.inspectors.resources.types.InspectorsCTO;
-import de.exxcellent.student.softwarearchitecture.transition.inspector.api.types.InspectorDO;
+import de.exxcellent.student.softwarearchitecture.transition.component.inspector.api.types.InspectorDO;
 
 import java.util.List;
 import java.util.function.Function;
