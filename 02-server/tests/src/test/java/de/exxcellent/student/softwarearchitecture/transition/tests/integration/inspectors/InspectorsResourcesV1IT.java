@@ -1,7 +1,7 @@
 package de.exxcellent.student.softwarearchitecture.transition.tests.integration.inspectors;
 
 import com.github.springtestdbunit.annotation.DatabaseSetup;
-import de.exxcellent.student.softwarearchitecture.transition.planning.inspectors.resources.types.InspectorTO;
+import de.exxcellent.student.softwarearchitecture.transition.component.inspectors.resources.types.InspectorTO;
 import de.exxcellent.student.softwarearchitecture.transition.tests.integration.AuthenticationUtil;
 import de.exxcellent.student.softwarearchitecture.transition.tests.integration.IntegrationTest;
 import org.json.JSONException;

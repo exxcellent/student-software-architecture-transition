@@ -1,7 +1,7 @@
 package de.exxcellent.student.softwarearchitecture.transition.application.springconfiguration.security;
 
-import de.exxcellent.student.softwarearchitecture.transition.planning.user.api.types.Permission;
-import de.exxcellent.student.softwarearchitecture.transition.planning.user.api.types.UserDO;
+import de.exxcellent.student.softwarearchitecture.transition.user.api.types.Permission;
+import de.exxcellent.student.softwarearchitecture.transition.user.api.types.UserDO;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

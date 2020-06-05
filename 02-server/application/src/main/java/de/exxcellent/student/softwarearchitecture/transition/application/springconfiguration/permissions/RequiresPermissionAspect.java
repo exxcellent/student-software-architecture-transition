@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletRequest;
 
 import de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.exception.BusinessException;
-import de.exxcellent.student.softwarearchitecture.transition.planning.user.api.types.Permission;
+import de.exxcellent.student.softwarearchitecture.transition.user.api.types.Permission;
 import de.exxcellent.student.softwarearchitecture.transition.application.springconfiguration.security.JwtTokenUtil;
 import de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.ErrorCode;
 import org.aspectj.lang.ProceedingJoinPoint;
