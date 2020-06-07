@@ -233,9 +233,6 @@ $ npm run start
 Per [http://localhost:4200/?mode=desktop](http://localhost:4200/?mode=desktop) öffnet sich eine Desktop-Ansicht.
 
 ![App](./resources/navigation-app.png "App")
-![App](./resources/navigation-app_iPhone%206_7_8.png "App")
-![App](./resources/navigation-app_iPhone%206_7_8_1.png "App")
-![App](./resources/navigation-app_iPhone%206_7_8_2.png "App")
 
 ### Server
 
