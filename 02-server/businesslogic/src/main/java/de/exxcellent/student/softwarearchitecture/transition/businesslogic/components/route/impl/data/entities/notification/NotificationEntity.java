@@ -26,7 +26,7 @@ public class NotificationEntity extends CommonEntity {
   @Enumerated(EnumType.STRING)
   private Channel channel;
 
-  @Column(name = "arrival_in")
+  @Column(name = "arrival_in_sec")
   private Long arrivalIn;
 
   public NotificationEntity() {

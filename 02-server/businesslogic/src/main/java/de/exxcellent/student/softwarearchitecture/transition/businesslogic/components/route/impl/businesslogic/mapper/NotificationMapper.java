@@ -40,7 +40,10 @@ public final class NotificationMapper {
     notificationEntity.setVersion(notification.getVersion());
     notificationEntity.setChannel(NotificationMapper.fromNotificationChannel.apply(notification.getNotificationChannel()));
     notificationEntity.setNotifiedAt(notification.getNotifiedAtUtc().atOffset(ZoneOffset.UTC));
-    notificationEntity.setArrivalIn(notification.getArrivalIn().toSeconds());
+
+    if (notification.getArrivalIn() != null) {
+      notificationEntity.setArrivalIn(notification.getArrivalIn().toSeconds());
+    }
 
     return notificationEntity;
   };
