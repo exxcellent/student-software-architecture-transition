@@ -1,6 +1,7 @@
 import {createAction, props} from '@ngrx/store';
 import {Route} from '../../../../model/route';
 import {Waypoint} from '../../../../model/waypoint';
+import {Notification} from '../../../../model/notification';
 
 const loadMyRouteOfToday = createAction(
   '[Route] Load My Route of Today'
@@ -32,6 +33,7 @@ const finishWaypoint = createAction(
   '[Waypoint] Finish',
   props<{ waypointId: number, version: number }>()
 );
+
 const cancelWaypoint = createAction(
   '[Waypoint] Cancel',
   props<{ waypointId: number, version: number }>()
@@ -47,6 +49,21 @@ const updateWaypointFailure = createAction(
   props<{ error: any }>()
 );
 
+const notifyContact = createAction(
+  '[Notification] Send notification',
+  props<{ waypointId: number, version: number }>()
+);
+
+const notifyContactSuccess = createAction(
+  '[Notification] Send notification success',
+  props<{ waypoint: Waypoint, notification: Notification }>()
+);
+
+const notifyContactFailure = createAction(
+  '[Notification] Send notification failed',
+  props<{ error: any }>()
+);
+
 
 export const actions = {
   loadMyRouteOfToday,
@@ -58,5 +75,8 @@ export const actions = {
   finishWaypoint,
   cancelWaypoint,
   updateWaypointSuccess,
-  updateWaypointFailure
+  updateWaypointFailure,
+  notifyContact,
+  notifyContactSuccess,
+  notifyContactFailure
 };

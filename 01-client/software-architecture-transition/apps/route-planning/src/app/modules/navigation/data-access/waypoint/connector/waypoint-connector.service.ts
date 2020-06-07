@@ -3,9 +3,11 @@ import {ConnectionError, DataProviderService, RestClient, UriBuilder} from '../.
 import {Route} from '../../../model/route';
 import {RouteCTO} from '../types/route.cto';
 import {
+  fromNotificationResponse,
   fromResponse,
   fromUpdatedWaypointResponse,
   fromWaypointResponse,
+  toNotificationRequest,
   toWaypointRequest
 } from '../mapper/route.mapper';
 import {Observable, throwError} from 'rxjs';
@@ -16,6 +18,8 @@ import {Waypoint} from '../../../model/waypoint';
 import {WaypointTO} from '../types/waypoint.to';
 import {exists} from '../../../../shared/functions';
 import {UpdatedWaypointsTO} from '../types/updated-waypoints.to';
+import {Notification} from '../../../model/notification';
+import {NotificationTO} from '../types/notification.to';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +28,8 @@ export class WaypointConnectorService extends DataProviderService{
 
   serviceSubUrl = 'v1/routes/{date}/inspectors/{inspectorId}';
   waypointsSubUrl = 'v1/waypoints/{waypointId}';
+  notificationSubUrl = 'v1/routes/{date}/inspectors/{inspectorId}/waypoints/{waypointId}/notifications';
+
 
   constructor(private http: RestClient, private appStore: Store<AppState>) {
     super()
@@ -81,6 +87,19 @@ export class WaypointConnectorService extends DataProviderService{
         }));
   }
 
+  notifyContact(waypoint: Waypoint, notification: Notification): Observable<Notification> {
+    return this.http.POST<NotificationTO>(this.getNotificationUrl(waypoint.date, waypoint.inspectorId, waypoint.waypointId),
+      toNotificationRequest(waypoint, notification)).pipe(
+      map((response: NotificationTO) => {
+        return fromNotificationResponse(response);
+      }),
+      catchError((error: ConnectionError) => {
+        this.appStore.dispatch(actions.showNotification({data: error.asNotification }));
+
+        return throwError(error)
+      }));
+  }
+
   private getDailyWaypointUrl(date: Date, inspectorId: number): string {
     const dateString = date.toISOString().split('T')[0];
 
@@ -100,6 +119,20 @@ export class WaypointConnectorService extends DataProviderService{
     }
 
     let url = uriBuilder.build();
+    url = url.replace("{waypointId}", `${waypointId}`);
+
+    return url;
+  }
+
+  private getNotificationUrl(date: Date, inspectorId: number, waypointId: number): string {
+    const dateString = date.toISOString().split('T')[0];
+
+    let url = new UriBuilder()
+      .fromPath(this.baseUrl)
+      .path(this.notificationSubUrl).build();
+
+    url = url.replace("{date}", `${dateString}`);
+    url = url.replace("{inspectorId}", `${inspectorId}`);
     url = url.replace("{waypointId}", `${waypointId}`);
 
     return url;

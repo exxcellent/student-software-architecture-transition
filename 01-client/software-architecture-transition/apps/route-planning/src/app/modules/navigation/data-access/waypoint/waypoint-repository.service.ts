@@ -69,4 +69,8 @@ export class WaypointRepositoryService {
   cancelWaypoint(waypointId: number, version: number): void {
     this.store.dispatch(actions.cancelWaypoint({ waypointId: waypointId, version: version}))
   }
+
+  notifyContact(waypointId: number, version: number): void {
+    this.store.dispatch(actions.notifyContact({ waypointId: waypointId, version: version}))
+  }
 }

@@ -23,7 +23,9 @@
 </p>
 
 
-  <ui-button *ngIf="isCurrentWaypoint || isPendingWaypoint"><i class="material-icons">textsms</i> Ankunft ankündigen</ui-button>
+  <ui-button *ngIf="isCurrentWaypoint || isPendingWaypoint" (click)="notifyContact()"><i class="material-icons">textsms</i> Ankunft ankündigen</ui-button>
+
+  {{ waypoint.notifications | json }}
 
 <h3 class="waypoint-details-group-title">Termin</h3>
 

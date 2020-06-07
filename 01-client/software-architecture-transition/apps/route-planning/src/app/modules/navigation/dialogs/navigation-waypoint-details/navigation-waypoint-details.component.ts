@@ -50,7 +50,12 @@ export class NavigationWaypointDetailsComponent implements OnInit {
     console.log('Dialog finish waypoint')
     this.dialogCore.finishWaypoint();
   }
+
   cancelWaypoint(): void {
     this.dialogCore.cancelWaypoint();
+  }
+
+  notifyContact(): void {
+    this.dialogCore.notifyContact();
   }
 }

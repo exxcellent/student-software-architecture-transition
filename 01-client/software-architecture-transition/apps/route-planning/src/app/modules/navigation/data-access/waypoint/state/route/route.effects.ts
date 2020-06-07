@@ -11,6 +11,9 @@ import {Store} from '@ngrx/store';
 import {selectors} from './route.selectors';
 import {Waypoint} from '../../../../model/waypoint';
 import {WaypointStatus} from '../../../../model/waypoint-status.enum';
+import {Notification} from '../../../../model/notification';
+import {NotificationChannel} from '../../../../model/notification-channel.enum';
+import {today} from '../../../../../shared/functions';
 
 @Injectable()
 export class RouteEffects {
@@ -103,6 +106,43 @@ export class RouteEffects {
               }),
               catchError(error => {
                 return of(actions.updateWaypointFailure({error}))
+              })
+            );
+          })
+        )
+      )
+    );
+  });
+
+
+  notifyContact$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(actions.notifyContact),
+      map(({waypointId, version}) => {
+        return { waypointId: waypointId, version: version };
+      }),
+      concatMap(({waypointId, version}) =>
+        this.store.select(selectors.selectCurrentWaypoints).pipe(
+          flatMap(x => x),
+          filter((wp: Waypoint) => wp.waypointId === waypointId && wp.version === version),
+          map((waypoint: Waypoint) => {
+            const notification: Notification = {
+              waypointId: waypoint.waypointId,
+              channel: NotificationChannel.AUTOMATIC,
+              notifiedAt: today(),
+              arrivalTimeInSeconds: 900
+            };
+
+            return { waypoint: waypoint, notification: notification };
+          }),
+          concatMap(({ waypoint, notification }) => {
+
+            return this.connector.notifyContact(waypoint, notification).pipe(
+              map((response: Notification) => {
+                return actions.notifyContactSuccess({waypoint: waypoint, notification: response })
+              }),
+              catchError(error => {
+                return of(actions.notifyContactFailure({error}))
               })
             );
           })

@@ -128,9 +128,6 @@ export const reducer = createReducer(
   }),
 
   on(actions.finishWaypoint, (state, action) => {
-    const waypointId: number = action.waypointId;
-    console.log('[STORE] finishWaypoint set QUEUED = ', waypointId);
-
     const updatedState: RoutesState = {
       ...state,
       loaded: false,
@@ -139,6 +136,32 @@ export const reducer = createReducer(
 
     return updatedState;
   }),
+
+  on(actions.cancelWaypoint, (state, action) => {
+    const updatedState: RoutesState = {
+      ...state,
+      loaded: false,
+      loading: true
+    };
+
+    return updatedState;
+  }),
+
+  on(actions.notifyContact, (state, action) => {
+    const updatedState: RoutesState = {
+      ...state,
+      loaded: false,
+      loading: true
+    };
+
+    return updatedState;
+  }),
+
+
+  on(actions.notifyContactSuccess, (state, action) => {
+    console.log('[STORE] notifyContactSuccess', action);
+    return state;
+  })
 );
 
 const getRoutes = (state: RoutesState) => state.routes;

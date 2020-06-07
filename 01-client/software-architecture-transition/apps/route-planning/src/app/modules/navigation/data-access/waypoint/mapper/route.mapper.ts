@@ -8,6 +8,9 @@ import {Category} from '../types/waypoint-category.enum';
 import {WaypointCategory} from '../../../model/waypoint-category.enum';
 import {toISODateString} from '../../../../shared/functions';
 import {UpdatedWaypointsTO} from '../types/updated-waypoints.to';
+import {Notification} from '../../../model/notification';
+import {NotificationTO} from '../types/notification.to';
+import {NotificationChannel} from '../../../model/notification-channel.enum';
 
 export function fromResponse(response: RouteCTO): Route {
   return {
@@ -44,7 +47,6 @@ export function fromWaypointResponse(waypointTO: WaypointTO): Waypoint {
       };
 }
 
-
 export function toWaypointRequest(waypoint: Waypoint): WaypointTO {
   return {
     waypointId: waypoint.waypointId,
@@ -67,6 +69,31 @@ export function toWaypointRequest(waypoint: Waypoint): WaypointTO {
     }
   };
 }
+
+export function toNotificationRequest(waypoint: Waypoint, notification: Notification): NotificationTO {
+  return {
+    waypointId: waypoint.waypointId,
+    channel: toRequestChannel(notification.channel),
+
+    notificationId: notification.notificationId ?? undefined,
+    version: notification.version ?? undefined,
+    arrivalTimeInSeconds: notification.arrivalTimeInSeconds ?? undefined,
+    notifiedAt: notification.notifiedAt.toISOString()
+  };
+}
+
+export function fromNotificationResponse(response: NotificationTO): Notification {
+  return {
+    waypointId: response.waypointId,
+    channel: fromResponseChannel(response.channel),
+
+    notificationId: response.notificationId ?? undefined,
+    version: response.version ?? undefined,
+    arrivalTimeInSeconds: response.arrivalTimeInSeconds ?? undefined,
+    notifiedAt: new Date(Date.parse(response.notifiedAt))
+  };
+}
+
 
 function fromResponseStatus(responseStatus: string): WaypointStatus {
   switch (responseStatus) {
@@ -110,5 +137,27 @@ function toRequestCategory(waypointCategory: WaypointCategory): string {
     case WaypointCategory.APPOINTMENT:
     default:
       return Category[Category.APPOINTMENT];
+  }
+}
+
+function toRequestChannel(notifcationChannel: NotificationChannel): string {
+  switch (notifcationChannel) {
+    case NotificationChannel.SMS: return NotificationChannel[NotificationChannel.SMS];
+    case NotificationChannel.PHONE: return NotificationChannel[NotificationChannel.PHONE];
+    case NotificationChannel.EMAIL: return NotificationChannel[NotificationChannel.EMAIL];
+    case NotificationChannel.AUTOMATIC:
+    default:
+      return NotificationChannel[NotificationChannel.AUTOMATIC];
+  }
+}
+
+function fromResponseChannel(notifcationChannel: string): NotificationChannel {
+  switch (notifcationChannel) {
+    case NotificationChannel[NotificationChannel.SMS]: return NotificationChannel.SMS;
+    case NotificationChannel[NotificationChannel.PHONE]: return NotificationChannel.PHONE;
+    case NotificationChannel[NotificationChannel.EMAIL]: return NotificationChannel.EMAIL;
+    case NotificationChannel[NotificationChannel.AUTOMATIC]:
+    default:
+      return NotificationChannel.AUTOMATIC;
   }
 }

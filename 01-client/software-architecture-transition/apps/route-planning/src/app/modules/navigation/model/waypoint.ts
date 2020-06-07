@@ -1,5 +1,6 @@
 import {WaypointCategory} from './waypoint-category.enum';
 import {WaypointStatus} from './waypoint-status.enum';
+import {Notification} from './notification';
 
 export interface Waypoint {
 
@@ -21,4 +22,6 @@ export interface Waypoint {
      phoneNumber: string;
      email: string;
   }
+
+  notifications?: Notification[];
 }
