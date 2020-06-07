@@ -28,8 +28,10 @@
 }
 
 .waypoint-icon {
-  height: 2.5rem;
-  width: 2.5rem;
+  min-height: 40px;
+  min-width: 40px;
+  height: 40px;
+  width: 40px;
   margin-right: 1rem;
 }
 

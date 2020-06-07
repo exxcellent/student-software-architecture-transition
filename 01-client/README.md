@@ -8,8 +8,10 @@ $ npm install
 $ npm run start
 ```
 
-Öffne `http://localhost:4200` mit einem modernen Browser. Das Projekt nutzt
+Öffne [http://localhost:4200](http://localhost:4200) mit einem modernen Browser. Das Projekt nutzt
 [CSS Variables](https://caniuse.com/#search=css%20variables) und der Internet Explorer unterstützt diese Funktion nicht.
+
+Per [http://localhost:4200/?mode=desktop](http://localhost:4200/?mode=desktop) öffnet sich eine Desktop-Ansicht.
 
 ## Struktur
 

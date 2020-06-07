@@ -1,4 +1,5 @@
 import {ActivatedRoute, Params} from '@angular/router';
+import {exists} from '../shared/functions';
 
 export class CommonComponent {
 
@@ -9,8 +10,12 @@ export class CommonComponent {
   }
 
   get isMobile(): boolean {
-    // const mode = this.activatedRoute.snapshot?.queryParamMap?.get('mode');
-    // return exists(mode) && mode === 'mobile';
-    return true;
+    const mode = this.activatedRoute.snapshot?.queryParamMap?.get('mode');
+    return !exists(mode) || mode !== 'desktop';
+  }
+
+  get isDesktop(): boolean {
+    const mode = this.activatedRoute.snapshot?.queryParamMap?.get('mode');
+    return exists(mode) && mode === 'desktop';
   }
 }

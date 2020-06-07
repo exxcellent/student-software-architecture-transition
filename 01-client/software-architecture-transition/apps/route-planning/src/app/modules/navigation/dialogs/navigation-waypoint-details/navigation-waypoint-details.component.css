@@ -18,3 +18,17 @@
 .button-row ui-button{
   margin-right: 1rem;
 }
+
+.back {
+  width: 100%;
+  min-height: 2.5rem;
+  padding: .3rem 1.5rem;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-flow: row nowrap;
+  border-bottom: 1px solid rgba(0,0,0,.125);
+  justify-content: space-between;
+  align-items: baseline;
+  background-color: var(--background);
+}

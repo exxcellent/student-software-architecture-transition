@@ -4,6 +4,8 @@ import {Waypoint} from '../../model/waypoint';
 import {WaypointCategory} from '../../model/waypoint-category.enum';
 import {WaypointStatus} from '../../model/waypoint-status.enum';
 import {SafeUrl} from '@angular/platform-browser';
+import {CommonComponent} from '../../../shared-ui-components';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'nav-navigation-waypoint-details',
@@ -11,12 +13,14 @@ import {SafeUrl} from '@angular/platform-browser';
   styleUrls: ['./navigation-waypoint-details.component.css'],
   providers: [NavigationWaypointDetailsDialogCore]
 })
-export class NavigationWaypointDetailsComponent implements OnInit {
+export class NavigationWaypointDetailsComponent extends CommonComponent implements OnInit {
 
   WaypointCategory = WaypointCategory;
   WaypointStatus = WaypointStatus;
 
-  constructor(private dialogCore: NavigationWaypointDetailsDialogCore) { }
+  constructor(private dialogCore: NavigationWaypointDetailsDialogCore, private route: ActivatedRoute) {
+    super(route);
+  }
 
   ngOnInit(): void {
 

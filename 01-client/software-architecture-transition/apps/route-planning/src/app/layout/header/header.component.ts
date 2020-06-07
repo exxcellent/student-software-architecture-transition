@@ -18,7 +18,7 @@ import {ActivatedRoute} from '@angular/router';
         /*top: 0;*/
         /*z-index: 1000;*/
         width: 100%;
-        min-height: 3.5rem;
+        height: 4.7rem;
         padding: .3rem 1.5rem;
         display: -webkit-box;
         display: flex;

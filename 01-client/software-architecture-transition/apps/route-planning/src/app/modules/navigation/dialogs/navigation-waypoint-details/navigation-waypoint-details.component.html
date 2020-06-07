@@ -1,3 +1,10 @@
+<div *ngIf="isDesktop" class="back">
+  <ui-button routerLink="/navigation/waypoints"
+             routerLinkActive="active"
+             [queryParams]="currentQueryParams()"><i class="material-icons">keyboard_arrow_left</i> Zurück</ui-button>
+  <h4>Detailansicht</h4>
+</div>
+
 <div class="waypoint-details">
 
 

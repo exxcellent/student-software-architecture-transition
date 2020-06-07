@@ -57,7 +57,7 @@ export class NavigationWaypointsDialogCore {
   }
 
   openDetails(waypoint: Waypoint): void {
-    this.router.navigate(['navigation','details', waypoint.waypointId]);
+    this.router.navigate(['navigation','details', waypoint.waypointId], { queryParamsHandling: 'preserve'});
 
   }
 }
