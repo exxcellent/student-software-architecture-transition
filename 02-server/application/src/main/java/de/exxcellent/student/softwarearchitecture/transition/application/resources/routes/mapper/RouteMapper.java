@@ -54,7 +54,10 @@ public final class RouteMapper {
     var waypointUpdateCTO = new WaypointUpdateCTO();
 
     waypointUpdateCTO.setUpdatedWaypoint(RouteMapper.toRouteWaypointTO.apply(waypoint.getUpdated()));
-    waypointUpdateCTO.setNextWaypoint(RouteMapper.toRouteWaypointTO.apply(waypoint.getNext()));
+
+    if (waypoint.getNext() != null) {
+      waypointUpdateCTO.setNextWaypoint(RouteMapper.toRouteWaypointTO.apply(waypoint.getNext()));
+    }
 
     return waypointUpdateCTO;
   };
