@@ -2,6 +2,7 @@ package de.exxcellent.student.softwarearchitecture.transition.component.appointm
 
 import de.exxcellent.student.softwarearchitecture.transition.common.types.BusinessDO;
 
+import javax.persistence.Column;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
