@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.component.process.data.entities;
+package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.process.impl.data.entities;
 
 /**
  * - Prio 1: Gefahr/sicherheitsrelevante Leitungen (100kV, Hauptwasserleitung, Gashochdruck)

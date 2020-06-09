@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.component.route.data.entities.waypoint;
+package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data.entities.waypoint;
 
 public enum Status {
   PENDING,

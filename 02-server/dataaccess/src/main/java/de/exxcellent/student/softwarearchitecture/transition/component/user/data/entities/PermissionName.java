@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.component.user.data.entities;
+package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.user.impl.data.entities;
 
 /**
  * TODO [AL]: Add class documentation
