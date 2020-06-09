@@ -4,9 +4,9 @@ import de.exxcellent.student.softwarearchitecture.transition.common.errorhandlin
 import de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.exception.BusinessException;
 import de.exxcellent.student.softwarearchitecture.transition.component.user.api.types.Permission;
 import de.exxcellent.student.softwarearchitecture.transition.component.user.api.types.UserDO;
-import de.exxcellent.student.softwarearchitecture.transition.component.user.data.entities.PermissionName;
-import de.exxcellent.student.softwarearchitecture.transition.component.user.data.entities.UserEntity;
-import de.exxcellent.student.softwarearchitecture.transition.component.user.data.entities.UserPermissionEntity;
+import de.exxcellent.student.softwarearchitecture.transition.component.user.dataaccess.types.PermissionName;
+import de.exxcellent.student.softwarearchitecture.transition.component.user.dataaccess.types.UserDTO;
+import de.exxcellent.student.softwarearchitecture.transition.component.user.dataaccess.types.UserPermissionDTO;
 
 import java.util.List;
 import java.util.function.Function;
@@ -22,7 +22,7 @@ public final class UserMapper {
   private UserMapper() {
   }
 
-  public static final Function<UserEntity, UserDO> toUserDO = entity -> {
+  public static final Function<UserDTO, UserDO> toUserDO = entity -> {
     var userDO = new UserDO();
 
     userDO.setUserId(entity.getId());
@@ -32,12 +32,12 @@ public final class UserMapper {
     return userDO;
   };
 
-  public static final Function<List<UserPermissionEntity>, List<Permission>> toPermissionList =
+  public static final Function<List<UserPermissionDTO>, List<Permission>> toPermissionList =
       userPermissionEntities -> userPermissionEntities.stream()
         .map(UserMapper.toPermission)
         .collect(Collectors.toList());
 
-  public static final Function<UserPermissionEntity, Permission> toPermission = entity ->
+  public static final Function<UserPermissionDTO, Permission> toPermission = entity ->
       UserMapper.mapPermission.apply(entity.getPermission());
 
   private static final Function<PermissionName, Permission> mapPermission = permissionName -> {

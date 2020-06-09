@@ -1,13 +1,13 @@
 package de.exxcellent.student.softwarearchitecture.transition.component.user.dataaccess.types;
 
-import de.exxcellent.student.softwarearchitecture.transition.common.entities.CommonEntity;
+import de.exxcellent.student.softwarearchitecture.transition.common.dataaccess.CommonDTO;
 
 /**
  * TODO [AL]: Add class documentation
  *
  * @author Andre Lehnert, eXXcellent solutions consulting and software gmbh
  */
-public class UserDTO extends CommonEntity {
+public class UserDTO extends CommonDTO {
 
   private String name;
 
