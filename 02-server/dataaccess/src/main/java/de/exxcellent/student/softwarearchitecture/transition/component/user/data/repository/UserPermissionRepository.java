@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.component.user.data;
+package de.exxcellent.student.softwarearchitecture.transition.component.user.data.repository;
 
 import de.exxcellent.student.softwarearchitecture.transition.component.user.data.entities.UserPermissionEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,8 +1,7 @@
 package de.exxcellent.student.softwarearchitecture.transition.component.user.dataaccess.types;
 
-import de.exxcellent.student.softwarearchitecture.transition.common.entities.EntityWithTechnicalParameters;
+import de.exxcellent.student.softwarearchitecture.transition.common.dataaccess.DTOWithTechnicalParameters;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -11,7 +10,7 @@ import java.util.Objects;
  *
  * @author Andre Lehnert, eXXcellent solutions consulting and software gmbh
  */
-public class UserPermissionDTO extends EntityWithTechnicalParameters implements Serializable {
+public class UserPermissionDTO extends DTOWithTechnicalParameters implements Serializable {
 
   private Long userId;
 

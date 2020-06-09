@@ -4,7 +4,7 @@ import de.exxcellent.student.softwarearchitecture.transition.component.appointme
 import de.exxcellent.student.softwarearchitecture.transition.component.appointment.dataaccess.types.AppointmentDTO;
 import org.mapstruct.Mapper;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface AppointmentDataAccessMapper {
   AppointmentEntity toEntity(AppointmentDTO dto);
   AppointmentDTO toDTO(AppointmentEntity entity);

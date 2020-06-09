@@ -7,7 +7,7 @@ import java.time.OffsetDateTime;
  *
  * @author Andre Lehnert, eXXcellent solutions consulting and software gmbh
  */
-public abstract class DTOWithTechnicalParameters {
+public abstract class DTOWithTechnicalParameters extends DataTransferObject {
 
   private Integer version;
   protected OffsetDateTime createdAtUtc;

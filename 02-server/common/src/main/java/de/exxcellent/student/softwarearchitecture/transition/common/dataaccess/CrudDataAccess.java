@@ -2,7 +2,7 @@ package de.exxcellent.student.softwarearchitecture.transition.common.dataaccess;
 
 import java.util.List;
 
-public interface CrudDataAccess<T extends CommonDTO> {
+public interface CrudDataAccess<T extends DataTransferObject> {
 
     List<T> findAll();
 
