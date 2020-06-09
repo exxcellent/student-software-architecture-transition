@@ -17,40 +17,40 @@ import java.util.stream.Collectors;
 @Component
 public class AppointmentDataAccessFacade extends CrudDataAccessFacade<AppointmentEntity> implements AppointmentDataAccess {
 
-    private final AppointmentDataAccessMapperImpl appointmentDataAccessMapper;
+    private final AppointmentDataAccessMapperImpl mapper;
 
     @Autowired
     public AppointmentDataAccessFacade(AppointmentRepository appointmentRepository,
                                        DateTimeUtil dateTimeUtil,
-                                       AppointmentDataAccessMapperImpl appointmentDataAccessMapper) {
+                                       AppointmentDataAccessMapperImpl mapper) {
         super(appointmentRepository, dateTimeUtil);
-        this.appointmentDataAccessMapper = appointmentDataAccessMapper;
+        this.mapper = mapper;
     }
 
     @Override
     public List<AppointmentDTO> findAll() {
         var entities = findAllEntities();
-        return entities.stream().map(appointmentDataAccessMapper::toDTO).collect(Collectors.toList());
+        return entities.stream().map(mapper::toDTO).collect(Collectors.toList());
     }
 
     @Override
     public AppointmentDTO findById(Long id) {
         var entity = findEntityById(id);
-        return appointmentDataAccessMapper.toDTO(entity);
+        return mapper.toDTO(entity);
     }
 
     @Override
     public AppointmentDTO create(AppointmentDTO newDTO, User user) {
-        var entity = appointmentDataAccessMapper.toEntity(newDTO);
+        var entity = mapper.toEntity(newDTO);
         var createdEntity = createEntity(entity, user);
-        return appointmentDataAccessMapper.toDTO(createdEntity);
+        return mapper.toDTO(createdEntity);
     }
 
     @Override
     public AppointmentDTO update(AppointmentDTO updatedDTO, User user) {
-        var entity = appointmentDataAccessMapper.toEntity(updatedDTO);
+        var entity = mapper.toEntity(updatedDTO);
         var updatedEntity = updateEntity(entity, user);
-        return appointmentDataAccessMapper.toDTO(updatedEntity);
+        return mapper.toDTO(updatedEntity);
     }
 
     @Override
