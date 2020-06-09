@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.common.data;
+package de.exxcellent.student.softwarearchitecture.transition.common.dataaccess;
 
 /**
  * TODO [AL]: Add class documentation

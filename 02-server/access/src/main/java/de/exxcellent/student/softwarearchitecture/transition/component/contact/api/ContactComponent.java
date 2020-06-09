@@ -1,6 +1,6 @@
 package de.exxcellent.student.softwarearchitecture.transition.component.contact.api;
 
-import de.exxcellent.student.softwarearchitecture.transition.common.data.User;
+import de.exxcellent.student.softwarearchitecture.transition.common.dataaccess.User;
 import de.exxcellent.student.softwarearchitecture.transition.components.common.BusinessComponent;
 import de.exxcellent.student.softwarearchitecture.transition.component.contact.api.types.ContactDO;
 

@@ -1,7 +1,7 @@
 package de.exxcellent.student.softwarearchitecture.transition.component.appointment.mapper;
 
 import de.exxcellent.student.softwarearchitecture.transition.component.appointment.api.types.AppointmentDO;
-import de.exxcellent.student.softwarearchitecture.transition.component.appointment.data.entities.AppointmentEntity;
+import de.exxcellent.student.softwarearchitecture.transition.component.appointment.dataaccess.types.AppointmentDTO;
 
 import java.util.function.Function;
 
@@ -14,7 +14,7 @@ public final class AppointmentMapper {
 
   private AppointmentMapper() {}
 
-  public static final Function<AppointmentEntity, AppointmentDO> toAppointmentDO = entity -> {
+  public static final Function<AppointmentDTO, AppointmentDO> toAppointmentDO = entity -> {
     var appointmentDO = new AppointmentDO();
 
     appointmentDO.setAppointmentId(entity.getId());
@@ -38,8 +38,8 @@ public final class AppointmentMapper {
     return appointmentDO;
   };
 
-  public static final Function<AppointmentDO, AppointmentEntity> toAppointmentEntity = appointmentDO -> {
-    var appointmentEntity = new AppointmentEntity();
+  public static final Function<AppointmentDO, AppointmentDTO> toAppointmentEntity = appointmentDO -> {
+    var appointmentEntity = new AppointmentDTO();
 
     appointmentEntity.setId(appointmentDO.getAppointmentId());
     appointmentEntity.setVersion(appointmentDO.getVersion());

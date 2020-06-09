@@ -1,6 +1,6 @@
 package de.exxcellent.student.softwarearchitecture.transition.component.appointment.api;
 
-import de.exxcellent.student.softwarearchitecture.transition.common.data.User;
+import de.exxcellent.student.softwarearchitecture.transition.common.dataaccess.User;
 import de.exxcellent.student.softwarearchitecture.transition.component.appointment.api.types.AppointmentDO;
 
 import java.util.List;

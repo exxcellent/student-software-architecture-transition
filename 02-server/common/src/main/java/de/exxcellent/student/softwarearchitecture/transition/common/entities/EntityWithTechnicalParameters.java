@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.common.data.entities;
+package de.exxcellent.student.softwarearchitecture.transition.common.entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

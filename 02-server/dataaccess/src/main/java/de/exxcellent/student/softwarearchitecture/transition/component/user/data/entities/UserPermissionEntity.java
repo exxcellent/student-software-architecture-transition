@@ -1,7 +1,6 @@
 package de.exxcellent.student.softwarearchitecture.transition.component.user.data.entities;
 
-import de.exxcellent.student.softwarearchitecture.transition.common.data.entities.CommonEntity;
-import de.exxcellent.student.softwarearchitecture.transition.common.data.entities.EntityWithTechnicalParameters;
+import de.exxcellent.student.softwarearchitecture.transition.common.entities.EntityWithTechnicalParameters;
 
 import javax.persistence.*;
 import java.io.Serializable;

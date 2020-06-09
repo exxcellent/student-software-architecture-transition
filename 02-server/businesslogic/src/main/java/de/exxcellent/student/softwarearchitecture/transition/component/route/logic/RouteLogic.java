@@ -1,7 +1,7 @@
 package de.exxcellent.student.softwarearchitecture.transition.component.route.logic;
 
 import de.exxcellent.student.softwarearchitecture.transition.common.businesslogic.CrudLogic;
-import de.exxcellent.student.softwarearchitecture.transition.common.data.User;
+import de.exxcellent.student.softwarearchitecture.transition.common.dataaccess.User;
 import de.exxcellent.student.softwarearchitecture.transition.common.datetime.DateTimeUtil;
 import de.exxcellent.student.softwarearchitecture.transition.common.types.Pair;
 import de.exxcellent.student.softwarearchitecture.transition.common.validation.Preconditions;

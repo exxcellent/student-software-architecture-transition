@@ -1,6 +1,6 @@
 package de.exxcellent.student.softwarearchitecture.transition.component.route.data.entities.notification;
 
-import de.exxcellent.student.softwarearchitecture.transition.common.data.entities.CommonEntity;
+import de.exxcellent.student.softwarearchitecture.transition.common.entities.CommonEntity;
 import de.exxcellent.student.softwarearchitecture.transition.component.route.data.entities.waypoint.WaypointEntity;
 
 import javax.persistence.*;

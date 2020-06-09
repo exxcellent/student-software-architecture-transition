@@ -1,10 +1,7 @@
-package de.exxcellent.student.softwarearchitecture.transition.component.appointment.data.entities;
+package de.exxcellent.student.softwarearchitecture.transition.component.appointment.dataaccess.types;
 
-import de.exxcellent.student.softwarearchitecture.transition.common.entities.CommonEntity;
+import de.exxcellent.student.softwarearchitecture.transition.common.dataaccess.CommonDTO;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -13,33 +10,24 @@ import java.time.LocalTime;
  *
  * @author Andre Lehnert, eXXcellent solutions consulting and software gmbh
  */
-@Table(name = "appointment")
-@Entity
-public class AppointmentEntity extends CommonEntity {
+public class AppointmentDTO extends CommonDTO {
 
-  @Column(name = "process_id")
   private Long processId;
 
-  @Column(name = "description")
   private String description;
 
-  @Column(name = "date")
   private LocalDate date;
 
-  @Column(name = "travel_duration_sec")
   private Long travelDuration;
 
-  @Column(name = "start_time")
   private LocalTime startTime;
 
-  @Column(name = "appointment_duration_sec")
   private Long appointmentDuration;
 
-  @Column(name = "finished")
   private Boolean finished;
 
 
-  public AppointmentEntity() {
+  public AppointmentDTO() {
   }
 
   public Long getProcessId() {

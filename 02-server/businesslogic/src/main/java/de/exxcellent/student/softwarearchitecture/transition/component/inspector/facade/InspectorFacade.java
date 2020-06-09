@@ -1,6 +1,6 @@
 package de.exxcellent.student.softwarearchitecture.transition.component.inspector.facade;
 
-import de.exxcellent.student.softwarearchitecture.transition.common.data.User;
+import de.exxcellent.student.softwarearchitecture.transition.common.dataaccess.User;
 import de.exxcellent.student.softwarearchitecture.transition.common.validation.Preconditions;
 import de.exxcellent.student.softwarearchitecture.transition.component.inspector.api.InspectorComponent;
 import de.exxcellent.student.softwarearchitecture.transition.component.inspector.api.types.InspectorDO;

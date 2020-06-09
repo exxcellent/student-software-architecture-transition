@@ -1,12 +1,10 @@
 package de.exxcellent.student.softwarearchitecture.transition.component.contact.data.entities;
 
-import de.exxcellent.student.softwarearchitecture.transition.common.data.entities.CommonEntity;
+import de.exxcellent.student.softwarearchitecture.transition.common.entities.CommonEntity;
 
 import javax.persistence.*;
-import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 
 /**
  * TODO [AL]: Add class documentation

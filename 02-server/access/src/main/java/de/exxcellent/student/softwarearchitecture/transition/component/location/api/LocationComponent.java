@@ -1,7 +1,7 @@
 package de.exxcellent.student.softwarearchitecture.transition.component.location.api;
 
 import de.exxcellent.student.softwarearchitecture.transition.component.location.api.types.LocationDO;
-import de.exxcellent.student.softwarearchitecture.transition.common.data.User;
+import de.exxcellent.student.softwarearchitecture.transition.common.dataaccess.User;
 import de.exxcellent.student.softwarearchitecture.transition.components.common.BusinessComponent;
 
 import java.util.List;

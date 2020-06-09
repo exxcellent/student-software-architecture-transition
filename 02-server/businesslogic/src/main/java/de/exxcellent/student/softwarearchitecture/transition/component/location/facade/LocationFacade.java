@@ -2,7 +2,7 @@ package de.exxcellent.student.softwarearchitecture.transition.component.location
 
 import de.exxcellent.student.softwarearchitecture.transition.component.location.logic.LocationLogic;
 import de.exxcellent.student.softwarearchitecture.transition.component.location.mapper.LocationMapper;
-import de.exxcellent.student.softwarearchitecture.transition.common.data.User;
+import de.exxcellent.student.softwarearchitecture.transition.common.dataaccess.User;
 import de.exxcellent.student.softwarearchitecture.transition.common.validation.Preconditions;
 import de.exxcellent.student.softwarearchitecture.transition.component.location.api.LocationComponent;
 import de.exxcellent.student.softwarearchitecture.transition.component.location.api.types.LocationDO;

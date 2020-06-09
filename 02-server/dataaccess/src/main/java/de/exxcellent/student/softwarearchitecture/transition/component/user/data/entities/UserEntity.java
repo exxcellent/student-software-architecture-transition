@@ -1,10 +1,9 @@
 package de.exxcellent.student.softwarearchitecture.transition.component.user.data.entities;
 
-import de.exxcellent.student.softwarearchitecture.transition.common.data.entities.CommonEntity;
+import de.exxcellent.student.softwarearchitecture.transition.common.entities.CommonEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**

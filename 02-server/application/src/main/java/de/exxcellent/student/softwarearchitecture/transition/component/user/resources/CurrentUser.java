@@ -1,7 +1,7 @@
 package de.exxcellent.student.softwarearchitecture.transition.component.user.resources;
 
 import de.exxcellent.student.softwarearchitecture.transition.application.springconfiguration.security.types.UserCredentials;
-import de.exxcellent.student.softwarearchitecture.transition.common.data.User;
+import de.exxcellent.student.softwarearchitecture.transition.common.dataaccess.User;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 /**

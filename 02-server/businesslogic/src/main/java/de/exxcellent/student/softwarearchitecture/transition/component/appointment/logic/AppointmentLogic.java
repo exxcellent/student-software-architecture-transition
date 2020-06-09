@@ -2,9 +2,9 @@ package de.exxcellent.student.softwarearchitecture.transition.component.appointm
 
 import de.exxcellent.student.softwarearchitecture.transition.common.businesslogic.CrudLogic;
 import de.exxcellent.student.softwarearchitecture.transition.common.datetime.DateTimeUtil;
-import de.exxcellent.student.softwarearchitecture.transition.component.appointment.data.AppointmentRepository;
+import de.exxcellent.student.softwarearchitecture.transition.component.appointment.dataaccess.AppointmentDataAccess;
 
-import de.exxcellent.student.softwarearchitecture.transition.component.appointment.data.entities.AppointmentEntity;
+import de.exxcellent.student.softwarearchitecture.transition.component.appointment.dataaccess.types.AppointmentDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,11 +16,11 @@ import org.springframework.transaction.annotation.Transactional;
  */
  @Component
  @Transactional
- public class AppointmentLogic extends CrudLogic<AppointmentEntity> {
+ public class AppointmentLogic extends CrudLogic<AppointmentDTO> {
 
   @Autowired
-  public AppointmentLogic(AppointmentRepository appointmentRepository, DateTimeUtil dateTimeUtil) {
-    super(appointmentRepository, dateTimeUtil);
+  public AppointmentLogic(AppointmentDataAccess appointmentDataAccess, DateTimeUtil dateTimeUtil) {
+    super(appointmentDataAccess, dateTimeUtil);
   }
 
 }

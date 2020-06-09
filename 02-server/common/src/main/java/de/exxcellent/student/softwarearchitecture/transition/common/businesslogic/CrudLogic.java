@@ -1,12 +1,12 @@
 package de.exxcellent.student.softwarearchitecture.transition.common.businesslogic;
 
-import de.exxcellent.student.softwarearchitecture.transition.common.data.User;
+import de.exxcellent.student.softwarearchitecture.transition.common.dataaccess.CommonDTO;
+import de.exxcellent.student.softwarearchitecture.transition.common.dataaccess.CrudDataAccess;
+import de.exxcellent.student.softwarearchitecture.transition.common.dataaccess.User;
+import de.exxcellent.student.softwarearchitecture.transition.common.datetime.DateTimeUtil;
 import de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.ErrorCode;
 import de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.exception.BusinessException;
-import de.exxcellent.student.softwarearchitecture.transition.common.data.entities.CommonEntity;
-import de.exxcellent.student.softwarearchitecture.transition.common.datetime.DateTimeUtil;
 import de.exxcellent.student.softwarearchitecture.transition.common.resilience.Retry;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.orm.ObjectOptimisticLockingFailureException;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,12 +18,12 @@ import java.util.List;
  *
  * @author Andre Lehnert, eXXcellent solutions consulting and software gmbh
  */
-public abstract class CrudLogic<T extends CommonEntity> {
+public abstract class CrudLogic<T extends CommonDTO> {
 
-  protected final JpaRepository<T, Long> repository;
+  protected final CrudDataAccess<T> repository;
   protected final DateTimeUtil dateTimeUtil;
   
-  protected CrudLogic(JpaRepository<T, Long> repository, DateTimeUtil dateTimeUtil) {
+  protected CrudLogic(CrudDataAccess<T> repository, DateTimeUtil dateTimeUtil) {
     this.repository = repository;
     this.dateTimeUtil = dateTimeUtil;
   }
@@ -33,9 +33,7 @@ public abstract class CrudLogic<T extends CommonEntity> {
   }
 
   public T findById(Long id) {
-    return Retry.execute(() -> repository.findById(id)
-        .orElseThrow(() -> new BusinessException(ErrorCode.ENTITY_NOT_FOUND_ERROR,
-            String.format("Entity with id '%s' not found.", id), id)));
+    return Retry.execute(() -> repository.findById(id));
   }
 
   @Transactional

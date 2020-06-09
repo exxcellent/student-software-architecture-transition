@@ -1,6 +1,6 @@
 package de.exxcellent.student.softwarearchitecture.transition.component.process.facade;
 
-import de.exxcellent.student.softwarearchitecture.transition.common.data.User;
+import de.exxcellent.student.softwarearchitecture.transition.common.dataaccess.User;
 import de.exxcellent.student.softwarearchitecture.transition.common.validation.Preconditions;
 import de.exxcellent.student.softwarearchitecture.transition.component.process.api.ProcessComponent;
 import de.exxcellent.student.softwarearchitecture.transition.component.process.api.types.ProcessDO;

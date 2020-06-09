@@ -1,6 +1,6 @@
 package de.exxcellent.student.softwarearchitecture.transition.component.route.api;
 
-import de.exxcellent.student.softwarearchitecture.transition.common.data.User;
+import de.exxcellent.student.softwarearchitecture.transition.common.dataaccess.User;
 import de.exxcellent.student.softwarearchitecture.transition.component.route.api.types.route.RouteCalculationMode;
 import de.exxcellent.student.softwarearchitecture.transition.component.route.api.types.route.RouteDO;
 import de.exxcellent.student.softwarearchitecture.transition.component.route.api.types.route.UpdatedWaypointDO;
