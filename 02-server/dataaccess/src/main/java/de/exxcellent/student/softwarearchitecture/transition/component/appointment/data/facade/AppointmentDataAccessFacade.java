@@ -3,9 +3,9 @@ package de.exxcellent.student.softwarearchitecture.transition.component.appointm
 import de.exxcellent.student.softwarearchitecture.transition.common.dataaccess.CrudDataAccessFacade;
 import de.exxcellent.student.softwarearchitecture.transition.common.dataaccess.User;
 import de.exxcellent.student.softwarearchitecture.transition.common.datetime.DateTimeUtil;
-import de.exxcellent.student.softwarearchitecture.transition.component.appointment.data.AppointmentRepository;
 import de.exxcellent.student.softwarearchitecture.transition.component.appointment.data.entities.AppointmentEntity;
 import de.exxcellent.student.softwarearchitecture.transition.component.appointment.data.mapper.AppointmentDataAccessMapperImpl;
+import de.exxcellent.student.softwarearchitecture.transition.component.appointment.data.repository.AppointmentRepository;
 import de.exxcellent.student.softwarearchitecture.transition.component.appointment.dataaccess.AppointmentDataAccess;
 import de.exxcellent.student.softwarearchitecture.transition.component.appointment.dataaccess.types.AppointmentDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,14 +43,14 @@ public class AppointmentDataAccessFacade extends CrudDataAccessFacade<Appointmen
     public AppointmentDTO create(AppointmentDTO newDTO, User user) {
         var entity = appointmentDataAccessMapper.toEntity(newDTO);
         var createdEntity = createEntity(entity, user);
-        return appointmentDataAccessMapper.toDTO(entity);
+        return appointmentDataAccessMapper.toDTO(createdEntity);
     }
 
     @Override
     public AppointmentDTO update(AppointmentDTO updatedDTO, User user) {
         var entity = appointmentDataAccessMapper.toEntity(updatedDTO);
-        var updatedEntity = createEntity(entity, user);
-        return appointmentDataAccessMapper.toDTO(entity);
+        var updatedEntity = updateEntity(entity, user);
+        return appointmentDataAccessMapper.toDTO(updatedEntity);
     }
 
     @Override
