@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.component.appointment.data;
+package de.exxcellent.student.softwarearchitecture.transition.component.appointment.data.repository;
 
 import de.exxcellent.student.softwarearchitecture.transition.component.appointment.data.entities.AppointmentEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
