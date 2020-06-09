@@ -1,6 +1,6 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.user.impl.data;
+package de.exxcellent.student.softwarearchitecture.transition.component.user.data;
 
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.user.impl.data.entities.UserEntity;
+import de.exxcellent.student.softwarearchitecture.transition.component.user.data.entities.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

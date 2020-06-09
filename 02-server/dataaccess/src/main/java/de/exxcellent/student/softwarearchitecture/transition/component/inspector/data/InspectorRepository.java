@@ -1,6 +1,6 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.inspector.impl.data;
+package de.exxcellent.student.softwarearchitecture.transition.component.inspector.data;
 
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.inspector.impl.data.entities.InspectorEntity;
+import de.exxcellent.student.softwarearchitecture.transition.component.inspector.data.entities.InspectorEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.process.impl.data.entities;
+package de.exxcellent.student.softwarearchitecture.transition.component.process.data.entities;
 
 /**
  * - Sondernutzung

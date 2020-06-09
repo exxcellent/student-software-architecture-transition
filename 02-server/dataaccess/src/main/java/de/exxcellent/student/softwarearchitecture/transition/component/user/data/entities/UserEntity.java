@@ -1,6 +1,6 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.user.impl.data.entities;
+package de.exxcellent.student.softwarearchitecture.transition.component.user.data.entities;
 
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.data.entities.CommonEntity;
+import de.exxcellent.student.softwarearchitecture.transition.common.data.entities.CommonEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

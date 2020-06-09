@@ -1,6 +1,6 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data.entities.waypoint;
+package de.exxcellent.student.softwarearchitecture.transition.component.route.data.entities.waypoint;
 
-import de.exxcellent.student.softwarearchitecture.transition.businesslogic.common.data.entities.CommonEntity;
+import de.exxcellent.student.softwarearchitecture.transition.common.data.entities.CommonEntity;
 
 import javax.persistence.*;
 import java.time.LocalDate;

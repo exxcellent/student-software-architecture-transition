@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.businesslogic.components.route.impl.data.entities.notification;
+package de.exxcellent.student.softwarearchitecture.transition.component.route.data.entities.notification;
 
 /**
  * TODO [AL]: Add class documentation
