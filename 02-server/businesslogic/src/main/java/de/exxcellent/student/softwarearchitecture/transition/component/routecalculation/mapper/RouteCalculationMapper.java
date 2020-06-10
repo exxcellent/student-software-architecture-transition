@@ -4,7 +4,7 @@ import de.exxcellent.student.softwarearchitecture.transition.component.routecalc
 import de.exxcellent.student.softwarearchitecture.transition.component.routecalculation.api.types.LocationRequestDO;
 import de.exxcellent.student.softwarearchitecture.transition.component.routecalculation.api.types.LocationResponseDO;
 import de.exxcellent.student.softwarearchitecture.transition.component.routecalculation.api.types.RouteCalculationDO;
-import de.exxcellent.student.softwarearchitecture.transition.component.routecalculation.connector.types.*;
+import de.exxcellent.student.softwarearchitecture.transition.component.routecalculation.dataaccess.types.*;
 
 import java.util.List;
 import java.util.function.Function;
@@ -14,8 +14,8 @@ public final class RouteCalculationMapper {
 
   private RouteCalculationMapper() {}
 
-  public static final Function<List<LocationRequestDO>, TripTO> toTripTO = input -> {
-    var tripTO = new TripTO();
+  public static final Function<List<LocationRequestDO>, TripDTO> toTripTO = input -> {
+    var tripTO = new TripDTO();
 
     var locations = input.stream()
         .map(RouteCalculationMapper.toLocationTO)
@@ -27,7 +27,7 @@ public final class RouteCalculationMapper {
     return tripTO;
   };
 
-  public static final Function<TripResponseTO, RouteCalculationDO> toRouteCalculationDO = input -> {
+  public static final Function<TripResponseDTO, RouteCalculationDO> toRouteCalculationDO = input -> {
     var routeCalculationDO = new RouteCalculationDO();
 
     var travelDuration = Math.round(input.getTravel_time() * 60); // minutes -> seconds
@@ -41,8 +41,8 @@ public final class RouteCalculationMapper {
     return routeCalculationDO;
   };
 
-  public static final Function<LocationRequestDO, LocationTO> toLocationTO = input -> {
-    var locationTO = new LocationTO();
+  public static final Function<LocationRequestDO, LocationDTO> toLocationTO = input -> {
+    var locationTO = new LocationDTO();
 
     locationTO.setId((int) input.getId());
     locationTO.set_index(input.getIndex());
@@ -52,7 +52,7 @@ public final class RouteCalculationMapper {
     return locationTO;
   };
 
-  public static final Function<LocationResponseTO, LocationResponseDO> toLocationResponseDO = input -> {
+  public static final Function<LocationResponseDTO, LocationResponseDO> toLocationResponseDO = input -> {
     var locationDO = new LocationResponseDO();
 
     var travelDuration = Math.round(input.getTravel_time() * 60); // minutes -> seconds

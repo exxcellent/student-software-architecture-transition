@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.component.routecalculation.connector.types;
+package de.exxcellent.student.softwarearchitecture.transition.component.routecalculation.dataaccess.types;
 
 /**
  * TODO [AL]: Add class documentation

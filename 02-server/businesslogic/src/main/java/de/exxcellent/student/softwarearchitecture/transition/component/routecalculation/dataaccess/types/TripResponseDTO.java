@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.component.routecalculation.connector.types;
+package de.exxcellent.student.softwarearchitecture.transition.component.routecalculation.dataaccess.types;
 
 import java.util.List;
 
@@ -7,13 +7,13 @@ import java.util.List;
  *
  * @author Andre Lehnert, eXXcellent solutions consulting and software gmbh
  */
-public class TripResponseTO {
+public class TripResponseDTO {
 
   private String departure_time;
   private float travel_time;
-  private List<LocationResponseTO> locations;
+  private List<LocationResponseDTO> locations;
 
-  public TripResponseTO() {
+  public TripResponseDTO() {
   }
 
   public String getDeparture_time() {
@@ -32,11 +32,11 @@ public class TripResponseTO {
     this.travel_time = travel_time;
   }
 
-  public List<LocationResponseTO> getLocations() {
+  public List<LocationResponseDTO> getLocations() {
     return locations;
   }
 
-  public void setLocations(List<LocationResponseTO> locations) {
+  public void setLocations(List<LocationResponseDTO> locations) {
     this.locations = locations;
   }
 }
