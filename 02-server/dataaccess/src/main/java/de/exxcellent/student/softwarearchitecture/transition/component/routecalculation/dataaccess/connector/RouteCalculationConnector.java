@@ -4,7 +4,7 @@ import de.exxcellent.student.softwarearchitecture.transition.common.errorhandlin
 import de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.exception.BusinessException;
 import de.exxcellent.student.softwarearchitecture.transition.common.errorhandling.exception.TechnicalException;
 import de.exxcellent.student.softwarearchitecture.transition.common.json.JsonMapper;
-import de.exxcellent.student.softwarearchitecture.transition.component.routecalculation.dataaccess.types.Mode;
+import de.exxcellent.student.softwarearchitecture.transition.component.routecalculation.dataaccess.types.ModeTO;
 import de.exxcellent.student.softwarearchitecture.transition.component.routecalculation.dataaccess.types.TripResponseTO;
 import de.exxcellent.student.softwarearchitecture.transition.component.routecalculation.dataaccess.types.TripTO;
 import kong.unirest.HttpRequestWithBody;
@@ -33,12 +33,12 @@ public class RouteCalculationConnector {
     this.tripResponseJsonMapper = new JsonMapper<>(TripResponseTO.class);
   }
 
-  public TripResponseTO calculateTrip(TripTO tripTO, Mode mode) {
+  public TripResponseTO calculateTrip(TripTO tripTO, ModeTO modeTO) {
     String payload = tripJsonMapper.toJson(tripTO);
     LOG.trace("Send request to {} with payload '{}'", ENDPOINT, payload);
 
     var response = POST(ENDPOINT)
-        .queryString("mode", mode.getValue())
+        .queryString("mode", modeTO.getValue())
         .body(payload)
         .asString();
 

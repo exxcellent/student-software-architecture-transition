@@ -5,13 +5,13 @@ package de.exxcellent.student.softwarearchitecture.transition.component.routecal
  *
  * @author Andre Lehnert, eXXcellent solutions consulting and software gmbh
  */
-public enum Mode {
+public enum ModeDTO {
   BRUTE_FORCE("brute_force"),
   NONE("none"),
   RANDOM("random");
 
   private final String value;
-  Mode(String value) {
+  ModeDTO(String value) {
     this.value = value;
   }
 

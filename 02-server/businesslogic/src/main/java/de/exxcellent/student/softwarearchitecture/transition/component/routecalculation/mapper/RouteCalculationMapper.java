@@ -67,13 +67,13 @@ public final class RouteCalculationMapper {
   };
 
 
-  public static final Function<CalculationMode, Mode> toMode = mode -> {
+  public static final Function<CalculationMode, ModeDTO> toMode = mode -> {
     switch (mode) {
-      case NORMAL: return Mode.NONE;
-      case OPTIMAL: return Mode.BRUTE_FORCE;
+      case NORMAL: return ModeDTO.NONE;
+      case OPTIMAL: return ModeDTO.BRUTE_FORCE;
       case RANDOM:
       default:
-        return Mode.RANDOM;
+        return ModeDTO.RANDOM;
     }
   };
 }

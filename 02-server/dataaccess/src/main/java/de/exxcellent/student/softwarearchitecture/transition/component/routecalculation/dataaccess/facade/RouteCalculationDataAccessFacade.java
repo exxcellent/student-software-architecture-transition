@@ -4,7 +4,7 @@ import de.exxcellent.student.softwarearchitecture.transition.common.datetime.Dat
 import de.exxcellent.student.softwarearchitecture.transition.component.routecalculation.dataaccess.RouteCalculationDataAccess;
 import de.exxcellent.student.softwarearchitecture.transition.component.routecalculation.dataaccess.connector.RouteCalculationConnector;
 import de.exxcellent.student.softwarearchitecture.transition.component.routecalculation.dataaccess.mapper.RouteCalculationDataAccessMapperImpl;
-import de.exxcellent.student.softwarearchitecture.transition.component.routecalculation.dataaccess.types.Mode;
+import de.exxcellent.student.softwarearchitecture.transition.component.routecalculation.dataaccess.types.ModeDTO;
 import de.exxcellent.student.softwarearchitecture.transition.component.routecalculation.dataaccess.types.TripDTO;
 import de.exxcellent.student.softwarearchitecture.transition.component.routecalculation.dataaccess.types.TripResponseDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,10 @@ public class RouteCalculationDataAccessFacade implements RouteCalculationDataAcc
     }
 
     @Override
-    public TripResponseDTO calculateTrip(TripDTO tripDTO, Mode mode) {
-        return null;
+    public TripResponseDTO calculateTrip(TripDTO tripDTO, ModeDTO modeDTO) {
+        var tripTO = mapper.toTO(tripDTO);
+        var modeTO = mapper.toModeTO(modeDTO);
+        var response = routeCalculationConnector.calculateTrip(tripTO, modeTO);
+        return mapper.toDTOResponse(response);
     }
 }
