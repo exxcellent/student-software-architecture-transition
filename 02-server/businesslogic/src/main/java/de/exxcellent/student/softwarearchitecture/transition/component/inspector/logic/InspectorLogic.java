@@ -1,12 +1,10 @@
 package de.exxcellent.student.softwarearchitecture.transition.component.inspector.logic;
 
 import de.exxcellent.student.softwarearchitecture.transition.common.businesslogic.CrudLogic;
-import de.exxcellent.student.softwarearchitecture.transition.common.datetime.DateTimeUtil;
-import de.exxcellent.student.softwarearchitecture.transition.component.inspector.data.InspectorRepository;
-import de.exxcellent.student.softwarearchitecture.transition.component.inspector.data.entities.InspectorEntity;
+import de.exxcellent.student.softwarearchitecture.transition.component.inspector.dataaccess.InspectorDataAccess;
+import de.exxcellent.student.softwarearchitecture.transition.component.inspector.dataaccess.types.InspectorDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -16,10 +14,10 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Component
 @Transactional
-public class InspectorLogic extends CrudLogic<InspectorEntity> {
+public class InspectorLogic extends CrudLogic<InspectorDTO> {
 
   @Autowired
-  public InspectorLogic(InspectorRepository inspectorRepository, DateTimeUtil dateTimeUtil) {
-    super(inspectorRepository, dateTimeUtil);
+  public InspectorLogic(InspectorDataAccess inspectorDataAccess) {
+    super(inspectorDataAccess);
   }
 }

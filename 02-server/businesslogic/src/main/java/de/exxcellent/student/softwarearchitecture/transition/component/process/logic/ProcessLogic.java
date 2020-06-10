@@ -1,10 +1,8 @@
 package de.exxcellent.student.softwarearchitecture.transition.component.process.logic;
 
 import de.exxcellent.student.softwarearchitecture.transition.common.businesslogic.CrudLogic;
-import de.exxcellent.student.softwarearchitecture.transition.common.datetime.DateTimeUtil;
-import de.exxcellent.student.softwarearchitecture.transition.component.process.data.ProcessRepository;
-
-import de.exxcellent.student.softwarearchitecture.transition.component.process.data.entities.ProcessEntity;
+import de.exxcellent.student.softwarearchitecture.transition.component.process.dataaccess.ProcessDataAccess;
+import de.exxcellent.student.softwarearchitecture.transition.component.process.dataaccess.types.ProcessDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -14,11 +12,11 @@ import org.springframework.stereotype.Component;
  * @author Andre Lehnert, eXXcellent solutions consulting and software gmbh
  */
  @Component
-public class ProcessLogic extends CrudLogic<ProcessEntity> {
+public class ProcessLogic extends CrudLogic<ProcessDTO> {
 
   @Autowired
-  public ProcessLogic(ProcessRepository processRepository, DateTimeUtil dateTimeUtil) {
-    super(processRepository, dateTimeUtil);
+  public ProcessLogic(ProcessDataAccess processDataAccess) {
+    super(processDataAccess);
   }
 
 }

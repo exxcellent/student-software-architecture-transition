@@ -1,7 +1,6 @@
-package de.exxcellent.student.softwarearchitecture.transition.component.contact.data;
+package de.exxcellent.student.softwarearchitecture.transition.component.contact.data.repository;
 
 import de.exxcellent.student.softwarearchitecture.transition.component.contact.data.entities.ContactEntity;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

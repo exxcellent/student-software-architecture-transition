@@ -1,7 +1,7 @@
 package de.exxcellent.student.softwarearchitecture.transition.component.contact.mapper;
 
 import de.exxcellent.student.softwarearchitecture.transition.component.contact.api.types.ContactDO;
-import de.exxcellent.student.softwarearchitecture.transition.component.contact.data.entities.ContactEntity;
+import de.exxcellent.student.softwarearchitecture.transition.component.contact.dataaccess.types.ContactDTO;
 
 import java.util.function.Function;
 
@@ -14,7 +14,7 @@ public final class ContactMapper {
 
   private ContactMapper() {}
 
-  public static final Function<ContactEntity, ContactDO> toContactDO = entity -> {
+  public static final Function<ContactDTO, ContactDO> toContactDO = entity -> {
     var contactDO = new ContactDO();
 
     contactDO.setContactId(entity.getId());
@@ -27,16 +27,16 @@ public final class ContactMapper {
     return contactDO;
   };
 
-  public static final Function<ContactDO, ContactEntity> toContactEntity = contactDO -> {
-    var contactEntity = new ContactEntity();
+  public static final Function<ContactDO, ContactDTO> toContactEntity = contactDO -> {
+    var ContactDTO = new ContactDTO();
 
-    contactEntity.setId(contactDO.getContactId());
-    contactEntity.setVersion(contactDO.getVersion());
-    contactEntity.setFirstName(contactDO.getFirstName());
-    contactEntity.setLastName(contactDO.getLastName());
-    contactEntity.setEmail(contactDO.getEmail());
-    contactEntity.setPhoneNumber(contactDO.getPhoneNumber());
+    ContactDTO.setId(contactDO.getContactId());
+    ContactDTO.setVersion(contactDO.getVersion());
+    ContactDTO.setFirstName(contactDO.getFirstName());
+    ContactDTO.setLastName(contactDO.getLastName());
+    ContactDTO.setEmail(contactDO.getEmail());
+    ContactDTO.setPhoneNumber(contactDO.getPhoneNumber());
 
-    return contactEntity;
+    return ContactDTO;
   };
 }

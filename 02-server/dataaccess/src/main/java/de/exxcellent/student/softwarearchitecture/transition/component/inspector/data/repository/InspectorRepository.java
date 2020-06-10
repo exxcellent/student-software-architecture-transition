@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.component.inspector.data;
+package de.exxcellent.student.softwarearchitecture.transition.component.inspector.data.repository;
 
 import de.exxcellent.student.softwarearchitecture.transition.component.inspector.data.entities.InspectorEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

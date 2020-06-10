@@ -1,7 +1,6 @@
-package de.exxcellent.student.softwarearchitecture.transition.component.process.data;
+package de.exxcellent.student.softwarearchitecture.transition.component.process.data.repository;
 
 import de.exxcellent.student.softwarearchitecture.transition.component.process.data.entities.ProcessEntity;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

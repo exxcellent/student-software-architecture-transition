@@ -1,7 +1,7 @@
 package de.exxcellent.student.softwarearchitecture.transition.component.location.mapper;
 
 import de.exxcellent.student.softwarearchitecture.transition.component.location.api.types.LocationDO;
-import de.exxcellent.student.softwarearchitecture.transition.component.location.data.entities.LocationEntity;
+import de.exxcellent.student.softwarearchitecture.transition.component.location.dataaccess.types.LocationDTO;
 
 import java.util.function.Function;
 
@@ -15,7 +15,7 @@ public final class LocationMapper {
   private LocationMapper() {}
 
 
-  public static final Function<LocationEntity, LocationDO> toLocationDO = entity -> {
+  public static final Function<LocationDTO, LocationDO> toLocationDO = entity -> {
     var locationDO = new LocationDO();
 
     locationDO.setLocationId(entity.getId());
@@ -30,18 +30,18 @@ public final class LocationMapper {
     return locationDO;
   };
 
-  public static final Function<LocationDO, LocationEntity> toLocationEntity = locationDO -> {
-    var locationEntity = new LocationEntity();
+  public static final Function<LocationDO, LocationDTO> toLocationEntity = locationDO -> {
+    var LocationDTO = new LocationDTO();
 
-    locationEntity.setId(locationDO.getLocationId());
-    locationEntity.setVersion(locationDO.getVersion());
-    locationEntity.setName(locationDO.getName());
-    locationEntity.setStreet(locationDO.getStreet());
-    locationEntity.setZip(locationDO.getZip());
-    locationEntity.setCity(locationDO.getCity());
-    locationEntity.setLatitude(locationDO.getLatitude());
-    locationEntity.setLongitude(locationDO.getLongitude());
+    LocationDTO.setId(locationDO.getLocationId());
+    LocationDTO.setVersion(locationDO.getVersion());
+    LocationDTO.setName(locationDO.getName());
+    LocationDTO.setStreet(locationDO.getStreet());
+    LocationDTO.setZip(locationDO.getZip());
+    LocationDTO.setCity(locationDO.getCity());
+    LocationDTO.setLatitude(locationDO.getLatitude());
+    LocationDTO.setLongitude(locationDO.getLongitude());
 
-    return locationEntity;
+    return LocationDTO;
   };
 }

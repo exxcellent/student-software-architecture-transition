@@ -1,7 +1,7 @@
 package de.exxcellent.student.softwarearchitecture.transition.component.inspector.mapper;
 
 import de.exxcellent.student.softwarearchitecture.transition.component.inspector.api.types.InspectorDO;
-import de.exxcellent.student.softwarearchitecture.transition.component.inspector.data.entities.InspectorEntity;
+import de.exxcellent.student.softwarearchitecture.transition.component.inspector.dataaccess.types.InspectorDTO;
 
 import java.util.function.Function;
 
@@ -15,7 +15,7 @@ public final class InspectorMapper {
   private InspectorMapper() {}
 
 
-  public static final Function<InspectorEntity, InspectorDO> toInspectorDO = entity -> {
+  public static final Function<InspectorDTO, InspectorDO> toInspectorDO = entity -> {
     var inspectorDO = new InspectorDO();
 
     inspectorDO.setInspectorId(entity.getId());
@@ -26,14 +26,14 @@ public final class InspectorMapper {
     return inspectorDO;
   };
 
-  public static final Function<InspectorDO, InspectorEntity> toInspectorEntity = inspectorDO -> {
-    var inspectorEntity = new InspectorEntity();
+  public static final Function<InspectorDO, InspectorDTO> toInspectorEntity = inspectorDO -> {
+    var InspectorDTO = new InspectorDTO();
 
-    inspectorEntity.setId(inspectorDO.getInspectorId());
-    inspectorEntity.setVersion(inspectorDO.getVersion());
-    inspectorEntity.setFirstName(inspectorDO.getFistName());
-    inspectorEntity.setLastName(inspectorDO.getLastName());
+    InspectorDTO.setId(inspectorDO.getInspectorId());
+    InspectorDTO.setVersion(inspectorDO.getVersion());
+    InspectorDTO.setFirstName(inspectorDO.getFistName());
+    InspectorDTO.setLastName(inspectorDO.getLastName());
 
-    return inspectorEntity;
+    return InspectorDTO;
   };
 }

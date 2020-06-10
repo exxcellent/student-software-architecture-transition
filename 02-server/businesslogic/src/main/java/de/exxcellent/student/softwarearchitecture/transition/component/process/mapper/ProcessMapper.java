@@ -3,9 +3,9 @@ package de.exxcellent.student.softwarearchitecture.transition.component.process.
 import de.exxcellent.student.softwarearchitecture.transition.component.process.api.types.Priority;
 import de.exxcellent.student.softwarearchitecture.transition.component.process.api.types.ProcessDO;
 import de.exxcellent.student.softwarearchitecture.transition.component.process.api.types.Type;
-import de.exxcellent.student.softwarearchitecture.transition.component.process.data.entities.ProcessEntity;
-import de.exxcellent.student.softwarearchitecture.transition.component.process.data.entities.ProcessPriority;
-import de.exxcellent.student.softwarearchitecture.transition.component.process.data.entities.ProcessType;
+import de.exxcellent.student.softwarearchitecture.transition.component.process.dataaccess.types.ProcessDTO;
+import de.exxcellent.student.softwarearchitecture.transition.component.process.dataaccess.types.ProcessPriority;
+import de.exxcellent.student.softwarearchitecture.transition.component.process.dataaccess.types.ProcessType;
 
 import java.util.function.Function;
 
@@ -18,7 +18,7 @@ public final class ProcessMapper {
 
   private ProcessMapper() {}
 
-  public static final Function<ProcessEntity, ProcessDO> toProcessDO = entity -> {
+  public static final Function<ProcessDTO, ProcessDO> toProcessDO = entity -> {
     var processDO = new ProcessDO();
 
     processDO.setProcessId(entity.getId());
@@ -35,21 +35,21 @@ public final class ProcessMapper {
     return processDO;
   };
 
-  public static final Function<ProcessDO, ProcessEntity> toProcessEntity = processDO -> {
-    var processEntity = new ProcessEntity();
+  public static final Function<ProcessDO, ProcessDTO> toProcessEntity = processDO -> {
+    var ProcessDTO = new ProcessDTO();
 
-    processEntity.setId(processDO.getProcessId());
-    processEntity.setVersion(processDO.getVersion());
+    ProcessDTO.setId(processDO.getProcessId());
+    ProcessDTO.setVersion(processDO.getVersion());
 
-    processEntity.setContactId(processDO.getContactId());
-    processEntity.setInspectorId(processDO.getInspectorId());
-    processEntity.setLocationId(processDO.getLocationId());
+    ProcessDTO.setContactId(processDO.getContactId());
+    ProcessDTO.setInspectorId(processDO.getInspectorId());
+    ProcessDTO.setLocationId(processDO.getLocationId());
 
-    processEntity.setTitle(processDO.getTitle());
-    processEntity.setProcessPriority(ProcessMapper.fromPriority.apply(processDO.getPriority()));
-    processEntity.setProcessType(ProcessMapper.fromType.apply(processDO.getType()));
+    ProcessDTO.setTitle(processDO.getTitle());
+    ProcessDTO.setProcessPriority(ProcessMapper.fromPriority.apply(processDO.getPriority()));
+    ProcessDTO.setProcessType(ProcessMapper.fromType.apply(processDO.getType()));
 
-    return processEntity;
+    return ProcessDTO;
   };
 
 

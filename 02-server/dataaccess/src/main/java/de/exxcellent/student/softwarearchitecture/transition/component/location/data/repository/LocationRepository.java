@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.component.location.data;
+package de.exxcellent.student.softwarearchitecture.transition.component.location.data.repository;
 
 import de.exxcellent.student.softwarearchitecture.transition.component.location.data.entities.LocationEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
