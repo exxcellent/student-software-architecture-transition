@@ -1,4 +1,4 @@
-package de.exxcellent.student.softwarearchitecture.transition.component.route.data;
+package de.exxcellent.student.softwarearchitecture.transition.component.route.data.repository;
 
 import de.exxcellent.student.softwarearchitecture.transition.component.route.data.entities.waypoint.WaypointEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,9 +1,9 @@
 package de.exxcellent.student.softwarearchitecture.transition.component.route.mapper;
 
 import de.exxcellent.student.softwarearchitecture.transition.component.route.api.types.route.*;
-import de.exxcellent.student.softwarearchitecture.transition.component.route.data.entities.waypoint.Category;
-import de.exxcellent.student.softwarearchitecture.transition.component.route.data.entities.waypoint.Status;
-import de.exxcellent.student.softwarearchitecture.transition.component.route.data.entities.waypoint.WaypointEntity;
+import de.exxcellent.student.softwarearchitecture.transition.component.route.dataaccess.types.waypoint.Category;
+import de.exxcellent.student.softwarearchitecture.transition.component.route.dataaccess.types.waypoint.Status;
+import de.exxcellent.student.softwarearchitecture.transition.component.route.dataaccess.types.waypoint.WaypointDTO;
 import de.exxcellent.student.softwarearchitecture.transition.component.routecalculation.api.types.CalculationMode;
 import de.exxcellent.student.softwarearchitecture.transition.component.routecalculation.api.types.LocationRequestDO;
 
@@ -18,7 +18,7 @@ public final class RouteMapper {
 
   private RouteMapper() {}
 
-  public static final Function<WaypointEntity, WaypointDO> toWaypointDO = entity -> {
+  public static final Function<WaypointDTO, WaypointDO> toWaypointDO = entity -> {
     if (entity == null) {
       return null;
     }
@@ -53,38 +53,38 @@ public final class RouteMapper {
     return waypointDO;
   };
 
-  public static final Function<WaypointDO, WaypointEntity> toWaypointEntity = waypoint -> {
-    var waypointEntity = new WaypointEntity();
+  public static final Function<WaypointDO, WaypointDTO> toWaypointEntity = waypoint -> {
+    var WaypointDTO = new WaypointDTO();
 
-    waypointEntity.setId(waypoint.getWaypointId());
-    waypointEntity.setVersion(waypoint.getVersion());
-    waypointEntity.setInspectorId(waypoint.getInspectorId());
-    waypointEntity.setAppointmentId(waypoint.getAppointmentId());
-    waypointEntity.setDate(waypoint.getDate());
-    waypointEntity.setOrderIndex(waypoint.getOrderIndex());
+    WaypointDTO.setId(waypoint.getWaypointId());
+    WaypointDTO.setVersion(waypoint.getVersion());
+    WaypointDTO.setInspectorId(waypoint.getInspectorId());
+    WaypointDTO.setAppointmentId(waypoint.getAppointmentId());
+    WaypointDTO.setDate(waypoint.getDate());
+    WaypointDTO.setOrderIndex(waypoint.getOrderIndex());
 
-    waypointEntity.setCategory(RouteMapper.fromWaypointCategory.apply(waypoint.getCategory()));
-    waypointEntity.setStatus(RouteMapper.fromWaypointStatus.apply(waypoint.getStatus()));
+    WaypointDTO.setCategory(RouteMapper.fromWaypointCategory.apply(waypoint.getCategory()));
+    WaypointDTO.setStatus(RouteMapper.fromWaypointStatus.apply(waypoint.getStatus()));
 
     if (waypoint.getStartTime() != null) {
-      waypointEntity.setStartTime(waypoint.getStartTime());
+      WaypointDTO.setStartTime(waypoint.getStartTime());
     }
     if (waypoint.getTravelDuration() != null) {
-      waypointEntity.setTravelDuration(waypoint.getTravelDuration().toSeconds());
+      WaypointDTO.setTravelDuration(waypoint.getTravelDuration().toSeconds());
     }
     if (waypoint.getDuration() != null) {
-      waypointEntity.setDuration(waypoint.getDuration().toSeconds());
+      WaypointDTO.setDuration(waypoint.getDuration().toSeconds());
     }
 
-    waypointEntity.setAddress(waypoint.getAddress());
-    waypointEntity.setLatitude(waypoint.getLatitude());
-    waypointEntity.setLongitude(waypoint.getLongitude());
+    WaypointDTO.setAddress(waypoint.getAddress());
+    WaypointDTO.setLatitude(waypoint.getLatitude());
+    WaypointDTO.setLongitude(waypoint.getLongitude());
 
-    waypointEntity.setContactname(waypoint.getContactName());
-    waypointEntity.setContactPhoneNumber(waypoint.getPhoneNumber());
-    waypointEntity.setContactEmail(waypoint.getEmail());
+    WaypointDTO.setContactname(waypoint.getContactName());
+    WaypointDTO.setContactPhoneNumber(waypoint.getPhoneNumber());
+    WaypointDTO.setContactEmail(waypoint.getEmail());
 
-    return waypointEntity;
+    return WaypointDTO;
   };
 
   public static final Function<List<WaypointDO>, RouteDO> toRouteDO = waypoints -> {

@@ -2,8 +2,8 @@ package de.exxcellent.student.softwarearchitecture.transition.component.route.ma
 
 import de.exxcellent.student.softwarearchitecture.transition.component.route.api.types.notification.NotificationChannel;
 import de.exxcellent.student.softwarearchitecture.transition.component.route.api.types.notification.NotificationDO;
-import de.exxcellent.student.softwarearchitecture.transition.component.route.data.entities.notification.Channel;
-import de.exxcellent.student.softwarearchitecture.transition.component.route.data.entities.notification.NotificationEntity;
+import de.exxcellent.student.softwarearchitecture.transition.component.route.dataaccess.types.notification.Channel;
+import de.exxcellent.student.softwarearchitecture.transition.component.route.dataaccess.types.notification.NotificationDTO;
 
 import java.time.Duration;
 import java.time.ZoneOffset;
@@ -20,7 +20,7 @@ public final class NotificationMapper {
   private NotificationMapper() {
   }
 
-  public static final Function<NotificationEntity, NotificationDO> toNotificationDO = notification -> {
+  public static final Function<NotificationDTO, NotificationDO> toNotificationDO = notification -> {
     var notificationDO = new NotificationDO();
 
     notificationDO.setNotificationId(notification.getId());
@@ -33,19 +33,19 @@ public final class NotificationMapper {
     return notificationDO;
   };
 
-  public static final Function<NotificationDO, NotificationEntity> toNotificationEntity = notification -> {
-    var notificationEntity = new NotificationEntity();
+  public static final Function<NotificationDO, NotificationDTO> toNotificationEntity = notification -> {
+    var NotificationDTO = new NotificationDTO();
 
-    notificationEntity.setId(notification.getNotificationId());
-    notificationEntity.setVersion(notification.getVersion());
-    notificationEntity.setChannel(NotificationMapper.fromNotificationChannel.apply(notification.getNotificationChannel()));
-    notificationEntity.setNotifiedAt(notification.getNotifiedAtUtc().atOffset(ZoneOffset.UTC));
+    NotificationDTO.setId(notification.getNotificationId());
+    NotificationDTO.setVersion(notification.getVersion());
+    NotificationDTO.setChannel(NotificationMapper.fromNotificationChannel.apply(notification.getNotificationChannel()));
+    NotificationDTO.setNotifiedAt(notification.getNotifiedAtUtc().atOffset(ZoneOffset.UTC));
 
     if (notification.getArrivalIn() != null) {
-      notificationEntity.setArrivalIn(notification.getArrivalIn().toSeconds());
+      NotificationDTO.setArrivalIn(notification.getArrivalIn().toSeconds());
     }
 
-    return notificationEntity;
+    return NotificationDTO;
   };
 
   private static final Function<Channel, NotificationChannel> toNotificationChannel = channel -> {

@@ -1,12 +1,12 @@
 package de.exxcellent.student.softwarearchitecture.transition.component.route.dataaccess.types.waypoint;
 
-import de.exxcellent.student.softwarearchitecture.transition.common.entities.CommonEntity;
+import de.exxcellent.student.softwarearchitecture.transition.common.dataaccess.CommonDTO;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 
-public class WaypointDTO extends CommonEntity {
+public class WaypointDTO extends CommonDTO {
 
   private Long appointmentId;
 

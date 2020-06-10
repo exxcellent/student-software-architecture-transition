@@ -4,9 +4,9 @@ import de.exxcellent.student.softwarearchitecture.transition.common.dataaccess.U
 import de.exxcellent.student.softwarearchitecture.transition.common.validation.Preconditions;
 import de.exxcellent.student.softwarearchitecture.transition.component.route.api.RouteComponent;
 import de.exxcellent.student.softwarearchitecture.transition.component.route.api.types.route.*;
+import de.exxcellent.student.softwarearchitecture.transition.component.route.dataaccess.types.waypoint.WaypointDTO;
 import de.exxcellent.student.softwarearchitecture.transition.component.route.logic.RouteLogic;
 import de.exxcellent.student.softwarearchitecture.transition.component.route.mapper.RouteMapper;
-import de.exxcellent.student.softwarearchitecture.transition.component.route.data.entities.waypoint.WaypointEntity;
 import de.exxcellent.student.softwarearchitecture.transition.component.routecalculation.api.RouteCalculationComponent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -164,7 +164,7 @@ public class RouteFacade implements RouteComponent {
     return updatedWaypoints;
   }
 
-  private List<RouteDO> calculateRoutes(List<WaypointEntity> waypoints, RouteCalculationMode routeCalculationMode) {
+  private List<RouteDO> calculateRoutes(List<WaypointDTO> waypoints, RouteCalculationMode routeCalculationMode) {
     var mode = RouteMapper.toCalculationMode.apply(routeCalculationMode);
 
     // map to routes

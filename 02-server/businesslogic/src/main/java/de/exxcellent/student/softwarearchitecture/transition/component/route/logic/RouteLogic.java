@@ -2,12 +2,11 @@ package de.exxcellent.student.softwarearchitecture.transition.component.route.lo
 
 import de.exxcellent.student.softwarearchitecture.transition.common.businesslogic.CrudLogic;
 import de.exxcellent.student.softwarearchitecture.transition.common.dataaccess.User;
-import de.exxcellent.student.softwarearchitecture.transition.common.datetime.DateTimeUtil;
 import de.exxcellent.student.softwarearchitecture.transition.common.types.Pair;
 import de.exxcellent.student.softwarearchitecture.transition.common.validation.Preconditions;
-import de.exxcellent.student.softwarearchitecture.transition.component.route.data.WaypointRepository;
-import de.exxcellent.student.softwarearchitecture.transition.component.route.data.entities.waypoint.Status;
-import de.exxcellent.student.softwarearchitecture.transition.component.route.data.entities.waypoint.WaypointEntity;
+import de.exxcellent.student.softwarearchitecture.transition.component.route.dataaccess.WaypointDataAccess;
+import de.exxcellent.student.softwarearchitecture.transition.component.route.dataaccess.types.waypoint.Status;
+import de.exxcellent.student.softwarearchitecture.transition.component.route.dataaccess.types.waypoint.WaypointDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,58 +15,58 @@ import java.util.List;
 import java.util.Set;
 
 @Component
-public class RouteLogic extends CrudLogic<WaypointEntity> {
-  private final WaypointRepository waypointRepository;
+public class RouteLogic extends CrudLogic<WaypointDTO> {
+  private final WaypointDataAccess waypointDataAccess;
 
   @Autowired
-  public RouteLogic(WaypointRepository waypointRepository, DateTimeUtil dateTimeUtil) {
-    super(waypointRepository, dateTimeUtil);
-    this.waypointRepository = waypointRepository;
+  public RouteLogic(WaypointDataAccess waypointDataAccess) {
+    super(waypointDataAccess);
+    this.waypointDataAccess = waypointDataAccess;
   }
 
-   public List<WaypointEntity> findAllByInspectors(Set<Long> filterByInspectorIds) {
+   public List<WaypointDTO> findAllByInspectors(Set<Long> filterByInspectorIds) {
     if (filterByInspectorIds == null || filterByInspectorIds.isEmpty()) {
-      return waypointRepository.findAll();
+      return waypointDataAccess.findAll();
     } else {
-      return waypointRepository.findAllByInspectorIdIn(filterByInspectorIds);
+      return waypointDataAccess.findAllByInspectorIdIn(filterByInspectorIds);
     }
    }
 
-   public List<WaypointEntity> findAllByDate(LocalDate date, Set<Long> filterByInspectorIds) {
+   public List<WaypointDTO> findAllByDate(LocalDate date, Set<Long> filterByInspectorIds) {
     if (filterByInspectorIds == null || filterByInspectorIds.isEmpty()) {
-      return waypointRepository.findAllByDate(date);
+      return waypointDataAccess.findAllByDate(date);
     } else {
-      return waypointRepository.findAllByDateAndInspectorIdIn(date, filterByInspectorIds);
+      return waypointDataAccess.findAllByDateAndInspectorIdIn(date, filterByInspectorIds);
     }
    }
 
-   public List<WaypointEntity> findAllByDateAndInspector(LocalDate date, Long inspectorId) {
-      return waypointRepository.findAllByDateAndInspectorId(date, inspectorId);
+   public List<WaypointDTO> findAllByDateAndInspector(LocalDate date, Long inspectorId) {
+      return waypointDataAccess.findAllByDateAndInspectorId(date, inspectorId);
    }
 
-  public WaypointEntity findByDateAndInspectorAndWaypointId(LocalDate date, Long inspectorId, Long wayPointId) {
-    return waypointRepository.findByDateAndInspectorIdAndId(date, inspectorId, wayPointId);
+  public WaypointDTO findByDateAndInspectorAndWaypointId(LocalDate date, Long inspectorId, Long wayPointId) {
+    return waypointDataAccess.findByDateAndInspectorIdAndId(date, inspectorId, wayPointId);
 
   }
 
-  public Pair<WaypointEntity, WaypointEntity> finishWaypoint(WaypointEntity waypoint, User user) {
-    var waypointEntity = this.findById(waypoint.getId());
-    var currentOrderIndex = waypointEntity.getOrderIndex();
+  public Pair<WaypointDTO, WaypointDTO> finishWaypoint(WaypointDTO waypoint, User user) {
+    var waypointDTO = this.findById(waypoint.getId());
+    var currentOrderIndex = waypointDTO.getOrderIndex();
     var nextOrderIndex = currentOrderIndex + 1;
 
     // check current state
-    Preconditions.checkArgument(waypointEntity.getStatus() == Status.ACTIVE, "Current Waypoint state must be ACTIVE");
+    Preconditions.checkArgument(waypointDTO.getStatus() == Status.ACTIVE, "Current Waypoint state must be ACTIVE");
     Preconditions.checkArgument(waypoint.getStatus() == Status.FINISHED, "Target Waypoint state must be FINISHED");
 
     // finish current waypoint
     var updatedWaypoint = this.update(waypoint, user);
-    WaypointEntity next = null;
+    WaypointDTO next = null;
 
     // activate next waypoint
     boolean nextWaypointUpdated = false;
     while(!nextWaypointUpdated) {
-      var nextWaypoint = this.waypointRepository.findByDateAndInspectorIdAndOrderIndex(waypointEntity.getDate(),
-          waypointEntity.getInspectorId(), nextOrderIndex);
+      var nextWaypoint = this.waypointDataAccess.findByDateAndInspectorIdAndOrderIndex(waypointDTO.getDate(),
+          waypointDTO.getInspectorId(), nextOrderIndex);
 
       if (nextWaypoint == null) {
         nextWaypointUpdated = true; // all waypoints of the route completed
@@ -88,7 +87,7 @@ public class RouteLogic extends CrudLogic<WaypointEntity> {
   }
 
 
-  public Pair<WaypointEntity, WaypointEntity> cancelWaypoint(WaypointEntity waypoint, User user) {
+  public Pair<WaypointDTO, WaypointDTO> cancelWaypoint(WaypointDTO waypoint, User user) {
       var waypointEntity = this.findById(waypoint.getId());
       var currentOrderIndex = waypointEntity.getOrderIndex();
       var nextOrderIndex = currentOrderIndex + 1;
@@ -102,13 +101,13 @@ public class RouteLogic extends CrudLogic<WaypointEntity> {
 
       // finish current waypoint
       var updatedWaypoint = this.update(waypoint, user);
-      WaypointEntity next = null;
+      WaypointDTO next = null;
 
       // activate next waypoint
       if (wasActive) {
         boolean nextWaypointUpdated = false;
         while (!nextWaypointUpdated) {
-          var nextWaypoint = this.waypointRepository.findByDateAndInspectorIdAndOrderIndex(waypointEntity.getDate(),
+          var nextWaypoint = this.waypointDataAccess.findByDateAndInspectorIdAndOrderIndex(waypointEntity.getDate(),
               waypointEntity.getInspectorId(), nextOrderIndex);
 
           if (nextWaypoint == null) {

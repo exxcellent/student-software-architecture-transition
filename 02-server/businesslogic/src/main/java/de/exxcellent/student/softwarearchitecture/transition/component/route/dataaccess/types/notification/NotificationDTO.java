@@ -1,6 +1,6 @@
 package de.exxcellent.student.softwarearchitecture.transition.component.route.dataaccess.types.notification;
 
-import de.exxcellent.student.softwarearchitecture.transition.common.entities.CommonEntity;
+import de.exxcellent.student.softwarearchitecture.transition.common.dataaccess.CommonDTO;
 import de.exxcellent.student.softwarearchitecture.transition.component.route.dataaccess.types.waypoint.WaypointDTO;
 
 import java.time.OffsetDateTime;
@@ -10,7 +10,7 @@ import java.time.OffsetDateTime;
  *
  * @author Andre Lehnert, eXXcellent solutions consulting and software gmbh
  */
-public class NotificationDTO extends CommonEntity {
+public class NotificationDTO extends CommonDTO {
 
   private WaypointDTO waypoint;
 

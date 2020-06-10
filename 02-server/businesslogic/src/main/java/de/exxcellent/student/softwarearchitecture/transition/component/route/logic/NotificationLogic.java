@@ -2,9 +2,8 @@ package de.exxcellent.student.softwarearchitecture.transition.component.route.lo
 
 import de.exxcellent.student.softwarearchitecture.transition.common.businesslogic.CrudLogic;
 import de.exxcellent.student.softwarearchitecture.transition.common.dataaccess.User;
-import de.exxcellent.student.softwarearchitecture.transition.common.datetime.DateTimeUtil;
-import de.exxcellent.student.softwarearchitecture.transition.component.route.data.NotificationRepository;
-import de.exxcellent.student.softwarearchitecture.transition.component.route.data.entities.notification.NotificationEntity;
+import de.exxcellent.student.softwarearchitecture.transition.component.route.dataaccess.NotificationDataAccess;
+import de.exxcellent.student.softwarearchitecture.transition.component.route.dataaccess.types.notification.NotificationDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,32 +16,32 @@ import java.util.List;
  * @author Andre Lehnert, eXXcellent solutions consulting and software gmbh
  */
 @Component
-public class NotificationLogic extends CrudLogic<NotificationEntity> {
+public class NotificationLogic extends CrudLogic<NotificationDTO> {
 
-  private final NotificationRepository notificationRepository;
+  private final NotificationDataAccess notificationDataAccess;
   private final RouteLogic routeLogic;
 
   @Autowired
-  protected NotificationLogic(NotificationRepository repository, DateTimeUtil dateTimeUtil, RouteLogic routeLogic) {
-    super(repository, dateTimeUtil);
-    this.notificationRepository = repository;
+  protected NotificationLogic(NotificationDataAccess notificationDataAccess, RouteLogic routeLogic) {
+    super(notificationDataAccess);
+    this.notificationDataAccess = notificationDataAccess;
     this.routeLogic = routeLogic;
   }
 
-  public List<NotificationEntity> findAllByDateAndInspectorId(LocalDate date, Long inspectorId) {
-    return notificationRepository.findAllByDateAndInspectorId(date, inspectorId);
+  public List<NotificationDTO> findAllByDateAndInspectorId(LocalDate date, Long inspectorId) {
+    return notificationDataAccess.findAllByDateAndInspectorId(date, inspectorId);
   }
 
-  public List<NotificationEntity> findAllByWaypointId(Long waypointId) {
-    return notificationRepository.findAllByWaypointId(waypointId);
+  public List<NotificationDTO> findAllByWaypointId(Long waypointId) {
+    return notificationDataAccess.findAllByWaypointId(waypointId);
   }
 
-  public NotificationEntity create(NotificationEntity notificationEntity, Long waypointId, User user) {
+  public NotificationDTO create(NotificationDTO notificationDTO, Long waypointId, User user) {
 
     // resolve relationship
-    var waypointEntity = routeLogic.findById(waypointId);
-    notificationEntity.setWaypoint(waypointEntity);
+    var waypointDTO = routeLogic.findById(waypointId);
+    notificationDTO.setWaypoint(waypointDTO);
 
-    return create(notificationEntity, user);
+    return create(notificationDTO, user);
   }
 }
