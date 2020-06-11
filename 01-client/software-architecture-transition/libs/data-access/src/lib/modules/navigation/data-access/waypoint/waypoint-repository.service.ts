@@ -1,13 +1,11 @@
 import {Injectable} from '@angular/core';
 import {Store} from '@ngrx/store';
-import {Route} from '../../model/route';
 import {WaypointConnectorService} from './connector/waypoint-connector.service';
 import {Observable} from 'rxjs';
 import {filter, flatMap, map} from 'rxjs/operators';
 import {toISODateString} from '@software-architecture-transition/shared';
 import {actions, RoutesState, selectors} from './state/route';
-import {Waypoint} from '../../model/waypoint';
-import {WaypointStatus} from '../../model/waypoint-status.enum';
+import {Route, Waypoint, WaypointStatus} from '@software-architecture-transition/model/navigation';
 
 @Injectable({
   providedIn: 'root'

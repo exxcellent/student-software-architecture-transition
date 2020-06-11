@@ -28,7 +28,15 @@
       ],
       "@software-architecture-transition/dialog-core/navigation": [
         "libs/dialog-core/src/lib/modules/navigation/index.ts"
-      ]
+      ],
+      "@software-architecture-transition/data-access": [
+        "libs/data-access/src/index.ts"
+      ],
+      "@software-architecture-transition/data-access/navigation": [
+        "libs/data-access/src/lib/modules/navigation/index.ts"
+      ],
+      "@software-architecture-transition/model": ["libs/model/src/index.ts"],
+      "@software-architecture-transition/model/navigation": ["libs/model/src/lib/modules/navigation/index.ts"]
     }
   },
   "include": ["**/*.d.ts"],

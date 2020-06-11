@@ -2,11 +2,10 @@ import {Injectable} from '@angular/core';
 import {exists, logWarn} from '@software-architecture-transition/shared';
 // @ts-ignore
 import {LatLngBoundsLiteral, LatLngLiteral} from '@agm/core';
-import {Waypoint} from '../../model/waypoint';
-import {WaypointRepositoryService} from '../../data-access/waypoint/waypoint-repository.service';
+import {WaypointRepositoryService} from '@software-architecture-transition/data-access/navigation';
 import {WAYPOINT_ICONS} from '../waypoint-icons';
 import {Observable} from 'rxjs';
-import {Route} from '../../model/route';
+import {Route, Waypoint} from '@software-architecture-transition/model/navigation';
 
 @Injectable()
 export class NavigationMapDialogCore {

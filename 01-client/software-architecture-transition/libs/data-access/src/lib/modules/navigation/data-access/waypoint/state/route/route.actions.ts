@@ -1,6 +1,5 @@
 import {createAction, props} from '@ngrx/store';
-import {Route} from '../../../../model/route';
-import {Waypoint} from '../../../../model/waypoint';
+import {Route, Waypoint} from '@software-architecture-transition/model/navigation';
 
 const loadMyRouteOfToday = createAction(
   '[Route] Load My Route of Today'

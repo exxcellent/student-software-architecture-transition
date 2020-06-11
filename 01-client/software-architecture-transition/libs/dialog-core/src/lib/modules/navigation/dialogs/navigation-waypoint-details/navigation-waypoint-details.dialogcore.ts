@@ -1,12 +1,10 @@
 import {Injectable} from '@angular/core';
-import {WaypointRepositoryService} from '../../data-access/waypoint/waypoint-repository.service';
+import {WaypointRepositoryService} from '@software-architecture-transition/data-access/navigation';
 import {filter, flatMap, map} from 'rxjs/operators';
 import {toISODateString} from '@software-architecture-transition/shared';
-import {Route} from '../../model/route';
-import {Waypoint} from '../../model/waypoint';
 import {ActivatedRoute, ParamMap} from '@angular/router';
-import {WaypointStatus} from '../../model/waypoint-status.enum';
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
+import {Route, Waypoint, WaypointStatus} from '@software-architecture-transition/model/navigation';
 
 @Injectable({
   providedIn: 'root'

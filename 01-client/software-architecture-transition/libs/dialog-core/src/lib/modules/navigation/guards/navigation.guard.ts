@@ -11,7 +11,7 @@ import {
   UrlTree
 } from '@angular/router';
 import {Observable, of} from 'rxjs';
-import {actions, RoutesState, selectors} from '../data-access/waypoint/state/route';
+import {actions, RoutesState, selectors} from '@software-architecture-transition/data-access/navigation';
 import {Store} from '@ngrx/store';
 import {catchError, filter, switchMap, take, tap} from 'rxjs/operators';
 import {ErrorCategory} from '@software-architecture-transition/shared';

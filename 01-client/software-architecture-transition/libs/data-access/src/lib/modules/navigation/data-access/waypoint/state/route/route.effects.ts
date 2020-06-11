@@ -9,8 +9,8 @@ import {WaypointConnectorService} from '../../connector/waypoint-connector.servi
 import {RoutesState} from './route.reducer';
 import {Store} from '@ngrx/store';
 import {selectors} from './route.selectors';
-import {Waypoint} from '../../../../model/waypoint';
-import {WaypointStatus} from '../../../../model/waypoint-status.enum';
+import {Waypoint, WaypointStatus} from '@software-architecture-transition/model/navigation';
+
 
 @Injectable()
 export class RouteEffects {

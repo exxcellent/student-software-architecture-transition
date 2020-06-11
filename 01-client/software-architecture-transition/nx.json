@@ -30,6 +30,12 @@
     },
     "dialog-core": {
       "tags": []
+    },
+    "data-access": {
+      "tags": []
+    },
+    "model": {
+      "tags": []
     }
   }
 }

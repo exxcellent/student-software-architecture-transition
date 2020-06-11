@@ -1,13 +1,11 @@
 import {RouteCTO} from '../types/route.cto';
-import {Route} from '../../../model/route';
-import {Waypoint} from '../../../model/waypoint';
 import {WaypointTO} from '../types/waypoint.to';
 import {Status} from '../types/waypoint-status.enum';
-import {WaypointStatus} from '../../../model/waypoint-status.enum';
 import {Category} from '../types/waypoint-category.enum';
-import {WaypointCategory} from '../../../model/waypoint-category.enum';
 import {toISODateString} from '@software-architecture-transition/shared';
 import {UpdatedWaypointsTO} from '../types/updated-waypoints.to';
+import {Route, Waypoint, WaypointCategory, WaypointStatus} from '@software-architecture-transition/model/navigation';
+
 
 export function fromResponse(response: RouteCTO): Route {
   return {

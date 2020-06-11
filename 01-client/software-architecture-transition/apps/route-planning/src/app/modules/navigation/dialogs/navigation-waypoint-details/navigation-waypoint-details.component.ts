@@ -1,11 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {SafeUrl} from '@angular/platform-browser';
-import {
-  NavigationWaypointDetailsDialogCore,
-  Waypoint,
-  WaypointCategory,
-  WaypointStatus
-} from '@software-architecture-transition/dialog-core';
+import {NavigationWaypointDetailsDialogCore} from '@software-architecture-transition/dialog-core';
+import {Waypoint, WaypointCategory, WaypointStatus} from '@software-architecture-transition/model/navigation';
+
 
 @Component({
   selector: 'nav-navigation-waypoint-details',

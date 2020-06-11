@@ -8,7 +8,6 @@ import {
   RestClient,
   UriBuilder
 } from '@software-architecture-transition/shared';
-import {Route} from '../../../model/route';
 import {RouteCTO} from '../types/route.cto';
 import {
   fromResponse,
@@ -19,9 +18,9 @@ import {
 import {Observable, throwError} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
 import {Store} from '@ngrx/store';
-import {Waypoint} from '../../../model/waypoint';
 import {WaypointTO} from '../types/waypoint.to';
 import {UpdatedWaypointsTO} from '../types/updated-waypoints.to';
+import {Route, Waypoint} from '@software-architecture-transition/model/navigation';
 
 @Injectable({
   providedIn: 'root'

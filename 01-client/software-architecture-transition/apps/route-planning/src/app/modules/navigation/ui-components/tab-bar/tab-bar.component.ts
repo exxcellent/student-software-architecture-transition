@@ -3,12 +3,8 @@ import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {CommonComponent} from '@software-architecture-transition/shared-ui-components';
 import {toISODateString} from '@software-architecture-transition/shared';
 import {filter, flatMap, map} from 'rxjs/operators';
-import {
-  Route,
-  Waypoint,
-  WaypointRepositoryService,
-  WaypointStatus
-} from '@software-architecture-transition/dialog-core';
+import {Route, Waypoint, WaypointStatus} from '@software-architecture-transition/model/navigation';
+import {WaypointRepositoryService} from '@software-architecture-transition/data-access/navigation';
 
 @Component({
   selector: 'nav-tab-bar',

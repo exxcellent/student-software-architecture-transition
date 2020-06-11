@@ -1,9 +1,4 @@
 export * from './navigation-dialog-core.module';
-export * from './data-access/waypoint/state/route';
-export * from './data-access/waypoint/types';
-export * from './data-access/waypoint/connector/waypoint-connector.service';
-export * from './data-access/waypoint/mapper/route.mapper';
-export * from './data-access/waypoint/waypoint-repository.service';
 export * from './dialogs/waypoint-icons';
 export * from './dialogs/navigation-day-selector/navigation-day-selector.dialogcore';
 export * from './dialogs/navigation-map/navigation-map.dialogcore';
@@ -11,7 +6,3 @@ export * from './dialogs/navigation-waypoint-details/navigation-waypoint-details
 export * from './dialogs/navigation-waypoints/navigation-waypoints.dialogcore';
 export * from './dialogs/navigation-waypoints/types/waypoint-with-icon.interface';
 export * from './guards/navigation.guard';
-export * from './model/waypoint-status.enum';
-export * from './model/waypoint-category.enum';
-export * from './model/waypoint';
-export * from './model/route';

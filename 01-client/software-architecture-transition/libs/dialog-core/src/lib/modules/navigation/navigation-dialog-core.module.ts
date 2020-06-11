@@ -1,11 +1,8 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {StoreModule} from '@ngrx/store';
-import * as fromRoute from './data-access/waypoint/state/route/route.reducer';
-import {EffectsModule} from '@ngrx/effects';
-import {RouteEffects} from './data-access/waypoint/state/route';
 import {TranslateModule} from '@ngx-translate/core';
 import {SharedModule} from '@software-architecture-transition/shared';
+import {NavigationDataAccessModule} from '@software-architecture-transition/data-access/navigation';
 
 
 @NgModule({
@@ -16,9 +13,8 @@ import {SharedModule} from '@software-architecture-transition/shared';
   imports: [
     CommonModule,
     TranslateModule,
-    StoreModule.forFeature(fromRoute.routeFeatureKey, fromRoute.reducer),
-    EffectsModule.forFeature([RouteEffects]),
-    SharedModule.forChild()
+    SharedModule.forChild(),
+    NavigationDataAccessModule.forRoot()
   ]
 })
 export class NavigationDialogCoreModule {

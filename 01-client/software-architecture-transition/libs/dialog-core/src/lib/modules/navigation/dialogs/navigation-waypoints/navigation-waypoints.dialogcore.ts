@@ -1,14 +1,13 @@
 import {Injectable} from '@angular/core';
-import {WaypointRepositoryService} from '../../data-access/waypoint/waypoint-repository.service';
+import {WaypointRepositoryService} from '@software-architecture-transition/data-access/navigation';
 import {BehaviorSubject, Observable, Subscription} from 'rxjs';
-import {Route} from '../../model/route';
-import {Waypoint} from '../../model/waypoint';
 import {WaypointWithIcon} from './types/waypoint-with-icon.interface';
 import {WAYPOINT_ICONS} from '../waypoint-icons';
 import {filter, map} from 'rxjs/operators';
 import {toISODateString} from '@software-architecture-transition/shared';
-import {WaypointStatus} from '../../model/waypoint-status.enum';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Route, Waypoint, WaypointStatus} from '@software-architecture-transition/model/navigation';
+
 
 @Injectable()
 export class NavigationWaypointsDialogCore {
