@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {CommonComponent} from '../../../shared-ui-components';
-import {toISODateString} from '../../../shared/functions';
+import {toISODateString} from '@software-architecture-transition/shared';
 import {filter, flatMap, map} from 'rxjs/operators';
 import {Route} from '../../model/route';
 import {Waypoint} from '../../model/waypoint';

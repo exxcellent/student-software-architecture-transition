@@ -14,7 +14,7 @@ import {Observable, of} from 'rxjs';
 import {actions, RoutesState, selectors} from '../data-access/waypoint/state/route';
 import {Store} from '@ngrx/store';
 import {catchError, filter, switchMap, take, tap} from 'rxjs/operators';
-import {ErrorCategory} from '../../shared/data-access';
+import {ErrorCategory} from '@software-architecture-transition/shared';
 
 @Injectable({
   providedIn: 'root'

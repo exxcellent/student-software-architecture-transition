@@ -14,11 +14,11 @@ import * as fromRoute from './data-access/waypoint/state/route/route.reducer';
 import {EffectsModule} from '@ngrx/effects';
 import {RouteEffects} from './data-access/waypoint/state/route';
 import {SharedUiComponentsModule} from '../shared-ui-components';
-import {SharedModule} from '../shared/shared.module';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {NavigationWaypointDetailsComponent} from './dialogs/navigation-waypoint-details/navigation-waypoint-details.component';
-import {LocalDatePipe} from '../shared/pipes';
 import {TranslateModule} from '@ngx-translate/core';
+import {LocalDatePipe, SharedModule} from '@software-architecture-transition/shared';
+
 
 @NgModule({
   declarations: [

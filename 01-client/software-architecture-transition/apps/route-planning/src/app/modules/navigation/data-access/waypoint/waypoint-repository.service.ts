@@ -4,7 +4,7 @@ import {Route} from '../../model/route';
 import {WaypointConnectorService} from './connector/waypoint-connector.service';
 import {Observable} from 'rxjs';
 import {filter, flatMap, map} from 'rxjs/operators';
-import {toISODateString} from '../../../shared/functions';
+import {toISODateString} from '@software-architecture-transition/shared';
 import {actions, RoutesState, selectors} from './state/route';
 import {Waypoint} from '../../model/waypoint';
 import {WaypointStatus} from '../../model/waypoint-status.enum';

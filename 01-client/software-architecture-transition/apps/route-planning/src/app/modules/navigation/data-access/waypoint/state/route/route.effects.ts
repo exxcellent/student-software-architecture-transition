@@ -4,7 +4,7 @@ import {catchError, concatMap, filter, flatMap, map, withLatestFrom} from 'rxjs/
 import {of} from 'rxjs';
 
 import {actions} from './route.actions';
-import {AuthenticationRepositoryService} from '../../../../../user/data-access/authentication/authentication-repository.service';
+import {AuthenticationRepositoryService} from '@software-architecture-transition/shared';
 import {WaypointConnectorService} from '../../connector/waypoint-connector.service';
 import {RoutesState} from './route.reducer';
 import {Store} from '@ngrx/store';

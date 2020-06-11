@@ -1,7 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthenticationRepositoryService} from '../../data-access/authentication/authentication-repository.service';
-import {UserCredentials} from '../../model/user-credentials';
-import {log} from '../../../shared/functions';
+import {AuthenticationRepositoryService, log, UserCredentials} from '@software-architecture-transition/shared';
 
 @Component({
   selector: 'r-login-button',

@@ -1,8 +1,13 @@
 import {createReducer, on} from '@ngrx/store';
 import {actions} from './route.actions';
 import {Route} from '../../../../model/route';
-import {modifyDay, today, toISODateString} from '../../../../../shared/functions';
-import {ConnectionErrorState, ErrorCategory} from '../../../../../shared/data-access';
+import {
+  ConnectionErrorState,
+  ErrorCategory,
+  modifyDay,
+  today,
+  toISODateString
+} from '@software-architecture-transition/shared';
 import {Waypoint} from '../../../../model/waypoint';
 
 export const routeFeatureKey = 'route';

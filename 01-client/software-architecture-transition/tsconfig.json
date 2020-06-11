@@ -15,7 +15,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@software-architecture-transition/shared": ["libs/shared/src/index.ts"],
+      "@software-architecture-transition/environments": ["apps/route-planning/src/environments/index.ts"]
+    }
   },
   "include": ["**/*.d.ts"],
   "exclude": ["node_modules", "tmp"]

@@ -6,7 +6,7 @@ import {Waypoint} from '../../model/waypoint';
 import {WaypointWithIcon} from './types/waypoint-with-icon.interface';
 import {WAYPOINT_ICONS} from '../waypoint-icons';
 import {filter, map} from 'rxjs/operators';
-import {toISODateString} from '../../../shared/functions';
+import {toISODateString} from '@software-architecture-transition/shared';
 import {WaypointStatus} from '../../model/waypoint-status.enum';
 import {ActivatedRoute, Router} from '@angular/router';
 

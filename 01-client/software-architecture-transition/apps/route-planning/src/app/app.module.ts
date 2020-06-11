@@ -10,14 +10,11 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {environment} from '../environments/environment';
 import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
-import {SharedModule} from './modules/shared/shared.module';
 import {HTTP_INTERCEPTORS, HttpClient} from '@angular/common/http';
-import {JwtInterceptor} from './modules/shared/data-access/interceptors/jwt-interceptor.service';
 import {UserModule} from './modules/user/user.module';
-import * as fromApp from './data-access/app/state/app/app.reducer';
-import {AuthGuard} from './guards/auth.guard';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {AuthGuard, JwtInterceptor, SharedModule} from '@software-architecture-transition/shared';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -47,7 +44,6 @@ export function createTranslateLoader(http: HttpClient) {
     SharedModule.forRoot(),
 
     StoreModule.forRoot({}),
-    StoreModule.forFeature(fromApp.appFeatureKey, fromApp.reducer),
 
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([]),

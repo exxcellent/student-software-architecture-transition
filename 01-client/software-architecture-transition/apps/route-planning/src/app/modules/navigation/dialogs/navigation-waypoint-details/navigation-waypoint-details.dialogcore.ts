@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {WaypointRepositoryService} from '../../data-access/waypoint/waypoint-repository.service';
 import {filter, flatMap, map} from 'rxjs/operators';
-import {toISODateString} from '../../../shared/functions';
+import {toISODateString} from '@software-architecture-transition/shared';
 import {Route} from '../../model/route';
 import {Waypoint} from '../../model/waypoint';
 import {ActivatedRoute, ParamMap} from '@angular/router';

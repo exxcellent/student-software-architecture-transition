@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {today} from '../../../shared/functions';
+import {today} from '@software-architecture-transition/shared';
 import {WaypointRepositoryService} from '../../data-access/waypoint/waypoint-repository.service';
 import {Observable} from 'rxjs';
 

@@ -77,6 +77,33 @@ app
 └ styles.css
 ```
 
+
+```
+apps
+├ route-planning                                 <-- Anwendung mit Querschnittsfunktionen und der Präsentationsschicht
+│ ├ src
+│ │ ├ app
+│ │ │ ├ modules
+│ │ │ │ ├ navigation                             <-- fachliches Modul
+│ │ │ │ │ ├ pages
+│ │ │ │ │ ├ navigation                           <-- Einstiegspunkt aus Präsentationssicht
+│ │ │ │ │ │ └ navigation.page.ts                     enthält Dialoge und UI-Komponenten
+│ │ │ │ │ ├ dialogs
+│ │ │ │ │ │ ├ navigation-day-selector            <-- in den Dialogen nur die Präsentationsschicht
+│ │ │ │ │ │ │ ├ navigation-day-selector.component.css
+│ │ │ │ │ │ │ ├ navigation-day-selector.component.html
+│ │ │ │ │ │ │ └ navigation-day-selector.component.ts
+│ │ │ │ │ │ ├ navigation-map
+│ │ │ │ │ │ ├ navigation-waypoint-details
+│ │ │ │ │ │ ├ navigation-waypoints
+│ │ │ │ │ └ ui-components
+libs
+
+
+├ index.html                                <-- Einstiegspunkt für die Web-App
+└ styles.css
+```
+
 ## Setup
 
 Das Client-Projekt wurde mit [Nx](https://nx.dev) generiert. 

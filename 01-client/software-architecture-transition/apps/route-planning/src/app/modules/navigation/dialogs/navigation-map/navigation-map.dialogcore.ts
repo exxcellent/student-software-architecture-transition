@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {exists, logWarn} from '../../../shared/functions';
+import {exists, logWarn} from '@software-architecture-transition/shared';
 // @ts-ignore
 import {LatLngBoundsLiteral, LatLngLiteral} from '@agm/core';
 import {Waypoint} from '../../model/waypoint';

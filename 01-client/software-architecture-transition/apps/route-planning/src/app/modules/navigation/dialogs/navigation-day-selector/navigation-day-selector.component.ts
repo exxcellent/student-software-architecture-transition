@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NavigationDaySelectorDiaglogCore} from './navigation-day-selector.dialogcore';
-import {equalDate, today, tomorrow, yesterday} from '../../../shared/functions';
+import {equalDate, today, tomorrow, yesterday} from '@software-architecture-transition/shared';
 
 @Component({
   selector: 'nav-navigation-day-selector',

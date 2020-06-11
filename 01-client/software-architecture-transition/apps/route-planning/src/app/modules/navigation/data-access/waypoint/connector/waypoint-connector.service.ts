@@ -1,5 +1,13 @@
 import {Injectable} from '@angular/core';
-import {ConnectionError, DataProviderService, RestClient, UriBuilder} from '../../../../shared/data-access';
+import {
+  AppState,
+  appStateActions,
+  ConnectionError,
+  DataProviderService,
+  exists,
+  RestClient,
+  UriBuilder
+} from '@software-architecture-transition/shared';
 import {Route} from '../../../model/route';
 import {RouteCTO} from '../types/route.cto';
 import {
@@ -10,11 +18,9 @@ import {
 } from '../mapper/route.mapper';
 import {Observable, throwError} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
-import {actions, AppState} from '../../../../../data-access/app/state/app';
 import {Store} from '@ngrx/store';
 import {Waypoint} from '../../../model/waypoint';
 import {WaypointTO} from '../types/waypoint.to';
-import {exists} from '../../../../shared/functions';
 import {UpdatedWaypointsTO} from '../types/updated-waypoints.to';
 
 @Injectable({
@@ -36,7 +42,7 @@ export class WaypointConnectorService extends DataProviderService{
         return fromResponse(response);
     }),
       catchError((error: ConnectionError) => {
-        this.appStore.dispatch(actions.showNotification({data: error.asNotification }));
+        this.appStore.dispatch(appStateActions.showNotification({data: error.asNotification }));
 
         return throwError(error)
       }));
@@ -49,7 +55,7 @@ export class WaypointConnectorService extends DataProviderService{
           return fromWaypointResponse(response);
         }),
         catchError((error: ConnectionError) => {
-          this.appStore.dispatch(actions.showNotification({data: error.asNotification }));
+          this.appStore.dispatch(appStateActions.showNotification({data: error.asNotification }));
 
           return throwError(error)
         }));
@@ -62,7 +68,7 @@ export class WaypointConnectorService extends DataProviderService{
           return fromUpdatedWaypointResponse(response);
         }),
         catchError((error: ConnectionError) => {
-          this.appStore.dispatch(actions.showNotification({data: error.asNotification }));
+          this.appStore.dispatch(appStateActions.showNotification({data: error.asNotification }));
 
           return throwError(error)
         }));
@@ -75,7 +81,7 @@ export class WaypointConnectorService extends DataProviderService{
           return fromUpdatedWaypointResponse(response);
         }),
         catchError((error: ConnectionError) => {
-          this.appStore.dispatch(actions.showNotification({data: error.asNotification }));
+          this.appStore.dispatch(appStateActions.showNotification({data: error.asNotification }));
 
           return throwError(error)
         }));
