@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {NavigationMapDialogCore} from './navigation-map.dialogcore';
-import {Waypoint} from '../../model/waypoint';
+import {NavigationMapDialogCore, Waypoint} from '@software-architecture-transition/dialog-core';
 
 // @ts-ignore
 

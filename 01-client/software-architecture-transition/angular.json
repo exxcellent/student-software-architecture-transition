@@ -209,6 +209,34 @@
         }
       },
       "schematics": {}
+    },
+    "dialog-core": {
+      "projectType": "library",
+      "root": "libs/dialog-core",
+      "sourceRoot": "libs/dialog-core/src",
+      "prefix": "software-architecture-transition",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/dialog-core/tsconfig.lib.json",
+              "libs/dialog-core/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/dialog-core/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/dialog-core/jest.config.js",
+            "tsConfig": "libs/dialog-core/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/dialog-core/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "cli": {

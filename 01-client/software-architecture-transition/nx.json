@@ -27,6 +27,9 @@
     },
     "shared-ui-components": {
       "tags": []
+    },
+    "dialog-core": {
+      "tags": []
     }
   }
 }

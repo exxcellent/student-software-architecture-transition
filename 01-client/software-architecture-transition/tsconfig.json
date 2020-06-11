@@ -22,6 +22,12 @@
       ],
       "@software-architecture-transition/shared-ui-components": [
         "libs/shared-ui-components/src/index.ts"
+      ],
+      "@software-architecture-transition/dialog-core": [
+        "libs/dialog-core/src/index.ts"
+      ],
+      "@software-architecture-transition/dialog-core/navigation": [
+        "libs/dialog-core/src/lib/modules/navigation/index.ts"
       ]
     }
   },

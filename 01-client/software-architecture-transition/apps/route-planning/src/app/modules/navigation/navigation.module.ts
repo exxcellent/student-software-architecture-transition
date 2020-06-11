@@ -5,19 +5,15 @@ import {NavigationPage} from './pages';
 import {RouterModule} from '@angular/router';
 import {NavigationMapComponent} from './dialogs/navigation-map/navigation-map.component';
 import {NavigationWaypointsComponent} from './dialogs/navigation-waypoints/navigation-waypoints.component';
-import {NavigationGuard} from './guards/navigation.guard';
 import {AgmCoreModule} from '@agm/core';
 import {environment} from '@software-architecture-transition/environments';
 import {NavigationDaySelectorComponent} from './dialogs/navigation-day-selector/navigation-day-selector.component';
-import {StoreModule} from '@ngrx/store';
-import * as fromRoute from './data-access/waypoint/state/route/route.reducer';
-import {EffectsModule} from '@ngrx/effects';
-import {RouteEffects} from './data-access/waypoint/state/route';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {NavigationWaypointDetailsComponent} from './dialogs/navigation-waypoint-details/navigation-waypoint-details.component';
 import {TranslateModule} from '@ngx-translate/core';
 import {LocalDatePipe, SharedModule} from '@software-architecture-transition/shared';
-import {SharedUiComponentsModule} from '../../../../../../libs/shared-ui-components/src/lib';
+import {NavigationDialogCoreModule, NavigationGuard} from '@software-architecture-transition/dialog-core';
+import {SharedUiComponentsModule} from '@software-architecture-transition/shared-ui-components';
 
 
 @NgModule({
@@ -36,6 +32,7 @@ import {SharedUiComponentsModule} from '../../../../../../libs/shared-ui-compone
   imports: [
     CommonModule,
     TranslateModule,
+    NavigationDialogCoreModule.forRoot(),
     RouterModule.forChild([
       {
         path: '', component: NavigationPage,
@@ -63,8 +60,6 @@ import {SharedUiComponentsModule} from '../../../../../../libs/shared-ui-compone
       apiKey: environment.googleMapsApiKey,
       libraries: ['geometry']
     }),
-    StoreModule.forFeature(fromRoute.routeFeatureKey, fromRoute.reducer),
-    EffectsModule.forFeature([RouteEffects]),
     SharedUiComponentsModule.forChild(),
     SharedModule.forChild()
   ]
