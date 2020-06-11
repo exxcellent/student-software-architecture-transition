@@ -11,7 +11,7 @@ import {
 } from './layout';
 import {PageComponent} from './layout/page/page.component';
 import {FadeInAnimationComponent, RotateAnimationComponent} from './animations';
-import {ButtonComponent} from './form-controls';
+import {ButtonComponent, LoginButtonComponent} from './form-controls';
 
 @NgModule({
   declarations: [
@@ -26,6 +26,7 @@ import {ButtonComponent} from './form-controls';
     PageComponent,
     RowLayoutComponent,
     ButtonComponent,
+    LoginButtonComponent
   ],
   imports: [
     CommonModule
@@ -45,7 +46,8 @@ import {ButtonComponent} from './form-controls';
     PageComponent,
     RowLayoutComponent,
     // form controls
-    ButtonComponent
+    ButtonComponent,
+    LoginButtonComponent
   ]
 })
 export class SharedUiComponentsModule {

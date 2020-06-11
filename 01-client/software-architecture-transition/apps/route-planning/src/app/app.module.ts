@@ -10,7 +10,6 @@ import {environment} from '../environments/environment';
 import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
 import {HTTP_INTERCEPTORS, HttpClient} from '@angular/common/http';
-import {UserModule} from './modules/user/user.module';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {AuthGuard, JwtInterceptor, SharedModule} from '@software-architecture-transition/shared';
@@ -39,7 +38,6 @@ export function createTranslateLoader(http: HttpClient) {
       },
     ], {}), // TODO {initialNavigation: 'enabled', enableTracing: false }),
 
-    UserModule.forRoot(),
     SharedUiComponentsModule.forRoot({useTheme: LIGHT_BLUE}),
     SharedModule.forRoot(),
 
