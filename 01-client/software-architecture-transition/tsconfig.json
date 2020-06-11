@@ -17,7 +17,12 @@
     "baseUrl": ".",
     "paths": {
       "@software-architecture-transition/shared": ["libs/shared/src/index.ts"],
-      "@software-architecture-transition/environments": ["apps/route-planning/src/environments/index.ts"]
+      "@software-architecture-transition/environments": [
+        "apps/route-planning/src/environments/index.ts"
+      ],
+      "@software-architecture-transition/shared-ui-components": [
+        "libs/shared-ui-components/src/index.ts"
+      ]
     }
   },
   "include": ["**/*.d.ts"],

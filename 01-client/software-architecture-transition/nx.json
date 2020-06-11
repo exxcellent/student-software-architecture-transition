@@ -24,6 +24,9 @@
     },
     "shared": {
       "tags": []
+    },
+    "shared-ui-components": {
+      "tags": []
     }
   }
 }

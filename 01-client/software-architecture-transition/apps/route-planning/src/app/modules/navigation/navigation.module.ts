@@ -7,17 +7,17 @@ import {NavigationMapComponent} from './dialogs/navigation-map/navigation-map.co
 import {NavigationWaypointsComponent} from './dialogs/navigation-waypoints/navigation-waypoints.component';
 import {NavigationGuard} from './guards/navigation.guard';
 import {AgmCoreModule} from '@agm/core';
-import {environment} from '../../../environments/environment';
+import {environment} from '@software-architecture-transition/environments';
 import {NavigationDaySelectorComponent} from './dialogs/navigation-day-selector/navigation-day-selector.component';
 import {StoreModule} from '@ngrx/store';
 import * as fromRoute from './data-access/waypoint/state/route/route.reducer';
 import {EffectsModule} from '@ngrx/effects';
 import {RouteEffects} from './data-access/waypoint/state/route';
-import {SharedUiComponentsModule} from '../shared-ui-components';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {NavigationWaypointDetailsComponent} from './dialogs/navigation-waypoint-details/navigation-waypoint-details.component';
 import {TranslateModule} from '@ngx-translate/core';
 import {LocalDatePipe, SharedModule} from '@software-architecture-transition/shared';
+import {SharedUiComponentsModule} from '../../../../../../libs/shared-ui-components/src/lib';
 
 
 @NgModule({

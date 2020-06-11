@@ -3,7 +3,6 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {RouterModule} from '@angular/router';
-import {LIGHT_BLUE, SharedUiComponentsModule} from './modules/shared-ui-components';
 import {HeaderComponent} from './layout';
 import {FormsModule} from '@angular/forms';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
@@ -15,6 +14,7 @@ import {UserModule} from './modules/user/user.module';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {AuthGuard, JwtInterceptor, SharedModule} from '@software-architecture-transition/shared';
+import {LIGHT_BLUE, SharedUiComponentsModule} from '@software-architecture-transition/shared-ui-components';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');

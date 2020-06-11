@@ -1,7 +1,7 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {LoginButtonComponent} from './ui-components/login-button/login-button.component';
-import {SharedUiComponentsModule} from '../shared-ui-components';
+import {SharedUiComponentsModule} from '@software-architecture-transition/shared-ui-components';
 
 
 @NgModule({
