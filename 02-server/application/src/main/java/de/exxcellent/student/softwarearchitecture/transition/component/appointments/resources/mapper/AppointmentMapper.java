@@ -2,7 +2,7 @@ package de.exxcellent.student.softwarearchitecture.transition.component.appointm
 
 import de.exxcellent.student.softwarearchitecture.transition.component.appointments.resources.types.AppointmentTO;
 import de.exxcellent.student.softwarearchitecture.transition.component.appointments.resources.types.AppointmentsCTO;
-import de.exxcellent.student.softwarearchitecture.transition.component.appointment.api.types.AppointmentDO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.appointment.api.types.AppointmentDO;
 
 import java.time.LocalDate;
 import java.time.LocalTime;

@@ -1,15 +1,15 @@
 package de.exxcellent.student.softwarearchitecture.transition.application.springconfiguration.security;
 
-import java.util.stream.Collectors;
-
 import de.exxcellent.student.softwarearchitecture.transition.application.springconfiguration.security.types.UserPermission;
-import de.exxcellent.student.softwarearchitecture.transition.component.user.api.UserComponent;
+import de.exxcellent.student.softwarearchitecture.transition.planning.user.api.UserComponent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
+import java.util.stream.Collectors;
 
 @Service
 public class JwtUserDetailsService implements UserDetailsService {

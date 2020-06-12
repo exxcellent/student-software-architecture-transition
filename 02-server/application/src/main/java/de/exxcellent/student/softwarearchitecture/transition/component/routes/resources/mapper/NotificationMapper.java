@@ -3,7 +3,7 @@ package de.exxcellent.student.softwarearchitecture.transition.component.routes.r
 import de.exxcellent.student.softwarearchitecture.transition.component.routes.resources.types.notification.NotificationChannel;
 import de.exxcellent.student.softwarearchitecture.transition.component.routes.resources.types.notification.NotificationTO;
 import de.exxcellent.student.softwarearchitecture.transition.component.routes.resources.types.notification.NotificationsCTO;
-import de.exxcellent.student.softwarearchitecture.transition.component.route.api.types.notification.NotificationDO;
+import de.exxcellent.student.softwarearchitecture.transition.navigation.route.api.types.notification.NotificationDO;
 
 import java.time.Duration;
 import java.time.Instant;
@@ -57,7 +57,7 @@ public final class NotificationMapper {
   };
 
 
-  private static final Function<de.exxcellent.student.softwarearchitecture.transition.component.route.api.types.notification.NotificationChannel,
+  private static final Function<de.exxcellent.student.softwarearchitecture.transition.navigation.route.api.types.notification.NotificationChannel,
       NotificationChannel>
       toChannel = channel -> {
     switch (channel) {
@@ -70,15 +70,15 @@ public final class NotificationMapper {
     }
   };
 
-  private static final Function<NotificationChannel, de.exxcellent.student.softwarearchitecture.transition.component.route.api.types.notification.NotificationChannel>
+  private static final Function<NotificationChannel, de.exxcellent.student.softwarearchitecture.transition.navigation.route.api.types.notification.NotificationChannel>
       fromChannel = channel -> {
     switch (channel) {
-      case SMS: return de.exxcellent.student.softwarearchitecture.transition.component.route.api.types.notification.NotificationChannel.SMS;
-      case PHONE: return de.exxcellent.student.softwarearchitecture.transition.component.route.api.types.notification.NotificationChannel.PHONE;
-      case EMAIL: return de.exxcellent.student.softwarearchitecture.transition.component.route.api.types.notification.NotificationChannel.EMAIL;
+      case SMS: return de.exxcellent.student.softwarearchitecture.transition.navigation.route.api.types.notification.NotificationChannel.SMS;
+      case PHONE: return de.exxcellent.student.softwarearchitecture.transition.navigation.route.api.types.notification.NotificationChannel.PHONE;
+      case EMAIL: return de.exxcellent.student.softwarearchitecture.transition.navigation.route.api.types.notification.NotificationChannel.EMAIL;
       case AUTOMATIC:
       default:
-        return de.exxcellent.student.softwarearchitecture.transition.component.route.api.types.notification.NotificationChannel.AUTOMATIC;
+        return de.exxcellent.student.softwarearchitecture.transition.navigation.route.api.types.notification.NotificationChannel.AUTOMATIC;
     }
   };
 }

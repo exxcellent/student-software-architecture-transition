@@ -1,6 +1,6 @@
 package de.exxcellent.student.softwarearchitecture.transition.application.springconfiguration.permissions;
 
-import de.exxcellent.student.softwarearchitecture.transition.component.user.api.types.Permission;
+import de.exxcellent.student.softwarearchitecture.transition.planning.user.api.types.Permission;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -1,7 +1,5 @@
 package de.exxcellent.student.softwarearchitecture.transition.component.routes.resources;
 
-import de.exxcellent.student.softwarearchitecture.transition.component.user.resources.CurrentUser;
-import de.exxcellent.student.softwarearchitecture.transition.resources.common.validation.ResponseCondition;
 import de.exxcellent.student.softwarearchitecture.transition.component.routes.resources.mapper.NotificationMapper;
 import de.exxcellent.student.softwarearchitecture.transition.component.routes.resources.mapper.RouteMapper;
 import de.exxcellent.student.softwarearchitecture.transition.component.routes.resources.types.notification.NotificationTO;
@@ -10,8 +8,10 @@ import de.exxcellent.student.softwarearchitecture.transition.component.routes.re
 import de.exxcellent.student.softwarearchitecture.transition.component.routes.resources.types.route.RouteCalculation;
 import de.exxcellent.student.softwarearchitecture.transition.component.routes.resources.types.route.RouteWaypointTO;
 import de.exxcellent.student.softwarearchitecture.transition.component.routes.resources.types.route.RoutesCTO;
-import de.exxcellent.student.softwarearchitecture.transition.component.route.api.NotificationComponent;
-import de.exxcellent.student.softwarearchitecture.transition.component.route.api.RouteComponent;
+import de.exxcellent.student.softwarearchitecture.transition.navigation.route.api.NotificationComponent;
+import de.exxcellent.student.softwarearchitecture.transition.navigation.route.api.RouteComponent;
+import de.exxcellent.student.softwarearchitecture.transition.planning.user.resources.CurrentUser;
+import de.exxcellent.student.softwarearchitecture.transition.resources.common.validation.ResponseCondition;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeIn;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;

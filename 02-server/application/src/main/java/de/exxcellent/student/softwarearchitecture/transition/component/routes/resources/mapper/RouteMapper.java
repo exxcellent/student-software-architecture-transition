@@ -1,7 +1,7 @@
 package de.exxcellent.student.softwarearchitecture.transition.component.routes.resources.mapper;
 
 import de.exxcellent.student.softwarearchitecture.transition.component.routes.resources.types.route.*;
-import de.exxcellent.student.softwarearchitecture.transition.component.route.api.types.route.*;
+import de.exxcellent.student.softwarearchitecture.transition.navigation.route.api.types.route.*;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

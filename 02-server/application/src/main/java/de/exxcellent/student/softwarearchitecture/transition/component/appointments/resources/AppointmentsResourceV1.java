@@ -3,10 +3,10 @@ package de.exxcellent.student.softwarearchitecture.transition.component.appointm
 import de.exxcellent.student.softwarearchitecture.transition.component.appointments.resources.mapper.AppointmentMapper;
 import de.exxcellent.student.softwarearchitecture.transition.component.appointments.resources.types.AppointmentTO;
 import de.exxcellent.student.softwarearchitecture.transition.component.appointments.resources.types.AppointmentsCTO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.appointment.api.AppointmentComponent;
+import de.exxcellent.student.softwarearchitecture.transition.planning.user.resources.CurrentUser;
 import de.exxcellent.student.softwarearchitecture.transition.resources.common.BusinessResource;
 import de.exxcellent.student.softwarearchitecture.transition.resources.common.SecuredResource;
-import de.exxcellent.student.softwarearchitecture.transition.component.user.resources.CurrentUser;
-import de.exxcellent.student.softwarearchitecture.transition.component.appointment.api.AppointmentComponent;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;

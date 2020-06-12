@@ -2,7 +2,7 @@ package de.exxcellent.student.softwarearchitecture.transition.component.location
 
 import de.exxcellent.student.softwarearchitecture.transition.component.locations.resources.types.LocationTO;
 import de.exxcellent.student.softwarearchitecture.transition.component.locations.resources.types.LocationsCTO;
-import de.exxcellent.student.softwarearchitecture.transition.component.location.api.types.LocationDO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.location.api.types.LocationDO;
 
 import java.util.List;
 import java.util.function.Function;

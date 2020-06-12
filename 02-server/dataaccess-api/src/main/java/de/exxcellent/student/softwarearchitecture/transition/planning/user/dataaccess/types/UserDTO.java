@@ -1,0 +1,34 @@
+package de.exxcellent.student.softwarearchitecture.transition.planning.user.dataaccess.types;
+
+import de.exxcellent.student.softwarearchitecture.transition.common.dataaccess.CommonDTO;
+
+/**
+ * TODO [AL]: Add class documentation
+ *
+ * @author Andre Lehnert, eXXcellent solutions consulting and software gmbh
+ */
+public class UserDTO extends CommonDTO {
+
+  private String name;
+
+  private String password;
+
+  public UserDTO() {
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+}

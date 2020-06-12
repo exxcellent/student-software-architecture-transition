@@ -2,10 +2,10 @@ package de.exxcellent.student.softwarearchitecture.transition.component.contacts
 
 import de.exxcellent.student.softwarearchitecture.transition.component.contacts.resources.types.ContactTO;
 import de.exxcellent.student.softwarearchitecture.transition.component.contacts.resources.types.ContactsCTO;
-import de.exxcellent.student.softwarearchitecture.transition.component.contact.api.types.ContactDO;
+import de.exxcellent.student.softwarearchitecture.transition.planning.contact.api.types.ContactDO;
 
-import java.util.function.Function;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
