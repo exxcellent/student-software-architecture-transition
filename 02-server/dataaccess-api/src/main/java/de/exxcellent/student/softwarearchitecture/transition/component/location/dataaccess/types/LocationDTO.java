@@ -1,11 +1,6 @@
 package de.exxcellent.student.softwarearchitecture.transition.component.location.dataaccess.types;
 
 import de.exxcellent.student.softwarearchitecture.transition.common.dataaccess.CommonDTO;
-import de.exxcellent.student.softwarearchitecture.transition.common.entities.CommonEntity;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
 
 /**
  * TODO [AL]: Add class documentation

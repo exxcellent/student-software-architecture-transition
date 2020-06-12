@@ -1,9 +1,6 @@
 package de.exxcellent.student.softwarearchitecture.transition.component.process.dataaccess.types;
 
 import de.exxcellent.student.softwarearchitecture.transition.common.dataaccess.CommonDTO;
-import de.exxcellent.student.softwarearchitecture.transition.common.entities.CommonEntity;
-
-import javax.persistence.*;
 
 /**
  * TODO [AL]: Add class documentation

@@ -31,7 +31,8 @@
         <module>./access</module>
 		<module>./dataaccess</module>
 		<module>common</module>
-	</modules>
+        <module>dataaccess-api</module>
+    </modules>
 
 	<dependencyManagement>
 		<dependencies>
