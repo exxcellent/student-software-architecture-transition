@@ -111,7 +111,6 @@
                 }
               ]
             }
-
           }
         },
         "serve": {
@@ -154,6 +153,146 @@
           }
         }
       }
+    },
+    "shared": {
+      "projectType": "library",
+      "root": "libs/shared",
+      "sourceRoot": "libs/shared/src",
+      "prefix": "software-architecture-transition",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/tsconfig.lib.json",
+              "libs/shared/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/shared/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/jest.config.js",
+            "tsConfig": "libs/shared/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/shared/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "shared-ui-components": {
+      "projectType": "library",
+      "root": "libs/shared-ui-components",
+      "sourceRoot": "libs/shared-ui-components/src",
+      "prefix": "software-architecture-transition",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared-ui-components/tsconfig.lib.json",
+              "libs/shared-ui-components/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/shared-ui-components/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared-ui-components/jest.config.js",
+            "tsConfig": "libs/shared-ui-components/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/shared-ui-components/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "dialog-core": {
+      "projectType": "library",
+      "root": "libs/dialog-core",
+      "sourceRoot": "libs/dialog-core/src",
+      "prefix": "software-architecture-transition",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/dialog-core/tsconfig.lib.json",
+              "libs/dialog-core/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/dialog-core/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/dialog-core/jest.config.js",
+            "tsConfig": "libs/dialog-core/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/dialog-core/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "data-access": {
+      "projectType": "library",
+      "root": "libs/data-access",
+      "sourceRoot": "libs/data-access/src",
+      "prefix": "software-architecture-transition",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/data-access/tsconfig.lib.json",
+              "libs/data-access/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/data-access/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/data-access/jest.config.js",
+            "tsConfig": "libs/data-access/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/data-access/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "model": {
+      "projectType": "library",
+      "root": "libs/model",
+      "sourceRoot": "libs/model/src",
+      "prefix": "software-architecture-transition",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/model/tsconfig.lib.json",
+              "libs/model/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/model/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/model/jest.config.js",
+            "tsConfig": "libs/model/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/model/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "cli": {
