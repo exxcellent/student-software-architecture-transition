@@ -26,7 +26,7 @@
 
     <dependency>
       <groupId>de.exxcellent.student.softwarearchitecture.transition</groupId>
-      <artifactId>application</artifactId>
+      <artifactId>infrastructure-application</artifactId>
       <version>${project.version}</version>
     </dependency>
 
