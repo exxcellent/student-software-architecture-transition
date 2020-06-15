@@ -6,3 +6,4 @@ export * from './dialogs/navigation-waypoint-details/navigation-waypoint-details
 export * from './dialogs/navigation-waypoints/navigation-waypoints.dialogcore';
 export * from './dialogs/navigation-waypoints/types/waypoint-with-icon.interface';
 export * from './guards/navigation.guard';
+export * from './ui-components/tab-bar/tab-bar.dialogcore';

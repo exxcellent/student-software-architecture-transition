@@ -1,10 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, ParamMap, Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {CommonComponent} from '@software-architecture-transition/shared-ui-components';
-import {toISODateString} from '@software-architecture-transition/shared';
-import {filter, flatMap, map} from 'rxjs/operators';
-import {Route, Waypoint, WaypointStatus} from '@software-architecture-transition/model/navigation';
-import {WaypointRepositoryService} from '@software-architecture-transition/data-access/navigation';
+import {TabBarDialogCore} from '@software-architecture-transition/dialog-core/navigation';
 
 @Component({
   selector: 'nav-tab-bar',
@@ -17,7 +14,7 @@ import {WaypointRepositoryService} from '@software-architecture-transition/data-
          [queryParams]="currentQueryParams()">
         <i class="material-icons">list</i>
       </a>
-      <a [routerLink]="'/navigation/details/' + currentWaypointId"
+      <a [routerLink]="'/navigation/details/' + activeWaypointId"
          routerLinkActive="active"
          class="tab"
          [queryParams]="currentQueryParams()">
@@ -66,34 +63,16 @@ import {WaypointRepositoryService} from '@software-architecture-transition/data-
 })
 export class TabBarComponent extends CommonComponent implements OnInit {
 
-  private pathWaypointId: number;
-  private activeWaypointId: number;
+  activeWaypointId: number;
 
-  constructor(private router: Router, private route: ActivatedRoute, private waypointRepository: WaypointRepositoryService) {
+  constructor(private route: ActivatedRoute, private dialogCore: TabBarDialogCore) {
     super(route);
   }
 
   ngOnInit(): void {
-    this.route.paramMap.pipe(
-      filter((paramMap: ParamMap) => paramMap.has('waypointId')),
-      map((paramMap: ParamMap) => paramMap.get('waypointId')),
-      map((waypointId: string) => Number.parseInt(waypointId, 10))
-    ).subscribe((waypointId: number) => this.pathWaypointId = waypointId);
 
-    this.waypointRepository.currentDay$.subscribe((currentDay: Date) => {
-      this.waypointRepository.routes$.pipe(
-        map(routes => routes[toISODateString(currentDay)]?.myRoute),
-        filter((route) => !!route),
-        map((route: Route) => route.waypoints),
-        flatMap((waypoint) => waypoint),
-        filter((waypoint: Waypoint) => waypoint.status === WaypointStatus.ACTIVE)
-      ).subscribe(waypoint => {
-        this.activeWaypointId = waypoint.waypointId;
-      })
-    });
-  }
-
-  get currentWaypointId(): number {
-    return this.activeWaypointId;
+    this.dialogCore.activeWaypointId$.subscribe(waypointId => {
+        this.activeWaypointId = waypointId;
+      });
   }
 }
