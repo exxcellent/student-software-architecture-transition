@@ -37,7 +37,6 @@ Resource Component:
     └ <componentName>sResourceV1.java
 
 
-
 Business Logic Component:
 
 <componentPath> 
