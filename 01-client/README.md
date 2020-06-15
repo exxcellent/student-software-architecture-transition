@@ -77,6 +77,20 @@ app
 └ styles.css
 ```
 
+### step-1/strict-layer-architecture
+
+Die Applikation wurde in ihre Schichten geteilt. 
+Die ehemalige route-planning App enthält nur noch die Präsentationsschicht und 
+den Angular Grundaufbau.
+
+Die Dialogkern- und Datenzugriffsschicht sind in sog. Libraries ausgelagert und 
+können gesondert per NPM bereitgestellt werden.
+
+Die Querschnittsthemen wurden in shared-Code ausgelagert.
+
+Siehe https://nx.dev/angular/tutorial/08-create-libs und https://angular.io/guide/libraries
+
+_Hinweis: Die Domäne "Navigation" war bereits in dem Referenzprojekt sichtbar._ 
 
 ```
 apps
@@ -84,7 +98,7 @@ apps
 │ ├ src
 │ │ ├ app
 │ │ │ ├ modules
-│ │ │ │ ├ navigation                             <-- fachliches Modul
+│ │ │ │ ├ navigation                             <-- Domäne/ fachliches Modul
 │ │ │ │ │ ├ pages
 │ │ │ │ │ ├ navigation                           <-- Einstiegspunkt aus Präsentationssicht
 │ │ │ │ │ │ └ navigation.page.ts                     enthält Dialoge und UI-Komponenten
@@ -98,11 +112,90 @@ apps
 │ │ │ │ │ │ ├ navigation-waypoints
 │ │ │ │ │ └ ui-components
 libs
-
-
-├ index.html                                <-- Einstiegspunkt für die Web-App
-└ styles.css
+├ dialog-core
+│ ├ src
+│ │ ├ lib
+│ │ │ ├ modules
+│ │ │ │ ├ navigation                             <-- Dialogkernschicht der Navigation Domäne
+├ data-access
+│ ├ src
+│ │ ├ lib
+│ │ │ ├ modules
+│ │ │ │ ├ navigation                             <-- Datenzugriffsschicht der Navigation Domäne
+├ model
+│ ├ src
+│ │ ├ lib
+│ │ │ ├ modules
+│ │ │ │ ├ navigation                             <-- geteiltes Domänenmodell der Navigation
+├ shared                                         <-- Querschnittscode
+├ shared-ui-components
 ```
+
+#### Validierung der Schichtenarchitektur
+
+Nx unterstützt ein Tagging der Apps und Libraries, 
+sodass per TSLint die Aufrufherarchie der Schichten sichergestellt werden kann:
+
+```
+nx.json
+
+...
+"projects": {
+    "route-planning": {
+      "tags": ["application"]     <-- Definition der Schichten-Tags
+    },
+    "shared": {
+      "tags": ["common"]
+    },
+    "shared-ui-components": {
+      "tags": ["common"]
+    },
+    "dialog-core": {
+      "tags": ["dialog-core"]
+    },
+    "data-access": {
+      "tags": ["data-access"]
+    },
+    "model": {
+      "tags": ["model"]
+    }
+  }
+
+
+tslint.json
+
+...
+"nx-enforce-module-boundaries": [
+      true,
+      {
+        "enforceBuildableLibDependency": true,
+        "allow": [],
+        "depConstraints": [
+          {
+            "sourceTag": "application",
+            "onlyDependOnLibsWithTags": ["dialog-core", "model", "common", "application"]
+          },
+          {
+            "sourceTag": "dialog-core",
+            "onlyDependOnLibsWithTags": ["data-access", "model", "common", "dialog-core"]
+          },
+          {
+            "sourceTag": "data-access",
+            "onlyDependOnLibsWithTags": ["model", "common", "data-access"]
+          },
+          {
+            "sourceTag": "model",
+            "onlyDependOnLibsWithTags": ["common"]
+          },
+          {
+            "sourceTag": "common",
+            "onlyDependOnLibsWithTags": ["common"]
+          }
+        ]
+      }
+    ],
+```
+
 
 ## Setup
 

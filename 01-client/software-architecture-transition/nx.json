@@ -20,22 +20,22 @@
   },
   "projects": {
     "route-planning": {
-      "tags": []
+      "tags": ["application"]
     },
     "shared": {
-      "tags": []
+      "tags": ["common"]
     },
     "shared-ui-components": {
-      "tags": []
+      "tags": ["common"]
     },
     "dialog-core": {
-      "tags": []
+      "tags": ["dialog-core"]
     },
     "data-access": {
-      "tags": []
+      "tags": ["data-access"]
     },
     "model": {
-      "tags": []
+      "tags": ["model"]
     }
   }
 }
