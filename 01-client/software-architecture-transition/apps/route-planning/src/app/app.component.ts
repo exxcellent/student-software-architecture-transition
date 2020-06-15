@@ -1,9 +1,14 @@
 import {Component} from '@angular/core';
 import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterEvent} from '@angular/router';
 import {Store} from '@ngrx/store';
-import {actions, AppState, selectors} from './data-access/app/state/app';
-import {NotificationLevel, NotificationMessage} from './modules/shared/types';
-import {exists} from './modules/shared/functions';
+import {
+  AppState,
+  appStateActions,
+  appStateSelectors,
+  exists,
+  NotificationLevel,
+  NotificationMessage
+} from '@software-architecture-transition/shared';
 
 @Component({
   selector: 'r-root',
@@ -75,11 +80,11 @@ export class AppComponent {
       this.navigationInterceptor(event);
     });
 
-    store.select(selectors.selectPageLoading).subscribe(loading => {
+    store.select(appStateSelectors.selectPageLoading).subscribe(loading => {
       this.loading = loading;
     });
 
-    store.select(selectors.selectNotification).subscribe(notification => {
+    store.select(appStateSelectors.selectNotification).subscribe(notification => {
       this.notification = notification;
     });
   }
@@ -87,18 +92,18 @@ export class AppComponent {
   // Shows and hides the loading spinner during RouterEvent changes
   private navigationInterceptor(event: RouterEvent): void {
     if (event instanceof NavigationStart) {
-      this.store.dispatch(actions.showPageLoading());
+      this.store.dispatch(appStateActions.showPageLoading());
     }
     if (event instanceof NavigationEnd) {
-      this.store.dispatch(actions.hidePageLoading());
+      this.store.dispatch(appStateActions.hidePageLoading());
     }
 
     // Set loading state to false in both of the below events to hide the spinner in case a request fails
     if (event instanceof NavigationCancel) {
-      this.store.dispatch(actions.hidePageLoading());
+      this.store.dispatch(appStateActions.hidePageLoading());
     }
     if (event instanceof NavigationError) {
-      this.store.dispatch(actions.hidePageLoading());
+      this.store.dispatch(appStateActions.hidePageLoading());
     }
   }
 

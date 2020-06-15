@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {CommonComponent} from '../../../shared-ui-components';
 import {ActivatedRoute} from '@angular/router';
+import {CommonComponent} from '@software-architecture-transition/shared-ui-components';
 
 @Component({
   selector: 'nav-navigation-page',
