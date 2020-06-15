@@ -51,7 +51,10 @@ public final class NotificationMapper {
     notificationDO.setWaypointId(notification.getWaypointId());
     notificationDO.setNotificationChannel(NotificationMapper.fromChannel.apply(notification.getChannel()));
     notificationDO.setNotifiedAtUtc(Instant.parse(notification.getNotifiedAt()));
-    notificationDO.setArrivalIn(Duration.of(notification.getArrivalTimeInSeconds(), ChronoUnit.SECONDS));
+
+    if (notification.getArrivalTimeInSeconds() != null) {
+      notificationDO.setArrivalIn(Duration.of(notification.getArrivalTimeInSeconds(), ChronoUnit.SECONDS));
+    }
 
     return notificationDO;
   };
