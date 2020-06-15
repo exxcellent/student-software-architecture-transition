@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {NavigationWaypointsDialogCore} from './navigation-waypoints.dialogcore';
-import {WaypointWithIcon} from './types/waypoint-with-icon.interface';
-import {TruncatePipe} from '../../../shared/pipes';
-import {WaypointCategory} from '../../model/waypoint-category.enum';
+import {NavigationWaypointsDialogCore, WaypointWithIcon} from '@software-architecture-transition/dialog-core';
+import {WaypointCategory, WaypointStatus} from '@software-architecture-transition/model/navigation';
+
+
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
-import {WaypointStatus} from '../../model/waypoint-status.enum';
+import {TruncatePipe} from '@software-architecture-transition/shared';
 
 @Component({
   selector: 'nav-navigation-waypoints',

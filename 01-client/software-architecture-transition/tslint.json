@@ -60,8 +60,24 @@
         "allow": [],
         "depConstraints": [
           {
-            "sourceTag": "*",
-            "onlyDependOnLibsWithTags": ["*"]
+            "sourceTag": "application",
+            "onlyDependOnLibsWithTags": ["dialog-core", "model", "common", "application"]
+          },
+          {
+            "sourceTag": "dialog-core",
+            "onlyDependOnLibsWithTags": ["data-access", "model", "common", "dialog-core"]
+          },
+          {
+            "sourceTag": "data-access",
+            "onlyDependOnLibsWithTags": ["model", "common", "data-access"]
+          },
+          {
+            "sourceTag": "model",
+            "onlyDependOnLibsWithTags": ["common"]
+          },
+          {
+            "sourceTag": "common",
+            "onlyDependOnLibsWithTags": ["common"]
           }
         ]
       }
