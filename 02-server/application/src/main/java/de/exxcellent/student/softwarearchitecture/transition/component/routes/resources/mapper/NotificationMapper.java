@@ -1,9 +1,9 @@
 package de.exxcellent.student.softwarearchitecture.transition.component.routes.resources.mapper;
 
+import de.exxcellent.student.softwarearchitecture.transition.component.route.api.types.notification.NotificationDO;
 import de.exxcellent.student.softwarearchitecture.transition.component.routes.resources.types.notification.NotificationChannel;
 import de.exxcellent.student.softwarearchitecture.transition.component.routes.resources.types.notification.NotificationTO;
 import de.exxcellent.student.softwarearchitecture.transition.component.routes.resources.types.notification.NotificationsCTO;
-import de.exxcellent.student.softwarearchitecture.transition.component.route.api.types.notification.NotificationDO;
 
 import java.time.Duration;
 import java.time.Instant;
@@ -51,7 +51,10 @@ public final class NotificationMapper {
     notificationDO.setWaypointId(notification.getWaypointId());
     notificationDO.setNotificationChannel(NotificationMapper.fromChannel.apply(notification.getChannel()));
     notificationDO.setNotifiedAtUtc(Instant.parse(notification.getNotifiedAt()));
-    notificationDO.setArrivalIn(Duration.of(notification.getArrivalTimeInSeconds(), ChronoUnit.SECONDS));
+
+    if (notification.getArrivalTimeInSeconds() != null) {
+      notificationDO.setArrivalIn(Duration.of(notification.getArrivalTimeInSeconds(), ChronoUnit.SECONDS));
+    }
 
     return notificationDO;
   };

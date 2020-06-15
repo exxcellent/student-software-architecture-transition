@@ -1,7 +1,7 @@
 package de.exxcellent.student.softwarearchitecture.transition.component.routes.resources.mapper;
 
-import de.exxcellent.student.softwarearchitecture.transition.component.routes.resources.types.route.*;
 import de.exxcellent.student.softwarearchitecture.transition.component.route.api.types.route.*;
+import de.exxcellent.student.softwarearchitecture.transition.component.routes.resources.types.route.*;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -54,7 +54,10 @@ public final class RouteMapper {
     var waypointUpdateCTO = new WaypointUpdateCTO();
 
     waypointUpdateCTO.setUpdatedWaypoint(RouteMapper.toRouteWaypointTO.apply(waypoint.getUpdated()));
-    waypointUpdateCTO.setNextWaypoint(RouteMapper.toRouteWaypointTO.apply(waypoint.getNext()));
+
+    if (waypoint.getNext() != null) {
+      waypointUpdateCTO.setNextWaypoint(RouteMapper.toRouteWaypointTO.apply(waypoint.getNext()));
+    }
 
     return waypointUpdateCTO;
   };
