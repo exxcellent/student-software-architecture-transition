@@ -25,12 +25,13 @@
 	</properties>
 
 	<modules>
-		<module>./infrastructure-application</module>
 		<module>./domain</module>
 		<module>./tests</module>
 		<module>./infrastructure-dataaccess</module>
+		<module>./infrastructure-application</module>
+		<module>infrastructure-routecalculation</module>
 		<module>common</module>
-    </modules>
+	</modules>
 
 	<dependencyManagement>
 		<dependencies>
