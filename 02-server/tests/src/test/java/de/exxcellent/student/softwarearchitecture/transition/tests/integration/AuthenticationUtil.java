@@ -1,7 +1,7 @@
 package de.exxcellent.student.softwarearchitecture.transition.tests.integration;
 
-import de.exxcellent.student.softwarearchitecture.transition.component.authentication.resources.types.JwtRequest;
-import de.exxcellent.student.softwarearchitecture.transition.component.authentication.resources.types.JwtResponse;
+import de.exxcellent.student.softwarearchitecture.transition.planning.authentication.resources.types.JwtRequest;
+import de.exxcellent.student.softwarearchitecture.transition.planning.authentication.resources.types.JwtResponse;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
