@@ -20,7 +20,22 @@
   },
   "projects": {
     "route-planning": {
-      "tags": []
+      "tags": ["application"]
+    },
+    "common-shared": {
+      "tags": ["common"]
+    },
+    "common-shared-ui-components": {
+      "tags": ["common"]
+    },
+    "navigation-domain": {
+      "tags": ["dialog-core"]
+    },
+    "navigation-infrastructure-dataaccess": {
+      "tags": ["data-access"]
+    },
+    "navigation-application": {
+      "tags": ["presentation"]
     }
   }
 }

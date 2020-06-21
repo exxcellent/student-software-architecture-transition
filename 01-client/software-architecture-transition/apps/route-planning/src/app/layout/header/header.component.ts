@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {CommonComponent} from '../../modules/shared-ui-components';
+import {CommonComponent} from '@software-architecture-transition/shared-ui-components';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({

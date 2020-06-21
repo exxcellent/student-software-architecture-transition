@@ -15,7 +15,26 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@software-architecture-transition/shared": [
+        "libs/common/shared/src/index.ts"
+      ],
+      "@software-architecture-transition/environments": [
+        "apps/route-planning/src/environments/index.ts"
+      ],
+      "@software-architecture-transition/shared-ui-components": [
+        "libs/common/shared-ui-components/src/index.ts"
+      ],
+      "@software-architecture-transition/dialog-core/navigation": [
+        "libs/navigation/domain/src/index.ts"
+      ],
+      "@software-architecture-transition/data-access/navigation": [
+        "libs/navigation/infrastructure-dataaccess/src/index.ts"
+      ],
+      "@software-architecture-transition/presentation/navigation": [
+        "libs/navigation/application/src/index.ts"
+      ]
+    }
   },
   "include": ["**/*.d.ts"],
   "exclude": ["node_modules", "tmp"]
