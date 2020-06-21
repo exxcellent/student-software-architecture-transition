@@ -12,7 +12,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import {NavigationWaypointDetailsComponent} from './dialogs/navigation-waypoint-details/navigation-waypoint-details.component';
 import {TranslateModule} from '@ngx-translate/core';
 import {LocalDatePipe, SharedModule} from '@software-architecture-transition/shared';
-import {NavigationDialogCoreModule, NavigationGuard} from '@software-architecture-transition/dialog-core';
+import {NavigationDialogCoreModule, NavigationGuard} from '@software-architecture-transition/dialog-core/navigation';
 import {SharedUiComponentsModule} from '@software-architecture-transition/shared-ui-components';
 
 

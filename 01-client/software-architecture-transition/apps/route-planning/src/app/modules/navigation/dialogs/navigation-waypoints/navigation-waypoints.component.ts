@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {NavigationWaypointsDialogCore, WaypointWithIcon} from '@software-architecture-transition/dialog-core';
+import {
+  NavigationWaypointsDialogCore,
+  WaypointWithIcon
+} from '@software-architecture-transition/dialog-core/navigation';
 import {WaypointCategory, WaypointStatus} from '@software-architecture-transition/model/navigation';
 
 

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {SafeUrl} from '@angular/platform-browser';
-import {NavigationWaypointDetailsDialogCore} from '@software-architecture-transition/dialog-core';
+import {NavigationWaypointDetailsDialogCore} from '@software-architecture-transition/dialog-core/navigation';
 import {Waypoint, WaypointCategory, WaypointStatus} from '@software-architecture-transition/model/navigation';
 
 

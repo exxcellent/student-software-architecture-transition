@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {NavigationDaySelectorDiaglogCore} from '@software-architecture-transition/dialog-core';
+import {NavigationDaySelectorDiaglogCore} from '@software-architecture-transition/dialog-core/navigation';
 
 import {equalDate, today, tomorrow, yesterday} from '@software-architecture-transition/shared';
 

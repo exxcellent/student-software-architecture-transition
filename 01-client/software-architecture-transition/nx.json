@@ -22,12 +22,6 @@
     "route-planning": {
       "tags": ["application"]
     },
-    "shared": {
-      "tags": ["common"]
-    },
-    "shared-ui-components": {
-      "tags": ["common"]
-    },
     "dialog-core": {
       "tags": ["dialog-core"]
     },
@@ -36,6 +30,18 @@
     },
     "model": {
       "tags": ["model"]
+    },
+    "common-shared": {
+      "tags": []
+    },
+    "common-shared-ui-components": {
+      "tags": []
+    },
+    "navigation-domain": {
+      "tags": []
+    },
+    "navigation-infrastructure-dataaccess": {
+      "tags": []
     }
   }
 }

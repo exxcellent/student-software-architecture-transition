@@ -16,27 +16,25 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@software-architecture-transition/shared": ["libs/shared/src/index.ts"],
+      "@software-architecture-transition/shared": [
+        "libs/common/shared/src/index.ts"
+      ],
       "@software-architecture-transition/environments": [
         "apps/route-planning/src/environments/index.ts"
       ],
       "@software-architecture-transition/shared-ui-components": [
-        "libs/shared-ui-components/src/index.ts"
-      ],
-      "@software-architecture-transition/dialog-core": [
-        "libs/dialog-core/src/index.ts"
+        "libs/common/shared-ui-components/src/index.ts"
       ],
       "@software-architecture-transition/dialog-core/navigation": [
-        "libs/dialog-core/src/lib/modules/navigation/index.ts"
-      ],
-      "@software-architecture-transition/data-access": [
-        "libs/data-access/src/index.ts"
+        "libs/navigation/domain/src/index.ts"
       ],
       "@software-architecture-transition/data-access/navigation": [
-        "libs/data-access/src/lib/modules/navigation/index.ts"
+        "libs/navigation/infrastructure-dataaccess/src/index.ts"
       ],
       "@software-architecture-transition/model": ["libs/model/src/index.ts"],
-      "@software-architecture-transition/model/navigation": ["libs/model/src/lib/modules/navigation/index.ts"]
+      "@software-architecture-transition/model/navigation": [
+        "libs/model/src/lib/modules/navigation/index.ts"
+      ]
     }
   },
   "include": ["**/*.d.ts"],
