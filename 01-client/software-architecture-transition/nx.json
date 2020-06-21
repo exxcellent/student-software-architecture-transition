@@ -22,29 +22,20 @@
     "route-planning": {
       "tags": ["application"]
     },
-    "dialog-core": {
-      "tags": ["dialog-core"]
-    },
-    "data-access": {
-      "tags": ["data-access"]
-    },
-    "model": {
-      "tags": ["model"]
-    },
     "common-shared": {
-      "tags": []
+      "tags": ["common"]
     },
     "common-shared-ui-components": {
-      "tags": []
+      "tags": ["common"]
     },
     "navigation-domain": {
-      "tags": []
+      "tags": ["dialog-core"]
     },
     "navigation-infrastructure-dataaccess": {
-      "tags": []
+      "tags": ["data-access"]
     },
     "navigation-application": {
-      "tags": []
+      "tags": ["presentation"]
     }
   }
 }

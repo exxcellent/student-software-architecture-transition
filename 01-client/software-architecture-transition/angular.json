@@ -154,34 +154,6 @@
         }
       }
     },
-    "model": {
-      "projectType": "library",
-      "root": "libs/model",
-      "sourceRoot": "libs/model/src",
-      "prefix": "software-architecture-transition",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/model/tsconfig.lib.json",
-              "libs/model/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/model/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/model/jest.config.js",
-            "tsConfig": "libs/model/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/model/src/test-setup.ts"
-          }
-        }
-      },
-      "schematics": {}
-    },
     "common-shared": {
       "projectType": "library",
       "root": "libs/common/shared",
