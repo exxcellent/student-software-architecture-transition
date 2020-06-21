@@ -299,6 +299,34 @@
         }
       },
       "schematics": {}
+    },
+    "navigation-application": {
+      "projectType": "library",
+      "root": "libs/navigation/application",
+      "sourceRoot": "libs/navigation/application/src",
+      "prefix": "software-architecture-transition",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/navigation/application/tsconfig.lib.json",
+              "libs/navigation/application/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/navigation/application/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/navigation/application/jest.config.js",
+            "tsConfig": "libs/navigation/application/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/navigation/application/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "cli": {

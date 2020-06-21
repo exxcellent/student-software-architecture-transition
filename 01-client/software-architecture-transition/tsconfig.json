@@ -34,6 +34,9 @@
       "@software-architecture-transition/model": ["libs/model/src/index.ts"],
       "@software-architecture-transition/model/navigation": [
         "libs/model/src/lib/modules/navigation/index.ts"
+      ],
+      "@software-architecture-transition/presentation/navigation": [
+        "libs/navigation/application/src/index.ts"
       ]
     }
   },

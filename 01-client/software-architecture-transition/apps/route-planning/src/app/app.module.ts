@@ -27,7 +27,8 @@ export function createTranslateLoader(http: HttpClient) {
     RouterModule.forRoot([
       {
         path: 'navigation',
-        loadChildren: () => import('./modules/navigation/navigation.module').then(m => m.NavigationModule),
+        // @software-architecture-transition/presentation/navigation/navigation.module does not work
+        loadChildren: () => import('../../../../libs/navigation/application/src/lib/navigation.module').then(m => m.NavigationModule),
         canActivate: [AuthGuard],
         canActivateChild: [AuthGuard]
       },
