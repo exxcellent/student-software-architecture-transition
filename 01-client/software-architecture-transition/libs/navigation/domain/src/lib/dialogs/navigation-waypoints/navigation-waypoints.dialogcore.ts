@@ -6,7 +6,7 @@ import {WAYPOINT_ICONS} from '../waypoint-icons';
 import {filter, map} from 'rxjs/operators';
 import {toISODateString} from '@software-architecture-transition/shared';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Route, Waypoint, WaypointStatus} from '@software-architecture-transition/model/navigation';
+import {Route, Waypoint, WaypointStatus} from '@software-architecture-transition/dialog-core/navigation';
 
 
 @Injectable()

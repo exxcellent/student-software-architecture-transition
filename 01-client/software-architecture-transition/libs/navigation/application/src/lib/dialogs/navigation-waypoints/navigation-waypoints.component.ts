@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {
   NavigationWaypointsDialogCore,
+  WaypointCategory,
+  WaypointStatus,
   WaypointWithIcon
 } from '@software-architecture-transition/dialog-core/navigation';
-import {WaypointCategory, WaypointStatus} from '@software-architecture-transition/model/navigation';
 
 
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';

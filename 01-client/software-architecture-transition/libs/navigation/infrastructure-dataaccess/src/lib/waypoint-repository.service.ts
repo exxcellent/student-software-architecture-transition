@@ -5,7 +5,7 @@ import {Observable} from 'rxjs';
 import {filter, flatMap, map} from 'rxjs/operators';
 import {toISODateString} from '@software-architecture-transition/shared';
 import {actions, RoutesState, selectors} from './state/route';
-import {Route, Waypoint, WaypointStatus} from '@software-architecture-transition/model/navigation';
+import {Route, Waypoint, WaypointStatus} from './model';
 
 @Injectable({
   providedIn: 'root'

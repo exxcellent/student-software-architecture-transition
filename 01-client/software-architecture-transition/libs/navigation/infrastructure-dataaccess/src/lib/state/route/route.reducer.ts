@@ -7,7 +7,7 @@ import {
   today,
   toISODateString
 } from '@software-architecture-transition/shared';
-import {Route, Waypoint} from '@software-architecture-transition/model/navigation';
+import {Route, Waypoint} from '../../model';
 
 export const routeFeatureKey = 'route';
 

@@ -9,7 +9,7 @@ import {WaypointConnectorService} from '../../connector/waypoint-connector.servi
 import {RoutesState} from './route.reducer';
 import {Store} from '@ngrx/store';
 import {selectors} from './route.selectors';
-import {Waypoint, WaypointStatus} from '@software-architecture-transition/model/navigation';
+import {Waypoint, WaypointStatus} from '../../model';
 
 
 @Injectable()

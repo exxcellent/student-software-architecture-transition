@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {toISODateString} from '@software-architecture-transition/shared';
 import {filter, flatMap, map} from 'rxjs/operators';
-import {Route, Waypoint, WaypointStatus} from '@software-architecture-transition/model/navigation';
+import {Route, Waypoint, WaypointStatus} from '@software-architecture-transition/dialog-core/navigation';
 import {WaypointRepositoryService} from '@software-architecture-transition/data-access/navigation';
 import {BehaviorSubject} from 'rxjs';
 

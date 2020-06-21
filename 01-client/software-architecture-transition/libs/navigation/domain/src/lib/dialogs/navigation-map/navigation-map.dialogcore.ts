@@ -5,7 +5,7 @@ import {LatLngBoundsLiteral, LatLngLiteral} from '@agm/core';
 import {WaypointRepositoryService} from '@software-architecture-transition/data-access/navigation';
 import {WAYPOINT_ICONS} from '../waypoint-icons';
 import {Observable} from 'rxjs';
-import {Route, Waypoint} from '@software-architecture-transition/model/navigation';
+import {Route, Waypoint} from '@software-architecture-transition/dialog-core/navigation';
 
 @Injectable()
 export class NavigationMapDialogCore {

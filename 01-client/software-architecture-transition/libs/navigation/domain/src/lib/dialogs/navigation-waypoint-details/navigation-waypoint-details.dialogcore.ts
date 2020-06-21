@@ -4,7 +4,7 @@ import {filter, flatMap, map} from 'rxjs/operators';
 import {toISODateString} from '@software-architecture-transition/shared';
 import {ActivatedRoute, ParamMap} from '@angular/router';
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
-import {Route, Waypoint, WaypointStatus} from '@software-architecture-transition/model/navigation';
+import {Route, Waypoint, WaypointStatus} from '@software-architecture-transition/dialog-core/navigation';
 
 @Injectable({
   providedIn: 'root'

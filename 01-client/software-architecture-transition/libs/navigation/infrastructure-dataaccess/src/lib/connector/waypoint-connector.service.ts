@@ -20,7 +20,7 @@ import {catchError, map} from 'rxjs/operators';
 import {Store} from '@ngrx/store';
 import {WaypointTO} from '../types/waypoint.to';
 import {UpdatedWaypointsTO} from '../types/updated-waypoints.to';
-import {Route, Waypoint} from '@software-architecture-transition/model/navigation';
+import {Route, Waypoint} from '../model';
 
 @Injectable({
   providedIn: 'root'

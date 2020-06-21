@@ -4,7 +4,7 @@ import {Status} from '../types/waypoint-status.enum';
 import {Category} from '../types/waypoint-category.enum';
 import {toISODateString} from '@software-architecture-transition/shared';
 import {UpdatedWaypointsTO} from '../types/updated-waypoints.to';
-import {Route, Waypoint, WaypointCategory, WaypointStatus} from '@software-architecture-transition/model/navigation';
+import {Route, Waypoint, WaypointCategory, WaypointStatus} from '../model';
 
 
 export function fromResponse(response: RouteCTO): Route {

@@ -1,4 +1,4 @@
-import {Waypoint} from '@software-architecture-transition/model/navigation';
+import {Waypoint} from '@software-architecture-transition/dialog-core/navigation';
 
 export interface WaypointWithIcon {
   waypoint: Waypoint;
