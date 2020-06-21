@@ -1,7 +1,8 @@
-import {Injectable} from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 import {today} from '@software-architecture-transition/shared';
-import {WaypointRepositoryService} from '@software-architecture-transition/data-access/navigation';
+import {NAVIGATION_DATA_ACCESS} from '@software-architecture-transition/data-access/navigation';
 import {Observable} from 'rxjs';
+import {NavigationDataAccess} from '../../dataaccess';
 
 @Injectable({
   providedIn: 'root'
@@ -12,18 +13,18 @@ export class NavigationDaySelectorDiaglogCore {
   private _currentRouteDate$: Observable<Date>;
   private _currentRouteDate: Date;
 
-  constructor(private waypointRepository: WaypointRepositoryService) {
-    this._currentRouteDate$ = waypointRepository.currentDay$;
+  constructor(@Inject(NAVIGATION_DATA_ACCESS) private navigationDataAccess: NavigationDataAccess) {
+    this._currentRouteDate$ = navigationDataAccess.currentDay$;
 
     this._currentRouteDate$.subscribe(date => this._currentRouteDate = date);
   }
 
   nextDay(): void {
-    this.waypointRepository.nextDay();
+    this.navigationDataAccess.nextDay();
   }
 
   previousDay(): void {
-    this.waypointRepository.previousDay();
+    this.navigationDataAccess.previousDay();
   }
 
   get currentDay(): Date {

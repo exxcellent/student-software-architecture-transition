@@ -1,10 +1,10 @@
-import {Injectable} from '@angular/core';
-import {WaypointRepositoryService} from '@software-architecture-transition/data-access/navigation';
+import {Inject, Injectable} from '@angular/core';
+import {NAVIGATION_DATA_ACCESS} from '@software-architecture-transition/data-access/navigation';
 import {filter, flatMap, map} from 'rxjs/operators';
 import {toISODateString} from '@software-architecture-transition/shared';
 import {ActivatedRoute, ParamMap} from '@angular/router';
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
-import {RouteDTO, WaypointDTO, WaypointStatusDTO} from '../../dataaccess';
+import {NavigationDataAccess, RouteDTO, WaypointDTO, WaypointStatusDTO} from '../../dataaccess';
 
 
 @Injectable({
@@ -15,7 +15,7 @@ export class NavigationWaypointDetailsDialogCore {
   private _waypoint: WaypointDTO;
   private _waypointId: number;
 
-  constructor(private waypointRepository: WaypointRepositoryService,
+  constructor(@Inject(NAVIGATION_DATA_ACCESS) private navigationDataAccess: NavigationDataAccess,
               private route: ActivatedRoute,
               private sanitizer: DomSanitizer) {
     this.route.paramMap.pipe(
@@ -24,8 +24,8 @@ export class NavigationWaypointDetailsDialogCore {
       map((waypointId: string) => Number.parseInt(waypointId, 10))
     ).subscribe((waypointId: number) => this._waypointId = waypointId);
 
-    waypointRepository.currentDay$.subscribe((currentDay: Date) => {
-     this.waypointRepository.routes$.pipe(
+    navigationDataAccess.currentDay$.subscribe((currentDay: Date) => {
+     this.navigationDataAccess.routes$.pipe(
         map(routes => routes[toISODateString(currentDay)]?.myRoute),
         filter((route) => !!route),
         map((route: RouteDTO) => route.waypoints),
@@ -61,9 +61,9 @@ export class NavigationWaypointDetailsDialogCore {
   }
 
   finishWaypoint(): void {
-    this.waypointRepository.finishWaypoint(this._waypoint.waypointId, this._waypoint.version)
+    this.navigationDataAccess.finishWaypoint(this._waypoint.waypointId, this._waypoint.version)
   }
   cancelWaypoint(): void {
-    this.waypointRepository.cancelWaypoint(this._waypoint.waypointId, this._waypoint.version)
+    this.navigationDataAccess.cancelWaypoint(this._waypoint.waypointId, this._waypoint.version)
   }
 }

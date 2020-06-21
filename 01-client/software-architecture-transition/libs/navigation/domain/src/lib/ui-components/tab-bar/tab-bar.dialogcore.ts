@@ -2,21 +2,19 @@ import {Injectable} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {toISODateString} from '@software-architecture-transition/shared';
 import {filter, flatMap, map} from 'rxjs/operators';
-import {RouteDTO, WaypointDTO, WaypointStatusDTO} from '../../dataaccess';
-import {WaypointRepositoryService} from '@software-architecture-transition/data-access/navigation';
+import {NavigationDataAccess, RouteDTO, WaypointDTO, WaypointStatusDTO} from '../../dataaccess';
 import {BehaviorSubject} from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class TabBarDialogCore {
 
   public activeWaypointId$ = new BehaviorSubject<number>(0);
 
-  constructor(private route: ActivatedRoute, private waypointRepository: WaypointRepositoryService) {
+  constructor(private route: ActivatedRoute,
+              private navigationDataAccess: NavigationDataAccess) {
 
-    waypointRepository.currentDay$.subscribe((currentDay: Date) => {
-      this.waypointRepository.routes$.pipe(
+    navigationDataAccess.currentDay$.subscribe((currentDay: Date) => {
+      this.navigationDataAccess.routes$.pipe(
         map(routes => routes[toISODateString(currentDay)]?.myRoute),
         filter((route) => !!route),
         map((route: RouteDTO) => route.waypoints),

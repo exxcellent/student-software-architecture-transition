@@ -4,6 +4,9 @@ import {WaypointDTO} from './waypoint';
 
 export interface NavigationDataAccess {
 
+  routes$: Observable<{ [key: string]: { myRoute: RouteDTO} }>;
+  currentDay$: Observable<Date>;
+
   findRoute(date: Date, inspectorId: number): void;
 
   nextDay(): void;
@@ -19,4 +22,6 @@ export interface NavigationDataAccess {
   finishWaypoint(waypointId: number, version: number): void;
 
   cancelWaypoint(waypointId: number, version: number): void;
+
+  routesLoaded$(): Observable<boolean>;
 }

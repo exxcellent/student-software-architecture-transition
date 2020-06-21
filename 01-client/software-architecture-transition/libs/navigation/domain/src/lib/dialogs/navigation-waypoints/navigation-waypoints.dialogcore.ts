@@ -1,12 +1,12 @@
-import {Injectable} from '@angular/core';
-import {WaypointRepositoryService} from '@software-architecture-transition/data-access/navigation';
+import {Inject, Injectable} from '@angular/core';
+import {NAVIGATION_DATA_ACCESS} from '@software-architecture-transition/data-access/navigation';
 import {BehaviorSubject, Observable, Subscription} from 'rxjs';
 import {WaypointWithIcon} from './types/waypoint-with-icon.interface';
 import {WAYPOINT_ICONS} from '../waypoint-icons';
 import {filter, map} from 'rxjs/operators';
 import {toISODateString} from '@software-architecture-transition/shared';
 import {ActivatedRoute, Router} from '@angular/router';
-import {RouteDTO, WaypointDTO, WaypointStatusDTO} from '../../dataaccess';
+import {NavigationDataAccess, RouteDTO, WaypointDTO, WaypointStatusDTO} from '../../dataaccess';
 
 
 @Injectable()
@@ -18,14 +18,16 @@ export class NavigationWaypointsDialogCore {
 
   private _currentRouteSubscription$: Subscription;
 
-  constructor(private waypointRepository: WaypointRepositoryService, private router: Router, private route: ActivatedRoute) {
-    waypointRepository.currentDay$.subscribe((currentDay: Date) => {
+  constructor(@Inject(NAVIGATION_DATA_ACCESS) private navigationDataAccess: NavigationDataAccess,
+              private router: Router,
+              private route: ActivatedRoute) {
+    navigationDataAccess.currentDay$.subscribe((currentDay: Date) => {
 
       if (this._currentRouteSubscription$) {
         this._currentRouteSubscription$.unsubscribe();
       }
 
-      this.currentWaypointsWithIcons$ = this.waypointRepository.routes$.pipe(
+      this.currentWaypointsWithIcons$ = this.navigationDataAccess.routes$.pipe(
         map(routes => routes[toISODateString(currentDay)]?.myRoute),
         filter((route) => !!route),
         map((route: RouteDTO) => {

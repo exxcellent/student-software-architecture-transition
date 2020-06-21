@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {WaypointConnectorService} from './connector/waypoint-connector.service';
 import {Observable} from 'rxjs';
-import {filter, flatMap, map} from 'rxjs/operators';
-import {toISODateString} from '@software-architecture-transition/shared';
+import {filter, flatMap, map, tap} from 'rxjs/operators';
+import {ErrorCategory, toISODateString} from '@software-architecture-transition/shared';
 import {actions, RoutesState, selectors} from './state/route';
 import {NavigationDataAccess, RouteDTO, WaypointDTO, WaypointStatusDTO} from '../../../domain/src/lib/dataaccess';
 
@@ -67,4 +67,21 @@ export class WaypointRepositoryService implements NavigationDataAccess{
   cancelWaypoint(waypointId: number, version: number): void {
     this.store.dispatch(actions.cancelWaypoint({ waypointId: waypointId, version: version}))
   }
+
+  routesLoaded$(): Observable<boolean> {
+    return this.store.select(selectors.selectRoutesState).pipe(
+      tap(routes => {
+        if (routes.error?.category) {
+        console.error('Nav Guard: Detect connection error: ' + ErrorCategory[routes.error.category])
+      }
+      }),
+      tap(routes => {
+        if (!routes.loaded && !routes.loading && (!routes?.error || routes.error?.category === ErrorCategory.TECHNICAL)) {
+          this.store.dispatch(actions.loadMyRouteOfToday());
+        }
+      }),
+      // filter unloaded
+      filter(routes => routes.loaded),
+      map(() => true));
+    }
 }

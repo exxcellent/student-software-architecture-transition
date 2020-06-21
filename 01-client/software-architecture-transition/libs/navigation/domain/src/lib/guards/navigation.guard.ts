@@ -11,35 +11,21 @@ import {
   UrlTree
 } from '@angular/router';
 import {Observable, of} from 'rxjs';
-import {actions, RoutesState, selectors} from '@software-architecture-transition/data-access/navigation';
-import {Store} from '@ngrx/store';
-import {catchError, filter, switchMap, take, tap} from 'rxjs/operators';
-import {ErrorCategory} from '@software-architecture-transition/shared';
+import {catchError, switchMap, take} from 'rxjs/operators';
+import {NavigationDataAccess} from '../dataaccess';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class NavigationGuard implements CanActivate, CanActivateChild, CanLoad {
 
-  constructor(private router: Router, private store: Store<RoutesState>) {
+  constructor(private router: Router,
+
+              private navigationDataAccess: NavigationDataAccess) {
 
   }
 
   private getFromStoreOrAPI(): Observable<any> {
     // return an Observable stream from the store
-    return this.store.select(selectors.selectRoutesState).pipe(
-      tap(routes => {
-        if (routes.error?.category) {
-          console.error('Nav Guard: Detect connection error: ' + ErrorCategory[routes.error.category])
-        }
-      }),
-      tap(routes => {
-        if (!routes.loaded && !routes.loading && (!routes?.error || routes.error?.category === ErrorCategory.TECHNICAL)) {
-          this.store.dispatch(actions.loadMyRouteOfToday());
-        }
-      }),
-      // filter unloaded
-      filter(routes => routes.loaded),
+    return this.navigationDataAccess.routesLoaded$().pipe(
       take(1)
     );
   }

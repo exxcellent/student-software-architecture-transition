@@ -1,11 +1,11 @@
-import {Injectable} from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 import {exists, logWarn} from '@software-architecture-transition/shared';
 // @ts-ignore
 import {LatLngBoundsLiteral, LatLngLiteral} from '@agm/core';
-import {WaypointRepositoryService} from '@software-architecture-transition/data-access/navigation';
+import {NAVIGATION_DATA_ACCESS} from '@software-architecture-transition/data-access/navigation';
 import {WAYPOINT_ICONS} from '../waypoint-icons';
 import {Observable} from 'rxjs';
-import {RouteDTO, WaypointDTO} from '../../dataaccess';
+import {NavigationDataAccess, RouteDTO, WaypointDTO} from '../../dataaccess';
 
 @Injectable()
 export class NavigationMapDialogCore {
@@ -43,14 +43,14 @@ export class NavigationMapDialogCore {
   private _currentLocationMarker: google.maps.Marker;
   private _map: google.maps.Map;
 
-  constructor(private waypointRepository: WaypointRepositoryService) {
-    this._currentRoute$ = waypointRepository.currentRoute$();
+  constructor(@Inject(NAVIGATION_DATA_ACCESS) private navigationDataAccess: NavigationDataAccess) {
+    this._currentRoute$ = navigationDataAccess.currentRoute$();
 
     this._currentRoute$.subscribe((route: RouteDTO) => {
       this._currentRoute = route;
     });
 
-    this.currentWaypoint$ = waypointRepository.currentWaypoint$();
+    this.currentWaypoint$ = navigationDataAccess.currentWaypoint$();
 
     this.currentWaypoint$.subscribe(waypoint => {
       this._currentWaypoint = waypoint;
