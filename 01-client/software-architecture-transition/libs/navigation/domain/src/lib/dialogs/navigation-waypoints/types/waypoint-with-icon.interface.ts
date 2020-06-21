@@ -1,7 +1,7 @@
-import {Waypoint} from '@software-architecture-transition/dialog-core/navigation';
+import {WaypointDTO} from '../../../dataaccess';
 
 export interface WaypointWithIcon {
-  waypoint: Waypoint;
+  waypoint: WaypointDTO;
   iconUrl: string;
   currentWaypoint: boolean;
 }

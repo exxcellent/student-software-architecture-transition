@@ -9,7 +9,7 @@ import {WaypointConnectorService} from '../../connector/waypoint-connector.servi
 import {RoutesState} from './route.reducer';
 import {Store} from '@ngrx/store';
 import {selectors} from './route.selectors';
-import {Waypoint, WaypointStatus} from '../../model';
+import {WaypointDTO, WaypointStatusDTO} from '../../model';
 
 
 @Injectable()
@@ -50,19 +50,19 @@ export class RouteEffects {
 
         this.store.select(selectors.selectCurrentWaypoints).pipe(
           flatMap(x => x),
-          filter((wp: Waypoint) => wp.waypointId === waypointId && wp.version === version),
-          map((waypoint: Waypoint) => {
-            const clone: Waypoint = {
+          filter((wp: WaypointDTO) => wp.waypointId === waypointId && wp.version === version),
+          map((waypoint: WaypointDTO) => {
+            const clone: WaypointDTO = {
               ...waypoint,
-              status: WaypointStatus.FINISHED
+              status: WaypointStatusDTO.FINISHED
             };
 
             return clone;
           }),
-          concatMap((waypointWithState: Waypoint) => {
+          concatMap((waypointWithState: WaypointDTO) => {
 
               return this.connector.finishWaypoint(waypointWithState).pipe(
-                map((waypoint: Waypoint[]) => {
+                map((waypoint: WaypointDTO[]) => {
                   return actions.updateWaypointSuccess({waypoint: waypoint[0], nextWaypoint: waypoint[1]})
                 }),
                 catchError(error => {
@@ -86,19 +86,19 @@ export class RouteEffects {
 
         this.store.select(selectors.selectCurrentWaypoints).pipe(
           flatMap(x => x),
-          filter((wp: Waypoint) => wp.waypointId === waypointId && wp.version === version),
-          map((waypoint: Waypoint) => {
-            const clone: Waypoint = {
+          filter((wp: WaypointDTO) => wp.waypointId === waypointId && wp.version === version),
+          map((waypoint: WaypointDTO) => {
+            const clone: WaypointDTO = {
               ...waypoint,
-              status: WaypointStatus.CANCELED
+              status: WaypointStatusDTO.CANCELED
             };
 
             return clone;
           }),
-          concatMap((waypointWithState: Waypoint) => {
+          concatMap((waypointWithState: WaypointDTO) => {
 
             return this.connector.cancelWaypoint(waypointWithState).pipe(
-              map((waypoint: Waypoint[]) => {
+              map((waypoint: WaypointDTO[]) => {
                 return actions.updateWaypointSuccess({waypoint: waypoint[0], nextWaypoint: waypoint[1]})
               }),
               catchError(error => {

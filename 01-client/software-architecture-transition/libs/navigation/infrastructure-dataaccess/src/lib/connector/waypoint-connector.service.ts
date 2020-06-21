@@ -20,7 +20,7 @@ import {catchError, map} from 'rxjs/operators';
 import {Store} from '@ngrx/store';
 import {WaypointTO} from '../types/waypoint.to';
 import {UpdatedWaypointsTO} from '../types/updated-waypoints.to';
-import {Route, Waypoint} from '../model';
+import {RouteDTO, WaypointDTO} from '../model';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +34,7 @@ export class WaypointConnectorService extends DataProviderService{
     super()
   }
 
-  findRoute(date: Date, inspectorId: number): Observable<Route>{
+  findRoute(date: Date, inspectorId: number): Observable<RouteDTO>{
 
     return this.http.GET<RouteCTO>(this.getDailyWaypointUrl(date, inspectorId)).pipe(
       map((response: RouteCTO) => {
@@ -47,7 +47,7 @@ export class WaypointConnectorService extends DataProviderService{
       }));
   }
 
-  updateWaypoint(waypoint: Waypoint): Observable<Waypoint>{
+  updateWaypoint(waypoint: WaypointDTO): Observable<WaypointDTO>{
     return this.http.PUT<WaypointTO>(this.getWaypointUrl(waypoint.waypointId),
       toWaypointRequest(waypoint)).pipe(
         map((response: WaypointTO) => {
@@ -60,7 +60,7 @@ export class WaypointConnectorService extends DataProviderService{
         }));
   }
 
-  finishWaypoint(waypoint: Waypoint): Observable<Waypoint[]>{
+  finishWaypoint(waypoint: WaypointDTO): Observable<WaypointDTO[]>{
     return this.http.PUT<UpdatedWaypointsTO>(this.getWaypointUrl(waypoint.waypointId, 'finish'),
       toWaypointRequest(waypoint)).pipe(
         map((response: UpdatedWaypointsTO) => {
@@ -73,7 +73,7 @@ export class WaypointConnectorService extends DataProviderService{
         }));
   }
 
-  cancelWaypoint(waypoint: Waypoint): Observable<Waypoint[]>{
+  cancelWaypoint(waypoint: WaypointDTO): Observable<WaypointDTO[]>{
     return this.http.PUT<UpdatedWaypointsTO>(this.getWaypointUrl(waypoint.waypointId, 'cancel'),
       toWaypointRequest(waypoint)).pipe(
         map((response: UpdatedWaypointsTO) => {

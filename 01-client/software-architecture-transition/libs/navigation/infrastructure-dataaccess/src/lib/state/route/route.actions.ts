@@ -1,5 +1,5 @@
 import {createAction, props} from '@ngrx/store';
-import {Route, Waypoint} from '../../model';
+import {RouteDTO, WaypointDTO} from '../../model';
 
 const loadMyRouteOfToday = createAction(
   '[Route] Load My Route of Today'
@@ -11,7 +11,7 @@ const loadMyRoute = createAction(
 
 const loadMyRouteSuccess = createAction(
   '[Route] Load My Route Success',
-  props<{ data: Route }>()
+  props<{ data: RouteDTO }>()
 );
 
 const loadMyRouteFailure = createAction(
@@ -38,7 +38,7 @@ const cancelWaypoint = createAction(
 
 const updateWaypointSuccess = createAction(
   '[Waypoint] Update success',
-  props<{ waypoint: Waypoint, nextWaypoint: Waypoint }>()
+  props<{ waypoint: WaypointDTO, nextWaypoint: WaypointDTO }>()
 );
 
 const updateWaypointFailure = createAction(

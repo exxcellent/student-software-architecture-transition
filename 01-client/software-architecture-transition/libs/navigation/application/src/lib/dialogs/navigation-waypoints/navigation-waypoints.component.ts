@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {
   NavigationWaypointsDialogCore,
-  WaypointCategory,
-  WaypointStatus,
+  WaypointCategoryDTO,
+  WaypointStatusDTO,
   WaypointWithIcon
 } from '@software-architecture-transition/dialog-core/navigation';
 
@@ -18,8 +18,8 @@ import {TruncatePipe} from '@software-architecture-transition/shared';
 })
 export class NavigationWaypointsComponent implements OnInit {
 
-  WaypointCategory = WaypointCategory;
-  WaypointStatus = WaypointStatus;
+  WaypointCategory = WaypointCategoryDTO;
+  WaypointStatus = WaypointStatusDTO;
 
   dragableWaypoints: WaypointWithIcon[];
 

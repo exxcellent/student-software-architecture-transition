@@ -5,7 +5,7 @@ import {LatLngBoundsLiteral, LatLngLiteral} from '@agm/core';
 import {WaypointRepositoryService} from '@software-architecture-transition/data-access/navigation';
 import {WAYPOINT_ICONS} from '../waypoint-icons';
 import {Observable} from 'rxjs';
-import {Route, Waypoint} from '@software-architecture-transition/dialog-core/navigation';
+import {RouteDTO, WaypointDTO} from '../../dataaccess';
 
 @Injectable()
 export class NavigationMapDialogCore {
@@ -34,23 +34,23 @@ export class NavigationMapDialogCore {
 
   private type: 'roadmap' | 'hybrid' | 'satellite' | 'terrain' = 'roadmap';
 
-  private _currentRoute$: Observable<Route>;
-  private _currentRoute: Route;
-  public currentWaypoint$: Observable<Waypoint>;
-  private _currentWaypoint: Waypoint;
+  private _currentRoute$: Observable<RouteDTO>;
+  private _currentRoute: RouteDTO;
+  public currentWaypoint$: Observable<WaypointDTO>;
+  private _currentWaypoint: WaypointDTO;
 
   private _currentLocation: google.maps.LatLng;
   private _currentLocationMarker: google.maps.Marker;
   private _map: google.maps.Map;
 
   constructor(private waypointRepository: WaypointRepositoryService) {
-    this._currentRoute$ = waypointRepository.currentRoute$;
+    this._currentRoute$ = waypointRepository.currentRoute$();
 
-    this._currentRoute$.subscribe((route: Route) => {
+    this._currentRoute$.subscribe((route: RouteDTO) => {
       this._currentRoute = route;
     });
 
-    this.currentWaypoint$ = waypointRepository.currentWaypoint$;
+    this.currentWaypoint$ = waypointRepository.currentWaypoint$();
 
     this.currentWaypoint$.subscribe(waypoint => {
       this._currentWaypoint = waypoint;
@@ -71,15 +71,15 @@ export class NavigationMapDialogCore {
       (response: google.maps.DirectionsResult, status: google.maps.DirectionsStatus) => this.routeCalculated(waypoints, response, status, map));
   }
 
-  private latLng(waypoint: Waypoint): google.maps.LatLng {
+  private latLng(waypoint: WaypointDTO): google.maps.LatLng {
     return new google.maps.LatLng(waypoint.location.lat, waypoint.location.lng );
   }
-  private googleWaypoint(waypoint: Waypoint): google.maps.DirectionsWaypoint {
+  private googleWaypoint(waypoint: WaypointDTO): google.maps.DirectionsWaypoint {
     return { location: this.latLng(waypoint)};
   }
 
 
-  private routeWaypoints(waypointList: Waypoint[]): google.maps.DirectionsRequest {
+  private routeWaypoints(waypointList: WaypointDTO[]): google.maps.DirectionsRequest {
     let request: google.maps.DirectionsRequest = {
       travelMode: google.maps.TravelMode.DRIVING
     };
@@ -104,7 +104,7 @@ export class NavigationMapDialogCore {
     return request;
   }
 
-  private routeCalculated(waypointList: Waypoint[], response: google.maps.DirectionsResult,
+  private routeCalculated(waypointList: WaypointDTO[], response: google.maps.DirectionsResult,
                           status: google.maps.DirectionsStatus, map: google.maps.Map) {
     const waypoints = Object.assign([], waypointList);
 

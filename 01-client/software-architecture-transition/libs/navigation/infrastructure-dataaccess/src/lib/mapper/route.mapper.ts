@@ -4,25 +4,25 @@ import {Status} from '../types/waypoint-status.enum';
 import {Category} from '../types/waypoint-category.enum';
 import {toISODateString} from '@software-architecture-transition/shared';
 import {UpdatedWaypointsTO} from '../types/updated-waypoints.to';
-import {Route, Waypoint, WaypointCategory, WaypointStatus} from '../model';
+import {RouteDTO, WaypointCategoryDTO, WaypointDTO, WaypointStatusDTO} from '../model';
 
 
-export function fromResponse(response: RouteCTO): Route {
+export function fromResponse(response: RouteCTO): RouteDTO {
   return {
     date: new Date(Date.parse(response.date)),
     timeRemainingInSeconds: response.timeRemainingInSeconds,
     totalDurationInSeconds: response.totalDurationInSeconds,
-    waypoints: response.waypoints.map<Waypoint>(fromWaypointResponse)
+    waypoints: response.waypoints.map<WaypointDTO>(fromWaypointResponse)
   }
 }
-export function fromUpdatedWaypointResponse(updatedWaypointsTO: UpdatedWaypointsTO): Waypoint[] {
+export function fromUpdatedWaypointResponse(updatedWaypointsTO: UpdatedWaypointsTO): WaypointDTO[] {
   return [
     fromWaypointResponse(updatedWaypointsTO.updatedWaypoint),
     fromWaypointResponse(updatedWaypointsTO.nextWaypoint)
   ]
 }
 
-export function fromWaypointResponse(waypointTO: WaypointTO): Waypoint {
+export function fromWaypointResponse(waypointTO: WaypointTO): WaypointDTO {
   return {
         waypointId: waypointTO.waypointId,
         version: waypointTO.version,
@@ -43,7 +43,7 @@ export function fromWaypointResponse(waypointTO: WaypointTO): Waypoint {
 }
 
 
-export function toWaypointRequest(waypoint: Waypoint): WaypointTO {
+export function toWaypointRequest(waypoint: WaypointDTO): WaypointTO {
   return {
     waypointId: waypoint.waypointId,
     version: waypoint.version,
@@ -66,46 +66,46 @@ export function toWaypointRequest(waypoint: Waypoint): WaypointTO {
   };
 }
 
-function fromResponseStatus(responseStatus: string): WaypointStatus {
+function fromResponseStatus(responseStatus: string): WaypointStatusDTO {
   switch (responseStatus) {
-    case Status[Status.ACTIVE]: return WaypointStatus.ACTIVE;
-    case Status[Status.FINISHED]: return WaypointStatus.FINISHED;
-    case Status[Status.CANCELED]: return WaypointStatus.CANCELED;
+    case Status[Status.ACTIVE]: return WaypointStatusDTO.ACTIVE;
+    case Status[Status.FINISHED]: return WaypointStatusDTO.FINISHED;
+    case Status[Status.CANCELED]: return WaypointStatusDTO.CANCELED;
     case Status[Status.PENDING]:
     default:
-      return WaypointStatus.PENDING;
+      return WaypointStatusDTO.PENDING;
   }
 }
 
-function fromResponseCategory(responseCategory: string): WaypointCategory {
+function fromResponseCategory(responseCategory: string): WaypointCategoryDTO {
   switch (responseCategory) {
-    case Category[Category.ALL]: return WaypointCategory.ALL;
-    case Category[Category.PRIVATE]: return WaypointCategory.PRIVATE;
-    case Category[Category.GAS_STATION]: return WaypointCategory.GAS_STATION;
+    case Category[Category.ALL]: return WaypointCategoryDTO.ALL;
+    case Category[Category.PRIVATE]: return WaypointCategoryDTO.PRIVATE;
+    case Category[Category.GAS_STATION]: return WaypointCategoryDTO.GAS_STATION;
     case Category[Category.APPOINTMENT]:
     default:
-      return WaypointCategory.APPOINTMENT;
+      return WaypointCategoryDTO.APPOINTMENT;
   }
 }
 
 
-function toRequestStatus(waypointStatus: WaypointStatus): string {
+function toRequestStatus(waypointStatus: WaypointStatusDTO): string {
   switch (waypointStatus) {
-    case WaypointStatus.ACTIVE: return Status[Status.ACTIVE];
-    case WaypointStatus.FINISHED: return Status[Status.FINISHED];
-    case WaypointStatus.CANCELED: return Status[Status.CANCELED];
-    case WaypointStatus.PENDING:
+    case WaypointStatusDTO.ACTIVE: return Status[Status.ACTIVE];
+    case WaypointStatusDTO.FINISHED: return Status[Status.FINISHED];
+    case WaypointStatusDTO.CANCELED: return Status[Status.CANCELED];
+    case WaypointStatusDTO.PENDING:
     default:
       return Status[Status.PENDING];
   }
 }
 
-function toRequestCategory(waypointCategory: WaypointCategory): string {
+function toRequestCategory(waypointCategory: WaypointCategoryDTO): string {
   switch (waypointCategory) {
-    case WaypointCategory.ALL: return Category[Category.ALL];
-    case WaypointCategory.PRIVATE: return Category[Category.PRIVATE];
-    case WaypointCategory.GAS_STATION: return Category[Category.GAS_STATION];
-    case WaypointCategory.APPOINTMENT:
+    case WaypointCategoryDTO.ALL: return Category[Category.ALL];
+    case WaypointCategoryDTO.PRIVATE: return Category[Category.PRIVATE];
+    case WaypointCategoryDTO.GAS_STATION: return Category[Category.GAS_STATION];
+    case WaypointCategoryDTO.APPOINTMENT:
     default:
       return Category[Category.APPOINTMENT];
   }

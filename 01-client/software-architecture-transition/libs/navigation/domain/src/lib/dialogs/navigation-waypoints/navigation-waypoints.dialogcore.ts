@@ -6,14 +6,14 @@ import {WAYPOINT_ICONS} from '../waypoint-icons';
 import {filter, map} from 'rxjs/operators';
 import {toISODateString} from '@software-architecture-transition/shared';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Route, Waypoint, WaypointStatus} from '@software-architecture-transition/dialog-core/navigation';
+import {RouteDTO, WaypointDTO, WaypointStatusDTO} from '../../dataaccess';
 
 
 @Injectable()
 export class NavigationWaypointsDialogCore {
 
   public currentWaypointsWithIcons$: Observable<WaypointWithIcon[]>;
-  private _currentRoute: Route;
+  private _currentRoute: RouteDTO;
   public currentWaypointsWithIconsSubject$ = new BehaviorSubject<WaypointWithIcon[]>([]);
 
   private _currentRouteSubscription$: Subscription;
@@ -28,13 +28,13 @@ export class NavigationWaypointsDialogCore {
       this.currentWaypointsWithIcons$ = this.waypointRepository.routes$.pipe(
         map(routes => routes[toISODateString(currentDay)]?.myRoute),
         filter((route) => !!route),
-        map((route: Route) => {
+        map((route: RouteDTO) => {
           const sortedWaypoints = Object.assign([], route.waypoints);
           sortedWaypoints.sort((a, b) => a.orderIndex - b.orderIndex);
 
           const waypointsWithIcon: WaypointWithIcon[] = [];
-          sortedWaypoints.forEach((wp: Waypoint, index: number) => {
-            waypointsWithIcon.push({waypoint: wp, iconUrl: WAYPOINT_ICONS.appointmentIcons[index], currentWaypoint: wp.status === WaypointStatus.ACTIVE})
+          sortedWaypoints.forEach((wp: WaypointDTO, index: number) => {
+            waypointsWithIcon.push({waypoint: wp, iconUrl: WAYPOINT_ICONS.appointmentIcons[index], currentWaypoint: wp.status === WaypointStatusDTO.ACTIVE})
           });
 
           return waypointsWithIcon;
@@ -51,11 +51,11 @@ export class NavigationWaypointsDialogCore {
 
   }
 
-  isNextWaypoint(waypoint: Waypoint): boolean {
-    return waypoint.status === WaypointStatus.ACTIVE;
+  isNextWaypoint(waypoint: WaypointDTO): boolean {
+    return waypoint.status === WaypointStatusDTO.ACTIVE;
   }
 
-  openDetails(waypoint: Waypoint): void {
+  openDetails(waypoint: WaypointDTO): void {
     this.router.navigate(['navigation','details', waypoint.waypointId]);
 
   }

@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {toISODateString} from '@software-architecture-transition/shared';
 import {filter, flatMap, map} from 'rxjs/operators';
-import {Route, Waypoint, WaypointStatus} from '@software-architecture-transition/dialog-core/navigation';
+import {RouteDTO, WaypointDTO, WaypointStatusDTO} from '../../dataaccess';
 import {WaypointRepositoryService} from '@software-architecture-transition/data-access/navigation';
 import {BehaviorSubject} from 'rxjs';
 
@@ -19,9 +19,9 @@ export class TabBarDialogCore {
       this.waypointRepository.routes$.pipe(
         map(routes => routes[toISODateString(currentDay)]?.myRoute),
         filter((route) => !!route),
-        map((route: Route) => route.waypoints),
+        map((route: RouteDTO) => route.waypoints),
         flatMap((waypoint) => waypoint),
-        filter((waypoint: Waypoint) => waypoint.status === WaypointStatus.ACTIVE)
+        filter((waypoint: WaypointDTO) => waypoint.status === WaypointStatusDTO.ACTIVE)
       ).subscribe(waypoint => {
         this.activeWaypointId$.next(waypoint.waypointId);
       })

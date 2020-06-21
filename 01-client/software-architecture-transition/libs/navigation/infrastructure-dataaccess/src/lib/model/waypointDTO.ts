@@ -1,7 +1,7 @@
-import {WaypointCategory} from './waypoint-category.enum';
-import {WaypointStatus} from './waypoint-status.enum';
+import {WaypointCategoryDTO} from './waypoint-category.enum';
+import {WaypointStatusDTO} from './waypoint-status.enum';
 
-export interface Waypoint {
+export interface WaypointDTO {
 
   waypointId: number;
   version: number;
@@ -10,8 +10,8 @@ export interface Waypoint {
 
   date: Date;
   orderIndex: number;
-  category: WaypointCategory;
-  status: WaypointStatus;
+  category: WaypointCategoryDTO;
+  status: WaypointStatusDTO;
 
   address: string;
   location: { lat: number, lng: number }

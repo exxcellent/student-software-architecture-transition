@@ -7,14 +7,14 @@ import {
   today,
   toISODateString
 } from '@software-architecture-transition/shared';
-import {Route, Waypoint} from '../../model';
+import {RouteDTO, WaypointDTO} from '../../model';
 
 export const routeFeatureKey = 'route';
 
 export interface RoutesState {
   routes: {
     [key: string]: {  // routes: { '2020-05-09': { myRoute: { ... Route ...}, otherRoutes: { 2: { ... Route ... } } } }
-      myRoute: Route
+      myRoute: RouteDTO
     }
   },
   currentDay: Date,
@@ -96,14 +96,14 @@ export const reducer = createReducer(
   }),
 
   on(actions.updateWaypointSuccess, (state, action) => {
-    const updatedWaypoint: Waypoint = action.waypoint;
-    const nextWaypoint: Waypoint = action.nextWaypoint;
+    const updatedWaypoint: WaypointDTO = action.waypoint;
+    const nextWaypoint: WaypointDTO = action.nextWaypoint;
 
     const myRoute = state.routes[toISODateString(updatedWaypoint.date)].myRoute;
     const oldWaypoints = myRoute.waypoints;
-    const updatedWaypoints: Waypoint[] = [];
+    const updatedWaypoints: WaypointDTO[] = [];
 
-    oldWaypoints.forEach((waypoint: Waypoint) => {
+    oldWaypoints.forEach((waypoint: WaypointDTO) => {
       if (waypoint.waypointId === updatedWaypoint.waypointId) {
         updatedWaypoints.push(updatedWaypoint);
       } else if (waypoint.waypointId === nextWaypoint.waypointId) {

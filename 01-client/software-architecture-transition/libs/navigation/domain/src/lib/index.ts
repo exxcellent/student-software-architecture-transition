@@ -7,4 +7,4 @@ export * from './dialogs/navigation-waypoints/navigation-waypoints.dialogcore';
 export * from './dialogs/navigation-waypoints/types/waypoint-with-icon.interface';
 export * from './guards/navigation.guard';
 export * from './ui-components/tab-bar/tab-bar.dialogcore';
-export * from './model';
+export * from './dataaccess';

@@ -5,12 +5,12 @@ import {Observable} from 'rxjs';
 import {filter, flatMap, map} from 'rxjs/operators';
 import {toISODateString} from '@software-architecture-transition/shared';
 import {actions, RoutesState, selectors} from './state/route';
-import {Route, Waypoint, WaypointStatus} from './model';
+import {NavigationDataAccess, RouteDTO, WaypointDTO, WaypointStatusDTO} from '../../../domain/src/lib/dataaccess';
 
 @Injectable({
   providedIn: 'root'
 })
-export class WaypointRepositoryService {
+export class WaypointRepositoryService implements NavigationDataAccess{
 
   public routes$ = this.store.select(selectors.selectRoutes);
   public currentDay$ = this.store.select(selectors.selectCurrentDay);
@@ -24,7 +24,7 @@ export class WaypointRepositoryService {
     this.store.dispatch(actions.loadMyRoute());
 
     this.connector.findRoute(date, inspectorId).pipe(
-      map((response: Route) => {
+      map((response: RouteDTO) => {
         this.store.dispatch(actions.loadMyRouteSuccess({data: response}));
         return response;
       })
@@ -41,21 +41,21 @@ export class WaypointRepositoryService {
     this.store.dispatch(actions.loadMyRouteOfToday())
   }
 
-  myRouteOfDay$(date: Date): Observable<Route> {
+  myRouteOfDay$(date: Date): Observable<RouteDTO> {
     return this.routes$.pipe(
       map(routes => routes[toISODateString(date)]?.myRoute)
     )
   }
 
-  get currentRoute$(): Observable<Route> {
+  currentRoute$(): Observable<RouteDTO> {
     return this.myRouteOfDay$(this.currentDay);
   }
 
-  get currentWaypoint$(): Observable<Waypoint> {
-    return this.currentRoute$.pipe(
-      map((route:Route) => route.waypoints),
+  currentWaypoint$(): Observable<WaypointDTO> {
+    return this.currentRoute$().pipe(
+      map((route:RouteDTO) => route.waypoints),
       flatMap((waypoint) => waypoint),
-      filter(waypoint => waypoint.status === WaypointStatus.ACTIVE),
+      filter(waypoint => waypoint.status === WaypointStatusDTO.ACTIVE),
     );
   }
 

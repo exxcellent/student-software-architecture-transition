@@ -1,4 +1,4 @@
-export enum WaypointStatus {
+export enum WaypointStatusDTO {
   PENDING,
   ACTIVE,
   FINISHED,

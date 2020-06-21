@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {NavigationMapDialogCore, Waypoint} from '@software-architecture-transition/dialog-core/navigation';
+import {NavigationMapDialogCore, WaypointDTO} from '@software-architecture-transition/dialog-core/navigation';
 
 // @ts-ignore
 
@@ -11,7 +11,7 @@ import {NavigationMapDialogCore, Waypoint} from '@software-architecture-transiti
 })
 export class NavigationMapComponent implements OnInit {
 
-  currentWayPoint: Waypoint;
+  currentWayPoint: WaypointDTO;
 
   constructor(private dialogCore: NavigationMapDialogCore) { }
 

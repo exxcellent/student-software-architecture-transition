@@ -2,9 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {SafeUrl} from '@angular/platform-browser';
 import {
   NavigationWaypointDetailsDialogCore,
-  Waypoint,
-  WaypointCategory,
-  WaypointStatus
+  WaypointCategoryDTO,
+  WaypointDTO,
+  WaypointStatusDTO
 } from '@software-architecture-transition/dialog-core/navigation';
 
 
@@ -16,8 +16,8 @@ import {
 })
 export class NavigationWaypointDetailsComponent implements OnInit {
 
-  WaypointCategory = WaypointCategory;
-  WaypointStatus = WaypointStatus;
+  WaypointCategory = WaypointCategoryDTO;
+  WaypointStatus = WaypointStatusDTO;
 
   constructor(private dialogCore: NavigationWaypointDetailsDialogCore) { }
 
@@ -33,7 +33,7 @@ export class NavigationWaypointDetailsComponent implements OnInit {
     return this.dialogCore.isPendingWaypoint;
   }
 
-  get waypoint(): Waypoint {
+  get waypoint(): WaypointDTO {
     return this.dialogCore.waypoint;
   }
 
